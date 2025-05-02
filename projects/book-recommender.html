@@ -1,0 +1,60 @@
+---
+layout: page
+title: Book Recommender
+permalink: /projects/book-recommender/
+---
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Recommender</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ '/assets/projects/book-recommender/styles.css' | relative_url }}">
+</head>
+
+<body class="bg-gray-100">
+    <div class="container mx-auto p-4">
+        <h1 class="text-3xl font-bold text-center mb-4 text-blue-800">Book Recommender</h1>
+        <div class="flex flex-col sm:flex-row justify-center gap-4 mb-4">
+            <select id="category" class="w-full sm:w-1/3 p-2 border rounded" aria-label="Select book category">
+                <option value="">All Categories</option>
+                <option value="fiction">Fiction</option>
+                <option value="nonfiction">Nonfiction</option>
+                <option value="science">Science</option>
+                <option value="history">History</option>
+                <option value="biography">Biography</option>
+            </select>
+            <select id="language" class="w-full sm:w-1/3 p-2 border rounded" aria-label="Select book language">
+                <option value="">All Languages</option>
+                <option value="en">English</option>
+                <option value="es">Spanish</option>
+                <option value="fr">French</option>
+            </select>
+            <select id="year" class="w-full sm:w-1/3 p-2 border rounded" aria-label="Select book year">
+                <option value="">All Years</option>
+            </select>
+        </div>
+        <div id="books" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+        <div class="flex justify-center mt-4 space-x-4">
+            <button id="prev-btn" class="p-2 bg-blue-500 text-white rounded disabled:bg-gray-400">Previous</button>
+            <span id="page-info" class="p-2"></span>
+            <button id="next-btn" class="p-2 bg-blue-500 text-white rounded disabled:bg-gray-400">Next</button>
+        </div>
+    </div>
+    <div id="book-modal"
+        class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center z-50 transition-opacity duration-300"
+        aria-modal="true" role="dialog">
+        <div id="modal-content"
+            class="bg-white p-6 rounded-lg max-w-4xl max-h-[90vh] overflow-y-auto relative transform transition-transform duration-300"
+            tabindex="-1">
+            <button id="close-modal" class="absolute top-4 right-4 text-blue-800 hover:text-blue-600 text-2xl"
+                aria-label="Close modal">×</button>
+        </div>
+    </div>
+    <script src="{{ '/assets/projects/book-recommender/app.js' | relative_url }}"></script>
+</body>
+
+</html>
