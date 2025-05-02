@@ -23,7 +23,12 @@ permalink: /projects/movie-recommender/
             <option value="18">Drama</option>
             <option value="878">Sci-Fi</option>
         </select>
-        <div id="movies" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4"></div>
+        <div id="movies" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+        <div class="flex justify-center mt-4 space-x-4">
+            <button id="prev-btn" class="p-2 bg-blue-500 text-white rounded disabled:bg-gray-400">Previous</button>
+            <span id="page-info" class="p-2"></span>
+            <button id="next-btn" class="p-2 bg-blue-500 text-white rounded disabled:bg-gray-400">Next</button>
+        </div>
     </div>
     <script src="{{ '/assets/projects/movie-recommender/app.js' | relative_url }}"></script>
 </body>

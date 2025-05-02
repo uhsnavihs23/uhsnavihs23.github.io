@@ -9,3 +9,12 @@ body {
 #movies img:hover {
     transform: scale(1.05);
 }
+
+#movies a {
+    text-decoration: none;
+    color: inherit;
+}
+
+#movies a:hover h2 {
+    color: #1e40af;
+}
