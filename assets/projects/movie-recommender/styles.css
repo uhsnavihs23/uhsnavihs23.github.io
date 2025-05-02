@@ -4,17 +4,55 @@ body {
 
 #movies img {
     transition: transform 0.2s;
+    max-width: 100%;
+    height: auto;
+}
+
+#movies .cursor-pointer:hover {
+    background-color: #f3f4f6;
 }
 
 #movies img:hover {
     transform: scale(1.05);
 }
 
-#movies a {
-    text-decoration: none;
-    color: inherit;
+#movie-modal:not(.hidden) {
+    opacity: 1;
 }
 
-#movies a:hover h2 {
-    color: #1e40af;
+#movie-modal.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+#modal-content {
+    transition: transform 0.3s ease-out;
+}
+
+#movie-modal:not(.hidden) #modal-content {
+    transform: scale(1);
+}
+
+#movie-modal.hidden #modal-content {
+    transform: scale(0.95);
+}
+
+#modal-content p {
+    margin-bottom: 1rem;
+}
+
+#close-modal {
+    font-size: 1.5rem;
+}
+
+#modal-content img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+iframe {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
 }
