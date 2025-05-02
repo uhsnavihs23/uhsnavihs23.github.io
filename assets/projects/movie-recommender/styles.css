@@ -1,0 +1,11 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+#movies img {
+    transition: transform 0.2s;
+}
+
+#movies img:hover {
+    transform: scale(1.05);
+}

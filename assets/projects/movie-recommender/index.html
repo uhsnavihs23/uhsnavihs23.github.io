@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Recommender</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ '/assets/projects/movie-recommender/styles.css' | relative_url }}">
+</head>
+
+<body class="bg-gray-100">
+    <div class="container mx-auto p-4">
+        <h1 class="text-3xl font-bold text-center mb-4">Movie Recommender</h1>
+        <select id="genre" class="block w-full max-w-xs mx-auto mb-4 p-2 border rounded">
+            <option value="28">Action</option>
+            <option value="35">Comedy</option>
+            <option value="18">Drama</option>
+            <option value="878">Sci-Fi</option>
+        </select>
+        <div id="movies" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4"></div>
+    </div>
+    <script src="{{ '/assets/projects/movie-recommender/app.js' | relative_url }}"></script>
+</body>
+
+</html>
