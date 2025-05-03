@@ -14,12 +14,12 @@ timezone: Asia/Kolkata
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: Shivanshu's Portfolio # the main title
+title: Shivanshu Sharma # the main title
 
-tagline: My Personal Site # it will display as the subtitle
+tagline: Welcome to my space # it will display as the subtitle
 
 description: >- # used by seo meta and the atom feed
-  A portfolio site built with Chirpy and Jekyll.
+  A portfolio site built by Shivanshu
 
 # Fill in the protocol & hostname for your site.
 # E.g. 'https://username.github.io', note that it does not end with a '/'.
@@ -28,9 +28,12 @@ url: "https://uhsnavihs23.github.io/"
 github:
   username: uhsnavihs23 # change to your GitHub username
 
-twitter:
-  username: # change to your Twitter username
-
+# twitter:
+#   username: # change to your Twitter username
+facebook:
+  username: shivanshu.sharma.7737
+linkedin:
+  username: shivanshu-sharma-2302
 social:
   # Change to your full name.
   # It will be displayed as the default author of the posts and the copyright owner in the Footer
