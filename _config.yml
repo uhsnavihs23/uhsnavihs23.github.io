@@ -67,7 +67,7 @@ analytics:
   google:
     id: # fill in your Google Analytics ID
   goatcounter:
-    id: # fill in your GoatCounter ID
+    id: 23022000# fill in your GoatCounter ID
   umami:
     id: # fill in your Umami ID
     domain: # fill in your Umami domain
@@ -81,8 +81,7 @@ analytics:
 
 # Page views settings
 pageviews:
-  provider: # now only supports 'goatcounter'
-
+  provider: goatcounter # now only supports 'goatcounter'
 # Prefer color scheme setting.
 #
 # Note: Keep empty will follow the system prefer color by default,
@@ -142,7 +141,10 @@ assets:
     # specify the Jekyll environment, empty means both
     # only works if `assets.self_host.enabled` is 'true'
     env: # [development | production]
-
+  css:
+    - /assets/css/custom.css
+  js:
+    - /assets/js/visitor-counter.js
 pwa:
   enabled: true # The option for PWA feature (installable)
   cache:
