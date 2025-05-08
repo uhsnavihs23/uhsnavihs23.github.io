@@ -1,8 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
+    console.log('Counter script loaded');
     const counter = document.getElementById('visitor-counter');
     if (counter) {
-        // Placeholder: GoatCounter doesn't provide a public total count API without authentication
-        // Manually update count or use public stats SVG
-        counter.textContent = 'Visits: 42'; // Replace with actual count
+        counter.textContent = 'Visits: 42'; // Replace with actual count from https://23022000.goatcounter.com/
+    } else {
+        console.error('Visitor counter element not found');
     }
 });
