@@ -67,7 +67,7 @@ analytics:
   google:
     id: # fill in your Google Analytics ID
   goatcounter:
-    id: 23022000 # fill in your GoatCounter ID
+    id: # fill in your GoatCounter ID
   umami:
     id: # fill in your Umami ID
     domain: # fill in your Umami domain
@@ -142,9 +142,8 @@ assets:
     # only works if `assets.self_host.enabled` is 'true'
     env: # [development | production]
   css:
-    - /assets/css/custom.css
+
   js:
-    - /assets/js/goatcounter-api.js
 
 pwa:
   enabled: true # The option for PWA feature (installable)
