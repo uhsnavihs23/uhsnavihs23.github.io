@@ -1,9 +1,0 @@
----
-layout: home
-title: Home
----
-<div class="fixed-bottom-right">
-    <span id="visitor-counter">Visits: </span>
-    <!-- Replace 42 with the actual count from your GoatCounter dashboard -->
-</div>
-<script src="{{ '/assets/js/visitor-counter.js' | relative_url }}"></script>
