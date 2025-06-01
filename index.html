@@ -15,8 +15,7 @@ I'm a web development enthusiast building projects with HTML, CSS, JavaScript, a
         <p class="text-gray-600 mb-4">{{ post.description | truncate: 100 }}</p>
         <div class="flex gap-4">
             <a href="{{ post.url | relative_url }}" class="text-blue-600 hover:underline">Read More</a>
-            <a href="https://github.com/uhsnavihs23/uhsnavihs23.github.io/tree/main/projects/{{ post.title | slugify }}"
-                class="text-blue-600 hover:underline">Source Code</a>
+            <a href="/projects/{{ post.title | slugify }}/" class="text-blue-600 hover:underline">Try It</a>
         </div>
     </div>
     {% endif %}

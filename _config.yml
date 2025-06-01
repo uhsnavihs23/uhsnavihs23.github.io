@@ -62,6 +62,7 @@ include:
   - assets/js
   - assets/projects
   - assets/files
+  - projects
 # Web Analytics Settings
 analytics:
   google:
