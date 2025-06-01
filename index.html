@@ -1,4 +1,34 @@
 ---
 layout: home
-title: Home
+title: Welcome to My Portfolio
 ---
+
+## About Me
+I'm a web development enthusiast building projects with HTML, CSS, JavaScript, and more. Explore my projects below!
+
+## Featured Projects
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    {% for post in site.posts %}
+    {% if post.categories contains 'project' %}
+    <div class="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow p-6">
+        <h3 class="text-xl font-semibold mb-2">{{ post.title }}</h3>
+        <p class="text-gray-600 mb-4">{{ post.description | truncate: 100 }}</p>
+        <div class="flex gap-4">
+            <a href="{{ post.url | relative_url }}" class="text-blue-600 hover:underline">Read More</a>
+            <a href="https://github.com/uhsnavihs23/uhsnavihs23.github.io/tree/main/projects/{{ post.title | slugify }}"
+                class="text-blue-600 hover:underline">Source Code</a>
+        </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+</div>
+
+## Recent Blog Posts
+{% for post in site.posts %}
+{% unless post.categories contains 'project' %}
+<article>
+    <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+    <p>{{ post.excerpt | strip_html | truncate: 150 }}</p>
+</article>
+{% endunless %}
+{% endfor %}

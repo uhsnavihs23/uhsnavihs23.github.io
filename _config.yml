@@ -114,7 +114,7 @@ toc: true
 sidebar:
   home: true
   post: false
-  
+
 comments:
   # Global switch for the post-comment system. Keeping it empty means disabled.
   provider: # [disqus | utterances | giscus]
@@ -159,9 +159,6 @@ pwa:
       # - "/example"  # URLs match `<SITE_URL>/example/*` will not be cached by the PWA
 force_https: true
 paginate: 10
-news_api_key: 1865b501d377461eacfd2ae7d6daba3d
-newsdata_api_key: pub_8643905fb03bd5ad7a13f72604aa96e054749
-gnews_api_key: 343490268ca6e0a08746eb1855c9a64a
 navbar:
   - title: News
     url: /2025/05/11/news/
