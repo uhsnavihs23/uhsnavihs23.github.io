@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Editing App</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cropperjs@1.5.13/dist/cropper.min.css">
+    <link rel="stylesheet" href="/projects/image-filter-app/style.css">
+</head>
+
+<body class="bg-gray-100 flex justify-center items-center min-h-screen">
+    <div class="container bg-white p-6 rounded-lg shadow-lg max-w-5xl w-full">
+        <h1 class="text-3xl font-bold text-gray-800 mb-4 text-center">Image Editing App</h1>
+        <p class="text-gray-600 mb-4 text-center">Upload an image (PNG, JPEG, WebP, HEIC) to edit or convert.</p>
+        <input type="file" id="imageUpload" accept="image/png,image/jpeg,image/webp,image/heic,image/heif"
+            aria-label="Upload image" class="block mx-auto mb-4">
+        <div id="postUpload" class="hidden flex justify-center gap-4 mb-4">
+            <button id="convertBtn" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Convert to
+                Format</button>
+            <button id="editBtn" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Edit
+                Image</button>
+        </div>
+        <div id="convertPanel" class="hidden">
+            <h2 class="text-xl font-semibold mb-2">Convert Image</h2>
+            <div class="mb-4">
+                <label class="block mb-1">Compression Quality:</label>
+                <select id="compressionPreset" class="border rounded p-2 mr-2">
+                    <option value="0.75">High (75%)</option>
+                    <option value="0.5">Medium (50%)</option>
+                    <option value="0.25">Low (25%)</option>
+                    <option value="custom">Custom</option>
+                </select>
+                <div id="customCompression" class="hidden mt-2">
+                    <label class="block mb-1">Custom Quality (0–100%):</label>
+                    <input type="range" id="compressionSlider" min="0" max="100" value="75" class="w-full">
+                    <span id="compressionValue">75%</span>
+                </div>
+            </div>
+            <label class="block mb-2">Download Format:
+                <select id="format" class="border rounded p-2">
+                    <option value="png">PNG</option>
+                    <option value="jpeg">JPEG</option>
+                    <option value="webp">WebP</option>
+                    <option value="gif">GIF</option>
+                    <option value="pdf">PDF</option>
+                </select>
+            </label>
+            <div class="flex justify-between mb-4">
+                <p>Original Size: <span id="originalSize">0 KB</span></p>
+                <p>Compressed Size: <span id="compressedSize">0 KB</span></p>
+            </div>
+            <div class="flex gap-4 mb-4">
+                <div class="w-1/2">
+                    <p class="text-center font-medium">Uploaded Image</p>
+                    <img id="originalPreview" class="w-full rounded border p-2" alt="Uploaded image">
+                </div>
+                <div class="w-1/2">
+                    <p class="text-center font-medium">Converted Image</p>
+                    <canvas id="convertedPreview" class="w-full rounded border p-2"></canvas>
+                </div>
+            </div>
+            <button id="downloadConvertBtn"
+                class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Download</button>
+        </div>
+        <div id="editPanel" class="hidden">
+            <h2 class="text-xl font-semibold mb-4">Edit Image</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="space-y-4">
+                    <div class="p-4 bg-gray-50 rounded">
+                        <h3 class="text-lg font-medium mb-2">Filters</h3>
+                        <label class="block mb-2">Brightness: <input type="range" id="brightness" min="0" max="200"
+                                value="100" class="w-full"></label>
+                        <label class="block mb-2">Contrast: <input type="range" id="contrast" min="0" max="200"
+                                value="100" class="w-full"></label>
+                        <label class="block mb-2">Grayscale: <input type="range" id="grayscale" min="0" max="100"
+                                value="0" class="w-full"></label>
+                        <label class="block mb-2">Sepia: <input type="range" id="sepia" min="0" max="100" value="0"
+                                class="w-full"></label>
+                    </div>
+                    <div class="p-4 bg-gray-50 rounded">
+                        <h3 class="text-lg font-medium mb-2">Borders</h3>
+                        <label class="block mb-2">Border Width (px): <input type="number" id="borderWidth" min="0"
+                                max="50" value="0" class="border rounded p-2 w-full"></label>
+                        <label class="block mb-2">Border Color: <input type="color" id="borderColor" value="#000000"
+                                class="border rounded p-1"></label>
+                    </div>
+                </div>
+                <div class="space-y-4">
+                    <div class="p-4 bg-gray-50 rounded">
+                        <h3 class="text-lg font-medium mb-2">Size Settings</h3>
+                        <label class="block mb-2">Shape:
+                            <select id="shape" class="border rounded p-2">
+                                <option value="original">Original</option>
+                                <option value="square">Square</option>
+                                <option value="rectangle">Rectangle</option>
+                            </select>
+                        </label>
+                        <div id="sizeControls" class="hidden">
+                            <label class="block mb-2"><input type="checkbox" id="lockAspect" checked> Lock Aspect
+                                Ratio</label>
+                            <label class="block mb-2">Width: <input type="number" id="width" min="1" value="100"
+                                    class="border rounded p-2 w-24"> <select id="widthUnit" class="border rounded p-2">
+                                    <option value="px">Pixels</option>
+                                    <option value="cm">Centimeters</option>
+                                    <option value="in">Inches</option>
+                                </select></label>
+                            <label class="block mb-2">Height: <input type="number" id="height" min="1" value="100"
+                                    class="border rounded p-2 w-24"> <select id="heightUnit" class="border rounded p-2">
+                                    <option value="px">Pixels</option>
+                                    <option value="cm">Centimeters</option>
+                                    <option value="in">Inches</option>
+                                </select></label>
+                            <label class="block mb-2">DPI (for cm/in): <input type="number" id="dpi" min="72" max="600"
+                                    value="300" class="border rounded p-2 w-24"></label>
+                        </div>
+                    </div>
+                    <div class="p-4 bg-gray-50 rounded">
+                        <h3 class="text-lg font-medium mb-2">Crop</h3>
+                        <label class="block mb-2">Crop Template:
+                            <select id="cropTemplate" class="border rounded p-2">
+                                <option value="manual">Manual</option>
+                                <option value="square">Square (1:1)</option>
+                                <option value="rectangle">Rectangle (4:3)</option>
+                                <option value="rectangle169">Rectangle (16:9)</option>
+                            </select>
+                        </label>
+                        <img id="cropImage" class="max-w-full rounded border hidden" alt="Crop preview">
+                    </div>
+                </div>
+            </div>
+            <div class="p-4 bg-gray-50 rounded mt-4">
+                <h3 class="text-lg font-medium mb-2">Download Edited Image</h3>
+                <label class="block mb-2">Compression Quality:
+                    <select id="editCompressionPreset" class="border rounded p-2 mr-2">
+                        <option value="0.75">High (75%)</option>
+                        <option value="0.5">Medium (50%)</option>
+                        <option value="0.25">Low (25%)</option>
+                        <option value="custom">Custom</option>
+                    </select>
+                    <div id="editCustomCompression" class="hidden mt-2">
+                        <label class="block mb-1">Custom Quality (0–100%):</label>
+                        <input type="range" id="editCompressionSlider" min="0" max="100" value="75" class="w-full">
+                        <span id="editCompressionValue">75%</span>
+                    </div>
+                </label>
+                <label class="block mb-2">Download Format:
+                    <select id="editFormat" class="border rounded p-2">
+                        <option value="png">PNG</option>
+                        <option value="jpeg">JPEG</option>
+                        <option value="webp">WebP</option>
+                        <option value="gif">GIF</option>
+                        <option value="pdf">PDF</option>
+                    </select>
+                </label>
+                <button id="downloadEditBtn"
+                    class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Download</button>
+            </div>
+        </div>
+        <canvas id="canvas" class="mx-auto mt-4 border rounded max-w-full hidden"></canvas>
+        <p id="error" class="text-red-600 mt-2 hidden"></p>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/cropperjs@1.5.13/dist/cropper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gif.js@0.2.0/dist/gif.min.js"></script>
+    <script src="/projects/image-filter-app/script.js"></script>
+</body>
+
+</html>

@@ -114,6 +114,10 @@ social_preview_image: # string, local or CORS resources
 toc: true
 sidebar:
   home: true
+  home_label: Projects # Renames Home to Projects
+  categories: false # Hides Categories tab
+  tags: false # Hides Tags tab
+  archives: true # Hides Archives tab
   post: false
 
 comments:
@@ -163,6 +167,10 @@ paginate: 10
 navbar:
   - title: News
     url: /2025/05/11/news/
+  - title: Projects
+    url: /
+  - title: About
+    url: /about/
 # The base URL of your site
 baseurl: ""
 
