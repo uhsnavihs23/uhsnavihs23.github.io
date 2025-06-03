@@ -6,7 +6,7 @@ description: A web app to explore books by category, language, and year, powered
 permalink: /posts/book-recommender/
 ---
 
-Explore books by category, language, and year! View 25 book covers per page and click for details like author, publisher, and description, powered by Google Books API.
+Explore books by category, language, and year!
 
 **Live Demo**: [Try it Now](/projects/book-recommender/)  
 ![Book Recommender]({{ site.baseurl }}/assets/img/book_recommender.png)
