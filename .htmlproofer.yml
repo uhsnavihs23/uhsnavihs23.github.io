@@ -6,3 +6,5 @@ ignore_urls:
   - https://twitter.com/intent/tweet
   - https://linkedin.com/
   - https://www.linkedin.com/
+  - /archives/
+  - /about/
