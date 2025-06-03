@@ -2,8 +2,6 @@
 layout: post
 title: Image Editing App
 date: 2025-06-02 12:00:00 +0530
-categories: project
-tags: [web-development, javascript, canvas]
 description: A web app to edit and convert images with filters, cropping, compression, and multi-format downloads.
 ---
 

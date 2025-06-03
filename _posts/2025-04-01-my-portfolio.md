@@ -2,7 +2,6 @@
 layout: post
 title: My Portfolio
 date: 2025-04-01
-categories: portfolio
 author: Shivanshu Sharma
 ---
 

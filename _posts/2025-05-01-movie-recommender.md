@@ -1,8 +1,6 @@
 ---
 title: "Interactive Movie Recommender"
 date: 2025-05-01 20:00:00 +0530
-tags: [JavaScript, Movies, Projects]
-categories: [Knowledge]
 ---
 
 Explore my interactive movie recommender! Select a genre and discover top movies with posters and descriptions, powered by The Movie Database API.
