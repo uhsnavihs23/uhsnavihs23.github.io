@@ -32,6 +32,8 @@ jobs:
         with:
           ruby-version: 3.3
           bundler-cache: true
+      - name: Clear Cache
+        run: rm -rf _site .jekyll-cache
       - name: Install and Build
         run: |
           bundle install
