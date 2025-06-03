@@ -190,7 +190,7 @@ kramdown:
 
 collections:
   tabs:
-    output: true
+    output: false
     sort_by: order
   projects:
     output: true
