@@ -2,7 +2,6 @@
 layout: post
 title: My Portfolio Page
 date: 2022-07-14 12:00:00 +0530
-categories: project
 description: A portfolio website showcasing my web development projects.
 permalink: /posts/my-portfolio/
 author: Shivanshu Sharma
