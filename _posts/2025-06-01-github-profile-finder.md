@@ -2,7 +2,7 @@
 layout: post
 title: GitHub Profile Finder
 date: 2024-08-21 12:20:00 +0530
-categories: project
+is_project: true
 description: A web app to fetch and display GitHub user profiles using the GitHub API.
 permalink: /posts/github-profile-finder/
 ---

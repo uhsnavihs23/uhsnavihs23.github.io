@@ -7,7 +7,7 @@ timezone: Asia/Kolkata
 title: Shivanshu Sharma
 tagline: Welcome to my space
 description: A portfolio site built by Shivanshu
-url: https://uhsnavihs23.github.io/
+url: "https://uhsnavihs23.github.io"
 github:
   username: uhsnavihs23
 facebook:
@@ -60,8 +60,8 @@ sidebar:
   home_label: Home
   categories: false
   tags: false
-  archives: false
-  timeline: true
+  archives: true
+  timeline: false
   post: false
 comments:
   provider:
@@ -102,7 +102,7 @@ navbar:
   - title: About
     url: /about/
   - title: Timeline
-    url: /timeline/
+    url: /archives/
 baseurl: ""
 kramdown:
   footnote_backlink: "↩︎"
