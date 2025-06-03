@@ -1,0 +1,39 @@
+body {
+    margin: 0;
+}
+
+.container {
+    margin: 20px;
+}
+
+#canvas,
+#convertedPreview,
+#cropImage {
+    max-width: 100%;
+}
+
+.hidden {
+    display: none !important;
+}
+
+#originalPreview,
+#convertedPreview {
+    max-height: 300px;
+    object-fit: contain;
+}
+
+.cropper-container {
+    max-width: 100% !important;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    #originalPreview,
+    #convertedPreview,
+    #cropImage {
+        width: 100%;
+    }
+}
