@@ -1,0 +1,62 @@
+/* Vertical timeline styling */
+.archives {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.archives .archive-year {
+    position: relative;
+    padding-left: 60px;
+    margin-bottom: 30px;
+}
+
+.archives .archive-year::before {
+    content: '';
+    position: absolute;
+    width: 6px;
+    background-color: #3498db;
+    top: 0;
+    bottom: 0;
+    left: 20px;
+}
+
+.archives .archive-month {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.archives .archive-month::before {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background-color: #3498db;
+    border-radius: 50%;
+    left: 14px;
+    top: 10px;
+}
+
+.archives .archive-month h3 {
+    font-size: 1.2em;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.archives .archive-posts .archive-post {
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+}
+
+.archives .archive-post a {
+    font-size: 1.1em;
+    color: #3498db;
+    text-decoration: none;
+}
+
+.archives .archive-post a:hover {
+    text-decoration: underline;
+}

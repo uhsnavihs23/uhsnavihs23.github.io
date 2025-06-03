@@ -1,9 +1,13 @@
 ---
-title: "Interactive Movie Recommender"
-date: 2025-05-01 20:00:00 +0530
+layout: post
+title: Interactive Movie Recommender
+date: 2024-02-23 15:00:00 +0530
+categories: project
+description: A web app to explore movies by genre with posters and descriptions, powered by The Movie Database API.
+permalink: /posts/movie-recommender/
 ---
 
 Explore my interactive movie recommender! Select a genre and discover top movies with posters and descriptions, powered by The Movie Database API.
 
-[Try it Now]({{ '/projects/movie-recommender/' | relative_url }})  
-![Movie Recommender]({{ '/assets/img/movie_recommender.png' | relative_url }})
+**Live Demo**: [Try it Now](/projects/movie-recommender/)  
+![Movie Recommender](/img/movies/image1.jpg)

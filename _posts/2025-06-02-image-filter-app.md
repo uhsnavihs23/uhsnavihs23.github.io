@@ -2,7 +2,9 @@
 layout: post
 title: Image Editing App
 date: 2025-06-02 12:00:00 +0530
+categories: project
 description: A web app to edit and convert images with filters, cropping, compression, and multi-format downloads.
+permalink: /posts/image-filter-app/
 ---
 
 A powerful web application for editing and converting images. Upload an image (PNG, JPEG, WebP, HEIC) to apply filters, crop with templates, compress, adjust borders, set sizes in cm/inches/pixels, and download as PNG, JPEG, WebP, GIF, or PDF. Features a responsive interface with real-time previews.

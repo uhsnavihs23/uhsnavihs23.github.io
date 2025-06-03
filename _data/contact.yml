@@ -1,40 +1,43 @@
-#  The contact options.
+# The contact options.
+
+- type: linkedin
+  icon: "fab fa-linkedin"
+  url: "https://www.linkedin.com/in/shivanshu-sharma-2302/"
 
 - type: github
   icon: "fab fa-github"
+  url: "https://github.com/uhsnavihs23"
 
-- type: twitter
-  icon: "fa-brands fa-x-twitter"
+# - type: twitter
+#   icon: "fa-brands fa-x-twitter"
+#   url: "https://twitter.com/username" # Replace with your Twitter URL
 
 - type: email
   icon: "fas fa-envelope"
-  noblank: true # open link in current tab
+  noblank: true
+  url: "mailto:shivanshu.sharma0023@gmail.com"
 
 - type: rss
   icon: "fas fa-rss"
   noblank: true
-# Uncomment and complete the url below to enable more contact options
-#
+  url: "/feed.xml"
+# Uncomment and fill in URLs for these if you have accounts
 # - type: mastodon
-#   icon: 'fab fa-mastodon'   # icons powered by <https://fontawesome.com/>
-#   url:  ''                  # Fill with your Mastodon account page, rel="me" will be applied for verification
-#
-# - type: linkedin
-#   icon: 'fab fa-linkedin'   # icons powered by <https://fontawesome.com/>
-#   url:  ''                  # Fill with your Linkedin homepage
+#   icon: "fab fa-mastodon"
+#   url: ""  # Fill with your Mastodon account page
 #
 # - type: stack-overflow
-#   icon: 'fab fa-stack-overflow'
-#   url:  ''                  # Fill with your stackoverflow homepage
+#   icon: "fab fa-stack-overflow"
+#   url: ""  # Fill with your Stack Overflow profile
 #
 # - type: bluesky
-#   icon: 'fa-brands fa-bluesky'
-#   url: ''                   # Fill with your Bluesky profile link
+#   icon: "fa-brands fa-bluesky"
+#   url: ""  # Fill with your Bluesky profile
 #
 # - type: reddit
-#   icon: 'fa-brands fa-reddit'
-#   url: ''                   # Fill with your Reddit profile link
+#   icon: "fa-brands fa-reddit"
+#   url: ""  # Fill with your Reddit profile
 #
 # - type: threads
-#   icon: 'fa-brands fa-threads'
-#   url: ''                   # Fill with your Threads profile link
+#   icon: "fa-brands fa-threads"
+#   url: ""  # Fill with your Threads profile

@@ -1,3 +1,4 @@
+# Full _config.yml to restore previous state
 # The Site Configuration
 
 theme: jekyll-theme-chirpy
@@ -56,10 +57,11 @@ social_preview_image:
 toc: true
 sidebar:
   home: true
-  home_label: Projects
+  home_label: Home
   categories: false
   tags: false
-  archives: false # Disable Archives tab
+  archives: false
+  timeline: true
   post: false
 comments:
   provider:
@@ -83,6 +85,7 @@ assets:
     enabled:
     env:
   css:
+    - /assets/css/timeline.css
   js:
 pwa:
   enabled: true
@@ -98,6 +101,8 @@ navbar:
     url: /
   - title: About
     url: /about/
+  - title: Timeline
+    url: /timeline/
 baseurl: ""
 kramdown:
   footnote_backlink: "↩︎"
@@ -111,7 +116,7 @@ kramdown:
       start_line: 1
 collections:
   tabs:
-    output: false
+    output: true
     sort_by: order
   projects:
     output: true
@@ -121,9 +126,10 @@ defaults:
       path: ""
       type: posts
     values:
-      layout: page
+      layout: post
       comments: true
       toc: false
+      categories: project # String to avoid YAML error
       permalink: /posts/:title/
   - scope:
       path: _drafts

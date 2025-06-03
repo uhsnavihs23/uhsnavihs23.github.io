@@ -1,11 +1,10 @@
 ---
-# the default layout is 'page'
 layout: page
 title: About
-icon: fas fa-info-circle
-order: 4
+icon: fas fa-user
+order: 3
+permalink: /about/
 ---
-
 Hi, I’m Shivanshu Sharma! 
 
 Welcome to my personal corner of the internet.
@@ -15,5 +14,4 @@ Projects & Learning: From code snippets to Google Colab tools and Excel projects
 Recommendations: Dive into my curated lists of favorite movies (complete with thumbnails), songs that inspire me, and travel itineraries to spark your next adventure.
 Personal Thoughts: A space for reflections, ideas, and stories that shape my perspective.
 
-Whether you’re here for tech tips, entertainment picks, or travel inspiration, I hope you find something that resonates. Stay tuned for new posts, and feel free to connect with me on GitHub (@uhsnavihs23)!
-
+Whether you’re here for tech tips, entertainment picks, or travel inspiration, I hope you find something that resonates. Stay tuned for new posts, and feel free to connect with me on [GitHub](https://github.com/uhsnavihs23) or [LinkedIn](https://www.linkedin.com/in/shivanshu-sharma-2302/).
