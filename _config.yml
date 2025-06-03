@@ -129,7 +129,6 @@ defaults:
       layout: post
       comments: true
       toc: false
-      #categories: project # String to avoid YAML error
       permalink: /posts/:title/
   - scope:
       path: _drafts
