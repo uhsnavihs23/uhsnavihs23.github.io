@@ -129,6 +129,7 @@ defaults:
       layout: post
       comments: true
       toc: false
+      #categories: project
       permalink: /posts/:title/
   - scope:
       path: _drafts
