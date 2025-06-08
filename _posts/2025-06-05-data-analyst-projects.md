@@ -2,7 +2,6 @@
 layout: post
 title: "Data Analyst Projects"
 date: 2025-06-05 23:58:00 +0530
-categories: data-analysis projects
 permalink: /projects/data-analyst-projects/
 ---
 Welcome to my portfolio of data analysis projects! This post highlights my work, starting with an in-depth analysis of customer shopping trends. I’ll add more projects as I continue to grow my skill set.
