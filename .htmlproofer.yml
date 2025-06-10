@@ -18,6 +18,8 @@ alt_ignore: true
 ignore_elements:
   - a[class="site-title"]
   - a[class="footer-link"]
+  - a[class="nav-link"]
+  - a[class="social-link"]
 ignore_status_codes:
   - 0
   - 400

@@ -145,6 +145,8 @@ defaults:
       path: ""
     values:
       head: custom-head
+      footer: custom-footer
+      logo: custom-logo
 sass:
   sass_dir: assets/css
   style: compressed
