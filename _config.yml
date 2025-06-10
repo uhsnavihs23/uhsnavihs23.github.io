@@ -18,9 +18,8 @@ social:
   name: Shivanshu Sharma
   email: shivanshu.sharma0023@gmail.com
   links:
-    - https://twitter.com/username
-    - https://github.com/uhsnavihs23
-    - https://www.linkedin.com/in/shivanshu-sharma-2302/
+    github: https://github.com/uhsnavihs23
+    linkedin: https://www.linkedin.com/in/shivanshu-sharma-2302/
 webmaster_verifications:
   google:
   bing:
@@ -31,7 +30,6 @@ webmaster_verifications:
 include:
   - assets/js
   - assets/projects
-  - assets/files
   - projects
 analytics:
   google:
@@ -95,13 +93,13 @@ pwa:
 force_https: true
 paginate: 10
 navbar:
-  - title: News
-    url: /2025/05/11/news/
-  - title: Projects
+  - name: News
+    url: /posts/news/
+  - name: Projects
     url: /
-  - title: About
+  - name: About
     url: /about/
-  - title: Timeline
+  - name: Timeline
     url: /archives/
 baseurl: ""
 kramdown:
@@ -132,7 +130,6 @@ defaults:
       layout: post
       comments: true
       toc: false
-      #categories: project
       permalink: /posts/:title/
   - scope:
       path: _drafts
@@ -144,7 +141,12 @@ defaults:
     values:
       layout: page
       permalink: /:title/
+  - scope:
+      path: ""
+    values:
+      head: custom-head
 sass:
+  sass_dir: assets/css
   style: compressed
 compress_html:
   clippings: all
@@ -164,3 +166,5 @@ exclude:
   - purgecss.js
   - rollup.config.js
   - "package*.json"
+  - feed.xml
+  - assets/feed.xml

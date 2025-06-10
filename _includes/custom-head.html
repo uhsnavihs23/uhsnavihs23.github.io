@@ -1,0 +1,9 @@
+{% include head.html %}
+<script>
+    window.onload = function () {
+        document.querySelectorAll('a:not([href])').forEach(a => {
+            a.setAttribute('href', '#');
+            a.setAttribute('aria-hidden', 'true');
+        });
+    };
+</script>

@@ -1,0 +1,13 @@
+/* Fix Sidebar Overlap */
+.main-wrapper {
+    margin-left: 280px;
+    /* Chirpy’s sidebar width */
+    padding: 20px;
+}
+
+@media (max-width: 991.98px) {
+    .main-wrapper {
+        margin-left: 0;
+        /* Mobile collapse */
+    }
+}
