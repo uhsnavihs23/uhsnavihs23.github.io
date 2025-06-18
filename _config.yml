@@ -37,7 +37,6 @@ include:
   - projects
   - _includes/post-meta.html
   - _includes/author-profile.html
-  - _includes/author-links.html
 analytics:
   google:
     id:
