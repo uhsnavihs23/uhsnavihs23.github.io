@@ -25,3 +25,5 @@ ignore_status_codes:
   - 0
   - 400
   - 999
+typhoeus:
+  ignore_invalid: true
