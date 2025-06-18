@@ -31,16 +31,6 @@ webmaster_verifications:
   yandex:
   baidu:
   facebook:
-include:
-  - assets/js
-  - assets/projects
-  - projects
-  - _includes/post-meta.html
-  - _includes/author-profile.html
-  - _includes/nav.html
-  - _includes/custom-logo.html
-  - _includes/custom-head.html
-analytics:
   google:
     id:
   goatcounter:
@@ -168,15 +158,10 @@ compress_html:
   blanklines: false
   ignore:
     envs: [development]
-exclude:
-  - "*.gem"
-  - "*.gemspec"
-  - docs
-  - tools
-  - README.md
-  - LICENSE
-  - purgecss.js
-  - rollup.config.js
-  - "package*.json"
-  - feed.xml
+  - _site/_includes
   - assets/feed.xml
+include:
+  - _includes/post-meta.html
+exclude:
+  - _site
+  - .jekyll-cache
