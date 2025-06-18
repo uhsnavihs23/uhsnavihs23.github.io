@@ -1,6 +1,6 @@
 enforce_https: true
 ignore_urls:
-  - https://fonts.googleapis.com/
+  - https://fonts.googleapis.googleapis.com/
   - https://fonts.gstatic.com/
   - https://twitter.com/
   - https://linkedin.com/
@@ -25,5 +25,4 @@ ignore_status_codes:
   - 0
   - 400
   - 999
-typhoeus:
-  ignore_invalid: true
+html_validation: false
