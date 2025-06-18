@@ -37,6 +37,9 @@ include:
   - projects
   - _includes/post-meta.html
   - _includes/author-profile.html
+  - _includes/nav.html
+  - _includes/custom-logo.html
+  - _includes/custom-head.html
 analytics:
   google:
     id:
@@ -157,6 +160,7 @@ sass:
   sass_dir: assets/css
   style: compressed
 compress_html:
+  enabled: false
   clippings: all
   comments: all
   endings: all
