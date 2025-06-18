@@ -4,10 +4,14 @@
 theme: jekyll-theme-chirpy
 lang: en
 timezone: Asia/Kolkata
+url: "https://uhsnavihs23.github.io"
+baseurl: ""
 title: Shivanshu Sharma
+author:
+  name: Shivanshu Sharma
+  url: https://uhsnavihs23.github.io
 tagline: Welcome to my space
 description: A portfolio site built by Shivanshu
-url: "https://uhsnavihs23.github.io"
 github:
   username: uhsnavihs23
 facebook:
@@ -17,9 +21,9 @@ linkedin:
 social:
   name: Shivanshu Sharma
   email: shivanshu.sharma0023@gmail.com
-  links:
-    github: https://github.com/uhsnavihs23
-    linkedin: https://www.linkedin.com/in/shivanshu-sharma-2302/
+  # links:
+  #   github: https://github.com/uhsnavihs23
+  #   linkedin: https://www.linkedin.com/in/shivanshu-sharma-2302/
 webmaster_verifications:
   google:
   bing:
@@ -31,6 +35,9 @@ include:
   - assets/js
   - assets/projects
   - projects
+  - _includes/post-meta.html
+  - _includes/author-profile.html
+  - _includes/author-links.html
 analytics:
   google:
     id:
@@ -54,12 +61,13 @@ avatar: https://media.licdn.com/dms/image/v2/D5603AQF3OZdvlSZDhw/profile-display
 social_preview_image:
 toc: true
 sidebar:
+  nav: main
   home: true
   home_label: Home
   categories: false
   tags: false
   archives: true
-  timeline: false
+  timeline: true
   post: false
 comments:
   provider:
@@ -92,16 +100,15 @@ pwa:
     deny_paths:
 force_https: true
 paginate: 10
-navbar:
-  - name: News
-    url: /posts/news/
-  - name: Projects
-    url: /
-  - name: About
-    url: /about/
-  - name: Timeline
-    url: /archives/
-baseurl: ""
+# navbar:
+#   - name: News
+#     url: /posts/news/
+#   - name: Projects
+#     url: /
+#   - name: About
+#     url: /about/
+#   - name: Timeline
+#     url: /archives/
 kramdown:
   footnote_backlink: "↩︎"
   syntax_highlighter: rouge

@@ -1,0 +1,399 @@
+  Logging at level: debug
+    Jekyll Version: 4.3.4
+Configuration file: /Users/shivanshusharma/Documents/Site/uhsnavihs23.github.io/_config.yml
+             Theme: jekyll-theme-chirpy
+      Theme source: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4
+         Requiring: jekyll-paginate
+         Requiring: jekyll-redirect-from
+         Requiring: jekyll-seo-tag
+         Requiring: jekyll-archives
+         Requiring: jekyll-sitemap
+         Requiring: jekyll-include-cache
+         Requiring: /Users/shivanshusharma/Documents/Site/uhsnavihs23.github.io/_plugins/posts-lastmod-hook.rb
+         Requiring: /Users/shivanshusharma/Documents/Site/uhsnavihs23.github.io/_plugins/watcher-patch.rb
+            Source: /Users/shivanshusharma/Documents/Site/uhsnavihs23.github.io
+       Destination: /Users/shivanshusharma/Documents/Site/uhsnavihs23.github.io/_site
+ Incremental build: disabled. Enable with --incremental
+      Generating... 
+           Reading: /_layouts/archives.html
+           Reading: /_layouts/categories.html
+           Reading: /_layouts/category.html
+           Reading: /_layouts/compress.html
+           Reading: /_layouts/default.html
+           Reading: /_layouts/home.html
+           Reading: /_layouts/page.html
+           Reading: /_layouts/post.html
+           Reading: /_layouts/tag.html
+           Reading: /_layouts/tags.html
+       EntryFilter: excluded /tools
+       EntryFilter: excluded /LICENSE
+       EntryFilter: excluded /README.md
+       EntryFilter: excluded /Gemfile
+       EntryFilter: excluded /Gemfile.lock
+       EntryFilter: excluded /.jekyll-cache
+           Reading: _posts/2025-05-01-book-recommender.md
+           Reading: _posts/2025-05-01-movie-recommender.md
+           Reading: _posts/2025-05-11-news.md
+           Reading: _posts/2025-06-01-github-profile-finder.md
+           Reading: _posts/2025-06-02-image-filter-app.md
+           Reading: _posts/2025-06-05-data-analyst-projects.md
+           Reading: projects/data-analyst-projects/project-1-customer-shopping-trends-analysis.md
+           Reading: projects/movie-recommender.html
+           Reading: projects/book-recommender.html
+           Reading: index.html
+           Reading: about.md.bak
+           Reading: _tabs/about.md
+           Reading: _tabs/timeline.md
+           Reading: assets/404.html
+           Reading: assets/css/jekyll-theme-chirpy.scss
+           Reading: assets/feed.xml
+             Theme: Ignoring /assets/img/favicons/apple-touch-icon.png in theme due to existing file with that path in site.
+           Reading: assets/img/favicons/browserconfig.xml
+             Theme: Ignoring /assets/img/favicons/favicon.ico in theme due to existing file with that path in site.
+           Reading: assets/img/favicons/site.webmanifest
+           Reading: assets/js/data/mathjax.js
+           Reading: assets/js/data/search.json
+           Reading: assets/js/data/swconf.js
+           Reading: assets/js/dist/app.min.js
+           Reading: assets/js/dist/sw.min.js
+           Reading: assets/robots.txt
+           Reading: _data/contact.yml
+           Reading: _data/secrets.yml
+           Reading: _data/share.yml
+           Reading: _data/locales/ar.yml
+           Reading: _data/locales/bg-BG.yml
+           Reading: _data/locales/cs-CZ.yml
+           Reading: _data/locales/de-DE.yml
+           Reading: _data/locales/el-GR.yml
+           Reading: _data/locales/en.yml
+           Reading: _data/locales/es-ES.yml
+           Reading: _data/locales/fi-FI.yml
+           Reading: _data/locales/fr-FR.yml
+           Reading: _data/locales/hu-HU.yml
+           Reading: _data/locales/id-ID.yml
+           Reading: _data/locales/it-IT.yml
+           Reading: _data/locales/ko-KR.yml
+           Reading: _data/locales/my-MM.yml
+           Reading: _data/locales/pt-BR.yml
+           Reading: _data/locales/ru-RU.yml
+           Reading: _data/locales/sl-SI.yml
+           Reading: _data/locales/sv-SE.yml
+           Reading: _data/locales/th.yml
+           Reading: _data/locales/tr-TR.yml
+           Reading: _data/locales/uk-UA.yml
+           Reading: _data/locales/vi-VN.yml
+           Reading: _data/locales/zh-CN.yml
+           Reading: _data/locales/zh-TW.yml
+           Reading: _data/origin/basic.yml
+           Reading: _data/origin/cors.yml
+        Generating: Jekyll::Archives::Archives finished in 3.5e-05 seconds.
+        Generating: JekyllRedirectFrom::Generator finished in 0.015064 seconds.
+        Generating: Jekyll::JekyllSitemap finished in 0.000474 seconds.
+        Generating: Jekyll::Paginate::Pagination finished in 0.000206 seconds.
+         Rendering: _posts/2025-05-01-book-recommender.md
+  Pre-Render Hooks: _posts/2025-05-01-book-recommender.md
+  Rendering Liquid: _posts/2025-05-01-book-recommender.md
+  Rendering Markup: _posts/2025-05-01-book-recommender.md
+Post-Convert Hooks: _posts/2025-05-01-book-recommender.md
+  Rendering Layout: _posts/2025-05-01-book-recommender.md
+Include cache miss: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/favicons.html
+Include cache miss: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/update-list.html
+Include cache miss: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/trending-tags.html
+Include cache miss: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/footer.html
+Include cache miss: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/search-results.html
+Include cache miss: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/trending-tags.html
+Include cache miss: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/notification.html
+Include cache miss: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/search-loader.html
+         Rendering: _posts/2025-05-11-news.md
+  Pre-Render Hooks: _posts/2025-05-11-news.md
+  Rendering Liquid: _posts/2025-05-11-news.md
+  Rendering Markup: _posts/2025-05-11-news.md
+Post-Convert Hooks: _posts/2025-05-11-news.md
+  Rendering Layout: _posts/2025-05-11-news.md
+ Include cache hit: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/favicons.html
+ Include cache hit: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/update-list.html
+ Include cache hit: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/trending-tags.html
+ Include cache hit: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/footer.html
+ Include cache hit: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/search-results.html
+ Include cache hit: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/notification.html
+ Include cache hit: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/search-loader.html
+         Rendering: _posts/2025-05-01-movie-recommender.md
+  Pre-Render Hooks: _posts/2025-05-01-movie-recommender.md
+  Rendering Liquid: _posts/2025-05-01-movie-recommender.md
+  Rendering Markup: _posts/2025-05-01-movie-recommender.md
+Post-Convert Hooks: _posts/2025-05-01-movie-recommender.md
+  Rendering Layout: _posts/2025-05-01-movie-recommender.md
+ Include cache hit: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/favicons.html
+ Include cache hit: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/update-list.html
+ Include cache hit: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/trending-tags.html
+ Include cache hit: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/footer.html
+ Include cache hit: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/search-results.html
+ Include cache hit: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/notification.html
+ Include cache hit: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/search-loader.html
+         Rendering: _posts/2025-06-01-github-profile-finder.md
+  Pre-Render Hooks: _posts/2025-06-01-github-profile-finder.md
+  Rendering Markup: _posts/2025-06-01-github-profile-finder.md
+Post-Convert Hooks: _posts/2025-06-01-github-profile-finder.md
+  Rendering Layout: _posts/2025-06-01-github-profile-finder.md
+ Include cache hit: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/favicons.html
+ Include cache hit: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/update-list.html
+ Include cache hit: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/trending-tags.html
+ Include cache hit: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/footer.html
+ Include cache hit: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/search-results.html
+ Include cache hit: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/notification.html
+ Include cache hit: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/search-loader.html
+         Rendering: _posts/2025-06-02-image-filter-app.md
+  Pre-Render Hooks: _posts/2025-06-02-image-filter-app.md
+  Rendering Markup: _posts/2025-06-02-image-filter-app.md
+Post-Convert Hooks: _posts/2025-06-02-image-filter-app.md
+  Rendering Layout: _posts/2025-06-02-image-filter-app.md
+ Include cache hit: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/favicons.html
+ Include cache hit: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/update-list.html
+ Include cache hit: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/trending-tags.html
+ Include cache hit: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/footer.html
+ Include cache hit: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/search-results.html
+ Include cache hit: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/notification.html
+ Include cache hit: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/search-loader.html
+         Rendering: _posts/2025-06-05-data-analyst-projects.md
+  Pre-Render Hooks: _posts/2025-06-05-data-analyst-projects.md
+  Rendering Markup: _posts/2025-06-05-data-analyst-projects.md
+Post-Convert Hooks: _posts/2025-06-05-data-analyst-projects.md
+  Rendering Layout: _posts/2025-06-05-data-analyst-projects.md
+         Rendering: _posts/2025-06-05-data-analyst-projects.md/#excerpt
+  Pre-Render Hooks: _posts/2025-06-05-data-analyst-projects.md/#excerpt
+  Rendering Markup: _posts/2025-06-05-data-analyst-projects.md/#excerpt
+Post-Convert Hooks: _posts/2025-06-05-data-analyst-projects.md/#excerpt
+ Include cache hit: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/favicons.html
+ Include cache hit: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/update-list.html
+ Include cache hit: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/trending-tags.html
+ Include cache hit: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/footer.html
+ Include cache hit: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/search-results.html
+ Include cache hit: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/notification.html
+ Include cache hit: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/search-loader.html
+         Rendering: _tabs/timeline.md
+  Pre-Render Hooks: _tabs/timeline.md
+  Rendering Markup: _tabs/timeline.md
+Post-Convert Hooks: _tabs/timeline.md
+  Rendering Layout: _tabs/timeline.md
+         Rendering: _tabs/timeline.md/#excerpt
+  Pre-Render Hooks: _tabs/timeline.md/#excerpt
+  Rendering Markup: _tabs/timeline.md/#excerpt
+Post-Convert Hooks: _tabs/timeline.md/#excerpt
+ Include cache hit: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/favicons.html
+ Include cache hit: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/update-list.html
+ Include cache hit: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/trending-tags.html
+ Include cache hit: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/footer.html
+ Include cache hit: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/search-results.html
+ Include cache hit: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/notification.html
+ Include cache hit: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/search-loader.html
+         Rendering: _tabs/about.md
+  Pre-Render Hooks: _tabs/about.md
+  Rendering Markup: _tabs/about.md
+Post-Convert Hooks: _tabs/about.md
+  Rendering Layout: _tabs/about.md
+         Rendering: _tabs/about.md/#excerpt
+  Pre-Render Hooks: _tabs/about.md/#excerpt
+  Rendering Markup: _tabs/about.md/#excerpt
+Post-Convert Hooks: _tabs/about.md/#excerpt
+ Include cache hit: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/favicons.html
+ Include cache hit: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/update-list.html
+ Include cache hit: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/trending-tags.html
+ Include cache hit: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/footer.html
+ Include cache hit: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/search-results.html
+ Include cache hit: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/notification.html
+ Include cache hit: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/search-loader.html
+         Rendering: about.md.bak
+  Pre-Render Hooks: about.md.bak
+  Rendering Markup: about.md.bak
+Post-Convert Hooks: about.md.bak
+  Rendering Layout: about.md.bak
+ Include cache hit: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/favicons.html
+ Include cache hit: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/update-list.html
+ Include cache hit: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/trending-tags.html
+ Include cache hit: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/footer.html
+ Include cache hit: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/search-results.html
+ Include cache hit: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/notification.html
+ Include cache hit: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/search-loader.html
+         Rendering: projects/book-recommender.html
+  Pre-Render Hooks: projects/book-recommender.html
+  Rendering Liquid: projects/book-recommender.html
+  Rendering Markup: projects/book-recommender.html
+Post-Convert Hooks: projects/book-recommender.html
+  Rendering Layout: projects/book-recommender.html
+ Include cache hit: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/favicons.html
+ Include cache hit: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/update-list.html
+ Include cache hit: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/trending-tags.html
+ Include cache hit: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/footer.html
+ Include cache hit: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/search-results.html
+ Include cache hit: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/notification.html
+ Include cache hit: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/search-loader.html
+         Rendering: index.html
+  Pre-Render Hooks: index.html
+  Rendering Liquid: index.html
+  Rendering Markup: index.html
+Post-Convert Hooks: index.html
+  Rendering Layout: index.html
+ Include cache hit: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/favicons.html
+ Include cache hit: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/update-list.html
+ Include cache hit: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/trending-tags.html
+ Include cache hit: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/footer.html
+ Include cache hit: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/search-results.html
+ Include cache hit: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/notification.html
+ Include cache hit: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/search-loader.html
+         Rendering: projects/movie-recommender.html
+  Pre-Render Hooks: projects/movie-recommender.html
+  Rendering Liquid: projects/movie-recommender.html
+  Rendering Markup: projects/movie-recommender.html
+Post-Convert Hooks: projects/movie-recommender.html
+  Rendering Layout: projects/movie-recommender.html
+ Include cache hit: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/favicons.html
+ Include cache hit: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/update-list.html
+ Include cache hit: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/trending-tags.html
+ Include cache hit: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/footer.html
+ Include cache hit: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/search-results.html
+ Include cache hit: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/notification.html
+ Include cache hit: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/search-loader.html
+         Rendering: projects/data-analyst-projects/project-1-customer-shopping-trends-analysis.md
+  Pre-Render Hooks: projects/data-analyst-projects/project-1-customer-shopping-trends-analysis.md
+  Rendering Markup: projects/data-analyst-projects/project-1-customer-shopping-trends-analysis.md
+Post-Convert Hooks: projects/data-analyst-projects/project-1-customer-shopping-trends-analysis.md
+  Rendering Layout: projects/data-analyst-projects/project-1-customer-shopping-trends-analysis.md
+ Include cache hit: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/favicons.html
+ Include cache hit: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/update-list.html
+ Include cache hit: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/trending-tags.html
+ Include cache hit: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/footer.html
+ Include cache hit: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/search-results.html
+ Include cache hit: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/notification.html
+ Include cache hit: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/search-loader.html
+         Rendering: assets/404.html
+  Pre-Render Hooks: assets/404.html
+  Rendering Liquid: assets/404.html
+  Rendering Markup: assets/404.html
+Post-Convert Hooks: assets/404.html
+  Rendering Layout: assets/404.html
+ Include cache hit: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/favicons.html
+ Include cache hit: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/update-list.html
+ Include cache hit: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/trending-tags.html
+ Include cache hit: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/footer.html
+ Include cache hit: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/search-results.html
+ Include cache hit: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/notification.html
+ Include cache hit: /Users/shivanshusharma/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/jekyll-theme-chirpy-7.2.4/_includes/search-loader.html
+         Rendering: assets/css/jekyll-theme-chirpy.scss
+  Pre-Render Hooks: assets/css/jekyll-theme-chirpy.scss
+  Rendering Liquid: assets/css/jekyll-theme-chirpy.scss
+  Rendering Markup: assets/css/jekyll-theme-chirpy.scss
+Post-Convert Hooks: assets/css/jekyll-theme-chirpy.scss
+         Rendering: assets/feed.xml
+  Pre-Render Hooks: assets/feed.xml
+  Rendering Liquid: assets/feed.xml
+  Rendering Markup: assets/feed.xml
+Post-Convert Hooks: assets/feed.xml
+  Rendering Layout: assets/feed.xml
+         Rendering: assets/img/favicons/browserconfig.xml
+  Pre-Render Hooks: assets/img/favicons/browserconfig.xml
+  Rendering Liquid: assets/img/favicons/browserconfig.xml
+  Rendering Markup: assets/img/favicons/browserconfig.xml
+Post-Convert Hooks: assets/img/favicons/browserconfig.xml
+  Rendering Layout: assets/img/favicons/browserconfig.xml
+         Rendering: assets/img/favicons/site.webmanifest
+  Pre-Render Hooks: assets/img/favicons/site.webmanifest
+  Rendering Liquid: assets/img/favicons/site.webmanifest
+  Rendering Markup: assets/img/favicons/site.webmanifest
+Post-Convert Hooks: assets/img/favicons/site.webmanifest
+  Rendering Layout: assets/img/favicons/site.webmanifest
+         Rendering: assets/js/data/mathjax.js
+  Pre-Render Hooks: assets/js/data/mathjax.js
+  Rendering Liquid: assets/js/data/mathjax.js
+  Rendering Markup: assets/js/data/mathjax.js
+Post-Convert Hooks: assets/js/data/mathjax.js
+  Rendering Layout: assets/js/data/mathjax.js
+         Rendering: assets/js/data/search.json
+  Pre-Render Hooks: assets/js/data/search.json
+  Rendering Liquid: assets/js/data/search.json
+  Rendering Markup: assets/js/data/search.json
+Post-Convert Hooks: assets/js/data/search.json
+  Rendering Layout: assets/js/data/search.json
+         Rendering: assets/js/data/swconf.js
+  Pre-Render Hooks: assets/js/data/swconf.js
+  Rendering Liquid: assets/js/data/swconf.js
+  Rendering Markup: assets/js/data/swconf.js
+Post-Convert Hooks: assets/js/data/swconf.js
+  Rendering Layout: assets/js/data/swconf.js
+         Rendering: assets/js/dist/app.min.js
+  Pre-Render Hooks: assets/js/dist/app.min.js
+  Rendering Markup: assets/js/dist/app.min.js
+Post-Convert Hooks: assets/js/dist/app.min.js
+  Rendering Layout: assets/js/dist/app.min.js
+         Rendering: assets/js/dist/sw.min.js
+  Pre-Render Hooks: assets/js/dist/sw.min.js
+  Rendering Markup: assets/js/dist/sw.min.js
+Post-Convert Hooks: assets/js/dist/sw.min.js
+  Rendering Layout: assets/js/dist/sw.min.js
+         Rendering: assets/robots.txt
+  Pre-Render Hooks: assets/robots.txt
+  Rendering Liquid: assets/robots.txt
+  Rendering Markup: assets/robots.txt
+Post-Convert Hooks: assets/robots.txt
+  Rendering Layout: assets/robots.txt
+         Rendering: redirect.html
+  Pre-Render Hooks: redirect.html
+  Rendering Markup: redirect.html
+Post-Convert Hooks: redirect.html
+  Rendering Layout: redirect.html
+         Rendering: redirect.html
+  Pre-Render Hooks: redirect.html
+  Rendering Markup: redirect.html
+Post-Convert Hooks: redirect.html
+  Rendering Layout: redirect.html
+         Rendering: redirect.html
+  Pre-Render Hooks: redirect.html
+  Rendering Markup: redirect.html
+Post-Convert Hooks: redirect.html
+  Rendering Layout: redirect.html
+         Rendering: redirects.json
+  Pre-Render Hooks: redirects.json
+  Rendering Markup: redirects.json
+Post-Convert Hooks: redirects.json
+  Rendering Layout: redirects.json
+         Rendering: sitemap.xml
+  Pre-Render Hooks: sitemap.xml
+  Rendering Liquid: sitemap.xml
+  Rendering Markup: sitemap.xml
+Post-Convert Hooks: sitemap.xml
+  Rendering Layout: sitemap.xml
+         Rendering: assets/css/jekyll-theme-chirpy.css.map
+  Pre-Render Hooks: assets/css/jekyll-theme-chirpy.css.map
+  Rendering Markup: assets/css/jekyll-theme-chirpy.css.map
+Post-Convert Hooks: assets/css/jekyll-theme-chirpy.css.map
+           Writing: /Users/shivanshusharma/Documents/Site/uhsnavihs23.github.io/_site/about/index.bak
+           Writing: /Users/shivanshusharma/Documents/Site/uhsnavihs23.github.io/_site/projects/book-recommender/index.html
+           Writing: /Users/shivanshusharma/Documents/Site/uhsnavihs23.github.io/_site/index.html
+           Writing: /Users/shivanshusharma/Documents/Site/uhsnavihs23.github.io/_site/projects/movie-recommender/index.html
+           Writing: /Users/shivanshusharma/Documents/Site/uhsnavihs23.github.io/_site/projects/data-analyst-projects/project-1-customer-shopping-trends-analysis/index.html
+           Writing: /Users/shivanshusharma/Documents/Site/uhsnavihs23.github.io/_site/404.html
+           Writing: /Users/shivanshusharma/Documents/Site/uhsnavihs23.github.io/_site/assets/css/jekyll-theme-chirpy.css
+           Writing: /Users/shivanshusharma/Documents/Site/uhsnavihs23.github.io/_site/feed.xml
+           Writing: /Users/shivanshusharma/Documents/Site/uhsnavihs23.github.io/_site/assets/img/favicons/browserconfig.xml
+           Writing: /Users/shivanshusharma/Documents/Site/uhsnavihs23.github.io/_site/assets/img/favicons/site.webmanifest
+           Writing: /Users/shivanshusharma/Documents/Site/uhsnavihs23.github.io/_site/assets/js/data/mathjax.js
+           Writing: /Users/shivanshusharma/Documents/Site/uhsnavihs23.github.io/_site/assets/js/data/search.json
+           Writing: /Users/shivanshusharma/Documents/Site/uhsnavihs23.github.io/_site/assets/js/data/swconf.js
+           Writing: /Users/shivanshusharma/Documents/Site/uhsnavihs23.github.io/_site/app.min.js
+           Writing: /Users/shivanshusharma/Documents/Site/uhsnavihs23.github.io/_site/sw.min.js
+           Writing: /Users/shivanshusharma/Documents/Site/uhsnavihs23.github.io/_site/robots.txt
+           Writing: /Users/shivanshusharma/Documents/Site/uhsnavihs23.github.io/_site/norobots/index.html
+           Writing: /Users/shivanshusharma/Documents/Site/uhsnavihs23.github.io/_site/assets/index.html
+           Writing: /Users/shivanshusharma/Documents/Site/uhsnavihs23.github.io/_site/posts/index.html
+           Writing: /Users/shivanshusharma/Documents/Site/uhsnavihs23.github.io/_site/redirects.json
+           Writing: /Users/shivanshusharma/Documents/Site/uhsnavihs23.github.io/_site/sitemap.xml
+           Writing: /Users/shivanshusharma/Documents/Site/uhsnavihs23.github.io/_site/assets/css/jekyll-theme-chirpy.css.map
+           Writing: /Users/shivanshusharma/Documents/Site/uhsnavihs23.github.io/_site/posts/book-recommender/index.html
+           Writing: /Users/shivanshusharma/Documents/Site/uhsnavihs23.github.io/_site/posts/news/index.html
+           Writing: /Users/shivanshusharma/Documents/Site/uhsnavihs23.github.io/_site/posts/movie-recommender/index.html
+           Writing: /Users/shivanshusharma/Documents/Site/uhsnavihs23.github.io/_site/posts/github-profile-finder/index.html
+           Writing: /Users/shivanshusharma/Documents/Site/uhsnavihs23.github.io/_site/posts/image-filter-app/index.html
+           Writing: /Users/shivanshusharma/Documents/Site/uhsnavihs23.github.io/_site/projects/data-analyst-projects/index.html
+           Writing: /Users/shivanshusharma/Documents/Site/uhsnavihs23.github.io/_site/timeline/index.html
+           Writing: /Users/shivanshusharma/Documents/Site/uhsnavihs23.github.io/_site/about/index.html
+                    done in 0.822 seconds.
+ Auto-regeneration: disabled. Use --watch to enable.

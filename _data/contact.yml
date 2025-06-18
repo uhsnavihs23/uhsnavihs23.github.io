@@ -16,11 +16,10 @@
   icon: "fas fa-envelope"
   noblank: true
   url: "mailto:shivanshu.sharma0023@gmail.com"
-
-- type: rss
-  icon: "fas fa-rss"
-  noblank: true
-  url: "/feed.xml"
+# - type: rss
+#   icon: "fas fa-rss"
+#   noblank: true
+#   url: "/feed.xml"
 # Uncomment and fill in URLs for these if you have accounts
 # - type: mastodon
 #   icon: "fab fa-mastodon"
