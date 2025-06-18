@@ -1,6 +1,6 @@
 ---
 layout: archives
-title: Projects Timeline
+title: Timeline
 icon: fas fa-history
 order: 2
 permalink: /timeline/
