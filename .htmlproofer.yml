@@ -13,7 +13,7 @@ ignore_urls:
   - /archives/
   - /about/
 ignore_files:
-  - _site/_includes/*.html
+  - _site/_includes/**/*.html
 empty_href_ignore: true
 alt_ignore: true
 ignore_elements:
