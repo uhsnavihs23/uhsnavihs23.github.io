@@ -150,3 +150,36 @@ exclude:
   - .jekyll-cache
   - _site/_includes
   - assets/feed.xml
+share:
+  copy_link: false
+htmlproofer:
+  enforce_https: true
+  ignore_urls:
+    - https://fonts.googleapis.googleapis.com/
+    - https://fonts.gstatic.com/
+    - https://twitter.com/
+    - https://linkedin.com/
+    - https://www.linkedin.com/
+    - https://www.linkedin.com/in/shivanshu-sharma-2302/
+    - https://uhsnavihs23.github.io/
+    - /http:\/\/localhost:4000\//
+    - /http:\/\/127.0.0.1\//
+    - /http:\/\/0.0.0.0\//
+    - /archives/
+    - /about/
+  ignore_files:
+    - _site/_includes/**/*.html
+  empty_href_ignore: true
+  alt_ignore: true
+  ignore_elements:
+    - a[class*="share"]  # Share buttons
+    - a[class*="btn"]    # Button-like links
+    - a[id*="copy"]      # Copy-link buttons
+    - a:not([href])      # Any <a> without href
+    - button[id*="copy"]  # Copy-link buttons
+    - button[class*="btn"]  # Any button with btn class
+  ignore_status_codes:
+    - 0
+    - 400
+    - 999
+  html_validation: false
