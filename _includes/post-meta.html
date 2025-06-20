@@ -1,9 +1,11 @@
 <div class="post-meta text-muted">
-  <span>Posted <time data-ts="{{ page.date | date: "%s" }}" data-df="ll">{{ page.date | date: "%b %-d, %Y" }}</time></span>
+  <span>Posted <time data-ts="{{ page.date | date: '%s' }}" data-df="ll">{{ page.date | date: '%b %-d, %Y'
+      }}</time></span>
   {% if page.last_modified_at %}
-  <span>Updated <time data-ts="{{ page.last_modified_at | date: "%s" }}" data-df="ll">{{ page.last_modified_at | date: "%b %-d, %Y" }}</time></span>
+  <span>Updated <time data-ts="{{ page.last_modified_at | date: '%s' }}" data-df="ll">{{ page.last_modified_at | date:
+      '%b %-d, %Y' }}</time></span>
   {% endif %}
-  <div class="d-flex justify-content-between">
-    <span>By <em>{{ site.author.name | default: "Shivanshu Sharma" }}</em></span>
-  </div>
+
+  <span>By <em><a href="https://uhsnavihs23.github.io">Shivanshu Sharma</a></em></span>
+
 </div>

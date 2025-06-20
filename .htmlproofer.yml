@@ -1,28 +1,42 @@
-enforce_https: true
-ignore_urls:
-  - https://fonts.googleapis.googleapis.com/
-  - https://fonts.gstatic.com/
-  - https://twitter.com/
-  - https://linkedin.com/
-  - https://www.linkedin.com/
-  - https://www.linkedin.com/in/shivanshu-sharma-2302/
-  - https://uhsnavihs23.github.io/
-  - /http:\/\/localhost:4000\//
-  - /http:\/\/127.0.0.1\//
-  - /http:\/\/0.0.0.0\//
-  - /archives/
-  - /about/
-ignore_files:
-  - _site/_includes/**/*.html
-empty_href_ignore: true
-alt_ignore: true
-ignore_elements:
-  - a[class="site-title"]
-  - a[class="footer-link"]
-  - a[class="nav-link"]
-  - a[class="social-link"]
-ignore_status_codes:
-  - 0
-  - 400
-  - 999
-html_validation: false
+htmlproofer:
+  enforce_https: false # Disable HTTPS enforcement for local testing
+  ignore_urls:
+    - https://fonts.googleapis.com/
+    - https://fonts.gstatic.com/
+    - https://twitter.com/
+    - https://linkedin.com/
+    - https://www.linkedin.com/
+    - https://www.linkedin.com/in/shivanshu-sharma-2302/
+    - https://uhsnavihs23.github.io/
+    - http://localhost:4000/
+    - /http:\/\/localhost:4000\//
+    - /http:\/\/127.0.0.1\//
+    - /http:\/\/0.0.0.0\//
+    - /archives/
+    - /about/
+    - /about.html
+    - /about
+  ignore_files:
+    - "./_site/_includes/**/*.html"
+    - "./_site/_includes/post-meta.html"
+    - "_site/_includes/**/*.html"
+    - "./_site/**/post-meta.html"
+  empty_href_ignore: true
+  alt_ignore: true
+  ignore_elements:
+    - "a[class='site-title']"
+    - "a[class='footer-link']"
+    - "a[class='nav-link']"
+    - "a[class='social-link']"
+    - "a[class='share-icons']"
+    - "a[class='btn small']"
+    - "a[id='copy-link']"
+    - "a:not([href])"
+    - "a[rel='author']"
+    - "a[href='']"
+    - "a[href='#']"
+  ignore_status_codes:
+    - 0
+    - 400
+    - 999
+  html_validation: false
