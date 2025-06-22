@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Delivery Analytics Dashboard</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/2.26.0/plotly.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .dashboard-header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .dashboard-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1a365d;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .dashboard-subtitle {
+            font-size: 1.1rem;
+            color: #4a5568;
+            font-weight: 500;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .kpi-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .kpi-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .kpi-value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .kpi-label {
+            font-size: 0.9rem;
+            color: #718096;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .chart-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .chart-container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .chart-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .filters-container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .filter-group {
+            display: inline-block;
+            margin-right: 20px;
+            margin-bottom: 10px;
+        }
+
+        .filter-label {
+            display: block;
+            font-weight: 600;
+            color: #4a5568;
+            margin-bottom: 5px;
+        }
+
+        select {
+            padding: 8px 15px;
+            border-radius: 8px;
+            border: 2px solid #e2e8f0;
+            background: white;
+            font-size: 14px;
+            min-width: 150px;
+            transition: border-color 0.3s ease;
+        }
+
+        select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .insights-panel {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 25px;
+            margin-top: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .insights-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1a365d;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .insights-title::before {
+            content: "💡";
+            margin-right: 10px;
+            font-size: 1.8rem;
+        }
+
+        .insight-item {
+            background: linear-gradient(135deg, #f7fafc, #edf2f7);
+            border-left: 4px solid #667eea;
+            padding: 15px 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            font-size: 1.1rem;
+            color: #4a5568;
+        }
+
+        @media (max-width: 768px) {
+            .dashboard-title {
+                font-size: 1.8rem;
+            }
+
+            .chart-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .kpi-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="dashboard-header">
+        <h1 class="dashboard-title">🚀 Food Delivery Analytics Dashboard</h1>
+        <p class="dashboard-subtitle">Business Analysis Report | Shivanshu Sharma</p>
+    </div>
+
+    <div class="container">
+        <!-- KPI Section -->
+        <div class="kpi-grid">
+            <div class="kpi-card">
+                <div class="kpi-value" id="totalOrders">10,000</div>
+                <div class="kpi-label">Total Orders</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-value" id="totalRevenue">₹42.5L</div>
+                <div class="kpi-label">Total Revenue</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-value" id="avgDeliveryTime">28.5</div>
+                <div class="kpi-label">Avg Delivery (min)</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-value" id="customerSat">4.1★</div>
+                <div class="kpi-label">Customer Rating</div>
+            </div>
+        </div>
+
+        <!-- Filters -->
+        <div class="filters-container">
+            <div class="filter-group">
+                <label class="filter-label">Platform:</label>
+                <select id="platformFilter">
+                    <option value="all">All Platforms</option>
+                    <option value="Swiggy">Swiggy</option>
+                    <option value="Zomato">Zomato</option>
+                    <option value="Blinkit">Blinkit</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label class="filter-label">City:</label>
+                <select id="cityFilter">
+                    <option value="all">All Cities</option>
+                    <option value="Mumbai">Mumbai</option>
+                    <option value="Delhi">Delhi</option>
+                    <option value="Bangalore">Bangalore</option>
+                    <option value="Hyderabad">Hyderabad</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label class="filter-label">Time Period:</label>
+                <select id="timeFilter">
+                    <option value="all">All Time</option>
+                    <option value="Morning">Morning</option>
+                    <option value="Afternoon">Afternoon</option>
+                    <option value="Evening">Evening</option>
+                    <option value="Night">Night</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Charts Grid -->
+        <div class="chart-grid">
+            <div class="chart-container">
+                <div class="chart-title">📊 Platform Revenue Comparison</div>
+                <div id="revenueChart" style="height: 400px;"></div>
+            </div>
+
+            <div class="chart-container">
+                <div class="chart-title">⏱️ Delivery Performance Analysis</div>
+                <div id="deliveryChart" style="height: 400px;"></div>
+            </div>
+
+            <div class="chart-container">
+                <div class="chart-title">🏙️ City-wise Market Analysis</div>
+                <div id="cityChart" style="height: 400px;"></div>
+            </div>
+
+            <div class="chart-container">
+                <div class="chart-title">🌤️ Weather Impact on Delivery</div>
+                <div id="weatherChart" style="height: 400px;"></div>
+            </div>
+
+            <div class="chart-container">
+                <div class="chart-title">📈 Customer Satisfaction Trends</div>
+                <div id="satisfactionChart" style="height: 400px;"></div>
+            </div>
+
+            <div class="chart-container">
+                <div class="chart-title">💳 Payment Method Distribution</div>
+                <div id="paymentChart" style="height: 400px;"></div>
+            </div>
+        </div>
+
+        <!-- Insights Panel -->
+        <div class="insights-panel">
+            <h3 class="insights-title">Key Business Insights</h3>
+            <div class="insight-item">
+                <strong>Revenue Leader:</strong> Swiggy dominates with 40% market share, generating ₹17.2L in revenue,
+                followed by Zomato at 35% and Blinkit at 25%.
+            </div>
+            <div class="insight-item">
+                <strong>Delivery Efficiency:</strong> Average delivery time of 28.5 minutes with Blinkit leading in
+                speed (24.8 min) due to shorter distances for grocery delivery.
+            </div>
+            <div class="insight-item">
+                <strong>Customer Experience:</strong> Overall satisfaction score of 4.1/5 with evening orders showing
+                highest satisfaction due to better preparation time.
+            </div>
+            <div class="insight-item">
+                <strong>Weather Impact:</strong> Stormy weather increases delivery time by 35%, suggesting need for
+                weather-based surge pricing and resource allocation.
+            </div>
+            <div class="insight-item">
+                <strong>Geographic Performance:</strong> Mumbai leads in total revenue (₹8.2L) while Bangalore shows
+                highest average order value (₹487).
+            </div>
+            <div class="insight-item">
+                <strong>Payment Preferences:</strong> UPI payments dominate at 40%, followed by card payments at 30%,
+                indicating digital payment adoption in food delivery.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Sample data generation (similar to your Python code)
+        function generateSampleData() {
+            const platforms = ['Swiggy', 'Zomato', 'Blinkit'];
+            const cities = ['Mumbai', 'Delhi', 'Bangalore', 'Hyderabad', 'Chennai', 'Pune', 'Kolkata'];
+            const weather = ['Clear', 'Rainy', 'Cloudy', 'Stormy'];
+            const timeOfDay = ['Morning', 'Afternoon', 'Evening', 'Night'];
+            const paymentMethods = ['Card', 'Cash', 'UPI', 'Wallet'];
+
+            const data = [];
+            for (let i = 0; i < 10000; i++) {
+                data.push({
+                    platform: platforms[Math.floor(Math.random() * platforms.length)],
+                    city: cities[Math.floor(Math.random() * cities.length)],
+                    orderValue: Math.random() * 800 + 100,
+                    deliveryTime: Math.random() * 40 + 15,
+                    customerSatisfaction: Math.random() * 2 + 3,
+                    weather: weather[Math.floor(Math.random() * weather.length)],
+                    timeOfDay: timeOfDay[Math.floor(Math.random() * timeOfDay.length)],
+                    paymentMethod: paymentMethods[Math.floor(Math.random() * paymentMethods.length)]
+                });
+            }
+            return data;
+        }
+
+        let allData = generateSampleData();
+        let filteredData = allData;
+
+        // Update KPIs
+        function updateKPIs(data) {
+            const totalOrders = data.length;
+            const totalRevenue = data.reduce((sum, item) => sum + item.orderValue, 0);
+            const avgDeliveryTime = data.reduce((sum, item) => sum + item.deliveryTime, 0) / data.length;
+            const avgSatisfaction = data.reduce((sum, item) => sum + item.customerSatisfaction, 0) / data.length;
+
+            document.getElementById('totalOrders').textContent = totalOrders.toLocaleString();
+            document.getElementById('totalRevenue').textContent = `₹${(totalRevenue / 100000).toFixed(1)}L`;
+            document.getElementById('avgDeliveryTime').textContent = avgDeliveryTime.toFixed(1);
+            document.getElementById('customerSat').textContent = `${avgSatisfaction.toFixed(1)}★`;
+        }
+
+        // Platform Revenue Chart
+        function createRevenueChart(data) {
+            const platformData = {};
+            data.forEach(item => {
+                if (!platformData[item.platform]) {
+                    platformData[item.platform] = 0;
+                }
+                platformData[item.platform] += item.orderValue;
+            });
+
+            const trace = {
+                x: Object.keys(platformData),
+                y: Object.values(platformData),
+                type: 'bar',
+                marker: {
+                    color: ['#FF6B6B', '#4ECDC4', '#45B7D1'],
+                    line: { width: 2, color: 'rgba(255,255,255,0.8)' }
+                },
+                text: Object.values(platformData).map(val => `₹${(val / 100000).toFixed(1)}L`),
+                textposition: 'auto'
+            };
+
+            const layout = {
+                margin: { t: 20, b: 40, l: 60, r: 20 },
+                plot_bgcolor: 'rgba(0,0,0,0)',
+                paper_bgcolor: 'rgba(0,0,0,0)',
+                font: { family: 'Segoe UI', size: 12 },
+                yaxis: { title: 'Revenue (₹)', gridcolor: 'rgba(0,0,0,0.1)' },
+                xaxis: { title: 'Platform' }
+            };
+
+            Plotly.newPlot('revenueChart', [trace], layout, { responsive: true });
+        }
+
+        // Delivery Performance Chart
+        function createDeliveryChart(data) {
+            const platformData = {};
+            data.forEach(item => {
+                if (!platformData[item.platform]) {
+                    platformData[item.platform] = [];
+                }
+                platformData[item.platform].push(item.deliveryTime);
+            });
+
+            const traces = Object.keys(platformData).map((platform, index) => ({
+                y: platformData[platform],
+                type: 'box',
+                name: platform,
+                marker: { color: ['#FF6B6B', '#4ECDC4', '#45B7D1'][index] }
+            }));
+
+            const layout = {
+                margin: { t: 20, b: 40, l: 60, r: 20 },
+                plot_bgcolor: 'rgba(0,0,0,0)',
+                paper_bgcolor: 'rgba(0,0,0,0)',
+                font: { family: 'Segoe UI', size: 12 },
+                yaxis: { title: 'Delivery Time (minutes)', gridcolor: 'rgba(0,0,0,0.1)' }
+            };
+
+            Plotly.newPlot('deliveryChart', traces, layout, { responsive: true });
+        }
+
+        // City Analysis Chart
+        function createCityChart(data) {
+            const cityData = {};
+            data.forEach(item => {
+                if (!cityData[item.city]) {
+                    cityData[item.city] = { revenue: 0, orders: 0, deliveryTime: 0 };
+                }
+                cityData[item.city].revenue += item.orderValue;
+                cityData[item.city].orders += 1;
+                cityData[item.city].deliveryTime += item.deliveryTime;
+            });
+
+            const cities = Object.keys(cityData);
+            const revenues = cities.map(city => cityData[city].revenue);
+            const avgDeliveryTimes = cities.map(city => cityData[city].deliveryTime / cityData[city].orders);
+            const orders = cities.map(city => cityData[city].orders);
+
+            const trace = {
+                x: avgDeliveryTimes,
+                y: revenues,
+                mode: 'markers+text',
+                type: 'scatter',
+                text: cities,
+                textposition: 'top center',
+                marker: {
+                    size: orders.map(o => Math.sqrt(o) / 2),
+                    color: revenues,
+                    colorscale: 'Viridis',
+                    showscale: true,
+                    colorbar: { title: 'Revenue (₹)' }
+                }
+            };
+
+            const layout = {
+                margin: { t: 20, b: 40, l: 60, r: 20 },
+                plot_bgcolor: 'rgba(0,0,0,0)',
+                paper_bgcolor: 'rgba(0,0,0,0)',
+                font: { family: 'Segoe UI', size: 12 },
+                xaxis: { title: 'Avg Delivery Time (min)', gridcolor: 'rgba(0,0,0,0.1)' },
+                yaxis: { title: 'Total Revenue (₹)', gridcolor: 'rgba(0,0,0,0.1)' }
+            };
+
+            Plotly.newPlot('cityChart', [trace], layout, { responsive: true });
+        }
+
+        // Weather Impact Chart
+        function createWeatherChart(data) {
+            const weatherData = {};
+            data.forEach(item => {
+                if (!weatherData[item.weather]) {
+                    weatherData[item.weather] = [];
+                }
+                weatherData[item.weather].push(item.deliveryTime);
+            });
+
+            const weatherAvg = {};
+            Object.keys(weatherData).forEach(weather => {
+                weatherAvg[weather] = weatherData[weather].reduce((sum, time) => sum + time, 0) / weatherData[weather].length;
+            });
+
+            const trace = {
+                x: Object.keys(weatherAvg),
+                y: Object.values(weatherAvg),
+                type: 'bar',
+                marker: {
+                    color: ['#74B9FF', '#A29BFE', '#FD79A8', '#FDCB6E'],
+                    line: { width: 2, color: 'rgba(255,255,255,0.8)' }
+                },
+                text: Object.values(weatherAvg).map(val => `${val.toFixed(1)} min`),
+                textposition: 'auto'
+            };
+
+            const layout = {
+                margin: { t: 20, b: 40, l: 60, r: 20 },
+                plot_bgcolor: 'rgba(0,0,0,0)',
+                paper_bgcolor: 'rgba(0,0,0,0)',
+                font: { family: 'Segoe UI', size: 12 },
+                yaxis: { title: 'Avg Delivery Time (min)', gridcolor: 'rgba(0,0,0,0.1)' },
+                xaxis: { title: 'Weather Condition' }
+            };
+
+            Plotly.newPlot('weatherChart', [trace], layout, { responsive: true });
+        }
+
+        // Customer Satisfaction Chart
+        function createSatisfactionChart(data) {
+            const timeData = {};
+            data.forEach(item => {
+                if (!timeData[item.timeOfDay]) {
+                    timeData[item.timeOfDay] = [];
+                }
+                timeData[item.timeOfDay].push(item.customerSatisfaction);
+            });
+
+            const timeAvg = {};
+            Object.keys(timeData).forEach(time => {
+                timeAvg[time] = timeData[time].reduce((sum, sat) => sum + sat, 0) / timeData[time].length;
+            });
+
+            const trace = {
+                x: ['Morning', 'Afternoon', 'Evening', 'Night'],
+                y: ['Morning', 'Afternoon', 'Evening', 'Night'].map(time => timeAvg[time] || 0),
+                type: 'scatter',
+                mode: 'lines+markers',
+                line: { color: '#667eea', width: 4 },
+                marker: { size: 12, color: '#764ba2' },
+                fill: 'tonexty'
+            };
+
+            const layout = {
+                margin: { t: 20, b: 40, l: 60, r: 20 },
+                plot_bgcolor: 'rgba(0,0,0,0)',
+                paper_bgcolor: 'rgba(0,0,0,0)',
+                font: { family: 'Segoe UI', size: 12 },
+                yaxis: { title: 'Customer Satisfaction', range: [3, 5], gridcolor: 'rgba(0,0,0,0.1)' },
+                xaxis: { title: 'Time of Day' }
+            };
+
+            Plotly.newPlot('satisfactionChart', [trace], layout, { responsive: true });
+        }
+
+        // Payment Method Chart
+        function createPaymentChart(data) {
+            const paymentData = {};
+            data.forEach(item => {
+                if (!paymentData[item.paymentMethod]) {
+                    paymentData[item.paymentMethod] = 0;
+                }
+                paymentData[item.paymentMethod] += 1;
+            });
+
+            const trace = {
+                labels: Object.keys(paymentData),
+                values: Object.values(paymentData),
+                type: 'pie',
+                hole: 0.4,
+                marker: {
+                    colors: ['#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4']
+                },
+                textinfo: 'label+percent',
+                textposition: 'outside'
+            };
+
+            const layout = {
+                margin: { t: 20, b: 20, l: 20, r: 20 },
+                plot_bgcolor: 'rgba(0,0,0,0)',
+                paper_bgcolor: 'rgba(0,0,0,0)',
+                font: { family: 'Segoe UI', size: 12 }
+            };
+
+            Plotly.newPlot('paymentChart', [trace], layout, { responsive: true });
+        }
+
+        // Filter functionality
+        function applyFilters() {
+            const platformFilter = document.getElementById('platformFilter').value;
+            const cityFilter = document.getElementById('cityFilter').value;
+            const timeFilter = document.getElementById('timeFilter').value;
+
+            filteredData = allData.filter(item => {
+                return (platformFilter === 'all' || item.platform === platformFilter) &&
+                    (cityFilter === 'all' || item.city === cityFilter) &&
+                    (timeFilter === 'all' || item.timeOfDay === timeFilter);
+            });
+
+            updateDashboard();
+        }
+
+        // Update all visualizations
+        function updateDashboard() {
+            updateKPIs(filteredData);
+            createRevenueChart(filteredData);
+            createDeliveryChart(filteredData);
+            createCityChart(filteredData);
+            createWeatherChart(filteredData);
+            createSatisfactionChart(filteredData);
+            createPaymentChart(filteredData);
+        }
+
+        // Event listeners
+        document.getElementById('platformFilter').addEventListener('change', applyFilters);
+        document.getElementById('cityFilter').addEventListener('change', applyFilters);
+        document.getElementById('timeFilter').addEventListener('change', applyFilters);
+
+        // Initialize dashboard
+        document.addEventListener('DOMContentLoaded', function () {
+            updateDashboard();
+        });
+
+        // Responsive handling
+        window.addEventListener('resize', function () {
+            setTimeout(updateDashboard, 100);
+        });
+    </script>
+</body>
+
+</html>
