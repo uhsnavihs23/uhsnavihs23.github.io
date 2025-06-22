@@ -8,6 +8,7 @@ last_modified_at: 2025-06-23 12:00:00 +0530
 author: Shivanshu Sharma
 description: A business analysis dashboard analyzing food delivery metrics across platforms, cities and time periods.
 ---
+
 This project analyzes the [food delivery service](https://www.kaggle.com/datasets/logiccraftbyhimanshi/e-commerce-analytics-swiggy-zomato-blinkit) from Kaggle, analyzing key metrics like revenue, delivery performance and customer satisfaction across platforms (Swiggy, Zomato, Blinkit), cities and time periods.
 
 ## 📈 Full Analysis Report
