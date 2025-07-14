@@ -43,7 +43,7 @@ theme_mode:
 cdn:
 avatar: https://media.licdn.com/dms/image/v2/D5603AQF3OZdvlSZDhw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1730741353432?e=1758153600&v=beta&t=aclKbjKV0vGlC6ruJjQKLeKwcDBWUy7A-QSQvKucXG0
 social_preview_image:
-toc: true
+toc: false
 sidebar:
   nav: main
   home: true
