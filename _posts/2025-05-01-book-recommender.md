@@ -9,5 +9,5 @@ permalink: /posts/book-recommender/
 
 Explore books by category, language, and year!
 
-**Live Demo**: [Try it Now](/projects/book-recommender/)  
+**Live Demo**: [Try it Now](/projects/book-recommender/)
 ![Book Recommender]({{ site.baseurl }}/assets/img/book_recommender.png)

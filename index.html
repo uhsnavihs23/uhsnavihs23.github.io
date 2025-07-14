@@ -1,33 +1,245 @@
 ---
-layout: home
-title: Welcome to My Portfolio
+layout: default
 ---
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h2 class="text-center mb-1"> My Projects Portfolio</h2>
+            <!-- <p class="lead text-center mb-3" style="color: var(--text-color);">
+                Welcome to my comprehensive projects showcase! Here you'll find a curated collection of my work across
+                different domains.
+            </p> --><br>
 
-## About Me
-I'm a web development enthusiast building projects with HTML, CSS, JavaScript, and more. Explore my projects below!
+            <!-- Leisure Projects -->
+            <div class="card mb-3"
+                style="border: none; border-radius: 15px; background: linear-gradient(135deg, rgba(250, 112, 154, 0.1) 0%, rgba(254, 225, 64, 0.1) 100%);">
+                <div class="card-body p-3">
+                    <div class="row align-items-center">
+                        <div class="col-md-2 text-center mb-3 mb-md-0">
+                            <div
+                                style="width: 80px; height: 80px; background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; margin: 0 auto;">
+                                🎨
+                            </div>
+                        </div>
+                        <div class="col-md-10">
+                            <h4 class="mb-1" style="color: #f59e0b;">🎮 Leisure Projects</h4>
+                            <p class="mb-3" style="color: var(--text-color);">
+                                Passion-driven projects that showcase creativity, experimentation, and personal
+                                interests.
+                            </p>
+                            <div class="row">
+                                <div class="col-md-4 mb-2">
+                                    <a href="/posts/image-filter-app/" class="btn btn-outline-warning btn-sm w-100"
+                                        style="border-radius: 20px;">
+                                        📸 Image Editor Web App
+                                    </a>
+                                </div>
+                                <div class="col-md-4 mb-2">
+                                    <a href="/posts/movie-recommender/" class="btn btn-outline-warning btn-sm w-100"
+                                        style="border-radius: 20px;">
+                                        🎬 Movie Recommender
+                                    </a>
+                                </div>
+                                <div class="col-md-4 mb-2">
+                                    <a href="/posts/github-profile-finder/" class="btn btn-outline-warning btn-sm w-100"
+                                        style="border-radius: 20px;">
+                                        🐙 GitHub Profile Finder
+                                    </a>
+                                </div>
+                                <div class="col-md-4 mb-2">
+                                    <a href="/posts/news/" class="btn btn-outline-warning btn-sm w-100"
+                                        style="border-radius: 20px;">
+                                        📰 News Headlines App
+                                    </a>
+                                </div>
+                                <div class="col-md-4 mb-2">
+                                    <a href="/posts/book-recommender/" class="btn btn-outline-warning btn-sm w-100"
+                                        style="border-radius: 20px;">
+                                        📚 Book Explorer
+                                    </a>
+                                </div>
+                                <!-- <div class="col-md-4 mb-2">
+                                    <a href="https://github.com/uhsnavihs23/utility-tools"
+                                        class="btn btn-outline-warning btn-sm w-100" style="border-radius: 20px;">
+                                        ⚙️ Utility Tools
+                                    </a>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-## Featured Projects
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-    {% for post in site.posts %}
-    {% if post.is_project == true %}
-    <div class="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow p-6">
-        <h3 class="text-xl font-semibold mb-2">{{ post.title }}</h3>
-        <p class="text-gray-600 mb-4">{{ post.description | truncate: 100 }}</p>
-        <div class="flex gap-4">
-            <a href="{{ post.url | relative_url }}" class="text-blue-600 hover:underline">Read More</a>
-            <a href="/projects/{{ post.title | slugify }}/" class="text-blue-600 hover:underline">Try It</a>
+            <!-- Data Analytics Projects -->
+            <div class="card mb-3"
+                style="border: none; border-radius: 15px; background: linear-gradient(135deg, rgba(240, 147, 251, 0.1) 0%, rgba(245, 87, 108, 0.1) 100%);">
+                <div class="card-body p-3">
+                    <div class="row align-items-center">
+                        <div class="col-md-2 text-center mb-3 mb-md-0">
+                            <div
+                                style="width: 80px; height: 80px; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; margin: 0 auto;">
+                                📈
+                            </div>
+                        </div>
+                        <div class="col-md-10">
+                            <h4 class="mb-1" style="color: #ec4899;">📊 Data Analytics Projects</h4>
+                            <p class="mb-3" style="color: var(--text-color);">
+                                Comprehensive analysis projects that transform raw data into actionable insights.
+                            </p>
+                            <div class="row">
+                                <div class="col-md-5 mb-2">
+                                    <a href="/projects/data-analyst-projects/project-1-customer-shopping-trends-analysis/"
+                                        class="btn btn-outline-danger btn-sm w-100" style="border-radius: 20px;">
+                                        🛒 Customer Shopping Trends
+                                    </a>
+                                </div>
+                                <div class="col-md-4 mb-2">
+                                    <a href="/projects/data-analyst-projects/food-delivery-analytics/"
+                                        class="btn btn-outline-danger btn-sm w-100" style="border-radius: 20px;">
+                                        📊 Food Delivery Analytics
+                                    </a>
+                                </div>
+                                <!-- <div class="col-md-4 mb-2">
+                                    <a href="https://github.com/uhsnavihs23/statistical-models"
+                                        class="btn btn-outline-danger btn-sm w-100" style="border-radius: 20px;">
+                                        🔬 Statistical Modeling
+                                    </a>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Academic Projects -->
+            <div class="card mb-3"
+                style="border: none; border-radius: 15px; background: linear-gradient(135deg, rgba(79, 172, 254, 0.1) 0%, rgba(0, 242, 254, 0.1) 100%);">
+                <div class="card-body p-3">
+                    <div class="row align-items-center">
+                        <div class="col-md-2 text-center mb-3 mb-md-0">
+                            <div
+                                style="width: 80px; height: 80px; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; margin: 0 auto;">
+                                🎓
+                            </div>
+                        </div>
+                        <div class="col-md-10">
+                            <h4 class="mb-1" style="color: #10b981;">🎓 Academic Projects</h4>
+                            <p class="mb-3" style="color: var(--text-color);">
+                                Projects completed as part of my academic journey.
+                            </p>
+                            <!-- <div class="row">
+                                <div class="col-md-4 mb-2">
+                                    <a href="https://github.com/uhsnavihs23/research-papers"
+                                        class="btn btn-outline-info btn-sm w-100" style="border-radius: 20px;">
+                                        📄 Research Papers
+                                    </a>
+                                </div>
+                                <div class="col-md-4 mb-2">
+                                    <a href="https://github.com/uhsnavihs23/algorithms"
+                                        class="btn btn-outline-info btn-sm w-100" style="border-radius: 20px;">
+                                        🔧 Algorithm Implementation
+                                    </a>
+                                </div>
+                                <div class="col-md-4 mb-2">
+                                    <a href="https://github.com/uhsnavihs23/course-projects"
+                                        class="btn btn-outline-info btn-sm w-100" style="border-radius: 20px;">
+                                        📚 Course Projects
+                                    </a>
+                                </div>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Other Projects
+            <div class="card mb-5"
+                style="border: none; border-radius: 15px; background: linear-gradient(135deg, rgba(250, 112, 154, 0.1) 0%, rgba(254, 225, 64, 0.1) 100%);">
+                <div class="card-body p-4">
+                    <div class="row align-items-center">
+                        <div class="col-md-2 text-center mb-3 mb-md-0">
+                            <div
+                                style="width: 80px; height: 80px; background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; margin: 0 auto;">
+                                🛠️
+                            </div>
+                        </div>
+                        <div class="col-md-10">
+                            <h3 class="mb-3" style="color: #f59e0b;">🔧 Other Projects</h3>
+                            <p class="mb-3" style="color: var(--text-color);">
+                                Miscellaneous projects that don't fit into the above categories but showcase versatility
+                                and problem-solving skills. From utility tools to experimental applications.
+                            </p>
+                            <div class="row">
+                                <div class="col-md-4 mb-2">
+                                    <a href="https://github.com/uhsnavihs23/news-app"
+                                        class="btn btn-outline-warning btn-sm w-100" style="border-radius: 20px;">
+                                        📰 News Headlines App
+                                    </a>
+                                </div>
+                                <div class="col-md-4 mb-2">
+                                    <a href="https://github.com/uhsnavihs23/book-explorer"
+                                        class="btn btn-outline-warning btn-sm w-100" style="border-radius: 20px;">
+                                        📚 Book Explorer
+                                    </a>
+                                </div>
+                                <div class="col-md-4 mb-2">
+                                    <a href="https://github.com/uhsnavihs23/utility-tools"
+                                        class="btn btn-outline-warning btn-sm w-100" style="border-radius: 20px;">
+                                        ⚙️ Utility Tools
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+ -->
+            <!-- Connect Section
+            <div class="text-center mb-5">
+                <h3 class="mb-4">📬 Let's Connect</h3>
+
+                <div class="d-flex justify-content-center gap-3 flex-wrap">
+                    <a href="https://github.com/uhsnavihs23" class="btn btn-lg me-2 mb-2"
+                        style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border: none; border-radius: 8px; color: white;">
+                        🐙 GitHub
+                    </a>
+                    <a href="shivanshu.sharma2302@gmail.com" class="btn btn-lg me-2 mb-2"
+                        style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); border: none; border-radius: 8px; color: white;">
+                        📧 Email
+                    </a>
+                    <a href="https://www.linkedin.com/in/shivanshu-sharma-2302/" class="btn btn-lg me-2 mb-2"
+                        style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); border: none; border-radius: 8px; color: white;">
+                        💼 LinkedIn
+                    </a>
+                </div>
+            </div> -->
         </div>
     </div>
-    {% endif %}
-    {% endfor %}
 </div>
 
-## Recent Blog Posts
-{% for post in site.posts %}
-{% unless post.is_project == true %}
-<article>
-    <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
-    <p>{{ post.excerpt | strip_html | truncate: 150 }}</p>
-</article>
-{% endunless %}
-{% endfor %}
+<style>
+    .card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn {
+        transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    @media (max-width: 768px) {
+        .d-flex.justify-content-center {
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+</style>
