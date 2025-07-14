@@ -65,7 +65,7 @@ permalink: /about/
         <li>Advanced Excel</li>
       </ul>
 
-      <h2 class="text-xl font-semibold mb-2"><i class="fas fa-briefcase mr-2"></i> Experience</h2>
+      <!-- <h2 class="text-xl font-semibold mb-2"><i class="fas fa-briefcase mr-2"></i> Experience</h2>
       <ul class="list-disc pl-6 mb-4">
         <li>
           <strong>NwN, Strategy & Management Consultant</strong><br>
@@ -169,6 +169,6 @@ permalink: /about/
         <li>Educating Underprivileged Children, Nyasa, IIT GN</li>
         <li>Blood Donation Camp, Gujarat Cancer & Research Institute</li>
       </ul>
-    </div>
+    </div> -->
   </div>
 </div>
