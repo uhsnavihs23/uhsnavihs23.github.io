@@ -126,9 +126,7 @@ defaults:
   - scope:
       path: ""
     values:
-      head: custom-head
-      footer: custom-footer
-      logo: custom-logo
+      layout: default
 sass:
   sass_dir: assets/css
   style: compressed
