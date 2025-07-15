@@ -18,4 +18,4 @@ A powerful web application for editing and converting images.
 - Download as PNG, JPEG, WebP, GIF or PDF.
 - Real-time preview of uploaded and converted images.
 
-**Live Demo**: [Try it here](/projects/image-filter-app/)
+**Live Demo**: **[Try it here](/projects/image-filter-app/)**

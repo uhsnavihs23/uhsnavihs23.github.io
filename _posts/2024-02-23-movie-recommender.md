@@ -6,8 +6,9 @@ is_project: true
 description: A web app to explore movies by genre with posters and descriptions, powered by The Movie Database API.
 permalink: /posts/movie-recommender/
 ---
+<br>
+Explore this interactive movie recommender! Select a genre and discover top movies with posters and descriptions, powered by The Movie Database API.
 
-Explore my interactive movie recommender! Select a genre and discover top movies with posters and descriptions, powered by The Movie Database API.
-
-**Live Demo**: [Try it Now](/projects/movie-recommender/)  
+**Live Demo**: **[Try it Now](/projects/movie-recommender/)** 
+<br><br>
 ![Movie Recommender]({{ site.baseurl }}/assets/img/movie_recommender.png)
