@@ -1,30 +1,32 @@
 <!DOCTYPE html>
-<!-- saved from url=(0121)file:///Users/shivanshusharma/Documents/Personal/Projects/Energy/Campus%20Energy%20Analytics%20-%20IIT%20Gandhinagar.html -->
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html lang="en">
 
-<meta content="width=device-width, initial-scale=1.0" name="viewport">
-<title>Campus Energy Analytics - IIT Gandhinagar</title>
-<script src="./Campus_energy_analytics-IIT Gandhinagar_files/chart.min.js"></script>
-<script src="./Campus_energy_analytics-IIT Gandhinagar_files/lucide.js"></script>
-<style>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Campus Energy Analytics - IIT Gandhinagar</title>
+    <script src="./Campus_energy_analytics-IIT Gandhinagar_files/chart.min.js"></script>
+    <script src="./Campus_energy_analytics-IIT Gandhinagar_files/lucide.js"></script>
+    <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background-color: #f9fafb;
             min-height: 100vh;
         }
-        
+
         .header {
             background: white;
             border-bottom: 1px solid #e5e7eb;
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         }
-        
+
         .header-content {
             max-width: 1280px;
             margin: 0 auto;
@@ -33,19 +35,19 @@
             justify-content: space-between;
             align-items: center;
         }
-        
+
         .header h1 {
             font-size: 1.5rem;
             font-weight: bold;
             color: #111827;
             margin-bottom: 0.25rem;
         }
-        
+
         .header p {
             font-size: 0.875rem;
             color: #6b7280;
         }
-        
+
         .header-badge {
             display: flex;
             align-items: center;
@@ -53,19 +55,19 @@
             font-size: 0.875rem;
             font-weight: 500;
         }
-        
+
         .container {
             max-width: 1280px;
             margin: 0 auto;
             padding: 1.5rem;
         }
-        
+
         .tabs {
             display: flex;
             gap: 0.25rem;
             margin-bottom: 1.5rem;
         }
-        
+
         .tab {
             display: flex;
             align-items: center;
@@ -77,29 +79,29 @@
             transition: all 0.2s;
             border: 1px solid transparent;
         }
-        
+
         .tab.active {
             background-color: #dbeafe;
             color: #1d4ed8;
             border-color: #bfdbfe;
         }
-        
+
         .tab:not(.active) {
             color: #6b7280;
         }
-        
+
         .tab:not(.active):hover {
             color: #111827;
             background-color: #f3f4f6;
         }
-        
+
         .kpi-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 1rem;
             margin-bottom: 1.5rem;
         }
-        
+
         .kpi-card {
             background: white;
             padding: 1rem;
@@ -107,68 +109,68 @@
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
             border: 1px solid #e5e7eb;
         }
-        
+
         .kpi-header {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
         }
-        
+
         .kpi-title {
             font-size: 0.875rem;
             color: #6b7280;
             margin-bottom: 0.25rem;
         }
-        
+
         .kpi-value {
             font-size: 1.5rem;
             font-weight: bold;
             margin-bottom: 0.25rem;
         }
-        
+
         .kpi-subtitle {
             font-size: 0.75rem;
             color: #9ca3af;
         }
-        
+
         .kpi-trend {
             font-size: 0.875rem;
             font-weight: 500;
             color: #059669;
         }
-        
+
         .chart-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
             gap: 1.5rem;
             margin-bottom: 1.5rem;
         }
-        
+
         .chart-card {
             background: white;
             padding: 1.5rem;
             border-radius: 0.5rem;
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         }
-        
+
         .chart-title {
             font-size: 1.125rem;
             font-weight: 600;
             margin-bottom: 1rem;
         }
-        
+
         .chart-container {
             position: relative;
             height: 300px;
         }
-        
+
         .recommendations-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
             gap: 1.5rem;
             margin-bottom: 1.5rem;
         }
-        
+
         .recommendation-card {
             background: white;
             padding: 1.5rem;
@@ -176,17 +178,17 @@
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
             transition: box-shadow 0.2s;
         }
-        
+
         .recommendation-card:hover {
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
-        
+
         .rec-header {
             display: flex;
             align-items: center;
             margin-bottom: 0.75rem;
         }
-        
+
         .rec-icon {
             width: 2rem;
             height: 2rem;
@@ -197,318 +199,346 @@
             justify-content: center;
             margin-right: 0.75rem;
         }
-        
+
         .rec-title {
             font-size: 1.125rem;
             font-weight: 600;
         }
-        
+
         .rec-description {
             color: #6b7280;
             margin-bottom: 1rem;
         }
-        
+
         .rec-details {
             display: flex;
             flex-direction: column;
             gap: 0.5rem;
         }
-        
+
         .rec-detail {
             display: flex;
             justify-content: space-between;
         }
-        
+
         .rec-detail-label {
             font-size: 0.875rem;
             font-weight: 500;
         }
-        
+
         .rec-detail-value {
             font-size: 0.875rem;
         }
-        
+
         .warning-card {
             background-color: #fefce8;
             border: 1px solid #fde047;
             padding: 1.5rem;
             border-radius: 0.5rem;
         }
-        
+
         .warning-header {
             display: flex;
             align-items: center;
             margin-bottom: 0.75rem;
         }
-        
+
         .warning-title {
             font-size: 1.125rem;
             font-weight: 600;
             color: #92400e;
             margin-left: 0.5rem;
         }
-        
+
         .warning-list {
             list-style: none;
             color: #92400e;
         }
-        
+
         .warning-list li {
             margin-bottom: 0.5rem;
         }
-        
+
         .hidden {
             display: none !important;
         }
-        
+
         .intro-card {
             background: linear-gradient(to right, #eff6ff, #f0fdf4);
             padding: 1.5rem;
             border-radius: 0.5rem;
             margin-bottom: 1.5rem;
         }
-        
+
         .intro-title {
             font-size: 1.25rem;
             font-weight: 600;
             margin-bottom: 0.5rem;
         }
-        
+
         .intro-description {
             color: #6b7280;
         }
-        
-        .color-blue { color: #2563eb; }
-        .color-green { color: #059669; }
-        .color-red { color: #dc2626; }
-        .color-yellow { color: #d97706; }
+
+        .color-blue {
+            color: #2563eb;
+        }
+
+        .color-green {
+            color: #059669;
+        }
+
+        .color-red {
+            color: #dc2626;
+        }
+
+        .color-yellow {
+            color: #d97706;
+        }
     </style>
 </head>
+
 <body>
-<div class="header">
-<div class="header-content">
-<div>
-<h1>IIT Gandhinagar Campus Energy Dashboard</h1>
-<p>An end-to-end analysis of electricity consumption trends and optimization strategies (Oct 2019 – Jan 2022)</p>
-</div>
-<div class="header-badge">
-<i class="w-5 h-5" data-lucide="lightbulb" style="color: #eab308;"></i>
-<span>28 Months Data Analysis</span>
-</div>
-</div>
-</div>
-<div class="container">
-<div class="tabs">
-<div class="tab active" data-tab="overview">
-<i data-lucide="trending-up"></i>
-<span>Overview</span>
-</div>
-<div class="tab" data-tab="analysis">
-<i data-lucide="bar-chart"></i>
-<span>Deep-Dive Analysis</span>
-</div>
-<div class="tab" data-tab="recommendations">
-<i data-lucide="target"></i>
-<span>Recommendations</span>
-</div>
-</div>
-<!-- Overview Tab -->
-<div class="tab-content" id="overview-content">
-<div class="kpi-grid">
-<div class="kpi-card">
-<div class="kpi-header">
-<div>
-<div class="kpi-title">Total Consumption</div>
-<div class="kpi-value color-blue">678 MWh</div>
-<div class="kpi-subtitle">Monthly Average</div>
-</div>
-<div class="kpi-trend">+11%</div>
-</div>
-</div>
-<div class="kpi-card">
-<div class="kpi-header">
-<div>
-<div class="kpi-title">Solar Contribution</div>
-<div class="kpi-value color-green">54 MWh</div>
-<div class="kpi-subtitle">8.5% of total</div>
-</div>
-<div class="kpi-trend">+2%</div>
-</div>
-</div>
-<div class="kpi-card">
-<div class="kpi-header">
-<div>
-<div class="kpi-title">Peak Month</div>
-<div class="kpi-value color-red">Oct-21</div>
-<div class="kpi-subtitle">925 MWh</div>
-</div>
-<div class="kpi-trend">Highest</div>
-</div>
-</div>
-<div class="kpi-card">
-<div class="kpi-header">
-<div>
-<div class="kpi-title">Efficiency Score</div>
-<div class="kpi-value color-yellow">72/100</div>
-<div class="kpi-subtitle">Room for improvement</div>
-</div>
-<div class="kpi-trend">+5%</div>
-</div>
-</div>
-</div>
-<div class="chart-grid">
-<div class="chart-card">
-<h3 class="chart-title">Consumption Distribution</h3>
-<div class="chart-container">
-<canvas id="pieChart" width="1112" height="600" style="display: block; box-sizing: border-box; height: 300px; width: 556px;"></canvas>
-</div>
-</div>
-<div class="chart-card">
-<h3 class="chart-title">Monthly Consumption Trend</h3>
-<div class="chart-container">
-<canvas id="lineChart" width="1112" height="600" style="display: block; box-sizing: border-box; height: 300px; width: 556px;"></canvas>
-</div>
-</div>
-</div>
-</div>
-<!-- Analysis Tab -->
-<div class="tab-content hidden" id="analysis-content">
-<div class="chart-card">
-<h3 class="chart-title">Energy Usage Trends and Forecasting</h3>
-<div class="chart-container" style="height: 400px;">
-<canvas id="areaChart" height="800" style="display: block; box-sizing: border-box; height: 400px; width: 1184px;" width="2368"></canvas>
-</div>
-</div>
-<div class="chart-grid">
-<div class="chart-card">
-<h3 class="chart-title">Solar Energy Contribution</h3>
-<div class="chart-container">
-<canvas id="solarChart" height="600" style="display: block; box-sizing: border-box; height: 300px; width: 556px;" width="1112"></canvas>
-</div>
-</div>
-<div class="chart-card">
-<h3 class="chart-title">Future Consumption Forecast</h3>
-<div class="chart-container">
-<canvas id="forecastChart" height="600" style="display: block; box-sizing: border-box; height: 300px; width: 556px;" width="1112"></canvas>
-</div>
-</div>
-</div>
-</div>
-<!-- Recommendations Tab -->
-<div class="tab-content hidden" id="recommendations-content">
-<div class="intro-card">
-<h3 class="intro-title">Optimization Recommendations</h3>
-<p class="intro-description">Based on comprehensive analysis of 28 months of consumption data</p>
-</div>
-<div class="recommendations-grid">
-<div class="recommendation-card">
-<div class="rec-header">
-<div class="rec-icon">
-<i data-lucide="zap"></i>
-</div>
-<h4 class="rec-title">Solar Panel Installation</h4>
-</div>
-<p class="rec-description">Install additional solar panels on hostel rooftops</p>
-<div class="rec-details">
-<div class="rec-detail">
-<span class="rec-detail-label">Impact:</span>
-<span class="rec-detail-value" style="color: #059669;">Potential 3x increase in solar output (7.5 MWh/month)</span>
-</div>
-<div class="rec-detail">
-<span class="rec-detail-label">Payback Period:</span>
-<span class="rec-detail-value">5-6 years</span>
-</div>
-<div class="rec-detail">
-<span class="rec-detail-label">Annual Savings:</span>
-<span class="rec-detail-value" style="color: #059669; font-weight: 500;">₹15-20 lakhs annually</span>
-</div>
-</div>
-</div>
-<div class="recommendation-card">
-<div class="rec-header">
-<div class="rec-icon">
-<i data-lucide="target"></i>
-</div>
-<h4 class="rec-title">AC Temperature Optimization</h4>
-</div>
-<p class="rec-description">Set AC to 28°C in hostels, 25-26°C in academic blocks</p>
-<div class="rec-details">
-<div class="rec-detail">
-<span class="rec-detail-label">Impact:</span>
-<span class="rec-detail-value" style="color: #059669;">15-20% reduction in cooling consumption</span>
-</div>
-<div class="rec-detail">
-<span class="rec-detail-label">Payback Period:</span>
-<span class="rec-detail-value">Immediate</span>
-</div>
-<div class="rec-detail">
-<span class="rec-detail-label">Annual Savings:</span>
-<span class="rec-detail-value" style="color: #059669; font-weight: 500;">₹8-12 lakhs annually</span>
-</div>
-</div>
-</div>
-<div class="recommendation-card">
-<div class="rec-header">
-<div class="rec-icon">
-<i data-lucide="building"></i>
-</div>
-<h4 class="rec-title">Smart Thermostat Implementation</h4>
-</div>
-<p class="rec-description">Install programmable thermostats for adaptive control</p>
-<div class="rec-details">
-<div class="rec-detail">
-<span class="rec-detail-label">Impact:</span>
-<span class="rec-detail-value" style="color: #059669;">10-15% overall energy savings</span>
-</div>
-<div class="rec-detail">
-<span class="rec-detail-label">Payback Period:</span>
-<span class="rec-detail-value">2-3 years</span>
-</div>
-<div class="rec-detail">
-<span class="rec-detail-label">Annual Savings:</span>
-<span class="rec-detail-value" style="color: #059669; font-weight: 500;">₹5-8 lakhs annually</span>
-</div>
-</div>
-</div>
-<div class="recommendation-card">
-<div class="rec-header">
-<div class="rec-icon">
-<i data-lucide="award"></i>
-</div>
-<h4 class="rec-title">Occupancy-Based Room Design</h4>
-</div>
-<p class="rec-description">Prioritize triple rooms over single rooms in new construction</p>
-<div class="rec-details">
-<div class="rec-detail">
-<span class="rec-detail-label">Impact:</span>
-<span class="rec-detail-value" style="color: #059669;">25-30% per capita energy reduction</span>
-</div>
-<div class="rec-detail">
-<span class="rec-detail-label">Payback Period:</span>
-<span class="rec-detail-value">Long-term</span>
-</div>
-<div class="rec-detail">
-<span class="rec-detail-label">Annual Savings:</span>
-<span class="rec-detail-value" style="color: #059669; font-weight: 500;">₹10-15 lakhs annually</span>
-</div>
-</div>
-</div>
-</div>
-<div class="warning-card">
-<div class="warning-header">
-<i data-lucide="alert-triangle" style="color: #d97706;"></i>
-<h4 class="warning-title">Key Findings</h4>
-</div>
-<ul class="warning-list">
-<li>• Power consumption is projected to double in 6 years with current growth rate</li>
-<li>• 90% of energy consumption comes from hostels, academic buildings, and chiller plant</li>
-<li>• Solar contribution averages only 8.5% - significant room for improvement</li>
-<li>• Peak consumption occurs during October (post-summer break)</li>
-</ul>
-</div>
-</div>
-</div>
-<script>
+    <div class="header">
+        <div class="header-content">
+            <div>
+                <h1>IIT Gandhinagar Campus Energy Dashboard</h1>
+                <p>An end-to-end analysis of electricity consumption trends and optimization strategies (Oct 2019 – Jan
+                    2022)</p>
+            </div>
+            <div class="header-badge">
+                <i class="w-5 h-5" data-lucide="lightbulb" style="color: #eab308;"></i>
+                <span>28 Months Data Analysis</span>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="tabs">
+            <div class="tab active" data-tab="overview">
+                <i data-lucide="trending-up"></i>
+                <span>Overview</span>
+            </div>
+            <div class="tab" data-tab="analysis">
+                <i data-lucide="bar-chart"></i>
+                <span>Deep-Dive Analysis</span>
+            </div>
+            <div class="tab" data-tab="recommendations">
+                <i data-lucide="target"></i>
+                <span>Recommendations</span>
+            </div>
+        </div>
+        <!-- Overview Tab -->
+        <div class="tab-content" id="overview-content">
+            <div class="kpi-grid">
+                <div class="kpi-card">
+                    <div class="kpi-header">
+                        <div>
+                            <div class="kpi-title">Total Consumption</div>
+                            <div class="kpi-value color-blue">678 MWh</div>
+                            <div class="kpi-subtitle">Monthly Average</div>
+                        </div>
+                        <div class="kpi-trend">+11%</div>
+                    </div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-header">
+                        <div>
+                            <div class="kpi-title">Solar Contribution</div>
+                            <div class="kpi-value color-green">54 MWh</div>
+                            <div class="kpi-subtitle">8.5% of total</div>
+                        </div>
+                        <div class="kpi-trend">+2%</div>
+                    </div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-header">
+                        <div>
+                            <div class="kpi-title">Peak Month</div>
+                            <div class="kpi-value color-red">Oct-21</div>
+                            <div class="kpi-subtitle">925 MWh</div>
+                        </div>
+                        <div class="kpi-trend">Highest</div>
+                    </div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-header">
+                        <div>
+                            <div class="kpi-title">Efficiency Score</div>
+                            <div class="kpi-value color-yellow">72/100</div>
+                            <div class="kpi-subtitle">Room for improvement</div>
+                        </div>
+                        <div class="kpi-trend">+5%</div>
+                    </div>
+                </div>
+            </div>
+            <div class="chart-grid">
+                <div class="chart-card">
+                    <h3 class="chart-title">Consumption Distribution</h3>
+                    <div class="chart-container">
+                        <canvas id="pieChart" width="1112" height="600"
+                            style="display: block; box-sizing: border-box; height: 300px; width: 556px;"></canvas>
+                    </div>
+                </div>
+                <div class="chart-card">
+                    <h3 class="chart-title">Monthly Consumption Trend</h3>
+                    <div class="chart-container">
+                        <canvas id="lineChart" width="1112" height="600"
+                            style="display: block; box-sizing: border-box; height: 300px; width: 556px;"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Analysis Tab -->
+        <div class="tab-content hidden" id="analysis-content">
+            <div class="chart-card">
+                <h3 class="chart-title">Energy Usage Trends and Forecasting</h3>
+                <div class="chart-container" style="height: 400px;">
+                    <canvas id="areaChart" height="800"
+                        style="display: block; box-sizing: border-box; height: 400px; width: 1184px;"
+                        width="2368"></canvas>
+                </div>
+            </div>
+            <div class="chart-grid">
+                <div class="chart-card">
+                    <h3 class="chart-title">Solar Energy Contribution</h3>
+                    <div class="chart-container">
+                        <canvas id="solarChart" height="600"
+                            style="display: block; box-sizing: border-box; height: 300px; width: 556px;"
+                            width="1112"></canvas>
+                    </div>
+                </div>
+                <div class="chart-card">
+                    <h3 class="chart-title">Future Consumption Forecast</h3>
+                    <div class="chart-container">
+                        <canvas id="forecastChart" height="600"
+                            style="display: block; box-sizing: border-box; height: 300px; width: 556px;"
+                            width="1112"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Recommendations Tab -->
+        <div class="tab-content hidden" id="recommendations-content">
+            <div class="intro-card">
+                <h3 class="intro-title">Optimization Recommendations</h3>
+                <p class="intro-description">Based on comprehensive analysis of 28 months of consumption data</p>
+            </div>
+            <div class="recommendations-grid">
+                <div class="recommendation-card">
+                    <div class="rec-header">
+                        <div class="rec-icon">
+                            <i data-lucide="zap"></i>
+                        </div>
+                        <h4 class="rec-title">Solar Panel Installation</h4>
+                    </div>
+                    <p class="rec-description">Install additional solar panels on hostel rooftops</p>
+                    <div class="rec-details">
+                        <div class="rec-detail">
+                            <span class="rec-detail-label">Impact:</span>
+                            <span class="rec-detail-value" style="color: #059669;">Potential 3x increase in solar output
+                                (7.5 MWh/month)</span>
+                        </div>
+                        <div class="rec-detail">
+                            <span class="rec-detail-label">Payback Period:</span>
+                            <span class="rec-detail-value">5-6 years</span>
+                        </div>
+                        <div class="rec-detail">
+                            <span class="rec-detail-label">Annual Savings:</span>
+                            <span class="rec-detail-value" style="color: #059669; font-weight: 500;">₹15-20 lakhs
+                                annually</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="recommendation-card">
+                    <div class="rec-header">
+                        <div class="rec-icon">
+                            <i data-lucide="target"></i>
+                        </div>
+                        <h4 class="rec-title">AC Temperature Optimization</h4>
+                    </div>
+                    <p class="rec-description">Set AC to 28°C in hostels, 25-26°C in academic blocks</p>
+                    <div class="rec-details">
+                        <div class="rec-detail">
+                            <span class="rec-detail-label">Impact:</span>
+                            <span class="rec-detail-value" style="color: #059669;">15-20% reduction in cooling
+                                consumption</span>
+                        </div>
+                        <div class="rec-detail">
+                            <span class="rec-detail-label">Payback Period:</span>
+                            <span class="rec-detail-value">Immediate</span>
+                        </div>
+                        <div class="rec-detail">
+                            <span class="rec-detail-label">Annual Savings:</span>
+                            <span class="rec-detail-value" style="color: #059669; font-weight: 500;">₹8-12 lakhs
+                                annually</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="recommendation-card">
+                    <div class="rec-header">
+                        <div class="rec-icon">
+                            <i data-lucide="building"></i>
+                        </div>
+                        <h4 class="rec-title">Smart Thermostat Implementation</h4>
+                    </div>
+                    <p class="rec-description">Install programmable thermostats for adaptive control</p>
+                    <div class="rec-details">
+                        <div class="rec-detail">
+                            <span class="rec-detail-label">Impact:</span>
+                            <span class="rec-detail-value" style="color: #059669;">10-15% overall energy savings</span>
+                        </div>
+                        <div class="rec-detail">
+                            <span class="rec-detail-label">Payback Period:</span>
+                            <span class="rec-detail-value">2-3 years</span>
+                        </div>
+                        <div class="rec-detail">
+                            <span class="rec-detail-label">Annual Savings:</span>
+                            <span class="rec-detail-value" style="color: #059669; font-weight: 500;">₹5-8 lakhs
+                                annually</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="recommendation-card">
+                    <div class="rec-header">
+                        <div class="rec-icon">
+                            <i data-lucide="award"></i>
+                        </div>
+                        <h4 class="rec-title">Occupancy-Based Room Design</h4>
+                    </div>
+                    <p class="rec-description">Prioritize triple rooms over single rooms in new construction</p>
+                    <div class="rec-details">
+                        <div class="rec-detail">
+                            <span class="rec-detail-label">Impact:</span>
+                            <span class="rec-detail-value" style="color: #059669;">25-30% per capita energy
+                                reduction</span>
+                        </div>
+                        <div class="rec-detail">
+                            <span class="rec-detail-label">Payback Period:</span>
+                            <span class="rec-detail-value">Long-term</span>
+                        </div>
+                        <div class="rec-detail">
+                            <span class="rec-detail-label">Annual Savings:</span>
+                            <span class="rec-detail-value" style="color: #059669; font-weight: 500;">₹10-15 lakhs
+                                annually</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="warning-card">
+                <div class="warning-header">
+                    <i data-lucide="alert-triangle" style="color: #d97706;"></i>
+                    <h4 class="warning-title">Key Findings</h4>
+                </div>
+                <ul class="warning-list">
+                    <li>• Power consumption is projected to double in 6 years with current growth rate</li>
+                    <li>• 90% of energy consumption comes from hostels, academic buildings, and chiller plant</li>
+                    <li>• Solar contribution averages only 8.5% - significant room for improvement</li>
+                    <li>• Peak consumption occurs during October (post-summer break)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script>
         // Data
         const rawData = [
             { month: 'Oct-19', torrent: 674640, solar: 52700, hostels: 160599, academic: 266269, chiller: 240733, street: 21105, treat: 40431, total: 727340 },
@@ -589,7 +619,7 @@
                         },
                         tooltip: {
                             callbacks: {
-                                label: function(context) {
+                                label: function (context) {
                                     return context.label + ': ' + context.parsed + ' MWh';
                                 }
                             }
@@ -624,7 +654,7 @@
                         },
                         tooltip: {
                             callbacks: {
-                                label: function(context) {
+                                label: function (context) {
                                     return context.parsed.y + ' MWh';
                                 }
                             }
@@ -634,7 +664,7 @@
                         y: {
                             beginAtZero: true,
                             ticks: {
-                                callback: function(value) {
+                                callback: function (value) {
                                     return value + ' MWh';
                                 }
                             }
@@ -694,7 +724,7 @@
                     plugins: {
                         tooltip: {
                             callbacks: {
-                                label: function(context) {
+                                label: function (context) {
                                     return context.dataset.label + ': ' + context.parsed.y + ' MWh';
                                 }
                             }
@@ -744,7 +774,7 @@
                         },
                         tooltip: {
                             callbacks: {
-                                label: function(context) {
+                                label: function (context) {
                                     return context.parsed.y + ' MWh';
                                 }
                             }
@@ -754,7 +784,7 @@
                         y: {
                             beginAtZero: true,
                             ticks: {
-                                callback: function(value) {
+                                callback: function (value) {
                                     return value + ' MWh';
                                 }
                             }
@@ -770,7 +800,7 @@
             const projectedValues = projectedYears.map((year, index) => {
                 return Math.round((baseValue * Math.pow(1.11, index + 1)) / 12);
             });
-            
+
             charts.forecast = new Chart(forecastCtx, {
                 type: 'line',
                 data: {
@@ -801,7 +831,7 @@
                     plugins: {
                         tooltip: {
                             callbacks: {
-                                label: function(context) {
+                                label: function (context) {
                                     if (context.parsed.y === null) return null;
                                     return context.dataset.label + ': ' + context.parsed.y + ' MWh';
                                 }
@@ -812,7 +842,7 @@
                         y: {
                             beginAtZero: true,
                             ticks: {
-                                callback: function(value) {
+                                callback: function (value) {
                                     return value + ' MWh';
                                 }
                             }
@@ -830,11 +860,11 @@
             tabs.forEach(tab => {
                 tab.addEventListener('click', () => {
                     const targetTab = tab.dataset.tab;
-                    
+
                     // Update active tab
                     tabs.forEach(t => t.classList.remove('active'));
                     tab.classList.add('active');
-                    
+
                     // Show corresponding content
                     contents.forEach(content => {
                         if (content.id === targetTab + '-content') {
@@ -857,19 +887,19 @@
         }
 
         // Initialize everything when page loads
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             // Initialize Lucide icons
             if (typeof lucide !== 'undefined') {
                 lucide.createIcons();
             }
-            
+
             // Initialize charts and tabs
             initCharts();
             initTabs();
         });
 
         // Handle window resize
-        window.addEventListener('resize', function() {
+        window.addEventListener('resize', function () {
             Object.values(charts).forEach(chart => {
                 if (chart && typeof chart.resize === 'function') {
                     chart.resize();
@@ -877,5 +907,8 @@
             });
         });
     </script>
-<div style="text-align: center; color: #6b7280; padding: 2rem 0; font-size: 0.8rem;">© Shivanshu Sharma | Campus Sustainability Initiative, IIT Gandhinagar</div>
-</body></html>
+    <div style="text-align: center; color: #6b7280; padding: 2rem 0; font-size: 0.8rem;">© Shivanshu Sharma | Campus
+        Sustainability Initiative, IIT Gandhinagar</div>
+</body>
+
+</html>
