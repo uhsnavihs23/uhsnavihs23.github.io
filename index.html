@@ -18,24 +18,17 @@ layout: default
     transition: opacity 0.5s ease;
     overflow: hidden;
 ">
-    <!-- Animated Background Particles -->
+    <!-- Simple Background Particles -->
     <div class="particles"></div>
-    <div class="particles2"></div>
-    <div class="particles3"></div>
 
-    <!-- Transformer Animation -->
+    <!-- Simple Cube Animation -->
     <div class="transformer-container" style="margin-bottom: 40px;">
         <div class="cube">
-            <div class="face front"></div>
-            <div class="face back"></div>
-            <div class="face right"></div>
-            <div class="face left"></div>
-            <div class="face top"></div>
-            <div class="face bottom"></div>
+            <div class="face"></div>
         </div>
     </div>
 
-    <!-- Dynamic Inspiring Quote -->
+    <!-- Dynamic Quote -->
     <div style="text-align: center; max-width: 600px; padding: 0 20px;">
         <h2 id="quote-text"
             style="color: #ff6b6b; font-weight: 300; margin: 0; font-size: 1.8rem; line-height: 1.4; text-shadow: 0 0 15px rgba(255, 107, 107, 0.4); transition: all 0.3s ease;">
@@ -205,151 +198,78 @@ layout: default
 </div>
 
 <style>
-    @keyframes spin {
-        0% {
-            transform: rotate(0deg);
-        }
-
-        100% {
-            transform: rotate(360deg);
-        }
-    }
-
-    /* Optimized Animated Particles Background */
-    .particles,
-    .particles2,
-    .particles3 {
+    /* Simplified and lighter particle animation */
+    .particles {
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        background: transparent;
-        will-change: transform;
-    }
-
-    .particles {
-        background-image:
-            radial-gradient(3px 3px at 20px 30px, #ff6b6b, transparent),
-            radial-gradient(2px 2px at 40px 70px, rgba(255, 217, 61, 0.8), transparent),
-            radial-gradient(1px 1px at 90px 40px, #26d0ce, transparent);
+        background: radial-gradient(2px 2px at 20px 30px, #ff6b6b, transparent),
+            radial-gradient(1px 1px at 40px 70px, #ffd93d, transparent);
         background-repeat: repeat;
-        background-size: 200px 100px;
-        animation: animateParticles 30s linear infinite;
+        background-size: 300px 200px;
+        animation: simpleParticles 20s linear infinite;
+        opacity: 0.6;
     }
 
-    .particles2 {
-        background-image:
-            radial-gradient(2px 2px at 10px 10px, #ffd93d, transparent),
-            radial-gradient(1px 1px at 30px 60px, rgba(38, 208, 206, 0.7), transparent);
-        background-repeat: repeat;
-        background-size: 180px 120px;
-        animation: animateParticles 45s linear infinite;
-    }
-
-    .particles3 {
-        background-image:
-            radial-gradient(1px 1px at 75px 125px, #a8e6cf, transparent),
-            radial-gradient(2px 2px at 100px 75px, rgba(255, 217, 61, 0.6), transparent);
-        background-repeat: repeat;
-        background-size: 250px 150px;
-        animation: animateParticles 60s linear infinite;
-    }
-
-    @keyframes animateParticles {
+    @keyframes simpleParticles {
         from {
             transform: translateY(0px);
         }
 
         to {
-            transform: translateY(-500px);
+            transform: translateY(-200px);
         }
     }
 
-    /* Transformer Cube Animation */
+    /* Simplified cube animation */
     .transformer-container {
-        perspective: 1000px;
+        perspective: 400px;
     }
 
     .cube {
         position: relative;
-        width: 60px;
-        height: 60px;
-        transform-style: preserve-3d;
-        animation: transformCube 4s infinite ease-in-out;
-        will-change: transform;
+        width: 50px;
+        height: 50px;
+        animation: simpleCube 3s infinite ease-in-out;
     }
 
     .face {
         position: absolute;
-        width: 60px;
-        height: 60px;
-        background: linear-gradient(45deg, #ff6b6b, #ffd93d, #26d0ce);
+        width: 50px;
+        height: 50px;
+        background: linear-gradient(45deg, #ff6b6b, #ffd93d);
         border: 2px solid #ff6b6b;
-        box-shadow: 0 0 20px rgba(255, 107, 107, 0.5);
-        animation: colorShift 6s infinite ease-in-out;
-        will-change: background, border-color, box-shadow;
+        border-radius: 8px;
+        box-shadow: 0 0 15px rgba(255, 107, 107, 0.3);
+        animation: simpleColorShift 4s infinite ease-in-out;
     }
 
-    @keyframes colorShift {
+    @keyframes simpleColorShift {
         0% {
             background: linear-gradient(45deg, #ff6b6b, #ffd93d);
             border-color: #ff6b6b;
-            box-shadow: 0 0 20px rgba(255, 107, 107, 0.5);
         }
 
         50% {
             background: linear-gradient(45deg, #26d0ce, #a8e6cf);
             border-color: #26d0ce;
-            box-shadow: 0 0 20px rgba(38, 208, 206, 0.5);
         }
 
         100% {
             background: linear-gradient(45deg, #ff6b6b, #ffd93d);
             border-color: #ff6b6b;
-            box-shadow: 0 0 20px rgba(255, 107, 107, 0.5);
         }
     }
 
-    .front {
-        transform: rotateY(0deg) translateZ(30px);
-    }
-
-    .back {
-        transform: rotateY(180deg) translateZ(30px);
-    }
-
-    .right {
-        transform: rotateY(90deg) translateZ(30px);
-    }
-
-    .left {
-        transform: rotateY(-90deg) translateZ(30px);
-    }
-
-    .top {
-        transform: rotateX(90deg) translateZ(30px);
-    }
-
-    .bottom {
-        transform: rotateX(-90deg) translateZ(30px);
-    }
-
-    @keyframes transformCube {
+    @keyframes simpleCube {
         0% {
             transform: rotateX(0deg) rotateY(0deg) scale(1);
         }
 
-        25% {
-            transform: rotateX(90deg) rotateY(90deg) scale(0.8);
-        }
-
         50% {
-            transform: rotateX(180deg) rotateY(180deg) scale(1.2);
-        }
-
-        75% {
-            transform: rotateX(270deg) rotateY(270deg) scale(0.9);
+            transform: rotateX(180deg) rotateY(180deg) scale(0.8);
         }
 
         100% {
@@ -357,70 +277,46 @@ layout: default
         }
     }
 
-    /* Loading Dots Animation */
+    /* Simplified loading dots */
     .loading-dots {
         display: flex;
         justify-content: center;
-        gap: 8px;
+        gap: 6px;
     }
 
     .loading-dots span {
-        width: 12px;
-        height: 12px;
+        width: 8px;
+        height: 8px;
         background: #26d0ce;
         border-radius: 50%;
         display: inline-block;
-        animation: loadingDots 1.4s infinite ease-in-out both, dotColorShift 4s infinite ease-in-out;
-        box-shadow: 0 0 10px rgba(38, 208, 206, 0.5);
-        will-change: transform, background, box-shadow;
+        animation: simpleDots 1s infinite ease-in-out;
     }
 
     .loading-dots span:nth-child(1) {
-        animation-delay: -0.32s, 0s;
+        animation-delay: -0.3s;
     }
 
     .loading-dots span:nth-child(2) {
-        animation-delay: -0.16s, 1.33s;
+        animation-delay: -0.15s;
     }
 
     .loading-dots span:nth-child(3) {
-        animation-delay: 0s, 2.66s;
+        animation-delay: 0s;
     }
 
-    @keyframes loadingDots {
+    @keyframes simpleDots {
 
         0%,
         80%,
         100% {
-            transform: scale(0);
+            transform: scale(0.5);
             opacity: 0.5;
         }
 
         40% {
             transform: scale(1);
             opacity: 1;
-        }
-    }
-
-    @keyframes dotColorShift {
-        0% {
-            background: #ff6b6b;
-            box-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
-        }
-
-        33% {
-            background: #ffd93d;
-            box-shadow: 0 0 10px rgba(255, 217, 61, 0.5);
-        }
-
-        66% {
-            background: #26d0ce;
-            box-shadow: 0 0 10px rgba(38, 208, 206, 0.5);
-        }
-
-        100% {
-            background: #ff6b6b;
-            box-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
         }
     }
 
@@ -486,7 +382,7 @@ layout: default
 </style>
 
 <script>
-    // Quotes repository
+    // Reduced quotes for faster loading
     const quotes = [
         {
             text: "The future belongs to those who believe in the beauty of their dreams",
@@ -501,32 +397,12 @@ layout: default
             author: "Steve Jobs"
         },
         {
-            text: "Code is like humor. When you have to explain it, it's bad",
-            author: "Cory House"
-        },
-        {
             text: "First, solve the problem. Then, write the code",
             author: "John Johnson"
         },
         {
             text: "The best way to predict the future is to create it",
             author: "Peter Drucker"
-        },
-        {
-            text: "Any fool can write code that a computer can understand. Good programmers write code that humans can understand",
-            author: "Martin Fowler"
-        },
-        {
-            text: "Experience is the name everyone gives to their mistakes",
-            author: "Oscar Wilde"
-        },
-        {
-            text: "The most damaging phrase in the language is: 'We've always done it this way'",
-            author: "Grace Hopper"
-        },
-        {
-            text: "Logic will get you from A to B. Imagination will take you everywhere",
-            author: "Albert Einstein"
         }
     ];
 
@@ -567,19 +443,19 @@ layout: default
         // Set initial random quote
         updateQuote();
 
-        // Change quote every 3 seconds, but stop after loading completes
+        // Change quote every 4 seconds (less frequent)
         quoteInterval = setInterval(() => {
             if (!loadingComplete) {
                 updateQuote();
             }
-        }, 3000);
+        }, 4000);
     });
 
-    // Hide loading screen after page loads
+    // Hide loading screen after page loads - reduced time
     window.addEventListener('load', function () {
         const loadingScreen = document.getElementById('loading-screen');
 
-        // Add a small delay to show the animation
+        // Shorter delay to show content faster
         setTimeout(() => {
             loadingComplete = true;
 
@@ -594,6 +470,6 @@ layout: default
             setTimeout(() => {
                 loadingScreen.remove();
             }, 500);
-        }, 3000); // Show loading for 3 seconds
+        }, 1500); // Reduced from 3000ms to 1500ms
     });
 </script>
