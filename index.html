@@ -9,36 +9,21 @@ layout: default
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, #1a1a1a 0%, #2d1b69 30%, #11001c 70%, #0d0d0d 100%);
+    background: #1a1a1a;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     z-index: 9999;
-    transition: opacity 0.5s ease;
-    overflow: hidden;
+    transition: opacity 0.3s ease;
 ">
-    <!-- Simple Cube Animation -->
-    <div class="transformer-container" style="margin-bottom: 40px;">
-        <div class="cube">
-            <div class="face"></div>
-        </div>
-    </div>
-
-    <!-- Dynamic Quote -->
-    <div style="text-align: center; max-width: 600px; padding: 0 20px;">
-        <h2 id="quote-text"
-            style="color: #ff6b6b; font-weight: 300; margin: 0; font-size: 1.8rem; line-height: 1.4; text-shadow: 0 0 15px rgba(255, 107, 107, 0.4); transition: all 0.3s ease;">
-            "The future belongs to those who believe in the beauty of their dreams"
+    <!-- Simple Loading Text -->
+    <div style="text-align: center;">
+        <h2 style="color: #ff6b6b; font-weight: 300; margin: 0; font-size: 1.5rem;">
+            Loading Portfolio...
         </h2>
-        <p id="quote-author"
-            style="color: #ffd93d; margin-top: 15px; font-size: 1rem; font-style: italic; text-shadow: 0 0 10px rgba(255, 217, 61, 0.3); transition: all 0.3s ease;">
-            - Eleanor Roosevelt
-        </p>
-        <div class="loading-dots" style="margin-top: 20px;">
-            <span></span>
-            <span></span>
-            <span></span>
+        <div class="simple-loader" style="margin-top: 20px;">
+            <div></div>
         </div>
     </div>
 </div>
@@ -195,90 +180,28 @@ layout: default
 </div>
 
 <style>
-    /* Much lighter cube animation */
-    .transformer-container {
-        perspective: 400px;
-    }
-
-    .cube {
-        position: relative;
-        width: 40px;
-        height: 40px;
-        animation: lightCube 2s infinite ease-in-out;
-    }
-
-    .face {
-        position: absolute;
-        width: 40px;
-        height: 40px;
-        background: linear-gradient(45deg, #ff6b6b, #ffd93d);
-        border: 1px solid #ff6b6b;
-        border-radius: 6px;
-        animation: lightColorShift 3s infinite ease-in-out;
-    }
-
-    @keyframes lightColorShift {
-        0% {
-            background: linear-gradient(45deg, #ff6b6b, #ffd93d);
-        }
-
-        50% {
-            background: linear-gradient(45deg, #26d0ce, #a8e6cf);
-        }
-
-        100% {
-            background: linear-gradient(45deg, #ff6b6b, #ffd93d);
-        }
-    }
-
-    @keyframes lightCube {
-        0% {
-            transform: rotateY(0deg);
-        }
-
-        100% {
-            transform: rotateY(360deg);
-        }
-    }
-
-    /* Lighter loading dots */
-    .loading-dots {
+    /* Minimal loading animation */
+    .simple-loader {
         display: flex;
         justify-content: center;
-        gap: 6px;
     }
 
-    .loading-dots span {
-        width: 6px;
-        height: 6px;
-        background: #26d0ce;
+    .simple-loader div {
+        width: 20px;
+        height: 20px;
+        border: 2px solid #ff6b6b;
         border-radius: 50%;
-        display: inline-block;
-        animation: lightDots 1.2s infinite ease-in-out;
+        border-top: 2px solid transparent;
+        animation: spin 1s linear infinite;
     }
 
-    .loading-dots span:nth-child(1) {
-        animation-delay: -0.4s;
-    }
-
-    .loading-dots span:nth-child(2) {
-        animation-delay: -0.2s;
-    }
-
-    .loading-dots span:nth-child(3) {
-        animation-delay: 0s;
-    }
-
-    @keyframes lightDots {
-
-        0%,
-        80%,
-        100% {
-            transform: scale(0);
+    @keyframes spin {
+        0% {
+            transform: rotate(0deg);
         }
 
-        40% {
-            transform: scale(1);
+        100% {
+            transform: rotate(360deg);
         }
     }
 
@@ -344,52 +267,18 @@ layout: default
 </style>
 
 <script>
-    // Reduced quotes for faster loading
-    const quotes = [
-        {
-            text: "The future belongs to those who believe in the beauty of their dreams",
-            author: "Eleanor Roosevelt"
-        },
-        {
-            text: "The only way to do great work is to love what you do",
-            author: "Steve Jobs"
-        },
-        {
-            text: "First, solve the problem. Then, write the code",
-            author: "John Johnson"
-        }
-    ];
-
-    // Function to get random quote
-    function getRandomQuote() {
-        const randomIndex = Math.floor(Math.random() * quotes.length);
-        return quotes[randomIndex];
-    }
-
-    // Function to update quote with fade effect
-    function updateQuote() {
-        const quoteText = document.getElementById('quote-text');
-        const quoteAuthor = document.getElementById('quote-author');
-
-        if (quoteText && quoteAuthor) {
-            const newQuote = getRandomQuote();
-            quoteText.textContent = `"${newQuote.text}"`;
-            quoteAuthor.textContent = `- ${newQuote.author}`;
-        }
-    }
-
-    // Initialize and hide loading screen quickly
+    // Minimal loading script - show content immediately
     window.addEventListener('DOMContentLoaded', function () {
-        updateQuote();
-
-        // Much shorter loading time
+        // Very short loading time - almost instant
         setTimeout(() => {
             const loadingScreen = document.getElementById('loading-screen');
-            loadingScreen.style.opacity = '0';
+            if (loadingScreen) {
+                loadingScreen.style.opacity = '0';
 
-            setTimeout(() => {
-                loadingScreen.remove();
-            }, 300);
-        }, 800); // Very short delay
+                setTimeout(() => {
+                    loadingScreen.remove();
+                }, 200);
+            }
+        }, 300); // Show loading for only 300ms
     });
 </script>
