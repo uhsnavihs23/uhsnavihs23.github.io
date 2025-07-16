@@ -267,18 +267,35 @@ layout: default
 </style>
 
 <script>
-    // Minimal loading script - show content immediately
-    window.addEventListener('DOMContentLoaded', function () {
-        // Very short loading time - almost instant
-        setTimeout(() => {
-            const loadingScreen = document.getElementById('loading-screen');
-            if (loadingScreen) {
-                loadingScreen.style.opacity = '0';
+    // Function to remove loading screen
+    function removeLoadingScreen() {
+        const loadingScreen = document.getElementById('loading-screen');
+        if (loadingScreen) {
+            loadingScreen.style.opacity = '0';
+            setTimeout(() => {
+                loadingScreen.remove();
+            }, 200);
+        }
+    }
 
-                setTimeout(() => {
-                    loadingScreen.remove();
-                }, 200);
-            }
-        }, 300); // Show loading for only 300ms
+    // Primary method - DOMContentLoaded
+    document.addEventListener('DOMContentLoaded', function () {
+        setTimeout(removeLoadingScreen, 300);
+    });
+
+    // Failsafe 1 - If DOM is already loaded
+    if (document.readyState === 'loading') {
+        // DOM is still loading, DOMContentLoaded will fire
+    } else {
+        // DOM is already loaded
+        setTimeout(removeLoadingScreen, 300);
+    }
+
+    // Failsafe 2 - Maximum timeout (in case everything else fails)
+    setTimeout(removeLoadingScreen, 2000);
+
+    // Failsafe 3 - Window load event
+    window.addEventListener('load', function () {
+        setTimeout(removeLoadingScreen, 100);
     });
 </script>
