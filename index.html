@@ -267,35 +267,29 @@ layout: default
 </style>
 
 <script>
-    // Function to remove loading screen
-    function removeLoadingScreen() {
-        const loadingScreen = document.getElementById('loading-screen');
-        if (loadingScreen) {
-            loadingScreen.style.opacity = '0';
-            setTimeout(() => {
-                loadingScreen.remove();
-            }, 200);
+    // Immediate execution - no waiting for events
+    (function () {
+        function removeLoadingScreen() {
+            const loadingScreen = document.getElementById('loading-screen');
+            if (loadingScreen) {
+                loadingScreen.style.opacity = '0';
+                setTimeout(() => {
+                    loadingScreen.remove();
+                }, 200);
+            }
         }
-    }
 
-    // Primary method - DOMContentLoaded
-    document.addEventListener('DOMContentLoaded', function () {
-        setTimeout(removeLoadingScreen, 300);
-    });
+        // Execute immediately
+        setTimeout(removeLoadingScreen, 500);
 
-    // Failsafe 1 - If DOM is already loaded
-    if (document.readyState === 'loading') {
-        // DOM is still loading, DOMContentLoaded will fire
-    } else {
-        // DOM is already loaded
-        setTimeout(removeLoadingScreen, 300);
-    }
+        // Multiple failsafes
+        setTimeout(removeLoadingScreen, 1000);
+        setTimeout(removeLoadingScreen, 2000);
+        setTimeout(removeLoadingScreen, 3000);
 
-    // Failsafe 2 - Maximum timeout (in case everything else fails)
-    setTimeout(removeLoadingScreen, 2000);
-
-    // Failsafe 3 - Window load event
-    window.addEventListener('load', function () {
-        setTimeout(removeLoadingScreen, 100);
-    });
+        // Try to remove as soon as possible
+        if (document.getElementById('loading-screen')) {
+            setTimeout(removeLoadingScreen, 100);
+        }
+    })();
 </script>
