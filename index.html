@@ -1,6 +1,58 @@
 ---
 layout: default
 ---
+
+<!-- Loading Screen -->
+<div id="loading-screen" style="
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d1b69 30%, #11001c 70%, #0d0d0d 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease;
+    overflow: hidden;
+">
+    <!-- Animated Background Particles -->
+    <div class="particles"></div>
+    <div class="particles2"></div>
+    <div class="particles3"></div>
+
+    <!-- Transformer Animation -->
+    <div class="transformer-container" style="margin-bottom: 40px;">
+        <div class="cube">
+            <div class="face front"></div>
+            <div class="face back"></div>
+            <div class="face right"></div>
+            <div class="face left"></div>
+            <div class="face top"></div>
+            <div class="face bottom"></div>
+        </div>
+    </div>
+
+    <!-- Dynamic Inspiring Quote -->
+    <div style="text-align: center; max-width: 600px; padding: 0 20px;">
+        <h2 id="quote-text"
+            style="color: #ff6b6b; font-weight: 300; margin: 0; font-size: 1.8rem; line-height: 1.4; text-shadow: 0 0 15px rgba(255, 107, 107, 0.4); transition: all 0.3s ease;">
+            "The future belongs to those who believe in the beauty of their dreams"
+        </h2>
+        <p id="quote-author"
+            style="color: #ffd93d; margin-top: 15px; font-size: 1rem; font-style: italic; text-shadow: 0 0 10px rgba(255, 217, 61, 0.3); transition: all 0.3s ease;">
+            - Eleanor Roosevelt
+        </p>
+        <div class="loading-dots" style="margin-top: 20px;">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+</div>
+
 <div class="container">
     <div class="row">
         <div class="col-12">
@@ -109,24 +161,24 @@ layout: default
 
             <!-- Academic Projects -->
             <div class="card mb-3"
-                style="border: none; border-radius: 15px; background: linear-gradient(135deg, rgba(176, 224, 230, 0.2) 0%, rgba(135, 206, 235, 0.2) 100%);">
+                style="border: none; border-radius: 15px; background: linear-gradient(135deg, rgba(165, 230, 210, 0.2) 0%, rgba(134, 199, 170, 0.2) 100%);">
                 <div class="card-body p-3">
                     <div class="row align-items-center">
                         <div class="col-md-2 text-center mb-3 mb-md-0">
                             <div
-                                style="width: 80px; height: 80px; background: linear-gradient(135deg, #b0e0e6 0%, #87ceeb 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; margin: 0 auto;">
+                                style="width: 80px; height: 80px; background: linear-gradient(135deg, #a5e6d2 0%, #86c7aa 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; margin: 0 auto;">
                                 🎓
                             </div>
                         </div>
                         <div class="col-md-10">
-                            <h4 class="mb-1" style="color: #89db52;"><b>Academic Projects</b></h4>
+                            <h4 class="mb-1" style="color: #059669;"><b>Academic Projects</b></h4>
                             <p class="mb-3" style="color: var(--text-color);">
                                 Projects completed as part of my academic journey.
                             </p>
 
                             <div class="row">
                                 <div class="col-md-5 mb-2">
-                                    <a href="/posts/electricity-analysis/" class="btn btn-sm w-100 btn-warm-green">
+                                    <a href="/posts/electricity-analysis/" class="btn btn-sm w-100 btn-warm-teal">
                                         ⚡ Campus Electricity Analysis
                                     </a>
                                 </div>
@@ -256,6 +308,237 @@ layout: default
 </div>
 
 <style>
+    @keyframes spin {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    /* Animated Particles Background */
+    .particles,
+    .particles2,
+    .particles3 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: transparent;
+    }
+
+    .particles {
+        background-image:
+            radial-gradient(3px 3px at 20px 30px, #ff6b6b, transparent),
+            radial-gradient(2px 2px at 40px 70px, rgba(255, 217, 61, 0.8), transparent),
+            radial-gradient(1px 1px at 90px 40px, #26d0ce, transparent),
+            radial-gradient(2px 2px at 130px 80px, rgba(255, 107, 107, 0.6), transparent),
+            radial-gradient(1px 1px at 160px 30px, #a8e6cf, transparent);
+        background-repeat: repeat;
+        background-size: 200px 100px;
+        animation: animateParticles 40s linear infinite;
+    }
+
+    .particles2 {
+        background-image:
+            radial-gradient(2px 2px at 10px 10px, #ffd93d, transparent),
+            radial-gradient(1px 1px at 30px 60px, rgba(38, 208, 206, 0.7), transparent),
+            radial-gradient(2px 2px at 110px 10px, #ff6b6b, transparent),
+            radial-gradient(1px 1px at 150px 60px, rgba(168, 230, 207, 0.5), transparent);
+        background-repeat: repeat;
+        background-size: 180px 120px;
+        animation: animateParticles 60s linear infinite;
+    }
+
+    .particles3 {
+        background-image:
+            radial-gradient(1px 1px at 75px 125px, #a8e6cf, transparent),
+            radial-gradient(2px 2px at 100px 75px, rgba(255, 217, 61, 0.6), transparent),
+            radial-gradient(1px 1px at 199px 100px, #26d0ce, transparent);
+        background-repeat: repeat;
+        background-size: 250px 150px;
+        animation: animateParticles 80s linear infinite;
+    }
+
+    @keyframes animateParticles {
+        from {
+            transform: translateY(0px) rotate(0deg);
+        }
+
+        to {
+            transform: translateY(-2000px) rotate(360deg);
+        }
+    }
+
+    /* Transformer Cube Animation */
+    .transformer-container {
+        perspective: 1000px;
+    }
+
+    .cube {
+        position: relative;
+        width: 60px;
+        height: 60px;
+        transform-style: preserve-3d;
+        animation: transformCube 3s infinite ease-in-out;
+    }
+
+    .face {
+        position: absolute;
+        width: 60px;
+        height: 60px;
+        background: linear-gradient(45deg, #ff6b6b, #ffd93d, #26d0ce);
+        border: 2px solid #ff6b6b;
+        box-shadow: 0 0 20px rgba(255, 107, 107, 0.5);
+        animation: colorShift 4s infinite ease-in-out;
+    }
+
+    @keyframes colorShift {
+        0% {
+            background: linear-gradient(45deg, #ff6b6b, #ffd93d);
+            border-color: #ff6b6b;
+            box-shadow: 0 0 20px rgba(255, 107, 107, 0.5);
+        }
+
+        33% {
+            background: linear-gradient(45deg, #ffd93d, #26d0ce);
+            border-color: #ffd93d;
+            box-shadow: 0 0 20px rgba(255, 217, 61, 0.5);
+        }
+
+        66% {
+            background: linear-gradient(45deg, #26d0ce, #a8e6cf);
+            border-color: #26d0ce;
+            box-shadow: 0 0 20px rgba(38, 208, 206, 0.5);
+        }
+
+        100% {
+            background: linear-gradient(45deg, #a8e6cf, #ff6b6b);
+            border-color: #a8e6cf;
+            box-shadow: 0 0 20px rgba(168, 230, 207, 0.5);
+        }
+    }
+
+    .front {
+        transform: rotateY(0deg) translateZ(30px);
+    }
+
+    .back {
+        transform: rotateY(180deg) translateZ(30px);
+    }
+
+    .right {
+        transform: rotateY(90deg) translateZ(30px);
+    }
+
+    .left {
+        transform: rotateY(-90deg) translateZ(30px);
+    }
+
+    .top {
+        transform: rotateX(90deg) translateZ(30px);
+    }
+
+    .bottom {
+        transform: rotateX(-90deg) translateZ(30px);
+    }
+
+    @keyframes transformCube {
+        0% {
+            transform: rotateX(0deg) rotateY(0deg) scale(1);
+        }
+
+        25% {
+            transform: rotateX(90deg) rotateY(90deg) scale(0.8);
+        }
+
+        50% {
+            transform: rotateX(180deg) rotateY(180deg) scale(1.2);
+        }
+
+        75% {
+            transform: rotateX(270deg) rotateY(270deg) scale(0.9);
+        }
+
+        100% {
+            transform: rotateX(360deg) rotateY(360deg) scale(1);
+        }
+    }
+
+    /* Loading Dots Animation */
+    .loading-dots {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+    }
+
+    .loading-dots span {
+        width: 12px;
+        height: 12px;
+        background: #26d0ce;
+        border-radius: 50%;
+        display: inline-block;
+        animation: loadingDots 1.4s infinite ease-in-out both, dotColorShift 3s infinite ease-in-out;
+        box-shadow: 0 0 10px rgba(38, 208, 206, 0.5);
+    }
+
+    .loading-dots span:nth-child(1) {
+        animation-delay: -0.32s, 0s;
+    }
+
+    .loading-dots span:nth-child(2) {
+        animation-delay: -0.16s, 1s;
+    }
+
+    .loading-dots span:nth-child(3) {
+        animation-delay: 0s, 2s;
+    }
+
+    @keyframes loadingDots {
+
+        0%,
+        80%,
+        100% {
+            transform: scale(0);
+            opacity: 0.5;
+        }
+
+        40% {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+
+    @keyframes dotColorShift {
+        0% {
+            background: #ff6b6b;
+            box-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
+        }
+
+        25% {
+            background: #ffd93d;
+            box-shadow: 0 0 10px rgba(255, 217, 61, 0.5);
+        }
+
+        50% {
+            background: #26d0ce;
+            box-shadow: 0 0 10px rgba(38, 208, 206, 0.5);
+        }
+
+        75% {
+            background: #a8e6cf;
+            box-shadow: 0 0 10px rgba(168, 230, 207, 0.5);
+        }
+
+        100% {
+            background: #ff6b6b;
+            box-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
+        }
+    }
+
     .card {
         transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
@@ -288,9 +571,9 @@ layout: default
         border-radius: 20px;
     }
 
-    .btn-warm-blue {
-        background: linear-gradient(135deg, #a3d5ff 0%, #7bb8e2 100%);
-        color: #0a2640;
+    .btn-warm-teal {
+        background: linear-gradient(135deg, #7dd3fc 0%, #38bdf8 100%);
+        color: #0c4a6e;
         border: none;
         border-radius: 20px;
     }
@@ -298,13 +581,6 @@ layout: default
     .btn-warm-green {
         background: linear-gradient(135deg, #a7f3d0 0%, #6ee7b7 100%);
         color: #064e3b;
-        border: none;
-        border-radius: 20px;
-    }
-
-    .btn-warm-teal {
-        background: linear-gradient(135deg, #c0eae7 0%, #9cd2cf 100%);
-        color: #00332e;
         border: none;
         border-radius: 20px;
     }
@@ -323,3 +599,165 @@ layout: default
         }
     }
 </style>
+
+<script>
+    // Quotes repository
+    const quotes = [
+        {
+            text: "The future belongs to those who believe in the beauty of their dreams",
+            author: "Eleanor Roosevelt"
+        },
+        {
+            text: "Innovation distinguishes between a leader and a follower",
+            author: "Steve Jobs"
+        },
+        {
+            text: "The only way to do great work is to love what you do",
+            author: "Steve Jobs"
+        },
+        {
+            text: "Code is like humor. When you have to explain it, it's bad",
+            author: "Cory House"
+        },
+        {
+            text: "First, solve the problem. Then, write the code",
+            author: "John Johnson"
+        },
+        {
+            text: "The best way to predict the future is to create it",
+            author: "Peter Drucker"
+        },
+        {
+            text: "Any fool can write code that a computer can understand. Good programmers write code that humans can understand",
+            author: "Martin Fowler"
+        },
+        {
+            text: "Experience is the name everyone gives to their mistakes",
+            author: "Oscar Wilde"
+        },
+        {
+            text: "The most damaging phrase in the language is: 'We've always done it this way'",
+            author: "Grace Hopper"
+        },
+        {
+            text: "Logic will get you from A to B. Imagination will take you everywhere",
+            author: "Albert Einstein"
+        },
+        {
+            text: "The computer was born to solve problems that did not exist before",
+            author: "Bill Gates"
+        },
+        {
+            text: "Talk is cheap. Show me the code",
+            author: "Linus Torvalds"
+        },
+        {
+            text: "Programs must be written for people to read, and only incidentally for machines to execute",
+            author: "Harold Abelson"
+        },
+        {
+            text: "Simplicity is the soul of efficiency",
+            author: "Austin Freeman"
+        },
+        {
+            text: "Before software can be reusable it first has to be usable",
+            author: "Ralph Johnson"
+        },
+        {
+            text: "If you can't explain it simply, you don't understand it well enough",
+            author: "Albert Einstein"
+        },
+        {
+            text: "It's not a bug – it's an undocumented feature",
+            author: "Anonymous"
+        },
+        {
+            text: "Software is a great combination between artistry and engineering",
+            author: "Bill Gates"
+        },
+        {
+            text: "Fix the cause, not the symptom",
+            author: "Steve Maguire"
+        },
+        {
+            text: "The function of good software is to make the complex appear simple",
+            author: "Grady Booch"
+        },
+        {
+            text: "Any sufficiently advanced technology is indistinguishable from magic",
+            author: "Arthur C. Clarke"
+        },
+        {
+            text: "One man’s crappy software is another man’s full-time job",
+            author: "Jessica Gaston"
+        },
+        {
+            text: "Good code is its own best documentation",
+            author: "Steve McConnell"
+        },
+        {
+            text: "Learning to write programs stretches your mind, and helps you think better",
+            author: "Bill Gates"
+        }
+    ];
+
+    // Function to get random quote
+    function getRandomQuote() {
+        const randomIndex = Math.floor(Math.random() * quotes.length);
+        return quotes[randomIndex];
+    }
+
+    // Function to update quote with fade effect
+    function updateQuote() {
+        const quoteText = document.getElementById('quote-text');
+        const quoteAuthor = document.getElementById('quote-author');
+
+        if (quoteText && quoteAuthor) {
+            // Fade out
+            quoteText.style.opacity = '0';
+            quoteAuthor.style.opacity = '0';
+
+            setTimeout(() => {
+                // Update content
+                const newQuote = getRandomQuote();
+                quoteText.textContent = `"${newQuote.text}"`;
+                quoteAuthor.textContent = `- ${newQuote.author}`;
+
+                // Fade in
+                quoteText.style.opacity = '1';
+                quoteAuthor.style.opacity = '1';
+            }, 300);
+        }
+    }
+
+    // Initialize quote rotation
+    let quoteInterval;
+
+    window.addEventListener('DOMContentLoaded', function () {
+        // Set initial random quote
+        updateQuote();
+
+        // Change quote every 2 seconds
+        quoteInterval = setInterval(updateQuote, 2000);
+    });
+
+    // Hide loading screen after page loads
+    window.addEventListener('load', function () {
+        const loadingScreen = document.getElementById('loading-screen');
+
+        // Clear quote interval
+        if (quoteInterval) {
+            clearInterval(quoteInterval);
+        }
+
+        // Add a small delay to show the animation
+        setTimeout(() => {
+            loadingScreen.style.opacity = '0';
+
+            // Remove the loading screen after fade out
+            setTimeout(() => {
+                loadingScreen.style.display = 'none';
+            }, 500);
+        }, 3000); // Show loading for 3 seconds to see more quotes
+    });
+</script>
