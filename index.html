@@ -18,9 +18,6 @@ layout: default
     transition: opacity 0.5s ease;
     overflow: hidden;
 ">
-    <!-- Simple Background Particles -->
-    <div class="particles"></div>
-
     <!-- Simple Cube Animation -->
     <div class="transformer-container" style="margin-bottom: 40px;">
         <div class="cube">
@@ -198,86 +195,53 @@ layout: default
 </div>
 
 <style>
-    /* Simplified and lighter particle animation */
-    .particles {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: radial-gradient(2px 2px at 20px 30px, #ff6b6b, transparent),
-            radial-gradient(1px 1px at 40px 70px, #ffd93d, transparent);
-        background-repeat: repeat;
-        background-size: 300px 200px;
-        animation: simpleParticles 20s linear infinite;
-        opacity: 0.6;
-    }
-
-    @keyframes simpleParticles {
-        from {
-            transform: translateY(0px);
-        }
-
-        to {
-            transform: translateY(-200px);
-        }
-    }
-
-    /* Simplified cube animation */
+    /* Much lighter cube animation */
     .transformer-container {
         perspective: 400px;
     }
 
     .cube {
         position: relative;
-        width: 50px;
-        height: 50px;
-        animation: simpleCube 3s infinite ease-in-out;
+        width: 40px;
+        height: 40px;
+        animation: lightCube 2s infinite ease-in-out;
     }
 
     .face {
         position: absolute;
-        width: 50px;
-        height: 50px;
+        width: 40px;
+        height: 40px;
         background: linear-gradient(45deg, #ff6b6b, #ffd93d);
-        border: 2px solid #ff6b6b;
-        border-radius: 8px;
-        box-shadow: 0 0 15px rgba(255, 107, 107, 0.3);
-        animation: simpleColorShift 4s infinite ease-in-out;
+        border: 1px solid #ff6b6b;
+        border-radius: 6px;
+        animation: lightColorShift 3s infinite ease-in-out;
     }
 
-    @keyframes simpleColorShift {
+    @keyframes lightColorShift {
         0% {
             background: linear-gradient(45deg, #ff6b6b, #ffd93d);
-            border-color: #ff6b6b;
         }
 
         50% {
             background: linear-gradient(45deg, #26d0ce, #a8e6cf);
-            border-color: #26d0ce;
         }
 
         100% {
             background: linear-gradient(45deg, #ff6b6b, #ffd93d);
-            border-color: #ff6b6b;
         }
     }
 
-    @keyframes simpleCube {
+    @keyframes lightCube {
         0% {
-            transform: rotateX(0deg) rotateY(0deg) scale(1);
-        }
-
-        50% {
-            transform: rotateX(180deg) rotateY(180deg) scale(0.8);
+            transform: rotateY(0deg);
         }
 
         100% {
-            transform: rotateX(360deg) rotateY(360deg) scale(1);
+            transform: rotateY(360deg);
         }
     }
 
-    /* Simplified loading dots */
+    /* Lighter loading dots */
     .loading-dots {
         display: flex;
         justify-content: center;
@@ -285,38 +249,36 @@ layout: default
     }
 
     .loading-dots span {
-        width: 8px;
-        height: 8px;
+        width: 6px;
+        height: 6px;
         background: #26d0ce;
         border-radius: 50%;
         display: inline-block;
-        animation: simpleDots 1s infinite ease-in-out;
+        animation: lightDots 1.2s infinite ease-in-out;
     }
 
     .loading-dots span:nth-child(1) {
-        animation-delay: -0.3s;
+        animation-delay: -0.4s;
     }
 
     .loading-dots span:nth-child(2) {
-        animation-delay: -0.15s;
+        animation-delay: -0.2s;
     }
 
     .loading-dots span:nth-child(3) {
         animation-delay: 0s;
     }
 
-    @keyframes simpleDots {
+    @keyframes lightDots {
 
         0%,
         80%,
         100% {
-            transform: scale(0.5);
-            opacity: 0.5;
+            transform: scale(0);
         }
 
         40% {
             transform: scale(1);
-            opacity: 1;
         }
     }
 
@@ -389,20 +351,12 @@ layout: default
             author: "Eleanor Roosevelt"
         },
         {
-            text: "Innovation distinguishes between a leader and a follower",
-            author: "Steve Jobs"
-        },
-        {
             text: "The only way to do great work is to love what you do",
             author: "Steve Jobs"
         },
         {
             text: "First, solve the problem. Then, write the code",
             author: "John Johnson"
-        },
-        {
-            text: "The best way to predict the future is to create it",
-            author: "Peter Drucker"
         }
     ];
 
@@ -418,58 +372,24 @@ layout: default
         const quoteAuthor = document.getElementById('quote-author');
 
         if (quoteText && quoteAuthor) {
-            // Fade out
-            quoteText.style.opacity = '0';
-            quoteAuthor.style.opacity = '0';
-
-            setTimeout(() => {
-                // Update content
-                const newQuote = getRandomQuote();
-                quoteText.textContent = `"${newQuote.text}"`;
-                quoteAuthor.textContent = `- ${newQuote.author}`;
-
-                // Fade in
-                quoteText.style.opacity = '1';
-                quoteAuthor.style.opacity = '1';
-            }, 300);
+            const newQuote = getRandomQuote();
+            quoteText.textContent = `"${newQuote.text}"`;
+            quoteAuthor.textContent = `- ${newQuote.author}`;
         }
     }
 
-    // Initialize quote rotation
-    let quoteInterval;
-    let loadingComplete = false;
-
+    // Initialize and hide loading screen quickly
     window.addEventListener('DOMContentLoaded', function () {
-        // Set initial random quote
         updateQuote();
 
-        // Change quote every 4 seconds (less frequent)
-        quoteInterval = setInterval(() => {
-            if (!loadingComplete) {
-                updateQuote();
-            }
-        }, 4000);
-    });
-
-    // Hide loading screen after page loads - reduced time
-    window.addEventListener('load', function () {
-        const loadingScreen = document.getElementById('loading-screen');
-
-        // Shorter delay to show content faster
+        // Much shorter loading time
         setTimeout(() => {
-            loadingComplete = true;
-
-            // Clear quote interval
-            if (quoteInterval) {
-                clearInterval(quoteInterval);
-            }
-
+            const loadingScreen = document.getElementById('loading-screen');
             loadingScreen.style.opacity = '0';
 
-            // Remove the loading screen after fade out
             setTimeout(() => {
                 loadingScreen.remove();
-            }, 500);
-        }, 1500); // Reduced from 3000ms to 1500ms
+            }, 300);
+        }, 800); // Very short delay
     });
 </script>
