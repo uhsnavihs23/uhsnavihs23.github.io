@@ -3,16 +3,11 @@ layout: compress
 ---
 
 <!doctype html>
-
 {% include origin-type.html %}
-
 {% include lang.html %}
-
 {% if site.theme_mode %}
 {% capture prefer_mode %}data-mode="{{ site.theme_mode }}"{% endcapture %}
 {% endif %}
-
-<!-- `site.alt_lang` can specify a language different from the UI -->
 <html lang="{{ page.lang | default: site.alt_lang | default: site.lang }}" {{ prefer_mode }}>
 {% include head.html %}
 
@@ -31,27 +26,16 @@ layout: compress
                     {{ content }}
                     {% endif %}
                 </main>
-
-                <!-- panel -->
-                <!-- <aside aria-label="Panel" id="panel-wrapper" class="col-xl-3 ps-2 text-muted">
-                    <div class="access">
-                    </div>
-
-                    {% for _include in layout.panel_includes %}
-                    {% assign _include_path = _include | append: '.html' %}
-                    {% include {{ _include_path }} lang=lang %}
-                    {% endfor %}
-                </aside> -->
             </div>
 
             <div class="row">
-                <!-- tail -->
                 <div id="tail-wrapper" class="col-12 col-lg-11 col-xl-9 px-md-4">
                     {% for _include in layout.tail_includes %}
                     {% assign _include_path = _include | append: '.html' %}
                     {% include {{ _include_path }} lang=lang %}
                     {% endfor %}
 
+                    <!-- END OF TAIL INCLUDES, NOW CUSTOM FOOTER -->
                     {% include_cached footer.html lang=lang %}
                 </div>
             </div>
@@ -72,12 +56,30 @@ layout: compress
     {% include_cached notification.html lang=lang %}
     {% endif %}
 
-    <!-- Embedded scripts -->
-
+    <!-- END OF SITE CONTENT, NOW JAVASCRIPT AND BADGE INJECTION -->
     {% for _include in layout.script_includes %}
     {% assign _include_path = _include | append: '.html' %}
     {% include {{ _include_path }} %}
     {% endfor %}
+
+    <!-- BEGIN: GoatCounter HTML badge injection (customize style below) -->
+    <script>
+        var t = setInterval(function () {
+            if (window.goatcounter && window.goatcounter.visit_count) {
+                clearInterval(t);
+                window.goatcounter.visit_count({
+                    append: '#gc-visits',
+                    type: 'html',
+                    no_branding: true,
+                    style: 'div {background:#f8f9fa; color:#444; border-radius:3px; padding:6px 12px; font-size:15px; font-family:system-ui,sans-serif; border:1px solid #e2e8f0;}' +
+                        '#gcvc-views {font-weight:bold;color:#157fcc;}'
+                });
+            }
+        }, 100);
+    </script>
+
+    <!-- GoatCounter tracking script (leave this in!) -->
+    <script data-goatcounter="https://23022000.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 
     {% include_cached search-loader.html lang=lang %}
 </body>
