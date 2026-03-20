@@ -1,13 +1,75 @@
-/* Fix Sidebar Overlap */
+/* ==========================================
+   Portfolio Custom Styles – v2
+   ========================================== */
+
+/* --- Sidebar fix for Chirpy --- */
 .main-wrapper {
-    margin-left: 280px;
-    /* Chirpy’s sidebar width */
-    padding: 20px;
+  margin-left: 280px;
+  padding: 20px;
+}
+@media (max-width: 991.98px) {
+  .main-wrapper {
+    margin-left: 0;
+  }
 }
 
-@media (max-width: 991.98px) {
-    .main-wrapper {
-        margin-left: 0;
-        /* Mobile collapse */
-    }
+/* --- Remove excessive TOC panel on simple pages --- */
+#toc-wrapper {
+  display: none !important;
 }
+
+/* --- Typography refinements --- */
+.content h1, .content h2, .content h3 {
+  letter-spacing: -0.015em;
+}
+
+/* --- Clean card post list on archives/timeline --- */
+.archives .archive-year > h2 {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted-color);
+  font-weight: 700;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.4rem;
+  margin-bottom: 0.75rem;
+}
+
+.archives .archive-month h3 {
+  font-size: 0.8rem;
+  color: var(--text-muted-color);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.archives .archive-post a {
+  font-size: 0.92rem;
+  color: var(--text-color);
+  font-weight: 500;
+}
+
+.archives .archive-post a:hover {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+/* --- Post cards (home feed) --- */
+.post-preview {
+  border: 1px solid var(--border-color) !important;
+  border-radius: 8px !important;
+  padding: 1rem 1.25rem !important;
+  margin-bottom: 0.75rem;
+  transition: border-color 0.2s;
+}
+.post-preview:hover {
+  border-color: var(--link-color) !important;
+}
+
+/* --- Sidebar active link indicator --- */
+#sidebar .nav-item.active > .nav-link {
+  font-weight: 600;
+}
+
+/* --- Remove underline from nav links --- */
+.nav-link { text-decoration: none !important; }
