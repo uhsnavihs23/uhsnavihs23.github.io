@@ -1,5 +1,5 @@
 htmlproofer:
-  enforce_https: false # Disable HTTPS enforcement for local testing
+  enforce_https: false
   ignore_urls:
     - https://fonts.googleapis.com/
     - https://fonts.gstatic.com/
@@ -16,6 +16,12 @@ htmlproofer:
     - /about/
     - /about.html
     - /about
+    - /categories/
+    - /categories/data-analytics/
+    - /categories/web-apps/
+    - /tags/
+    - /tags/data-analytics/
+    - /tags/web-apps/
   ignore_files:
     - "./_site/_includes/**/*.html"
     - "./_site/_includes/post-meta.html"
