@@ -1,9 +1,9 @@
 ---
 layout: post
 title: Campus Electricity Consumption Analysis & Optimization
-categories: [data-analytics]
 date: 2022-06-20 12:00:00 +0530
 is_project: true
+categories: [data-analytics]
 description: A web app to explore books by category, language, and year, powered by Google Books API.
 permalink: /posts/electricity-analysis/
 ---
