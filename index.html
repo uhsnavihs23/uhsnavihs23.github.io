@@ -8,7 +8,7 @@ layout: default
   <div class="hero-strip">
     <div class="hero-content">
       <h1>Shivanshu Sharma</h1>
-      <p class="hero-tagline">Strategy & Management Consultant &nbsp;·&nbsp; IIT Gandhinagar &nbsp;·&nbsp; Data · Policy · Technology</p>
+      <p class="hero-tagline">Strategy &amp; Management Consultant &nbsp;·&nbsp; IIT Gandhinagar &nbsp;·&nbsp; Data · Policy · Technology</p>
       <div class="hero-links">
         <a href="/about/" class="hero-btn">About Me</a>
         <a href="/timeline/" class="hero-btn hero-btn--outline">Timeline</a>
@@ -16,245 +16,391 @@ layout: default
     </div>
   </div>
 
-  <!-- Work Section -->
-  <section class="work-section">
-    <h2 class="section-title">Work</h2>
-    <p class="section-sub">Projects across data, technology, and policy domains.</p>
+  <!-- Projects Section -->
+  <section class="projects-section">
+    <h2 class="section-title">Projects</h2>
 
-    <div class="project-grid">
-
-      <div class="project-card">
-        <div class="project-card__header">
-          <span class="project-tag project-tag--blue">Data Analytics</span>
+    <!-- Row: Data Analytics -->
+    <div class="row-block">
+      <div class="row-header">
+        <div class="row-header__left">
+          <span class="row-label row-label--blue">Data Analytics</span>
+          <p class="row-desc">Transforming raw data into structured insights.</p>
         </div>
-        <h3>Food Delivery Analytics</h3>
-        <p>End-to-end analysis of a food delivery dataset — customer behaviour, order trends, and revenue insights.</p>
-        <a href="/projects/data-analyst-projects/food-delivery-analytics/" class="card-link">View Project &rarr;</a>
+        <a href="/categories/data-analytics/" class="view-all-btn">View All &rarr;</a>
       </div>
+      <div class="carousel-wrapper">
+        <button class="carousel-arrow carousel-arrow--left" onclick="scrollRow(this, -1)" aria-label="Scroll left">&#8592;</button>
+        <div class="carousel-track">
 
-      <div class="project-card">
-        <div class="project-card__header">
-          <span class="project-tag project-tag--blue">Data Analytics</span>
+          <div class="project-card">
+            <div class="project-card__tag project-card__tag--blue">Data Analytics</div>
+            <h3>Food Delivery Analytics</h3>
+            <p>End-to-end analysis of a food delivery dataset — customer behaviour, order trends, and revenue insights.</p>
+            <a href="/projects/data-analyst-projects/food-delivery-analytics/" class="card-link">View Project &rarr;</a>
+          </div>
+
+          <div class="project-card">
+            <div class="project-card__tag project-card__tag--blue">Data Analytics</div>
+            <h3>Customer Shopping Trends</h3>
+            <p>Analysis of consumer shopping patterns with actionable segmentation and visual dashboards.</p>
+            <a href="/projects/data-analyst-projects/project-1-customer-shopping-trends-analysis/" class="card-link">View Project &rarr;</a>
+          </div>
+
+          <div class="project-card">
+            <div class="project-card__tag project-card__tag--green">Academic</div>
+            <h3>Campus Electricity Analysis</h3>
+            <p>Identified a 10% reduction potential (13 lakh kWh/year) in campus electricity consumption at IIT Gandhinagar.</p>
+            <a href="/posts/electricity-analysis/" class="card-link">View Project &rarr;</a>
+          </div>
+
         </div>
-        <h3>Customer Shopping Trends</h3>
-        <p>Analysis of consumer shopping patterns with actionable segmentation and visual dashboards.</p>
-        <a href="/projects/data-analyst-projects/project-1-customer-shopping-trends-analysis/" class="card-link">View Project &rarr;</a>
+        <button class="carousel-arrow carousel-arrow--right" onclick="scrollRow(this, 1)" aria-label="Scroll right">&#8594;</button>
       </div>
-
-      <div class="project-card">
-        <div class="project-card__header">
-          <span class="project-tag project-tag--green">Academic</span>
-        </div>
-        <h3>Campus Electricity Analysis</h3>
-        <p>Identified a 10% reduction potential (13 lakh kWh/year) in campus electricity consumption at IIT Gandhinagar.</p>
-        <a href="/posts/electricity-analysis/" class="card-link">View Project &rarr;</a>
-      </div>
-
-      <div class="project-card">
-        <div class="project-card__header">
-          <span class="project-tag project-tag--slate">Web App</span>
-        </div>
-        <h3>Image Editor Web App</h3>
-        <p>Browser-based image editing tool with filters, adjustments, and multi-format export support.</p>
-        <a href="/posts/image-filter-app/" class="card-link">View Project &rarr;</a>
-      </div>
-
-      <div class="project-card">
-        <div class="project-card__header">
-          <span class="project-tag project-tag--slate">Web App</span>
-        </div>
-        <h3>Movie Recommender</h3>
-        <p>Recommendation engine built as a web app — search, discover, and explore films by genre and rating.</p>
-        <a href="/posts/movie-recommender/" class="card-link">View Project &rarr;</a>
-      </div>
-
-      <div class="project-card">
-        <div class="project-card__header">
-          <span class="project-tag project-tag--slate">Web App</span>
-        </div>
-        <h3>GitHub Profile Finder</h3>
-        <p>Lightweight tool to search and explore GitHub user profiles and public repositories.</p>
-        <a href="/posts/github-profile-finder/" class="card-link">View Project &rarr;</a>
-      </div>
-
-      <div class="project-card">
-        <div class="project-card__header">
-          <span class="project-tag project-tag--slate">Web App</span>
-        </div>
-        <h3>News Headlines App</h3>
-        <p>Aggregates live news headlines across categories using a public news API.</p>
-        <a href="/posts/news/" class="card-link">View Project &rarr;</a>
-      </div>
-
-      <div class="project-card">
-        <div class="project-card__header">
-          <span class="project-tag project-tag--slate">Web App</span>
-        </div>
-        <h3>Book Recommender</h3>
-        <p>Explore and discover books using the Google Books API with search and preview functionality.</p>
-        <a href="/posts/book-recommender/" class="card-link">View Project &rarr;</a>
-      </div>
-
     </div>
+
+    <!-- Row: Web Apps -->
+    <div class="row-block">
+      <div class="row-header">
+        <div class="row-header__left">
+          <span class="row-label row-label--slate">Web Apps</span>
+          <p class="row-desc">Functional browser tools built for real use.</p>
+        </div>
+        <a href="/categories/web-apps/" class="view-all-btn">View All &rarr;</a>
+      </div>
+      <div class="carousel-wrapper">
+        <button class="carousel-arrow carousel-arrow--left" onclick="scrollRow(this, -1)" aria-label="Scroll left">&#8592;</button>
+        <div class="carousel-track">
+
+          <div class="project-card">
+            <div class="project-card__tag project-card__tag--slate">Web App</div>
+            <h3>Image Editor Web App</h3>
+            <p>Browser-based image editing tool with filters, adjustments, and multi-format export support.</p>
+            <a href="/posts/image-filter-app/" class="card-link">View Project &rarr;</a>
+          </div>
+
+          <div class="project-card">
+            <div class="project-card__tag project-card__tag--slate">Web App</div>
+            <h3>Movie Recommender</h3>
+            <p>Recommendation engine — search, discover, and explore films by genre and rating.</p>
+            <a href="/posts/movie-recommender/" class="card-link">View Project &rarr;</a>
+          </div>
+
+          <div class="project-card">
+            <div class="project-card__tag project-card__tag--slate">Web App</div>
+            <h3>GitHub Profile Finder</h3>
+            <p>Lightweight tool to search and explore GitHub user profiles and public repositories.</p>
+            <a href="/posts/github-profile-finder/" class="card-link">View Project &rarr;</a>
+          </div>
+
+          <div class="project-card">
+            <div class="project-card__tag project-card__tag--slate">Web App</div>
+            <h3>News Headlines App</h3>
+            <p>Aggregates live news headlines across categories using a public news API.</p>
+            <a href="/posts/news/" class="card-link">View Project &rarr;</a>
+          </div>
+
+          <div class="project-card">
+            <div class="project-card__tag project-card__tag--slate">Web App</div>
+            <h3>Book Recommender</h3>
+            <p>Explore and discover books using the Google Books API with search and preview functionality.</p>
+            <a href="/posts/book-recommender/" class="card-link">View Project &rarr;</a>
+          </div>
+
+        </div>
+        <button class="carousel-arrow carousel-arrow--right" onclick="scrollRow(this, 1)" aria-label="Scroll right">&#8594;</button>
+      </div>
+    </div>
+
   </section>
 
   <!-- Writing Section -->
-  <section class="work-section">
+  <section class="projects-section">
     <h2 class="section-title">Writing</h2>
-    <p class="section-sub">Articles on governance, policy, and ideas worth thinking about.</p>
 
-    <div class="project-grid project-grid--narrow">
-      <div class="project-card">
-        <div class="project-card__header">
-          <span class="project-tag project-tag--warm">Policy</span>
+    <div class="row-block">
+      <div class="row-header">
+        <div class="row-header__left">
+          <span class="row-label row-label--warm">Policy</span>
+          <p class="row-desc">Articles on governance, policy, and ideas worth thinking about.</p>
         </div>
-        <h3>Urban Governance in India</h3>
-        <p>A structural analysis of what's broken in urban governance and how cities can be fixed from the ground up.</p>
-        <a href="/posts/fixing-urban-governance-india" class="card-link">Read Article &rarr;</a>
+      </div>
+      <div class="carousel-wrapper">
+        <button class="carousel-arrow carousel-arrow--left" onclick="scrollRow(this, -1)" aria-label="Scroll left">&#8592;</button>
+        <div class="carousel-track">
+
+          <div class="project-card">
+            <div class="project-card__tag project-card__tag--warm">Policy</div>
+            <h3>Urban Governance in India</h3>
+            <p>A structural analysis of what's broken in urban governance and how cities can be fixed from the ground up.</p>
+            <a href="/posts/fixing-urban-governance-india" class="card-link">Read Article &rarr;</a>
+          </div>
+
+        </div>
+        <button class="carousel-arrow carousel-arrow--right" onclick="scrollRow(this, 1)" aria-label="Scroll right">&#8594;</button>
       </div>
     </div>
   </section>
 
 </div>
 
+<script>
+function scrollRow(btn, dir) {
+  const track = btn.parentElement.querySelector('.carousel-track');
+  const cardWidth = track.querySelector('.project-card').offsetWidth + 16;
+  track.scrollBy({ left: dir * cardWidth * 2, behavior: 'smooth' });
+}
+</script>
+
 <style>
+/* ============================================================
+   HOME PAGE — Portfolio v3
+   Light: warm off-white bg, dark: deep slate (not pure black)
+   ============================================================ */
+
 .portfolio-home {
-  max-width: 1000px;
+  max-width: 1060px;
   margin: 0 auto;
-  padding: 0 1rem 3rem;
+  padding: 0 1.25rem 4rem;
 }
 
-/* Hero */
+/* ---- HERO ---- */
 .hero-strip {
   padding: 3rem 0 2.5rem;
-  border-bottom: 1px solid var(--border-color, #e5e7eb);
-  margin-bottom: 2.5rem;
+  border-bottom: 1px solid var(--pf-border);
+  margin-bottom: 2.75rem;
 }
 .hero-content h1 {
-  font-size: 2rem;
+  font-size: 2.1rem;
   font-weight: 700;
-  margin: 0 0 0.4rem;
-  letter-spacing: -0.02em;
+  margin: 0 0 0.45rem;
+  letter-spacing: -0.025em;
+  color: var(--pf-heading);
 }
 .hero-tagline {
-  font-size: 0.95rem;
-  color: var(--text-muted-color, #6b7280);
-  margin: 0 0 1.25rem;
+  font-size: 1rem;
+  color: var(--pf-muted);
+  margin: 0 0 1.35rem;
+  line-height: 1.6;
 }
-.hero-links {
-  display: flex;
-  gap: 0.75rem;
-  flex-wrap: wrap;
-}
+.hero-links { display: flex; gap: 0.75rem; flex-wrap: wrap; }
 .hero-btn {
   display: inline-block;
-  padding: 0.45rem 1.1rem;
-  font-size: 0.85rem;
+  padding: 0.5rem 1.2rem;
+  font-size: 0.875rem;
   font-weight: 500;
-  border-radius: 6px;
-  background: var(--link-color, #2563eb);
+  border-radius: 7px;
+  background: var(--pf-accent);
   color: #fff !important;
   text-decoration: none;
-  transition: opacity 0.2s;
+  transition: opacity 0.18s;
 }
-.hero-btn:hover { opacity: 0.85; }
+.hero-btn:hover { opacity: 0.82; }
 .hero-btn--outline {
   background: transparent;
-  border: 1px solid var(--border-color, #d1d5db);
-  color: var(--text-color, #374151) !important;
+  border: 1.5px solid var(--pf-border-strong);
+  color: var(--pf-text) !important;
 }
 .hero-btn--outline:hover {
-  border-color: var(--link-color, #2563eb);
-  color: var(--link-color, #2563eb) !important;
+  border-color: var(--pf-accent);
+  color: var(--pf-accent) !important;
   opacity: 1;
 }
 
-/* Sections */
-.work-section {
-  margin-bottom: 2.5rem;
-}
+/* ---- SECTION TITLE ---- */
+.projects-section { margin-bottom: 1rem; }
 .section-title {
-  font-size: 1.15rem;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--pf-heading);
+  margin: 0 0 1.5rem;
+  letter-spacing: -0.01em;
+  border: none;
+  padding: 0;
+}
+
+/* ---- ROW BLOCK ---- */
+.row-block { margin-bottom: 2.5rem; }
+.row-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 0.85rem;
+  gap: 1rem;
+}
+.row-header__left { display: flex; flex-direction: column; gap: 0.25rem; }
+.row-label {
+  font-size: 0.78rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.07em;
-  color: var(--text-muted-color, #6b7280);
-  margin-bottom: 0.25rem;
-  border: none;
+  padding: 0.22rem 0.6rem;
+  border-radius: 5px;
+  display: inline-block;
+  width: fit-content;
 }
-.section-sub {
-  font-size: 0.9rem;
-  color: var(--text-muted-color, #9ca3af);
-  margin-bottom: 1.25rem;
+.row-label--blue  { background: #dbeafe; color: #1e40af; }
+.row-label--green { background: #dcfce7; color: #15803d; }
+.row-label--slate { background: var(--pf-tag-slate-bg); color: var(--pf-tag-slate-text); }
+.row-label--warm  { background: #fef3c7; color: #92400e; }
+.row-desc {
+  font-size: 0.875rem;
+  color: var(--pf-muted);
+  margin: 0;
+  line-height: 1.5;
 }
+.view-all-btn {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--pf-accent);
+  text-decoration: none;
+  white-space: nowrap;
+  margin-top: 0.2rem;
+  padding: 0.3rem 0;
+  transition: opacity 0.15s;
+}
+.view-all-btn:hover { opacity: 0.7; text-decoration: underline; }
 
-/* Grid */
-.project-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+/* ---- CAROUSEL ---- */
+.carousel-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.carousel-track {
+  display: flex;
   gap: 1rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding-bottom: 4px;
+  flex: 1;
 }
-.project-grid--narrow {
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+.carousel-track::-webkit-scrollbar { display: none; }
+
+.carousel-arrow {
+  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1.5px solid var(--pf-border-strong);
+  background: var(--pf-card-bg);
+  color: var(--pf-text);
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.18s, border-color 0.18s;
+  line-height: 1;
+  padding: 0;
+}
+.carousel-arrow:hover {
+  background: var(--pf-accent);
+  border-color: var(--pf-accent);
+  color: #fff;
 }
 
-/* Cards */
+/* ---- PROJECT CARDS ---- */
 .project-card {
-  padding: 1.25rem 1.25rem 1rem;
-  border: 1px solid var(--border-color, #e5e7eb);
-  border-radius: 8px;
-  background: var(--card-bg, var(--main-bg));
-  transition: border-color 0.2s, box-shadow 0.2s;
+  flex: 0 0 280px;
+  scroll-snap-align: start;
+  padding: 1.2rem 1.2rem 1rem;
+  border: 1.5px solid var(--pf-border);
+  border-radius: 10px;
+  background: var(--pf-card-bg);
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
 }
 .project-card:hover {
-  border-color: var(--link-color, #2563eb);
-  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  border-color: var(--pf-accent);
+  box-shadow: 0 4px 18px var(--pf-shadow);
+  transform: translateY(-2px);
 }
-.project-card__header {
-  margin-bottom: 0.1rem;
+.project-card__tag {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.18rem 0.5rem;
+  border-radius: 4px;
+  display: inline-block;
+  width: fit-content;
+  margin-bottom: 0.15rem;
 }
+.project-card__tag--blue  { background: #dbeafe; color: #1e40af; }
+.project-card__tag--green { background: #dcfce7; color: #166534; }
+.project-card__tag--slate { background: var(--pf-tag-slate-bg); color: var(--pf-tag-slate-text); }
+.project-card__tag--warm  { background: #fef3c7; color: #92400e; }
 .project-card h3 {
   font-size: 1rem;
   font-weight: 600;
   margin: 0;
   line-height: 1.4;
+  color: var(--pf-heading);
 }
 .project-card p {
   font-size: 0.875rem;
-  color: var(--text-muted-color, #6b7280);
+  color: var(--pf-body);
   margin: 0;
   flex: 1;
-  line-height: 1.55;
+  line-height: 1.6;
 }
 .card-link {
-  font-size: 0.8rem;
-  font-weight: 500;
-  color: var(--link-color, #2563eb);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--pf-accent);
   text-decoration: none;
   margin-top: auto;
 }
 .card-link:hover { text-decoration: underline; }
 
-/* Tags */
-.project-tag {
-  display: inline-block;
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  padding: 0.2rem 0.55rem;
-  border-radius: 4px;
+/* ============================================================
+   THEME TOKENS
+   Light = warm off-white; Dark = deep slate (not pure black)
+   ============================================================ */
+
+/* --- LIGHT MODE (warm, easy on eyes) --- */
+:root,
+[data-mode="light"] {
+  --pf-bg:             #faf8f5;   /* warm off-white page bg */
+  --pf-card-bg:        #ffffff;
+  --pf-heading:        #1a1a1a;
+  --pf-text:           #2d2d2d;
+  --pf-body:           #4a4a4a;   /* readable body text, not grey */
+  --pf-muted:          #6b6b6b;
+  --pf-accent:         #3b6cf8;   /* slightly warmer blue */
+  --pf-border:         #e8e4de;
+  --pf-border-strong:  #c9c4bc;
+  --pf-shadow:         rgba(0,0,0,0.08);
+  --pf-tag-slate-bg:   #f0ede8;
+  --pf-tag-slate-text: #4a4a4a;
 }
-.project-tag--blue  { background: #dbeafe; color: #1d4ed8; }
-.project-tag--green { background: #dcfce7; color: #15803d; }
-.project-tag--slate { background: #f1f5f9; color: #475569; }
-.project-tag--warm  { background: #fef3c7; color: #92400e; }
+
+/* --- DARK MODE (deep slate, warm undertone, easy on eyes) --- */
+[data-mode="dark"],
+html[data-mode="dark"] {
+  --pf-bg:             #1c1e26;   /* deep navy-slate, not pure black */
+  --pf-card-bg:        #252833;   /* slightly lighter slate for cards */
+  --pf-heading:        #f0eeeb;   /* warm white heading */
+  --pf-text:           #dbd8d3;   /* warm light for text */
+  --pf-body:           #c2bfba;   /* clear readable body */
+  --pf-muted:          #8a8680;
+  --pf-accent:         #6b93ff;   /* brighter blue for dark bg */
+  --pf-border:         #363a47;   /* subtle border */
+  --pf-border-strong:  #4a4f60;
+  --pf-shadow:         rgba(0,0,0,0.35);
+  --pf-tag-slate-bg:   #2e3040;
+  --pf-tag-slate-text: #b8b4ae;
+}
 
 @media (max-width: 640px) {
-  .hero-content h1 { font-size: 1.5rem; }
-  .project-grid { grid-template-columns: 1fr; }
+  .hero-content h1  { font-size: 1.6rem; }
+  .project-card     { flex: 0 0 240px; }
+  .carousel-arrow   { width: 28px; height: 28px; font-size: 0.85rem; }
 }
 </style>
