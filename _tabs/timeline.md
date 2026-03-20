@@ -1,9 +1,9 @@
 ---
-layout: archives
+layout: page
 title: Timeline
 icon: fas fa-history
 order: 2
 permalink: /timeline/
 ---
 
-A chronological timeline of my projects, showcasing development milestones. 
+A chronological timeline of my projects, showcasing development milestones.
