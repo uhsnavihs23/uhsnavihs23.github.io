@@ -7,12 +7,10 @@ title: Shivanshu Sharma
 author:
   name: Shivanshu Sharma
   url: "https://uhsnavihs23.github.io"
-tagline: Welcome to my space
-description: A portfolio site built by Shivanshu
+tagline: Consultant · Data · Policy · Technology
+description: Portfolio of Shivanshu Sharma — Strategy Consultant, IIT Gandhinagar alumnus.
 github:
   username: uhsnavihs23
-facebook:
-  username: shivanshu.sharma.7737
 linkedin:
   username: shivanshu-sharma-2302
 social:
@@ -76,6 +74,7 @@ assets:
     env:
   css:
     - /assets/css/timeline.css
+    - /assets/css/custom.scss
   js:
 pwa:
   enabled: true
@@ -110,7 +109,7 @@ defaults:
       type: posts
     values:
       layout: post
-      comments: true
+      comments: false
       toc: false
       permalink: /posts/:title/
   - scope:
@@ -146,5 +145,6 @@ exclude:
   - .jekyll-cache
   - _site/_includes
   - assets/feed.xml
+  - build.log
 share:
   copy_link: false
