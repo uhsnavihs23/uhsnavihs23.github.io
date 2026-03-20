@@ -1,6 +1,5 @@
 ---
-layout: category
+layout: default
 title: Web Apps
-category: web-apps
 permalink: /categories/web-apps/
 ---
