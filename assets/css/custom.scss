@@ -78,9 +78,21 @@ body {
   background: var(--sidebar-bg) !important;
 }
 #sidebar .site-title,
-#sidebar .site-subtitle {
+#sidebar .site-subtitle,
+#sidebar .sidebar-name,
+#sidebar a.site-title,
+.sidebar-name,
+[class*="site-title"] {
   color: var(--text-color) !important;
 }
+
+html[data-mode="dark"] #sidebar .site-title,
+html[data-mode="dark"] #sidebar .site-subtitle,
+html[data-mode="dark"] .sidebar-name,
+html[data-mode="dark"] [class*="site-title"] {
+  color: #dbd8d3 !important;
+}
+
 #sidebar .nav-item.active > .nav-link {
   font-weight: 600;
 }
