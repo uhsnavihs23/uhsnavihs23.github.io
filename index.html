@@ -175,7 +175,7 @@ function scrollRow(btn, dir) {
   font-weight: 700;
   margin: 0 0 0.45rem;
   letter-spacing: -0.025em;
-  color: var(--pf-heading);
+  color: var(--pf-heading) !important;
 }
 .hero-tagline {
   font-size: 1rem;
@@ -197,9 +197,9 @@ function scrollRow(btn, dir) {
 }
 .hero-btn:hover { opacity: 0.82; }
 .hero-btn--outline {
-  background: transparent;
-  border: 1.5px solid var(--pf-border-strong);
-  color: var(--pf-text) !important;
+  background: var(--pf-accent);
+  border: 1.5px solid var(--pf-accent);
+  color: #fff !important;
 }
 .hero-btn--outline:hover {
   border-color: var(--pf-accent);
@@ -382,8 +382,8 @@ function scrollRow(btn, dir) {
 }
 
 /* --- DARK MODE (deep slate, warm undertone, easy on eyes) --- */
-[data-mode="dark"],
-html[data-mode="dark"] {
+html[data-mode="dark"],
+[data-mode="dark"] {
   --pf-bg:             #1c1e26;   /* deep navy-slate, not pure black */
   --pf-card-bg:        #252833;   /* slightly lighter slate for cards */
   --pf-heading:        #f0eeeb;   /* warm white heading */
