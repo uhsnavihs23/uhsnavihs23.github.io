@@ -3,12 +3,12 @@ lang: en
 timezone: Asia/Kolkata
 url: "https://uhsnavihs23.github.io"
 baseurl: ""
-title: " "
+title: Shivanshu Sharma
 author:
   name: Shivanshu Sharma
   url: "https://uhsnavihs23.github.io"
-tagline: " "
-description: Portfolio
+tagline: "Consultant · Data · Policy · Technology"
+description: Portfolio of Shivanshu Sharma — Strategy Consultant, IIT Gandhinagar alumnus.
 github:
   username: uhsnavihs23
 linkedin:
@@ -122,6 +122,10 @@ defaults:
     values:
       layout: page
       permalink: /:title/
+  - scope:
+      path: "categories"
+    values:
+      layout: category
   - scope:
       path: ""
     values:
