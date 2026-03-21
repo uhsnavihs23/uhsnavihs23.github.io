@@ -1,316 +1,187 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>India Policy Brief Generator</title>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: #f5f3ef;
-      color: #1a1a1a;
-      min-height: 100vh;
-      padding: 2rem 1rem;
-    }
-    .container { max-width: 760px; margin: 0 auto; }
-    h1 {
-      font-size: 1.8rem;
-      font-weight: 700;
-      margin-bottom: 0.3rem;
-      color: #1a1a1a;
-    }
-    .subtitle {
-      font-size: 0.95rem;
-      color: #6b6b6b;
-      margin-bottom: 2rem;
-    }
-    .input-row {
-      display: flex;
-      gap: 0.75rem;
-      margin-bottom: 1.5rem;
-      flex-wrap: wrap;
-    }
-    input[type="text"] {
-      flex: 1;
-      min-width: 200px;
-      padding: 0.65rem 1rem;
-      border: 1.5px solid #d4cfc9;
-      border-radius: 8px;
-      font-size: 1rem;
-      background: #fff;
-      color: #1a1a1a;
-      outline: none;
-    }
-    input[type="text"]:focus { border-color: #3b6cf8; }
-    button {
-      padding: 0.65rem 1.4rem;
-      background: #3b6cf8;
-      color: #fff;
-      border: none;
-      border-radius: 8px;
-      font-size: 1rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: opacity 0.2s;
-    }
-    button:hover { opacity: 0.85; }
-    button:disabled { opacity: 0.5; cursor: not-allowed; }
-    .status {
-      font-size: 0.9rem;
-      color: #6b6b6b;
-      margin-bottom: 1rem;
-      min-height: 1.2rem;
-    }
-    .brief-box {
-      background: #fff;
-      border: 1.5px solid #e0dbd4;
-      border-radius: 12px;
-      padding: 1.75rem 2rem;
-      display: none;
-    }
-    .brief-box.visible { display: block; }
-    .brief-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      margin-bottom: 1.5rem;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-    }
-    .brief-title {
-      font-size: 1.3rem;
-      font-weight: 700;
-      color: #1a1a1a;
-    }
-    .brief-date {
-      font-size: 0.8rem;
-      color: #6b6b6b;
-      background: #f0ede8;
-      padding: 0.25rem 0.6rem;
-      border-radius: 5px;
-    }
-    .section { margin-bottom: 1.4rem; }
-    .section-label {
-      font-size: 0.72rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.07em;
-      color: #3b6cf8;
-      margin-bottom: 0.4rem;
-    }
-    .section-content {
-      font-size: 0.95rem;
-      line-height: 1.7;
-      color: #2d2d2d;
-    }
-    .section-content ul {
-      padding-left: 1.2rem;
-      margin-top: 0.3rem;
-    }
-    .section-content ul li { margin-bottom: 0.3rem; }
-    .sources { margin-top: 1.5rem; border-top: 1px solid #e8e4de; padding-top: 1rem; }
-    .sources-label {
-      font-size: 0.72rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.07em;
-      color: #6b6b6b;
-      margin-bottom: 0.5rem;
-    }
-    .source-item {
-      font-size: 0.85rem;
-      margin-bottom: 0.4rem;
-    }
-    .source-item a {
-      color: #3b6cf8;
-      text-decoration: none;
-    }
-    .source-item a:hover { text-decoration: underline; }
-    .copy-btn {
-      margin-top: 1.2rem;
-      background: #f0ede8;
-      color: #2d2d2d;
-      font-size: 0.85rem;
-      padding: 0.45rem 1rem;
-    }
-    .copy-btn:hover { background: #e8e4de; opacity: 1; }
-    .error-msg {
-      color: #c0392b;
-      font-size: 0.9rem;
-      margin-bottom: 1rem;
-      display: none;
-    }
-    .api-note {
-      font-size: 0.8rem;
-      color: #8a8a8a;
-      margin-top: 2rem;
-      padding: 0.75rem 1rem;
-      background: #faf8f5;
-      border-radius: 8px;
-      border: 1px solid #e8e4de;
-    }
-  </style>
-</head>
-<body>
-<div class="container">
-  <h1>🇮🇳 India Policy Brief Generator</h1>
-  <p class="subtitle">Enter a policy topic to generate a structured brief from live Indian news headlines.</p>
+---
+layout: page
+title: India Policy Brief Generator
+permalink: /projects/policy-brief-generator/
+---
 
-  <div class="input-row">
+<style>
+  .pb-container { max-width: 760px; margin: 0 auto; padding: 1rem 0 3rem; }
+  .pb-subtitle { font-size: 0.95rem; color: var(--text-muted-color); margin-bottom: 2rem; }
+  .pb-input-row { display: flex; gap: 0.75rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+  .pb-input-row input[type="text"] {
+    flex: 1; min-width: 200px; padding: 0.65rem 1rem;
+    border: 1.5px solid var(--border-color); border-radius: 8px;
+    font-size: 1rem; background: var(--main-bg); color: var(--text-color); outline: none;
+  }
+  .pb-input-row input[type="text"]:focus { border-color: #3b6cf8; }
+  .pb-btn {
+    padding: 0.65rem 1.4rem; background: #3b6cf8; color: #fff;
+    border: none; border-radius: 8px; font-size: 1rem;
+    font-weight: 600; cursor: pointer; transition: opacity 0.2s;
+  }
+  .pb-btn:hover { opacity: 0.85; }
+  .pb-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+  .pb-status { font-size: 0.9rem; color: var(--text-muted-color); margin-bottom: 1rem; min-height: 1.2rem; }
+  .pb-error { color: #c0392b; font-size: 0.9rem; margin-bottom: 1rem; display: none; }
+  .brief-box {
+    background: var(--card-bg, #fff); border: 1.5px solid var(--border-color);
+    border-radius: 12px; padding: 1.75rem 2rem; display: none;
+  }
+  .brief-box.visible { display: block; }
+  .brief-header {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    margin-bottom: 1.5rem; flex-wrap: wrap; gap: 0.75rem;
+  }
+  .brief-title { font-size: 1.3rem; font-weight: 700; color: var(--text-color); }
+  .brief-date {
+    font-size: 0.8rem; color: var(--text-muted-color);
+    background: var(--highlight-bg, #f0ede8); padding: 0.25rem 0.6rem; border-radius: 5px;
+  }
+  .pb-section { margin-bottom: 1.4rem; }
+  .pb-section-label {
+    font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.07em; color: #3b6cf8; margin-bottom: 0.4rem;
+  }
+  .pb-section-content { font-size: 0.95rem; line-height: 1.7; color: var(--text-color); }
+  .pb-section-content ul { padding-left: 1.2rem; margin-top: 0.3rem; }
+  .pb-section-content ul li { margin-bottom: 0.3rem; }
+  .pb-sources { margin-top: 1.5rem; border-top: 1px solid var(--border-color); padding-top: 1rem; }
+  .pb-sources-label {
+    font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.07em; color: var(--text-muted-color); margin-bottom: 0.5rem;
+  }
+  .pb-source-item { font-size: 0.85rem; margin-bottom: 0.4rem; }
+  .pb-source-item a { color: #3b6cf8; text-decoration: none; }
+  .pb-source-item a:hover { text-decoration: underline; }
+  .pb-copy-btn {
+    margin-top: 1.2rem; background: var(--highlight-bg, #f0ede8);
+    color: var(--text-color); font-size: 0.85rem; padding: 0.45rem 1rem;
+    border: none; border-radius: 8px; cursor: pointer;
+  }
+  .pb-copy-btn:hover { opacity: 0.8; }
+  .pb-note {
+    font-size: 0.8rem; color: var(--text-muted-color); margin-top: 2rem;
+    padding: 0.75rem 1rem; background: var(--highlight-bg, #faf8f5);
+    border-radius: 8px; border: 1px solid var(--border-color);
+  }
+</style>
+
+<div class="pb-container">
+  <p class="pb-subtitle">Enter a policy topic to generate a structured brief from live Indian news headlines.</p>
+
+  <div class="pb-input-row">
     <input type="text" id="topicInput" placeholder="e.g. Urban water crisis UP, Agricultural MSP, EV policy India" />
-    <button id="generateBtn" onclick="generateBrief()">Generate Brief</button>
+    <button class="pb-btn" id="generateBtn" onclick="generateBrief()">Generate Brief</button>
   </div>
 
-  <div class="error-msg" id="errorMsg"></div>
-  <div class="status" id="statusMsg"></div>
+  <div class="pb-error" id="errorMsg"></div>
+  <div class="pb-status" id="statusMsg"></div>
 
   <div class="brief-box" id="briefBox">
     <div class="brief-header">
       <div class="brief-title" id="briefTitle"></div>
       <div class="brief-date" id="briefDate"></div>
     </div>
-
-    <div class="section">
-      <div class="section-label">Problem Statement</div>
-      <div class="section-content" id="problemSection"></div>
+    <div class="pb-section">
+      <div class="pb-section-label">Problem Statement</div>
+      <div class="pb-section-content" id="problemSection"></div>
     </div>
-
-    <div class="section">
-      <div class="section-label">Key Developments</div>
-      <div class="section-content" id="developmentsSection"></div>
+    <div class="pb-section">
+      <div class="pb-section-label">Key Developments</div>
+      <div class="pb-section-content" id="developmentsSection"></div>
     </div>
-
-    <div class="section">
-      <div class="section-label">Stakeholders Affected</div>
-      <div class="section-content" id="stakeholdersSection"></div>
+    <div class="pb-section">
+      <div class="pb-section-label">Stakeholders Affected</div>
+      <div class="pb-section-content" id="stakeholdersSection"></div>
     </div>
-
-    <div class="section">
-      <div class="section-label">Policy Recommendations</div>
-      <div class="section-content" id="recommendationsSection"></div>
+    <div class="pb-section">
+      <div class="pb-section-label">Policy Recommendations</div>
+      <div class="pb-section-content" id="recommendationsSection"></div>
     </div>
-
-    <div class="sources">
-      <div class="sources-label">Sources (Live Headlines)</div>
+    <div class="pb-sources">
+      <div class="pb-sources-label">Sources (Live Headlines)</div>
       <div id="sourcesSection"></div>
     </div>
-
-    <button class="copy-btn" onclick="copyBrief()">📋 Copy Brief</button>
+    <button class="pb-copy-btn" onclick="copyBrief()">📋 Copy Brief</button>
   </div>
 
-  <div class="api-note">
-    <strong>Note:</strong> This tool uses the free <a href="https://newsdata.io" target="_blank">NewsData.io</a> API.
+  <div class="pb-note">
+    <strong>Note:</strong> This tool fetches live headlines via a secure proxy. Powered by <a href="https://newsdata.io" target="_blank">NewsData.io</a>.
   </div>
 </div>
 
 <script>
-  const API_KEY = 'YOUR_API_KEY'; // ← Replace with your free key from newsdata.io
-
-  async function generateBrief() {
-    const topic = document.getElementById('topicInput').value.trim();
-    if (!topic) { showError('Please enter a policy topic.'); return; }
-
-    const btn = document.getElementById('generateBtn');
-    btn.disabled = true;
-    setStatus('Fetching live headlines...');
-    hideError();
-    document.getElementById('briefBox').classList.remove('visible');
-
-    try {
-      const url = `https://policy-brief-api.vercel.app/api/news?topic=${encodeURIComponent(topic)}`;
-      const res = await fetch(url);
-      const data = await res.json();
-
-      if (data.status !== 'success' || !data.results || data.results.length === 0) {
-        showError('No headlines found for this topic. Try a broader term.');
-        btn.disabled = false;
-        setStatus('');
-        return;
-      }
-
-      setStatus('Building brief...');
-      const articles = data.results.slice(0, 6);
-      buildBrief(topic, articles);
-
-    } catch (e) {
-      showError('Failed to fetch news. Check your API key or internet connection.');
+async function generateBrief() {
+  const topic = document.getElementById('topicInput').value.trim();
+  if (!topic) { showError('Please enter a policy topic.'); return; }
+  const btn = document.getElementById('generateBtn');
+  btn.disabled = true;
+  setStatus('Fetching live headlines...');
+  hideError();
+  document.getElementById('briefBox').classList.remove('visible');
+  try {
+    const url = `https://policy-brief-api.vercel.app/api/news?topic=${encodeURIComponent(topic)}`;
+    const res = await fetch(url);
+    const data = await res.json();
+    if (data.status !== 'success' || !data.results || data.results.length === 0) {
+      showError('No headlines found. Try a broader term.');
+      btn.disabled = false; setStatus(''); return;
     }
-
-    btn.disabled = false;
-    setStatus('');
+    setStatus('Building brief...');
+    buildBrief(topic, data.results.slice(0, 6));
+  } catch (e) {
+    showError('Failed to fetch news. Please try again.');
   }
+  btn.disabled = false; setStatus('');
+}
 
-  function buildBrief(topic, articles) {
-    const today = new Date().toLocaleDateString('en-IN', { day:'numeric', month:'long', year:'numeric' });
+function buildBrief(topic, articles) {
+  const today = new Date().toLocaleDateString('en-IN', { day:'numeric', month:'long', year:'numeric' });
+  document.getElementById('briefTitle').textContent = toTitleCase(topic);
+  document.getElementById('briefDate').textContent = 'Generated: ' + today;
+  document.getElementById('problemSection').textContent =
+    `${toTitleCase(topic)} has emerged as a critical policy area in India, with recent developments highlighting the need for structured intervention. ` +
+    (articles[0]?.description || articles[0]?.title || '');
+  const devList = document.createElement('ul');
+  articles.slice(0, 4).forEach(a => {
+    const li = document.createElement('li'); li.textContent = a.title; devList.appendChild(li);
+  });
+  const devSection = document.getElementById('developmentsSection');
+  devSection.innerHTML = ''; devSection.appendChild(devList);
+  document.getElementById('stakeholdersSection').innerHTML = `<ul>
+    <li>Central & State Government Ministries</li>
+    <li>Local Bodies and Municipal Authorities</li>
+    <li>Citizens and Civil Society Organisations</li>
+    <li>Private Sector and Industry Players</li>
+    <li>International Development Partners (World Bank, UN agencies)</li>
+  </ul>`;
+  document.getElementById('recommendationsSection').innerHTML = `<ul>
+    <li>Conduct a comprehensive needs assessment involving all stakeholders.</li>
+    <li>Establish a dedicated inter-ministerial task force for ${toTitleCase(topic)}.</li>
+    <li>Allocate targeted budget under relevant Central/State schemes.</li>
+    <li>Introduce a transparent monitoring and evaluation framework.</li>
+    <li>Engage civil society for grassroots feedback and implementation oversight.</li>
+  </ul>`;
+  const srcDiv = document.getElementById('sourcesSection'); srcDiv.innerHTML = '';
+  articles.forEach(a => {
+    const d = document.createElement('div'); d.className = 'pb-source-item';
+    d.innerHTML = `<a href="${a.link}" target="_blank">${a.title}</a> <span style="opacity:0.5">— ${a.source_id || 'News'}</span>`;
+    srcDiv.appendChild(d);
+  });
+  document.getElementById('briefBox').classList.add('visible');
+}
 
-    document.getElementById('briefTitle').textContent = toTitleCase(topic);
-    document.getElementById('briefDate').textContent = 'Generated: ' + today;
+function copyBrief() {
+  const title = document.getElementById('briefTitle').textContent;
+  const problem = document.getElementById('problemSection').textContent;
+  const devs = [...document.getElementById('developmentsSection').querySelectorAll('li')].map(l => '• ' + l.textContent).join('\n');
+  const recs = [...document.getElementById('recommendationsSection').querySelectorAll('li')].map(l => '• ' + l.textContent).join('\n');
+  const text = `POLICY BRIEF: ${title}\n\nPROBLEM STATEMENT\n${problem}\n\nKEY DEVELOPMENTS\n${devs}\n\nRECOMMENDATIONS\n${recs}`;
+  navigator.clipboard.writeText(text).then(() => alert('Brief copied to clipboard!'));
+}
 
-    // Problem Statement — derived from first headline
-    document.getElementById('problemSection').textContent =
-      `${toTitleCase(topic)} has emerged as a critical policy area in India, with recent developments highlighting the need for structured intervention. ` +
-      (articles[0]?.description || articles[0]?.title || '');
-
-    // Key Developments — list of headlines
-    const devList = document.createElement('ul');
-    articles.slice(0, 4).forEach(a => {
-      const li = document.createElement('li');
-      li.textContent = a.title;
-      devList.appendChild(li);
-    });
-    const devSection = document.getElementById('developmentsSection');
-    devSection.innerHTML = '';
-    devSection.appendChild(devList);
-
-    // Stakeholders
-    document.getElementById('stakeholdersSection').innerHTML =
-      `<ul>
-        <li>Central & State Government Ministries</li>
-        <li>Local Bodies and Municipal Authorities</li>
-        <li>Citizens and Civil Society Organisations</li>
-        <li>Private Sector and Industry Players</li>
-        <li>International Development Partners (World Bank, UN agencies)</li>
-      </ul>`;
-
-    // Recommendations
-    document.getElementById('recommendationsSection').innerHTML =
-      `<ul>
-        <li>Conduct a comprehensive needs assessment involving all stakeholders.</li>
-        <li>Establish a dedicated inter-ministerial task force for ${toTitleCase(topic)}.</li>
-        <li>Allocate targeted budget under relevant Central/State schemes.</li>
-        <li>Introduce a transparent monitoring and evaluation framework.</li>
-        <li>Engage civil society for grassroots feedback and implementation oversight.</li>
-      </ul>`;
-
-    // Sources
-    const srcDiv = document.getElementById('sourcesSection');
-    srcDiv.innerHTML = '';
-    articles.forEach(a => {
-      const d = document.createElement('div');
-      d.className = 'source-item';
-      d.innerHTML = `<a href="${a.link}" target="_blank">${a.title}</a> <span style="color:#aaa">— ${a.source_id || 'News'}</span>`;
-      srcDiv.appendChild(d);
-    });
-
-    document.getElementById('briefBox').classList.add('visible');
-  }
-
-  function copyBrief() {
-    const title = document.getElementById('briefTitle').textContent;
-    const problem = document.getElementById('problemSection').textContent;
-    const devs = [...document.getElementById('developmentsSection').querySelectorAll('li')].map(l => '• ' + l.textContent).join('\n');
-    const recs = [...document.getElementById('recommendationsSection').querySelectorAll('li')].map(l => '• ' + l.textContent).join('\n');
-    const text = `POLICY BRIEF: ${title}\n\nPROBLEM STATEMENT\n${problem}\n\nKEY DEVELOPMENTS\n${devs}\n\nRECOMMENDATIONS\n${recs}`;
-    navigator.clipboard.writeText(text).then(() => alert('Brief copied to clipboard!'));
-  }
-
-  function toTitleCase(str) {
-    return str.replace(/\w\S*/g, t => t.charAt(0).toUpperCase() + t.substr(1));
-  }
-  function setStatus(msg) { document.getElementById('statusMsg').textContent = msg; }
-  function showError(msg) { const e = document.getElementById('errorMsg'); e.textContent = msg; e.style.display = 'block'; }
-  function hideError() { document.getElementById('errorMsg').style.display = 'none'; }
+function toTitleCase(str) { return str.replace(/\w\S*/g, t => t.charAt(0).toUpperCase() + t.substr(1)); }
+function setStatus(msg) { document.getElementById('statusMsg').textContent = msg; }
+function showError(msg) { const e = document.getElementById('errorMsg'); e.textContent = msg; e.style.display = 'block'; }
+function hideError() { document.getElementById('errorMsg').style.display = 'none'; }
 </script>
-</body>
-</html>
