@@ -7,7 +7,7 @@ layout: default
   <!-- Hero Strip -->
   <div class="hero-strip">
     <div class="hero-content">
-      <h1>Shivanshu Sharma</h1>
+      <div class="hero-name">Shivanshu Sharma</div>
       <p class="hero-tagline">Strategy &amp; Management Consultant &nbsp;·&nbsp; IIT Gandhinagar &nbsp;·&nbsp; Data · Policy · Technology</p>
       <div class="hero-links">
         <a href="/about/" class="hero-btn">About Me</a>
@@ -170,16 +170,17 @@ function scrollRow(btn, dir) {
   border-bottom: 1px solid var(--pf-border);
   margin-bottom: 2.75rem;
 }
-.hero-content h1 {
+.hero-name {
   font-size: 2.1rem;
   font-weight: 700;
   margin: 0 0 0.45rem;
   letter-spacing: -0.025em;
   color: #1a1a1a;
 }
-html[data-mode="dark"] .hero-content h1 {
+html[data-mode="dark"] .hero-name {
   color: #f0eeeb !important;
 }
+
  
 
 .hero-tagline {
