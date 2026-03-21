@@ -159,3 +159,11 @@ html[data-mode="dark"] [class*="site-title"] {
   border-radius: 8px !important;
   font-size: 0.9rem !important;
 }
+/* Force sidebar name visible in dark mode */
+html[data-mode="dark"] #sidebar a,
+html[data-mode="dark"] #sidebar .site-title a,
+html[data-mode="dark"] .sidebar-name a,
+html[data-mode="dark"] #sidebar span,
+html[data-mode="dark"] #sidebar p {
+  color: #dbd8d3 !important;
+}
