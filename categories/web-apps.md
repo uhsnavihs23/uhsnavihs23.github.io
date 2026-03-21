@@ -1,6 +1,6 @@
 ---
 layout: category
 title: Web Apps
-category: web-apps
+categories: [Web Apps]
 permalink: /categories/web-apps/
 ---

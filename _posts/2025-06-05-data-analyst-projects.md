@@ -2,6 +2,7 @@
 layout: post
 title: "Data Analyst Projects"
 date: 2025-06-05 23:58:00 +0530
+categories: [Data Analytics]
 permalink: /projects/data-analyst-projects/
 ---
 

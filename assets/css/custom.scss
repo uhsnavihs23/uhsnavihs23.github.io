@@ -179,3 +179,16 @@ html[data-mode="dark"] .hero-strip h1 {
 .hero-strip h1 {
   color: #1a1a1a !important;
 }
+/* --- FOOLPROOF FIX FOR INVISIBLE SITE TITLE --- */
+#sidebar h1.site-title a, 
+#sidebar .site-title a {
+  color: var(--text-color) !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  display: block !important;
+}
+
+html[data-mode="dark"] #sidebar h1.site-title a,
+html[data-mode="dark"] #sidebar .site-title a {
+  color: #dbd8d3 !important;
+}
