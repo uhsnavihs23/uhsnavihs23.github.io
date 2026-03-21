@@ -3,7 +3,7 @@ layout: post
 title: Interactive Movie Recommender
 date: 2024-02-23
 is_project: true
-categories: [data-analytics]
+categories: [web-apps]
 description: A web app to explore movies by genre with posters and descriptions, powered by The Movie Database API.
 permalink: /posts/movie-recommender/
 ---

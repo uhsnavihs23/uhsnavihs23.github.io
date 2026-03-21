@@ -167,3 +167,15 @@ html[data-mode="dark"] #sidebar span,
 html[data-mode="dark"] #sidebar p {
   color: #dbd8d3 !important;
 }
+
+/* Force hero name white in dark mode */
+html[data-mode="dark"] .hero-content h1,
+html[data-mode="dark"] .hero-strip h1 {
+  color: #f0eeeb !important;
+}
+
+/* Light mode name - ensure dark */
+.hero-content h1,
+.hero-strip h1 {
+  color: #1a1a1a !important;
+}
