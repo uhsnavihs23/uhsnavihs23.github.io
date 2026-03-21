@@ -25,10 +25,9 @@ permalink: /projects/market-tracker/
   padding: 1.2rem 1.4rem; background: var(--card-bg); margin-bottom: 1.2rem;
 }
 .mt-chart-title { font-size: 0.85rem; font-weight: 700; color: var(--text-color); margin-bottom: 0.75rem; }
-.mt-loading { color: var(--text-muted-color); font-size: 0.9rem; margin: 2rem 0; }
-.mt-updated { font-size: 0.75rem; color: var(--text-muted-color); margin-top: 1.5rem; }
+.mt-updated { font-size: 0.75rem; color: var(--text-muted-color); margin-top: 1rem; }
 .mt-note {
-  font-size: 0.8rem; color: var(--text-muted-color); margin-top: 2rem;
+  font-size: 0.8rem; color: var(--text-muted-color); margin-top: 1.5rem;
   padding: 0.75rem 1rem; background: var(--highlight-bg);
   border-radius: 8px; border: 1px solid var(--border-color);
 }
@@ -43,9 +42,8 @@ permalink: /projects/market-tracker/
 
 <div class="mt-wrap">
   <p class="mt-subtitle">Live prices and 7-day trends for Indian markets and Gold.</p>
-  <div class="mt-loading" id="mtLoading">Loading market data...</div>
-  <div class="mt-grid" id="mtCards" style="display:none"></div>
-  <div id="mtCharts" style="display:none">
+  <div class="mt-grid" id="mtCards"></div>
+  <div id="mtCharts">
     <div class="mt-chart-box">
       <div class="mt-chart-title">Nifty 50 — 7 Day Trend</div>
       <canvas id="chartNifty" height="80"></canvas>
@@ -61,59 +59,51 @@ permalink: /projects/market-tracker/
   </div>
   <div class="mt-updated" id="mtUpdated"></div>
   <div class="mt-note">
-    <strong>Note:</strong> Market data is fetched live where available. Prices are indicative and may be delayed. Not financial advice.
+    <strong>Note:</strong> Prices are indicative. Not financial advice.
   </div>
 </div>
 
 <script>
-// Fallback static data — realistic recent values
-// Replace these periodically or when live fetch works
-const FALLBACK = {
-  nifty:  { prices: [22150, 22380, 22290, 22510, 22640, 22480, 22720], dates: ['Mar 14','Mar 15','Mar 16','Mar 17','Mar 18','Mar 19','Mar 21'] },
-  sensex: { prices: [73100, 73580, 73290, 73810, 74020, 73750, 74250], dates: ['Mar 14','Mar 15','Mar 16','Mar 17','Mar 18','Mar 19','Mar 21'] },
-  gold:   { prices: [85200, 85600, 85400, 86100, 86400, 86200, 86800], dates: ['Mar 14','Mar 15','Mar 16','Mar 17','Mar 18','Mar 19','Mar 21'] }
+// Static data — update these numbers weekly
+const DATA = {
+  nifty: {
+    label: 'Nifty 50', unit: '₹',
+    prices: [22150, 22380, 22290, 22510, 22640, 22480, 22720],
+    dates:  ['Mar 13','Mar 14','Mar 15','Mar 16','Mar 17','Mar 18','Mar 21']
+  },
+  sensex: {
+    label: 'Sensex', unit: '₹',
+    prices: [73100, 73580, 73290, 73810, 74020, 73750, 74250],
+    dates:  ['Mar 13','Mar 14','Mar 15','Mar 16','Mar 17','Mar 18','Mar 21']
+  },
+  gold: {
+    label: 'Gold (INR/10g)', unit: '₹',
+    prices: [85200, 85600, 85400, 86100, 86400, 86200, 86800],
+    dates:  ['Mar 13','Mar 14','Mar 15','Mar 16','Mar 17','Mar 18','Mar 21']
+  }
 };
 
-const instruments = [
-  { key: 'nifty',  label: 'Nifty 50',      unit: '₹', chartId: 'chartNifty',  color: '#3b6cf8' },
-  { key: 'sensex', label: 'Sensex',         unit: '₹', chartId: 'chartSensex', color: '#8b5cf6' },
-  { key: 'gold',   label: 'Gold (INR/10g)', unit: '₹', chartId: 'chartGold',   color: '#f59e0b' }
-];
+const COLORS = { nifty: '#3b6cf8', sensex: '#8b5cf6', gold: '#f59e0b' };
+const charts = {};
 
-// Try fetching from a reliable CORS-free proxy
-async function tryFetch(symbol) {
-  const proxies = [
-    `https://corsproxy.io/?${encodeURIComponent('https://stooq.com/q/d/l/?s=' + symbol + '&i=d')}`,
-    `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent('https://stooq.com/q/d/l/?s=' + symbol + '&i=d')}`
-  ];
-  for (const url of proxies) {
-    try {
-      const res = await fetch(url, { signal: AbortSignal.timeout(5000) });
-      const text = await res.text();
-      if (text.includes(',')) return parseCSV(text);
-    } catch(e) { continue; }
-  }
-  return null;
-}
-
-function parseCSV(text) {
-  const lines = text.trim().split('\n').slice(1);
-  return lines.slice(-8).map(line => {
-    const cols = line.split(',');
-    return { date: cols[0]?.slice(5), close: parseFloat(cols[4]) };
-  }).filter(r => r.date && !isNaN(r.close));
+function isDark() {
+  return document.documentElement.getAttribute('data-mode') === 'dark';
 }
 
 function makeChart(id, labels, data, color) {
-  const isDark = document.documentElement.getAttribute('data-mode') === 'dark';
-  const gridColor = isDark ? 'rgba(255,255,255,0.07)' : 'rgba(0,0,0,0.06)';
-  const textColor = isDark ? '#8a8680' : '#6b6b6b';
-  new Chart(document.getElementById(id), {
+  const gridColor = isDark() ? 'rgba(255,255,255,0.07)' : 'rgba(0,0,0,0.06)';
+  const textColor = isDark() ? '#8a8680' : '#6b6b6b';
+  if (charts[id]) charts[id].destroy();
+  charts[id] = new Chart(document.getElementById(id), {
     type: 'line',
     data: {
       labels,
-      datasets: [{ data, borderColor: color, backgroundColor: color + '22',
-        borderWidth: 2, pointRadius: 3, fill: true, tension: 0.35 }]
+      datasets: [{
+        data, borderColor: color,
+        backgroundColor: color + '22',
+        borderWidth: 2, pointRadius: 3,
+        fill: true, tension: 0.35
+      }]
     },
     options: {
       responsive: true,
@@ -127,50 +117,74 @@ function makeChart(id, labels, data, color) {
   });
 }
 
-function renderCard(inst, prices, isLive) {
-  const latest = prices[prices.length - 1];
-  const prev   = prices[prices.length - 2] || latest;
-  const change = latest - prev;
-  const pct    = ((change / prev) * 100).toFixed(2);
-  const dir    = change >= 0 ? 'up' : 'down';
-  const arrow  = change >= 0 ? '▲' : '▼';
-  const badge  = isLive ? '' : '<span class="mt-badge">Indicative</span>';
-  return `<div class="mt-card">
-    <div class="mt-card-label">${inst.label}${badge}</div>
-    <div class="mt-card-price">${inst.unit}${latest.toLocaleString('en-IN')}</div>
-    <div class="mt-card-change ${dir}">${arrow} ${Math.abs(change).toLocaleString('en-IN')} (${Math.abs(pct)}%)</div>
-    <div class="mt-card-sub">vs previous close</div>
-  </div>`;
-}
-
-async function loadAll() {
-  const symbols = ['^NSEI', '^BSESN', 'XAUINR'];
-  let liveResults = await Promise.all(symbols.map(s => tryFetch(s)));
-
-  // Fall back to static data for any that failed
-  const keys = ['nifty', 'sensex', 'gold'];
-  let anyLive = liveResults.some(r => r && r.length > 0);
-
-  document.getElementById('mtLoading').style.display = 'none';
-  document.getElementById('mtCards').style.display = 'grid';
-  document.getElementById('mtCharts').style.display = 'block';
-
-  let cardHTML = '';
-  instruments.forEach((inst, i) => {
-    const live = liveResults[i];
-    const isLive = live && live.length > 0;
-    const rows  = isLive ? live : FALLBACK[keys[i]].prices.map((p,j) => ({ date: FALLBACK[keys[i]].dates[j], close: p }));
-    const prices = rows.map(r => r.close);
-    const labels = rows.map(r => r.date);
-    cardHTML += renderCard(inst, prices, isLive);
-    makeChart(inst.chartId, labels, prices, inst.color);
+function renderCards(isLive) {
+  const ids = ['nifty', 'sensex', 'gold'];
+  const chartIds = ['chartNifty', 'chartSensex', 'chartGold'];
+  let html = '';
+  ids.forEach((key, i) => {
+    const d = DATA[key];
+    const latest = d.prices[d.prices.length - 1];
+    const prev   = d.prices[d.prices.length - 2] || latest;
+    const change = latest - prev;
+    const pct    = ((change / prev) * 100).toFixed(2);
+    const dir    = change >= 0 ? 'up' : 'down';
+    const arrow  = change >= 0 ? '▲' : '▼';
+    const badge  = isLive ? '' : '<span class="mt-badge">Indicative</span>';
+    html += `<div class="mt-card">
+      <div class="mt-card-label">${d.label}${badge}</div>
+      <div class="mt-card-price">${d.unit}${latest.toLocaleString('en-IN')}</div>
+      <div class="mt-card-change ${dir}">${arrow} ${Math.abs(change).toLocaleString('en-IN')} (${Math.abs(pct)}%)</div>
+      <div class="mt-card-sub">vs previous close</div>
+    </div>`;
+    makeChart(chartIds[i], d.dates, d.prices, COLORS[key]);
   });
-
-  document.getElementById('mtCards').innerHTML = cardHTML;
+  document.getElementById('mtCards').innerHTML = html;
   document.getElementById('mtUpdated').textContent =
-    (anyLive ? '✓ Live data • ' : '⚠ Showing indicative data • ') +
-    'Updated: ' + new Date().toLocaleTimeString('en-IN');
+    (isLive ? '✓ Live data' : '⚠ Showing indicative data') +
+    ' · ' + new Date().toLocaleTimeString('en-IN');
 }
 
-loadAll();
+// Show static data immediately — no loading state
+renderCards(false);
+
+// Then silently try to fetch live data in background
+async function tryLive() {
+  const proxies = [
+    'https://corsproxy.io/?',
+    'https://api.codetabs.com/v1/proxy?quest='
+  ];
+  const symbols = {
+    nifty:  '^NSEI',
+    sensex: '^BSESN',
+    gold:   'XAUINR'
+  };
+  let anySuccess = false;
+  for (const [key, sym] of Object.entries(symbols)) {
+    for (const proxy of proxies) {
+      try {
+        const url = proxy + encodeURIComponent(`https://stooq.com/q/d/l/?s=${sym}&i=d`);
+        const controller = new AbortController();
+        const timer = setTimeout(() => controller.abort(), 6000);
+        const res = await fetch(url, { signal: controller.signal });
+        clearTimeout(timer);
+        const text = await res.text();
+        if (!text.includes(',') || text.includes('No data')) continue;
+        const lines = text.trim().split('\n').slice(1).slice(-8);
+        const rows = lines.map(l => {
+          const cols = l.split(',');
+          return { date: cols[0]?.slice(5), close: parseFloat(cols[4]) };
+        }).filter(r => r.date && !isNaN(r.close));
+        if (rows.length > 2) {
+          DATA[key].prices = rows.map(r => r.close);
+          DATA[key].dates  = rows.map(r => r.date);
+          anySuccess = true;
+          break;
+        }
+      } catch(e) { continue; }
+    }
+  }
+  if (anySuccess) renderCards(true);
+}
+
+tryLive();
 </script>
