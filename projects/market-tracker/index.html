@@ -1,0 +1,168 @@
+---
+layout: page
+title: India Market Tracker
+permalink: /projects/market-tracker/
+---
+
+<style>
+.mt-wrap { max-width: 860px; margin: 0 auto; padding: 1rem 0 3rem; }
+.mt-subtitle { font-size: 0.95rem; color: var(--text-muted-color); margin-bottom: 2rem; }
+.mt-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.2rem; margin-bottom: 2rem; }
+.mt-card {
+  border: 1.5px solid var(--border-color); border-radius: 12px;
+  padding: 1.2rem 1.4rem; background: var(--card-bg);
+  transition: border-color 0.2s, transform 0.2s;
+}
+.mt-card:hover { border-color: #3b6cf8; transform: translateY(-2px); }
+.mt-card-label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: var(--text-muted-color); margin-bottom: 0.5rem; }
+.mt-card-price { font-size: 1.6rem; font-weight: 700; color: var(--text-color); margin-bottom: 0.25rem; }
+.mt-card-change { font-size: 0.85rem; font-weight: 600; }
+.mt-card-change.up { color: #16a34a; }
+.mt-card-change.down { color: #dc2626; }
+.mt-card-sub { font-size: 0.75rem; color: var(--text-muted-color); margin-top: 0.2rem; }
+canvas { width: 100% !important; margin-top: 1rem; }
+.mt-chart-box {
+  border: 1.5px solid var(--border-color); border-radius: 12px;
+  padding: 1.2rem 1.4rem; background: var(--card-bg); margin-bottom: 1.2rem;
+}
+.mt-chart-title { font-size: 0.85rem; font-weight: 700; color: var(--text-color); margin-bottom: 0.75rem; }
+.mt-loading { color: var(--text-muted-color); font-size: 0.9rem; margin: 2rem 0; }
+.mt-error { color: #dc2626; font-size: 0.9rem; margin: 1rem 0; display: none; }
+.mt-updated { font-size: 0.75rem; color: var(--text-muted-color); margin-top: 1.5rem; }
+.mt-note {
+  font-size: 0.8rem; color: var(--text-muted-color); margin-top: 2rem;
+  padding: 0.75rem 1rem; background: var(--highlight-bg);
+  border-radius: 8px; border: 1px solid var(--border-color);
+}
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+
+<div class="mt-wrap">
+  <p class="mt-subtitle">Live prices and 7-day trends for Indian markets and Gold. Data via Stooq.</p>
+
+  <div class="mt-error" id="mtError">Failed to load market data. Please try again later.</div>
+  <div class="mt-loading" id="mtLoading">Loading market data...</div>
+
+  <div class="mt-grid" id="mtCards" style="display:none"></div>
+
+  <div id="mtCharts" style="display:none">
+    <div class="mt-chart-box">
+      <div class="mt-chart-title">Nifty 50 — 7 Day Trend</div>
+      <canvas id="chartNifty" height="80"></canvas>
+    </div>
+    <div class="mt-chart-box">
+      <div class="mt-chart-title">Sensex — 7 Day Trend</div>
+      <canvas id="chartSensex" height="80"></canvas>
+    </div>
+    <div class="mt-chart-box">
+      <div class="mt-chart-title">Gold (USD/oz) — 7 Day Trend</div>
+      <canvas id="chartGold" height="80"></canvas>
+    </div>
+  </div>
+
+  <div class="mt-updated" id="mtUpdated"></div>
+  <div class="mt-note">
+    <strong>Note:</strong> Data is sourced from <a href="https://stooq.com" target="_blank">Stooq</a> via a CORS proxy. Prices may be delayed by 15–30 minutes. For reference only — not financial advice.
+  </div>
+</div>
+
+<script>
+const PROXY = 'https://api.allorigins.win/raw?url=';
+const instruments = [
+  { key: 'nifty',  label: 'Nifty 50',    symbol: '%5ENSEI',  unit: '',    chartId: 'chartNifty',  color: '#3b6cf8' },
+  { key: 'sensex', label: 'Sensex',       symbol: '%5EBSESN', unit: '',    chartId: 'chartSensex', color: '#8b5cf6' },
+  { key: 'gold',   label: 'Gold (USD/oz)',symbol: 'XAUUSD',   unit: '$',   chartId: 'chartGold',   color: '#f59e0b' }
+];
+
+async function fetchCSV(symbol) {
+  const url = `https://stooq.com/q/d/l/?s=${symbol}&i=d`;
+  const res = await fetch(PROXY + encodeURIComponent(url));
+  const text = await res.text();
+  const lines = text.trim().split('\n').slice(1); // skip header
+  return lines.slice(-8).map(line => {
+    const [date, open, high, low, close] = line.split(',');
+    return { date, close: parseFloat(close) };
+  }).filter(r => !isNaN(r.close));
+}
+
+function formatNum(n, unit) {
+  if (n >= 1000) return unit + n.toLocaleString('en-IN', { maximumFractionDigits: 2 });
+  return unit + n.toFixed(2);
+}
+
+function makeChart(id, labels, data, color) {
+  const isDark = document.documentElement.getAttribute('data-mode') === 'dark';
+  const gridColor = isDark ? 'rgba(255,255,255,0.07)' : 'rgba(0,0,0,0.06)';
+  const textColor = isDark ? '#8a8680' : '#6b6b6b';
+  new Chart(document.getElementById(id), {
+    type: 'line',
+    data: {
+      labels,
+      datasets: [{
+        data,
+        borderColor: color,
+        backgroundColor: color + '22',
+        borderWidth: 2,
+        pointRadius: 3,
+        pointHoverRadius: 5,
+        fill: true,
+        tension: 0.3
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: { legend: { display: false }, tooltip: { mode: 'index', intersect: false } },
+      scales: {
+        x: { grid: { color: gridColor }, ticks: { color: textColor, font: { size: 11 } } },
+        y: { grid: { color: gridColor }, ticks: { color: textColor, font: { size: 11 } } }
+      }
+    }
+  });
+}
+
+function renderCard(inst, rows) {
+  const latest = rows[rows.length - 1].close;
+  const prev   = rows[rows.length - 2]?.close || latest;
+  const change = latest - prev;
+  const pct    = ((change / prev) * 100).toFixed(2);
+  const dir    = change >= 0 ? 'up' : 'down';
+  const arrow  = change >= 0 ? '▲' : '▼';
+  return `
+    <div class="mt-card">
+      <div class="mt-card-label">${inst.label}</div>
+      <div class="mt-card-price">${formatNum(latest, inst.unit)}</div>
+      <div class="mt-card-change ${dir}">${arrow} ${Math.abs(change).toFixed(2)} (${Math.abs(pct)}%)</div>
+      <div class="mt-card-sub">vs previous close</div>
+    </div>`;
+}
+
+async function loadAll() {
+  const loading = document.getElementById('mtLoading');
+  const error   = document.getElementById('mtError');
+  const cards   = document.getElementById('mtCards');
+  const charts  = document.getElementById('mtCharts');
+  try {
+    const results = await Promise.all(instruments.map(i => fetchCSV(i.symbol)));
+    loading.style.display = 'none';
+    cards.style.display = 'grid';
+    charts.style.display = 'block';
+    let cardHTML = '';
+    instruments.forEach((inst, i) => {
+      const rows = results[i];
+      cardHTML += renderCard(inst, rows);
+      const labels = rows.map(r => r.date.slice(5));
+      const data   = rows.map(r => r.close);
+      makeChart(inst.chartId, labels, data, inst.color);
+    });
+    cards.innerHTML = cardHTML;
+    document.getElementById('mtUpdated').textContent =
+      'Last updated: ' + new Date().toLocaleTimeString('en-IN');
+  } catch(e) {
+    loading.style.display = 'none';
+    error.style.display = 'block';
+  }
+}
+
+loadAll();
+</script>
