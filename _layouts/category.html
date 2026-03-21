@@ -1,15 +1,19 @@
 ---
 layout: default
 ---
-<div class="post-content">
-  <h2>{{ page.title }}</h2>
-  <ul>
-    {% assign cat = page.category %}
-    {% for post in site.categories[cat] %}
-      <li>
-        <a href="{{ post.url }}">{{ post.title }}</a>
-        <small> — {{ post.date | date: "%b %d, %Y" }}</small>
-      </li>
+<div class="post-content" style="max-width:800px; margin: 2rem auto; padding: 0 1rem;">
+  <h2 style="margin-bottom:1.5rem;">{{ page.title }}</h2>
+  {% assign cat = page.category %}
+  {% assign posts = site.categories[cat] %}
+  {% if posts.size > 0 %}
+    {% for post in posts %}
+      <div style="border:1px solid var(--border-color); border-radius:8px; padding:1rem 1.25rem; margin-bottom:1rem; background:var(--card-bg);">
+        <a href="{{ post.url }}" style="font-size:1rem; font-weight:600; color:var(--link-color); text-decoration:none;">{{ post.title }}</a>
+        <p style="font-size:0.85rem; color:var(--text-muted-color); margin:0.3rem 0 0;">{{ post.description }}</p>
+        <small style="color:var(--text-muted-color);">{{ post.date | date: "%b %d, %Y" }}</small>
+      </div>
     {% endfor %}
-  </ul>
+  {% else %}
+    <p>No posts found in this category.</p>
+  {% endif %}
 </div>
