@@ -45,7 +45,8 @@ jobs:
           bundle exec htmlproofer _site \
             --disable-external \
             --checks=Links \
-            --ignore-urls "/^http:\/\/127.0.0.1/,/^http:\/\/0.0.0.0/,/^http:\/\/localhost/,/\/categories\/data-analytics\//,/\/categories\/web-apps\//"
+            --ignore-urls "/^http:\/\/127.0.0.1/,/^http:\/\/0.0.0.0/,/^http:\/\/localhost/,/\/categories\//,/\/categories\/data-analytics\//,/\/categories\/web-apps\//"
+
       - name: Upload site artifact
         uses: actions/upload-pages-artifact@v3
         with:

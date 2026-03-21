@@ -7,8 +7,8 @@ layout: default
   <!-- Hero Strip -->
   <div class="hero-strip">
     <div class="hero-content">
-      <div class="hero-name">Shivanshu Sharma</div>
-      <p class="hero-tagline">Strategy &amp; Management Consultant &nbsp;·&nbsp; IIT Gandhinagar &nbsp;·&nbsp; Data · Policy · Technology</p>
+      <!-- <div class="hero-name">Shivanshu Sharma</div>
+      <p class="hero-tagline">Strategy &amp; Management Consultant &nbsp;·&nbsp; IIT Gandhinagar &nbsp;·&nbsp; Data · Policy · Technology</p> -->
       <div class="hero-links">
         <a href="/about/" class="hero-btn">About Me</a>
         <a href="/timeline/" class="hero-btn hero-btn--outline">Timeline</a>
@@ -221,12 +221,18 @@ html[data-mode="dark"] .hero-name {
 .section-title {
   font-size: 1.3rem;
   font-weight: 700;
-  color: var(--pf-heading);
+  color: #1a1a1a;
+  -webkit-text-fill-color: #1a1a1a;
   margin: 0 0 1.5rem;
   letter-spacing: -0.01em;
   border: none;
   padding: 0;
 }
+html[data-mode="dark"] .section-title {
+  color: #f0eeeb !important;
+  -webkit-text-fill-color: #f0eeeb !important;
+}
+
 
 /* ---- ROW BLOCK ---- */
 .row-block { margin-bottom: 2.5rem; }
