@@ -1,6 +1,6 @@
 ---
 layout: category
 title: Data Analytics
-categories: [Data Analytics]
+category: Data Analytics
 permalink: /categories/data-analytics/
 ---
