@@ -1,0 +1,27 @@
+---
+layout: page
+title: PoliticalIntel Dashboard
+permalink: /projects/political-intel/
+---
+
+<style>
+.pi-intro { font-size: 0.95rem; color: var(--text-muted-color); margin-bottom: 1.5rem; }
+.pi-frame { width: 100%; border: none; min-height: 1100px; display: block; }
+</style>
+
+<p class="pi-intro">Real-time political intelligence dashboard — track international, national, and UP-level developments with daily PDF report generation.</p>
+
+<iframe
+  src="/assets/tools/political-intel/index.html"
+  class="pi-frame"
+  id="piFrame"
+  scrolling="yes"
+  title="PoliticalIntel Dashboard">
+</iframe>
+
+<script>
+  const f = document.getElementById('piFrame');
+  f.addEventListener('load', function() {
+    try { f.style.height = f.contentDocument.body.scrollHeight + 60 + 'px'; } catch(e) {}
+  });
+</script>
