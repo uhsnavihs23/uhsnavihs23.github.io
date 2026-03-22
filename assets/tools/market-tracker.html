@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', sans-serif; background: transparent; padding: 0; }
+  .grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem; margin-bottom: 1.5rem; }
+  @media(max-width:580px){ .grid { grid-template-columns: 1fr; } }
+  .card { border: 1.5px solid #e8e4de; border-radius: 10px; padding: 1rem 1.2rem; background: #fff; }
+  .card-label { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: #6b6b6b; margin-bottom: 0.4rem; }
+  .card-price { font-size: 1.45rem; font-weight: 700; color: #1a1a1a; }
+  .card-change { font-size: 0.82rem; font-weight: 600; margin-top: 0.2rem; }
+  .up { color: #16a34a; } .down { color: #dc2626; }
+  .card-sub { font-size: 0.7rem; color: #6b6b6b; margin-top: 0.15rem; }
+  .badge { font-size: 0.62rem; font-weight: 700; padding: 0.12rem 0.4rem; border-radius: 4px; background: #fef3c7; color: #92400e; margin-left: 0.3rem; }
+  .chart-box { border: 1.5px solid #e8e4de; border-radius: 10px; padding: 1rem 1.2rem; background: #fff; margin-bottom: 1rem; }
+  .chart-title { font-size: 0.82rem; font-weight: 700; color: #1a1a1a; margin-bottom: 0.6rem; }
+  .chart-wrap { position: relative; height: 150px; }
+  .updated { font-size: 0.72rem; color: #6b6b6b; margin-top: 0.75rem; margin-bottom: 0.5rem; }
+</style>
+</head>
+<body>
+<div class="grid" id="cards"></div>
+<div class="chart-box"><div class="chart-title">Nifty 50 — 7 Day Trend</div><div class="chart-wrap"><canvas id="cNifty"></canvas></div></div>
+<div class="chart-box"><div class="chart-title">Sensex — 7 Day Trend</div><div class="chart-wrap"><canvas id="cSensex"></canvas></div></div>
+<div class="chart-box"><div class="chart-title">Gold (INR/10g) — 7 Day Trend</div><div class="chart-wrap"><canvas id="cGold"></canvas></div></div>
+<div class="updated" id="updated">⚠ Showing indicative data</div>
+<script>
+const D = {
+  nifty:  { label:'Nifty 50',      unit:'₹', prices:[22150,22380,22290,22510,22640,22480,22720], dates:['Mar 13','Mar 14','Mar 15','Mar 16','Mar 17','Mar 18','Mar 21'], color:'#3b6cf8', cid:'cNifty'  },
+  sensex: { label:'Sensex',        unit:'₹', prices:[73100,73580,73290,73810,74020,73750,74250], dates:['Mar 13','Mar 14','Mar 15','Mar 16','Mar 17','Mar 18','Mar 21'], color:'#8b5cf6', cid:'cSensex' },
+  gold:   { label:'Gold (INR/10g)',unit:'₹', prices:[85200,85600,85400,86100,86400,86200,86800], dates:['Mar 13','Mar 14','Mar 15','Mar 16','Mar 17','Mar 18','Mar 21'], color:'#f59e0b', cid:'cGold'   }
+};
+const charts = {};
+
+function drawCards(live) {
+  let h = '';
+  for (const k of ['nifty','sensex','gold']) {
+    const d = D[k], p = d.prices, last = p[p.length-1], prev = p[p.length-2]||last;
+    const ch = last-prev, pct = ((ch/prev)*100).toFixed(2), dir = ch>=0?'up':'down', arr = ch>=0?'▲':'▼';
+    const badge = live ? '' : '<span class="badge">Indicative</span>';
+    h += `<div class="card">
+      <div class="card-label">${d.label}${badge}</div>
+      <div class="card-price">${d.unit}${last.toLocaleString('en-IN')}</div>
+      <div class="card-change ${dir}">${arr} ${Math.abs(ch).toLocaleString('en-IN')} (${Math.abs(pct)}%)</div>
+      <div class="card-sub">vs previous close</div>
+    </div>`;
+  }
+  document.getElementById('cards').innerHTML = h;
+}
+
+function drawChart(key) {
+  const d = D[key];
+  if (charts[key]) charts[key].destroy();
+  charts[key] = new Chart(document.getElementById(d.cid), {
+    type: 'line',
+    data: { labels: d.dates, datasets: [{ data: d.prices, borderColor: d.color, backgroundColor: d.color+'22', borderWidth:2, pointRadius:4, fill:true, tension:0.35 }] },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: {
+        x: { grid: { color: 'rgba(0,0,0,0.06)' }, ticks: { font: { size:11 }, color:'#6b6b6b' } },
+        y: { grid: { color: 'rgba(0,0,0,0.06)' }, ticks: { font: { size:11 }, color:'#6b6b6b', callback: v => '₹'+v.toLocaleString('en-IN') } }
+      }
+    }
+  });
+}
+
+function drawAll() { for (const k of ['nifty','sensex','gold']) drawChart(k); }
+
+drawCards(false);
+drawAll();
+
+async function tryLive() {
+  const map = { nifty:'%5ENSEI', sensex:'%5EBSESN', gold:'XAUINR' };
+  let hit = false;
+  for (const [k,sym] of Object.entries(map)) {
+    try {
+      const ctrl = new AbortController();
+      setTimeout(() => ctrl.abort(), 7000);
+      const r = await fetch('https://corsproxy.io/?'+encodeURIComponent('https://stooq.com/q/d/l/?s='+sym+'&i=d'), { signal: ctrl.signal });
+      const t = await r.text();
+      if (!t.includes(',') || t.toLowerCase().includes('no data')) continue;
+      const rows = t.trim().split('\n').slice(1).slice(-8)
+        .map(l => { const c=l.split(','); return { date:c[0]?.slice(5), close:parseFloat(c[4]) }; })
+        .filter(r => r.date && !isNaN(r.close));
+      if (rows.length >= 3) { D[k].prices = rows.map(r=>r.close); D[k].dates = rows.map(r=>r.date); hit=true; }
+    } catch(e) {}
+  }
+  if (hit) { drawCards(true); drawAll(); document.getElementById('updated').textContent = '✓ Live data · '+new Date().toLocaleTimeString('en-IN'); }
+}
+tryLive();
+</script>
+</body>
+</html>
