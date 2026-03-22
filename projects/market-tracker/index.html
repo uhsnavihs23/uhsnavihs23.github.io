@@ -6,30 +6,70 @@ permalink: /projects/market-tracker/
 
 <style>
 .mt-wrap { max-width: 860px; margin: 0 auto; padding: 1rem 0 3rem; }
-.mt-subtitle { font-size: 0.95rem; color: var(--text-muted-color); margin-bottom: 2rem; }
-.mt-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.2rem; margin-bottom: 2rem; }
+.mt-subtitle { font-size: 0.95rem; margin-bottom: 2rem; }
+.mt-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem;
+  margin-bottom: 2rem;
+}
+@media(max-width:640px){ .mt-grid { grid-template-columns: 1fr; } }
+
+/* Light mode cards */
 .mt-card {
-  border: 1.5px solid var(--border-color); border-radius: 12px;
-  padding: 1.2rem 1.4rem; background: var(--card-bg);
+  border: 1.5px solid #e8e4de;
+  border-radius: 12px;
+  padding: 1.2rem 1.4rem;
+  background: #ffffff;
   transition: border-color 0.2s, transform 0.2s;
 }
+html[data-mode="dark"] .mt-card {
+  border-color: #363a47;
+  background: #252833;
+}
 .mt-card:hover { border-color: #3b6cf8; transform: translateY(-2px); }
-.mt-card-label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: var(--text-muted-color); margin-bottom: 0.5rem; }
-.mt-card-price { font-size: 1.6rem; font-weight: 700; color: var(--text-color); margin-bottom: 0.25rem; }
+
+.mt-card-label {
+  font-size: 0.7rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.07em; color: #6b6b6b; margin-bottom: 0.5rem;
+}
+html[data-mode="dark"] .mt-card-label { color: #8a8680; }
+
+.mt-card-price { font-size: 1.5rem; font-weight: 700; color: #1a1a1a; margin-bottom: 0.25rem; }
+html[data-mode="dark"] .mt-card-price { color: #f0eeeb; }
+
 .mt-card-change { font-size: 0.85rem; font-weight: 600; }
 .mt-card-change.up { color: #16a34a; }
 .mt-card-change.down { color: #dc2626; }
-.mt-card-sub { font-size: 0.75rem; color: var(--text-muted-color); margin-top: 0.2rem; }
+.mt-card-sub { font-size: 0.72rem; color: #6b6b6b; margin-top: 0.2rem; }
+html[data-mode="dark"] .mt-card-sub { color: #8a8680; }
+
 .mt-chart-box {
-  border: 1.5px solid var(--border-color); border-radius: 12px;
-  padding: 1.2rem 1.4rem; background: var(--card-bg); margin-bottom: 1.2rem;
+  border: 1.5px solid #e8e4de;
+  border-radius: 12px;
+  padding: 1.2rem 1.4rem;
+  background: #ffffff;
+  margin-bottom: 1.2rem;
 }
-.mt-chart-title { font-size: 0.85rem; font-weight: 700; color: var(--text-color); margin-bottom: 0.75rem; }
-.mt-updated { font-size: 0.75rem; color: var(--text-muted-color); margin-top: 1rem; }
+html[data-mode="dark"] .mt-chart-box {
+  border-color: #363a47;
+  background: #252833;
+}
+.mt-chart-title { font-size: 0.85rem; font-weight: 700; color: #1a1a1a; margin-bottom: 0.75rem; }
+html[data-mode="dark"] .mt-chart-title { color: #f0eeeb; }
+
+.mt-canvas-wrap { position: relative; height: 160px; width: 100%; }
+
+.mt-updated { font-size: 0.75rem; color: #6b6b6b; margin-top: 1rem; }
+html[data-mode="dark"] .mt-updated { color: #8a8680; }
+
 .mt-note {
-  font-size: 0.8rem; color: var(--text-muted-color); margin-top: 1.5rem;
-  padding: 0.75rem 1rem; background: var(--highlight-bg);
-  border-radius: 8px; border: 1px solid var(--border-color);
+  font-size: 0.8rem; color: #6b6b6b; margin-top: 1.5rem;
+  padding: 0.75rem 1rem; background: #f5f3ef;
+  border-radius: 8px; border: 1px solid #e8e4de;
+}
+html[data-mode="dark"] .mt-note {
+  color: #8a8680; background: #2e3040; border-color: #363a47;
 }
 .mt-badge {
   display: inline-block; font-size: 0.65rem; font-weight: 700;
@@ -38,153 +78,132 @@ permalink: /projects/market-tracker/
 }
 </style>
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
-
 <div class="mt-wrap">
-  <p class="mt-subtitle">Live prices and 7-day trends for Indian markets and Gold.</p>
-  <div class="mt-grid" id="mtCards"></div>
-  <div id="mtCharts">
-    <div class="mt-chart-box">
-      <div class="mt-chart-title">Nifty 50 — 7 Day Trend</div>
-      <canvas id="chartNifty" height="80"></canvas>
+  <p class="mt-subtitle">Indicative prices and 7-day trends for Indian markets and Gold.</p>
+
+  <div class="mt-grid" id="mtCards">
+    <div class="mt-card">
+      <div class="mt-card-label">Nifty 50 <span class="mt-badge">Indicative</span></div>
+      <div class="mt-card-price">₹22,720</div>
+      <div class="mt-card-change up">▲ 240 (1.07%)</div>
+      <div class="mt-card-sub">vs previous close</div>
     </div>
-    <div class="mt-chart-box">
-      <div class="mt-chart-title">Sensex — 7 Day Trend</div>
-      <canvas id="chartSensex" height="80"></canvas>
+    <div class="mt-card">
+      <div class="mt-card-label">Sensex <span class="mt-badge">Indicative</span></div>
+      <div class="mt-card-price">₹74,250</div>
+      <div class="mt-card-change up">▲ 500 (0.68%)</div>
+      <div class="mt-card-sub">vs previous close</div>
     </div>
-    <div class="mt-chart-box">
-      <div class="mt-chart-title">Gold (INR/10g) — 7 Day Trend</div>
-      <canvas id="chartGold" height="80"></canvas>
+    <div class="mt-card">
+      <div class="mt-card-label">Gold INR/10g <span class="mt-badge">Indicative</span></div>
+      <div class="mt-card-price">₹86,800</div>
+      <div class="mt-card-change up">▲ 600 (0.70%)</div>
+      <div class="mt-card-sub">vs previous close</div>
     </div>
   </div>
-  <div class="mt-updated" id="mtUpdated"></div>
+
+  <div class="mt-chart-box">
+    <div class="mt-chart-title">Nifty 50 — 7 Day Trend</div>
+    <div class="mt-canvas-wrap"><canvas id="chartNifty"></canvas></div>
+  </div>
+  <div class="mt-chart-box">
+    <div class="mt-chart-title">Sensex — 7 Day Trend</div>
+    <div class="mt-canvas-wrap"><canvas id="chartSensex"></canvas></div>
+  </div>
+  <div class="mt-chart-box">
+    <div class="mt-chart-title">Gold (INR/10g) — 7 Day Trend</div>
+    <div class="mt-canvas-wrap"><canvas id="chartGold"></canvas></div>
+  </div>
+
+  <div class="mt-updated" id="mtUpdated">⚠ Showing indicative data</div>
   <div class="mt-note">
-    <strong>Note:</strong> Prices are indicative. Not financial advice.
+    <strong>Note:</strong> Prices shown are indicative recent values. Live fetch attempted in background via Stooq. Not financial advice.
   </div>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <script>
-// Static data — update these numbers weekly
 const DATA = {
-  nifty: {
-    label: 'Nifty 50', unit: '₹',
-    prices: [22150, 22380, 22290, 22510, 22640, 22480, 22720],
-    dates:  ['Mar 13','Mar 14','Mar 15','Mar 16','Mar 17','Mar 18','Mar 21']
-  },
-  sensex: {
-    label: 'Sensex', unit: '₹',
-    prices: [73100, 73580, 73290, 73810, 74020, 73750, 74250],
-    dates:  ['Mar 13','Mar 14','Mar 15','Mar 16','Mar 17','Mar 18','Mar 21']
-  },
-  gold: {
-    label: 'Gold (INR/10g)', unit: '₹',
-    prices: [85200, 85600, 85400, 86100, 86400, 86200, 86800],
-    dates:  ['Mar 13','Mar 14','Mar 15','Mar 16','Mar 17','Mar 18','Mar 21']
-  }
+  nifty:  { prices: [22150,22380,22290,22510,22640,22480,22720], dates: ['Mar 13','Mar 14','Mar 15','Mar 16','Mar 17','Mar 18','Mar 21'], color: '#3b6cf8' },
+  sensex: { prices: [73100,73580,73290,73810,74020,73750,74250], dates: ['Mar 13','Mar 14','Mar 15','Mar 16','Mar 17','Mar 18','Mar 21'], color: '#8b5cf6' },
+  gold:   { prices: [85200,85600,85400,86100,86400,86200,86800], dates: ['Mar 13','Mar 14','Mar 15','Mar 16','Mar 17','Mar 18','Mar 21'], color: '#f59e0b' }
 };
-
-const COLORS = { nifty: '#3b6cf8', sensex: '#8b5cf6', gold: '#f59e0b' };
 const charts = {};
 
-function isDark() {
-  return document.documentElement.getAttribute('data-mode') === 'dark';
-}
+function isDark(){ return document.documentElement.getAttribute('data-mode') === 'dark'; }
 
-function makeChart(id, labels, data, color) {
-  const gridColor = isDark() ? 'rgba(255,255,255,0.07)' : 'rgba(0,0,0,0.06)';
-  const textColor = isDark() ? '#8a8680' : '#6b6b6b';
-  if (charts[id]) charts[id].destroy();
+function drawChart(id, key) {
+  const d = DATA[key];
+  const dark = isDark();
+  const gridColor = dark ? 'rgba(255,255,255,0.07)' : 'rgba(0,0,0,0.06)';
+  const tickColor = dark ? '#8a8680' : '#6b6b6b';
+  if (charts[id]) { charts[id].destroy(); }
   charts[id] = new Chart(document.getElementById(id), {
     type: 'line',
     data: {
-      labels,
+      labels: d.dates,
       datasets: [{
-        data, borderColor: color,
-        backgroundColor: color + '22',
-        borderWidth: 2, pointRadius: 3,
-        fill: true, tension: 0.35
+        data: d.prices,
+        borderColor: d.color,
+        backgroundColor: d.color + '22',
+        borderWidth: 2,
+        pointRadius: 4,
+        pointHoverRadius: 6,
+        fill: true,
+        tension: 0.35
       }]
     },
     options: {
       responsive: true,
-      plugins: { legend: { display: false } },
+      maintainAspectRatio: false,
+      plugins: { legend: { display: false }, tooltip: { mode: 'index', intersect: false } },
       scales: {
-        x: { grid: { color: gridColor }, ticks: { color: textColor, font: { size: 11 } } },
-        y: { grid: { color: gridColor }, ticks: { color: textColor, font: { size: 11 },
-          callback: v => '₹' + v.toLocaleString('en-IN') } }
+        x: { grid: { color: gridColor }, ticks: { color: tickColor, font: { size: 11 } } },
+        y: {
+          grid: { color: gridColor },
+          ticks: { color: tickColor, font: { size: 11 }, callback: v => '₹' + v.toLocaleString('en-IN') }
+        }
       }
     }
   });
 }
 
-function renderCards(isLive) {
-  const ids = ['nifty', 'sensex', 'gold'];
-  const chartIds = ['chartNifty', 'chartSensex', 'chartGold'];
-  let html = '';
-  ids.forEach((key, i) => {
-    const d = DATA[key];
-    const latest = d.prices[d.prices.length - 1];
-    const prev   = d.prices[d.prices.length - 2] || latest;
-    const change = latest - prev;
-    const pct    = ((change / prev) * 100).toFixed(2);
-    const dir    = change >= 0 ? 'up' : 'down';
-    const arrow  = change >= 0 ? '▲' : '▼';
-    const badge  = isLive ? '' : '<span class="mt-badge">Indicative</span>';
-    html += `<div class="mt-card">
-      <div class="mt-card-label">${d.label}${badge}</div>
-      <div class="mt-card-price">${d.unit}${latest.toLocaleString('en-IN')}</div>
-      <div class="mt-card-change ${dir}">${arrow} ${Math.abs(change).toLocaleString('en-IN')} (${Math.abs(pct)}%)</div>
-      <div class="mt-card-sub">vs previous close</div>
-    </div>`;
-    makeChart(chartIds[i], d.dates, d.prices, COLORS[key]);
-  });
-  document.getElementById('mtCards').innerHTML = html;
-  document.getElementById('mtUpdated').textContent =
-    (isLive ? '✓ Live data' : '⚠ Showing indicative data') +
-    ' · ' + new Date().toLocaleTimeString('en-IN');
+function drawAllCharts() {
+  drawChart('chartNifty',  'nifty');
+  drawChart('chartSensex', 'sensex');
+  drawChart('chartGold',   'gold');
 }
 
-// Show static data immediately — no loading state
-renderCards(false);
+// Draw charts as soon as DOM + Chart.js ready
+document.addEventListener('DOMContentLoaded', function() {
+  drawAllCharts();
+  tryLive();
+});
 
-// Then silently try to fetch live data in background
 async function tryLive() {
-  const proxies = [
-    'https://corsproxy.io/?',
-    'https://api.codetabs.com/v1/proxy?quest='
-  ];
-  const symbols = {
-    nifty:  '^NSEI',
-    sensex: '^BSESN',
-    gold:   'XAUINR'
-  };
-  let anySuccess = false;
-  for (const [key, sym] of Object.entries(symbols)) {
-    for (const proxy of proxies) {
-      try {
-        const url = proxy + encodeURIComponent(`https://stooq.com/q/d/l/?s=${sym}&i=d`);
-        const controller = new AbortController();
-        const timer = setTimeout(() => controller.abort(), 6000);
-        const res = await fetch(url, { signal: controller.signal });
-        clearTimeout(timer);
-        const text = await res.text();
-        if (!text.includes(',') || text.includes('No data')) continue;
-        const lines = text.trim().split('\n').slice(1).slice(-8);
-        const rows = lines.map(l => {
-          const cols = l.split(',');
-          return { date: cols[0]?.slice(5), close: parseFloat(cols[4]) };
-        }).filter(r => r.date && !isNaN(r.close));
-        if (rows.length > 2) {
-          DATA[key].prices = rows.map(r => r.close);
-          DATA[key].dates  = rows.map(r => r.date);
-          anySuccess = true;
-          break;
-        }
-      } catch(e) { continue; }
-    }
+  const map = { nifty: '%5ENSEI', sensex: '%5EBSESN', gold: 'XAUINR' };
+  let anyHit = false;
+  for (const [key, sym] of Object.entries(map)) {
+    try {
+      const ctrl = new AbortController();
+      setTimeout(() => ctrl.abort(), 7000);
+      const url = 'https://corsproxy.io/?' + encodeURIComponent('https://stooq.com/q/d/l/?s=' + sym + '&i=d');
+      const res = await fetch(url, { signal: ctrl.signal });
+      const txt = await res.text();
+      if (!txt.includes(',') || txt.toLowerCase().includes('no data')) continue;
+      const rows = txt.trim().split('\n').slice(1).slice(-8)
+        .map(l => { const c = l.split(','); return { date: c[0]?.slice(5), close: parseFloat(c[4]) }; })
+        .filter(r => r.date && !isNaN(r.close));
+      if (rows.length >= 3) {
+        DATA[key].prices = rows.map(r => r.close);
+        DATA[key].dates  = rows.map(r => r.date);
+        anyHit = true;
+      }
+    } catch(e) { /* silent fail */ }
   }
-  if (anySuccess) renderCards(true);
+  if (anyHit) {
+    drawAllCharts();
+    document.getElementById('mtUpdated').textContent = '✓ Live data · ' + new Date().toLocaleTimeString('en-IN');
+  }
 }
-
-tryLive();
 </script>
