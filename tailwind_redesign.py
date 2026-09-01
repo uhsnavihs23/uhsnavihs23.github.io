@@ -240,7 +240,19 @@ proj_idx = get_tailwind_head("Projects", 1) + get_header(1, 'projects') + '''
                 <div class="h-px bg-gray-200 flex-grow ml-6"></div>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <!-- NEW: Ambient Mixer -->
+                <!-- Color Palette -->
+                <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow flex flex-col">
+                    <h3 class="text-xl font-bold text-primary mb-2">Color Palette Generator</h3>
+                    <p class="text-secondary text-sm mb-4 flex-grow">Instantly generate beautiful, cohesive color palettes and check their WCAG contrast ratio for accessibility.</p>
+                    <a href="./color-palette/index.html" class="text-accent font-medium hover:underline mt-auto">View App &rarr;</a>
+                </div>
+                <!-- Breathing Room -->
+                <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow flex flex-col">
+                    <h3 class="text-xl font-bold text-primary mb-2">The Breathing Room</h3>
+                    <p class="text-secondary text-sm mb-4 flex-grow">A sleek, CSS-animated visual pacing tool designed to guide box breathing exercises for stress relief.</p>
+                    <a href="./breathing-room/index.html" class="text-accent font-medium hover:underline mt-auto">View App &rarr;</a>
+                </div>
+                <!-- Ambient Mixer -->
                 <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow flex flex-col">
                     <h3 class="text-xl font-bold text-primary mb-2">Deep Work Ambient Mixer</h3>
                     <p class="text-secondary text-sm mb-4 flex-grow">A sleek audio mixer with customizable ambient soundscapes (Rain, Cafe, Thunder) to aid focus.</p>
@@ -264,25 +276,23 @@ proj_idx = get_tailwind_head("Projects", 1) + get_header(1, 'projects') + '''
                     <p class="text-secondary text-sm mb-4 flex-grow">Live prices and 7-day trend charts for Nifty 50, Sensex, and Gold. No API key needed.</p>
                     <a href="./market-tracker/index.html" class="text-accent font-medium hover:underline mt-auto">View App &rarr;</a>
                 </div>
+                <!-- Image Editor -->
                 <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow flex flex-col">
                     <h3 class="text-xl font-bold text-primary mb-2">Image Editor Web App</h3>
                     <p class="text-secondary text-sm mb-4 flex-grow">Browser-based image editing tool with filters, adjustments, and multi-format export support.</p>
                     <a href="./image-filter-app/index.html" class="text-accent font-medium hover:underline mt-auto">View App &rarr;</a>
                 </div>
+                <!-- Movie Recommender -->
                 <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow flex flex-col">
                     <h3 class="text-xl font-bold text-primary mb-2">Movie Recommender</h3>
                     <p class="text-secondary text-sm mb-4 flex-grow">Recommendation engine — search, discover, and explore films by genre and rating.</p>
                     <a href="./movie-recommender/index.html" class="text-accent font-medium hover:underline mt-auto">View App &rarr;</a>
                 </div>
+                <!-- GitHub Finder -->
                 <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow flex flex-col">
                     <h3 class="text-xl font-bold text-primary mb-2">GitHub Profile Finder</h3>
                     <p class="text-secondary text-sm mb-4 flex-grow">Analytics dashboard to search and explore GitHub user profiles, repos, and language breakdowns.</p>
                     <a href="./github-profile-finder/index.html" class="text-accent font-medium hover:underline mt-auto">View App &rarr;</a>
-                </div>
-                <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow flex flex-col">
-                    <h3 class="text-xl font-bold text-primary mb-2">News Hub</h3>
-                    <p class="text-secondary text-sm mb-4 flex-grow">Aggregates live news headlines across categories using a stable RSS-to-JSON aggregator.</p>
-                    <a href="./news-app/index.html" class="text-accent font-medium hover:underline mt-auto">View App &rarr;</a>
                 </div>
             </div>
         </section>
