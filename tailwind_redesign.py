@@ -207,13 +207,10 @@ proj_idx = get_tailwind_head("Projects", 1) + get_header(1, 'projects') + '''
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <!-- Cohort Analysis -->
-                <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow flex flex-col border-l-4 border-l-accent">
+                <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow flex flex-col">
                     <h3 class="text-xl font-bold text-primary mb-2">Customer Cohort & Retention</h3>
                     <p class="text-secondary text-sm mb-4 flex-grow">End-to-end Python analysis on 25k+ e-commerce transactions to map user retention across cohorts using Plotly.</p>
-                    <a href="./data-analyst-projects/cohort-retention/index.html" class="text-accent font-bold hover:underline mt-auto flex items-center">
-                        <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
-                        View Case Study
-                    </a>
+                    <a href="./data-analyst-projects/cohort-retention/index.html" class="text-accent font-medium hover:underline mt-auto">View Project &rarr;</a>
                 </div>
                 <!-- Campus Electricity -->
                 <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow flex flex-col">
@@ -239,15 +236,27 @@ proj_idx = get_tailwind_head("Projects", 1) + get_header(1, 'projects') + '''
         <!-- Web Apps -->
         <section class="mb-20">
             <div class="flex items-center mb-8">
-                <h2 class="text-2xl font-bold text-primary">Web Applications</h2>
+                <h2 class="text-2xl font-bold text-primary">Web Applications & Utilities</h2>
                 <div class="h-px bg-gray-200 flex-grow ml-6"></div>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- NEW: Pomodoro Timer -->
+                <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow flex flex-col">
+                    <h3 class="text-xl font-bold text-primary mb-2">Pomodoro Focus Room</h3>
+                    <p class="text-secondary text-sm mb-4 flex-grow">A sleek, distraction-free productivity timer with Pomodoro, short, and long break intervals.</p>
+                    <a href="./pomodoro-timer/index.html" class="text-accent font-medium hover:underline mt-auto">View App &rarr;</a>
+                </div>
+                <!-- NEW: Budget Visualizer -->
+                <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow flex flex-col">
+                    <h3 class="text-xl font-bold text-primary mb-2">Personal Budget Visualizer</h3>
+                    <p class="text-secondary text-sm mb-4 flex-grow">Input your income and expenses to instantly generate a breakdown of your cash flow using Chart.js.</p>
+                    <a href="./budget-visualizer/index.html" class="text-accent font-medium hover:underline mt-auto">View App &rarr;</a>
+                </div>
                 <!-- Market Tracker -->
                 <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow flex flex-col">
                     <h3 class="text-xl font-bold text-primary mb-2">India Market Tracker</h3>
                     <p class="text-secondary text-sm mb-4 flex-grow">Live prices and 7-day trend charts for Nifty 50, Sensex, and Gold. No API key needed.</p>
-                    <a href="./market-tracker/index.html" class="text-accent font-medium hover:underline mt-auto flex items-center"><span class="w-2 h-2 rounded-full bg-emerald-500 mr-2 animate-pulse"></span> View Live Dashboard &rarr;</a>
+                    <a href="./market-tracker/index.html" class="text-accent font-medium hover:underline mt-auto">View App &rarr;</a>
                 </div>
                 <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow flex flex-col">
                     <h3 class="text-xl font-bold text-primary mb-2">Image Editor Web App</h3>
@@ -262,12 +271,12 @@ proj_idx = get_tailwind_head("Projects", 1) + get_header(1, 'projects') + '''
                 <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow flex flex-col">
                     <h3 class="text-xl font-bold text-primary mb-2">GitHub Profile Finder</h3>
                     <p class="text-secondary text-sm mb-4 flex-grow">Analytics dashboard to search and explore GitHub user profiles, repos, and language breakdowns.</p>
-                    <a href="./github-profile-finder/index.html" class="text-accent font-medium hover:underline mt-auto">View Dashboard &rarr;</a>
+                    <a href="./github-profile-finder/index.html" class="text-accent font-medium hover:underline mt-auto">View App &rarr;</a>
                 </div>
                 <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow flex flex-col">
                     <h3 class="text-xl font-bold text-primary mb-2">News Hub</h3>
                     <p class="text-secondary text-sm mb-4 flex-grow">Aggregates live news headlines across categories using a stable RSS-to-JSON aggregator.</p>
-                    <a href="./news-app/index.html" class="text-accent font-medium hover:underline mt-auto">View Hub &rarr;</a>
+                    <a href="./news-app/index.html" class="text-accent font-medium hover:underline mt-auto">View App &rarr;</a>
                 </div>
             </div>
         </section>
@@ -287,7 +296,7 @@ proj_idx = get_tailwind_head("Projects", 1) + get_header(1, 'projects') + '''
                 <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow flex flex-col">
                     <h3 class="text-xl font-bold text-primary mb-2">India Policy Brief Generator</h3>
                     <p class="text-secondary text-sm mb-4 flex-grow">Generate structured policy briefs from live Indian news headlines on any topic.</p>
-                    <a href="./policy-brief-generator/index.html" class="text-accent font-medium hover:underline mt-auto">Try Tool &rarr;</a>
+                    <a href="./policy-brief-generator/index.html" class="text-accent font-medium hover:underline mt-auto">View App &rarr;</a>
                 </div>
             </div>
         </section>
