@@ -1,53 +1,172 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GitHub Profile Finder | Shivanshu Sharma</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+import re
+
+# 1. UPGRADE NEWS APP
+news_html = """
+    <main class="flex-grow max-w-6xl mx-auto px-4 sm:px-6 py-12 w-full">
+        <div class="flex flex-col md:flex-row justify-between items-end mb-8 border-b border-gray-200 pb-6 gap-4">
+            <div>
+                <h1 class="text-4xl font-extrabold text-primary mb-2">Global News Hub</h1>
+                <p class="text-secondary text-lg">Real-time aggregated headlines from trusted sources worldwide.</p>
+            </div>
+            <div class="flex gap-4">
+                <select id="topicSelect" class="bg-gray-50 border border-gray-300 text-primary text-sm rounded-lg focus:ring-accent focus:border-accent block p-2.5 shadow-sm">
+                    <option value="world">World News</option>
+                    <option value="technology">Technology</option>
+                    <option value="business">Business</option>
+                    <option value="science">Science</option>
+                    <option value="sports">Sports</option>
+                </select>
+                <select id="regionSelect" class="bg-gray-50 border border-gray-300 text-primary text-sm rounded-lg focus:ring-accent focus:border-accent block p-2.5 shadow-sm">
+                    <option value="us">Global (US)</option>
+                    <option value="in">India</option>
+                    <option value="uk">United Kingdom</option>
+                </select>
+                <button id="refreshBtn" class="bg-accent hover:bg-blue-700 text-white font-medium rounded-lg text-sm px-5 py-2.5 transition-colors shadow-sm flex items-center">
+                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+                    Refresh
+                </button>
+            </div>
+        </div>
+
+        <div id="loading" class="hidden flex justify-center py-20">
+            <svg class="animate-spin h-10 w-10 text-accent" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            </svg>
+        </div>
+
+        <div id="newsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- News articles injected here -->
+        </div>
+    </main>
+
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: { sans: ['Inter', 'sans-serif'] },
-                    colors: { primary: '#0f172a', secondary: '#475569', accent: '#3b82f6' }
-                }
+        const newsGrid = document.getElementById('newsGrid');
+        const loading = document.getElementById('loading');
+        const topicSelect = document.getElementById('topicSelect');
+        const regionSelect = document.getElementById('regionSelect');
+        const refreshBtn = document.getElementById('refreshBtn');
+
+        const RSS_FEEDS = {
+            world: {
+                us: ['http://feeds.bbci.co.uk/news/world/rss.xml', 'https://rss.nytimes.com/services/xml/rss/nyt/World.xml'],
+                in: ['https://timesofindia.indiatimes.com/rssfeedstopstories.cms', 'https://www.thehindu.com/news/national/feeder/default.rss'],
+                uk: ['http://feeds.bbci.co.uk/news/uk/rss.xml', 'https://www.theguardian.com/uk/rss']
+            },
+            technology: {
+                us: ['https://techcrunch.com/feed/', 'https://www.theverge.com/rss/index.xml'],
+                in: ['https://timesofindia.indiatimes.com/rssfeeds/66949542.cms'],
+                uk: ['http://feeds.bbci.co.uk/news/technology/rss.xml']
+            },
+            business: {
+                us: ['https://feeds.a.dj.com/rss/WSJcomUSBusiness.xml', 'https://search.cnbc.com/rs/search/combinedcms/view.xml?id=10001147'],
+                in: ['https://economictimes.indiatimes.com/rssfeedsdefault.cms'],
+                uk: ['http://feeds.bbci.co.uk/news/business/rss.xml']
+            },
+            science: { default: ['https://www.sciencedaily.com/rss/all.xml', 'https://rss.nytimes.com/services/xml/rss/nyt/Science.xml'] },
+            sports: { default: ['http://feeds.bbci.co.uk/sport/rss.xml', 'https://www.espn.com/espn/rss/news'] }
+        };
+
+        async function fetchNews() {
+            newsGrid.innerHTML = '';
+            loading.classList.remove('hidden');
+            
+            const topic = topicSelect.value;
+            const region = regionSelect.value;
+            
+            let feeds = [];
+            if (RSS_FEEDS[topic][region]) {
+                feeds = RSS_FEEDS[topic][region];
+            } else if (RSS_FEEDS[topic]['default']) {
+                feeds = RSS_FEEDS[topic]['default'];
+            } else {
+                feeds = RSS_FEEDS[topic]['us'];
             }
+
+            let allArticles = [];
+            
+            for (let feedUrl of feeds) {
+                try {
+                    const res = await fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feedUrl)}&api_key=`);
+                    const data = await res.json();
+                    if (data.items) {
+                        data.items.forEach(item => {
+                            // clean up description
+                            let desc = item.description.replace(/<[^>]*>?/gm, '').substring(0, 150) + '...';
+                            let image = item.enclosure?.link || item.thumbnail || 'https://images.unsplash.com/photo-1585829365295-ab7cd400c167?w=800&q=80';
+                            
+                            allArticles.push({
+                                title: item.title,
+                                link: item.link,
+                                pubDate: new Date(item.pubDate.replace(/-/g, '/')),
+                                source: data.feed.title,
+                                description: desc,
+                                image: image
+                            });
+                        });
+                    }
+                } catch(e) { console.error("Failed fetching", feedUrl); }
+            }
+
+            // Sort by latest
+            allArticles.sort((a,b) => b.pubDate - a.pubDate);
+            
+            loading.classList.add('hidden');
+            
+            if(allArticles.length === 0) {
+                newsGrid.innerHTML = '<div class="col-span-3 text-center text-gray-500 py-10 text-xl">Could not load news at this time. Please try again.</div>';
+                return;
+            }
+
+            allArticles.forEach(article => {
+                const timeStr = article.pubDate.toLocaleTimeString('en-US', {hour: '2-digit', minute:'2-digit'});
+                const dateStr = article.pubDate.toLocaleDateString('en-US', {month: 'short', day: 'numeric'});
+                
+                newsGrid.innerHTML += `
+                    <a href="${article.link}" target="_blank" class="flex flex-col bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-xl transition-all duration-300 group">
+                        <div class="h-48 overflow-hidden bg-gray-100">
+                            <img src="${article.image}" onerror="this.src='https://images.unsplash.com/photo-1585829365295-ab7cd400c167?w=800&q=80'" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="flex justify-between items-center mb-3">
+                                <span class="text-xs font-bold text-accent uppercase tracking-wider">${article.source}</span>
+                                <span class="text-xs font-medium text-gray-500">${dateStr} • ${timeStr}</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-primary mb-3 group-hover:text-accent transition-colors leading-tight">${article.title}</h3>
+                            <p class="text-sm text-secondary flex-grow">${article.description}</p>
+                        </div>
+                    </a>
+                `;
+            });
         }
+
+        topicSelect.addEventListener('change', fetchNews);
+        regionSelect.addEventListener('change', fetchNews);
+        refreshBtn.addEventListener('click', fetchNews);
+        
+        // Initial fetch
+        fetchNews();
     </script>
-    <style>
-        body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
-    </style>
-</head>
-<body class="bg-gray-50 text-primary flex flex-col min-h-screen">
+"""
 
-    <!-- Navbar -->
-    <header class="sticky top-0 z-50 w-full backdrop-blur-md bg-white/80 border-b border-gray-200">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-            <a href="../../index.html" class="text-xl font-bold tracking-tight text-primary hover:text-accent transition-colors">Shivanshu Sharma</a>
-            <nav class="flex gap-6">
-                <a href="../../index.html" class="text-sm font-medium transition-colors hover:text-accent text-secondary">Home</a>
-                <a href="../../projects/index.html" class="text-sm font-medium transition-colors hover:text-accent text-accent">Projects</a>
-                <a href="../../about.html" class="text-sm font-medium transition-colors hover:text-accent text-secondary">About</a>
-            </nav>
-        </div>
-    </header>
-
-
-    <!-- Navbar -->
-    <header class="sticky top-0 z-50 w-full backdrop-blur-md bg-white/80 border-b border-gray-200">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-            <a href="../../index.html" class="text-xl font-bold tracking-tight text-primary hover:text-accent transition-colors">Shivanshu Sharma</a>
-            <nav class="flex gap-6">
-                <a href="../../index.html" class="text-sm font-medium transition-colors hover:text-accent text-secondary">Home</a>
-                <a href="../../projects/index.html" class="text-sm font-medium transition-colors hover:text-accent text-accent">Projects</a>
-                <a href="../../about.html" class="text-sm font-medium transition-colors hover:text-accent text-secondary">About</a>
-            </nav>
-        </div>
-    </header>
-
+with open('./projects/news-app/index.html', 'r') as f:
+    content = f.read()
     
+# Remove raw tags if any
+content = content.replace('{% raw %}', '').replace('{% endraw %}', '')
+# Replace main block
+content = re.sub(r'<main.*?</main>', news_html, content, flags=re.DOTALL)
+if 'https://cdn.tailwindcss.com' not in content:
+    content = content.replace('</head>', '<script src="https://cdn.tailwindcss.com"></script></head>')
+
+with open('./projects/news-app/index.html', 'w') as f:
+    f.write(content)
+    
+print("News App upgraded.")
+
+
+# 2. UPGRADE GITHUB PROFILE FINDER
+github_html = """
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
     <main class="flex-grow max-w-6xl mx-auto px-4 sm:px-6 py-12 w-full">
         
@@ -197,7 +316,7 @@
             
             const blog = document.getElementById('blog');
             if (data.blog) {
-                blog.textContent = data.blog.replace(/^https?:\/\//, '');
+                blog.textContent = data.blog.replace(/^https?:\\/\\//, '');
                 blog.href = data.blog.startsWith('http') ? data.blog : 'https://' + data.blog;
             } else {
                 blog.textContent = 'No website';
@@ -276,145 +395,14 @@
             }
         }
     </script>
+"""
 
+with open('./projects/github-profile-finder/index.html', 'r') as f:
+    content = f.read()
 
-    <script>
-        const searchBtn = document.getElementById('searchBtn');
-        const searchInput = document.getElementById('searchInput');
-        const profileContainer = document.getElementById('profileContainer');
-        const loadingState = document.getElementById('loadingState');
-        const errorMsg = document.getElementById('errorMsg');
+content = re.sub(r'<main.*?</main>', github_html, content, flags=re.DOTALL)
+with open('./projects/github-profile-finder/index.html', 'w') as f:
+    f.write(content)
 
-        searchBtn.addEventListener('click', fetchProfile);
-        searchInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') fetchProfile();
-        });
+print("GitHub Finder upgraded.")
 
-        async function fetchProfile() {
-            const username = searchInput.value.trim();
-            if (!username) return;
-
-            errorMsg.classList.add('hidden');
-            profileContainer.classList.add('hidden');
-            loadingState.classList.remove('hidden');
-
-            try {
-                const res = await fetch(`https://api.github.com/users/${username}`);
-                if (!res.ok) {
-                    throw new Error('User not found');
-                }
-                const data = await res.json();
-                
-                // Fetch repos
-                const repoRes = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=6`);
-                const repos = await repoRes.json();
-
-                renderProfile(data);
-                renderRepos(repos);
-                
-                loadingState.classList.add('hidden');
-                profileContainer.classList.remove('hidden');
-            } catch (err) {
-                loadingState.classList.add('hidden');
-                errorMsg.textContent = err.message;
-                errorMsg.classList.remove('hidden');
-            }
-        }
-
-        function renderProfile(data) {
-            document.getElementById('avatar').src = data.avatar_url;
-            document.getElementById('name').textContent = data.name || data.login;
-            document.getElementById('username').textContent = data.login;
-            document.getElementById('usernameLink').href = data.html_url;
-            document.getElementById('githubBtn').href = data.html_url;
-            
-            document.getElementById('bio').textContent = data.bio || 'This user has no bio.';
-            
-            document.getElementById('location').textContent = data.location || 'Not provided';
-            
-            const blog = document.getElementById('blog');
-            if (data.blog) {
-                blog.textContent = data.blog.replace(/^https?:\/\//, '');
-                blog.href = data.blog.startsWith('http') ? data.blog : 'https://' + data.blog;
-            } else {
-                blog.textContent = 'Not provided';
-                blog.href = '#';
-            }
-
-            const joinDate = new Date(data.created_at);
-            document.getElementById('joined').textContent = joinDate.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
-
-            document.getElementById('repos').textContent = data.public_repos;
-            document.getElementById('followers').textContent = data.followers;
-            document.getElementById('following').textContent = data.following;
-            document.getElementById('gists').textContent = data.public_gists;
-        }
-
-        function renderRepos(repos) {
-            const repoList = document.getElementById('repoList');
-            repoList.innerHTML = '';
-
-            if (repos.length === 0) {
-                repoList.innerHTML = '<p class="text-secondary col-span-2">No public repositories found.</p>';
-                return;
-            }
-
-            repos.forEach(repo => {
-                const desc = repo.description ? (repo.description.length > 80 ? repo.description.substring(0, 80) + '...' : repo.description) : 'No description provided.';
-                const lang = repo.language || 'Unknown';
-                const stars = repo.stargazers_count;
-                
-                repoList.innerHTML += `
-                    <a href="${repo.html_url}" target="_blank" class="block bg-white p-6 rounded-xl shadow-sm border border-gray-200 hover:shadow-md hover:border-accent transition-all">
-                        <h4 class="text-lg font-bold text-accent mb-2 truncate">${repo.name}</h4>
-                        <p class="text-sm text-secondary mb-4 h-10">${desc}</p>
-                        <div class="flex items-center justify-between text-xs font-semibold text-gray-500">
-                            <span class="flex items-center"><span class="w-3 h-3 rounded-full bg-indigo-500 mr-2"></span>${lang}</span>
-                            <span class="flex items-center"><svg class="w-4 h-4 mr-1 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>${stars}</span>
-                        </div>
-                    </a>
-                `;
-            });
-        }
-    </script>
-
-    <!-- Footer -->
-    <footer class="mt-auto border-t border-gray-200 bg-white py-8">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p class="text-sm text-secondary">© <span id="year"></span> Shivanshu Sharma. All rights reserved.</p>
-            <div class="flex gap-4">
-                <a href="https://github.com/uhsnavihs23" target="_blank" class="text-secondary hover:text-accent transition-colors">
-                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" /></svg>
-                </a>
-                <a href="https://linkedin.com/in/shivanshu-sharma-2302" target="_blank" class="text-secondary hover:text-accent transition-colors">
-                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                </a>
-            </div>
-        </div>
-    </footer>
-    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
-
-    <!-- Footer -->
-    <footer class="mt-auto border-t border-gray-200 bg-white py-8">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p class="text-sm text-secondary">© <span id="year"></span> Shivanshu Sharma. All rights reserved.</p>
-            <div class="flex gap-4 items-center">
-                <a href="https://23022000.goatcounter.com/" target="_blank" rel="noopener" class="opacity-70 hover:opacity-100 transition-opacity mr-2">
-                    <img src="https://23022000.goatcounter.com/count?p=/&t=portfolio" width="auto" height="26" alt="Views">
-                </a>
-                <a href="https://github.com/uhsnavihs23" target="_blank" class="text-secondary hover:text-accent transition-colors">
-                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" /></svg>
-                </a>
-                <a href="https://linkedin.com/in/shivanshu-sharma-2302" target="_blank" class="text-secondary hover:text-accent transition-colors">
-                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                </a>
-            </div>
-        </div>
-    </footer>
-    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
-    <script data-goatcounter="https://23022000.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
-</body>
-</html>
-
-
-</html>

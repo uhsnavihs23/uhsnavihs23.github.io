@@ -1,9 +1,0 @@
-_site/
-.jekyll-cache/
-.jekyll-metadata
-.DS_Store
-assets/.DS_Store
-_posts/.DS_Store
-projects/.DS_Store
-build.log
-Gemfile.lock

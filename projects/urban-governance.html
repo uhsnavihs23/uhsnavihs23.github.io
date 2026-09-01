@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Urban Governance | Shivanshu Sharma</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: { primary: '#0f172a', secondary: '#475569', accent: '#3b82f6' }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+    </style>
+</head>
+<body class="bg-gray-50 text-primary flex flex-col min-h-screen">
+
+    <!-- Navbar -->
+    <header class="sticky top-0 z-50 w-full backdrop-blur-md bg-white/80 border-b border-gray-200">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+            <a href="../index.html" class="text-xl font-bold tracking-tight text-primary hover:text-accent transition-colors">Shivanshu Sharma</a>
+            <nav class="flex gap-6">
+                <a href="../index.html" class="text-sm font-medium transition-colors hover:text-accent text-secondary">Home</a>
+                <a href="../projects/index.html" class="text-sm font-medium transition-colors hover:text-accent text-accent">Projects</a>
+                <a href="../about.html" class="text-sm font-medium transition-colors hover:text-accent text-secondary">About</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="flex-grow max-w-3xl mx-auto px-4 sm:px-6 py-20">
+        <a href="./index.html" class="inline-flex items-center text-sm font-medium text-secondary hover:text-accent mb-8 transition-colors">
+            <svg class="mr-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+            Back to Projects
+        </a>
+        
+        <article>
+            <header class="mb-12 text-center sm:text-left">
+                <div class="inline-block px-3 py-1 bg-amber-100 text-amber-800 text-xs font-bold rounded-full uppercase tracking-wide mb-4">Policy & Governance</div>
+                <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-primary mb-4 leading-tight">Fixing Urban Governance in India: Simple Steps for Better Cities</h1>
+                <p class="text-secondary text-sm font-medium">June 2, 2025</p>
+            </header>
+            
+            <div class="prose prose-lg prose-blue max-w-none">
+                
+                <h2 class="text-2xl font-bold text-primary mt-12 mb-4">Introduction</h2>
+                <p class="text-lg text-secondary leading-relaxed mb-6">India's city life is changing fast. In 2024, about 530 million people lived in Indian cities - a figure second only to China. But this growth brings stress. Infrastructure, public services, and quality of life often fall short. How can city governance be improved to make everyday living better for everyone?</p>
+
+                <h2 class="text-2xl font-bold text-primary mt-12 mb-4">How Indian Cities Are Managed</h2>
+                <p class="text-lg text-secondary leading-relaxed mb-6">Indian cities are governed by a web of bodies - municipalities, state agencies (like development authorities or housing boards), and central authorities. They try to coordinate, but responsibilities overlap. In 1992, a key law aimed to give more power to local governments. Yet, many changes, like full administrative control and freedom to manage their own services, did not happen in most states. The result is slow progress and limited results on the ground.</p>
+
+                <h2 class="text-2xl font-bold text-primary mt-12 mb-4">Big Problems That Residents Face</h2>
+                <p class="text-lg text-secondary leading-relaxed mb-6">Despite some progress, many city dwellers face daily issues:</p>
+                <ul class="list-disc pl-6 text-lg text-secondary leading-relaxed mb-6 space-y-2">
+                    <li><strong>Water and Sanitation:</strong> Not everyone has access to safe drinking water or proper toilets.</li>
+                    <li><strong>Air Quality:</strong> Pollution remains a threat most months.</li>
+                    <li><strong>Housing:</strong> Slum dwellers struggle to meet basic needs.</li>
+                    <li><strong>Public Safety:</strong> Crime is common in several areas.</li>
+                    <li><strong>Inequality:</strong> Quality of life depends on your location and access to resources.</li>
+                    <li><strong>Drainage and Nature:</strong> Flooding is common due to poor drainage. Many natural spaces are neglected.</li>
+                </ul>
+
+                <h2 class="text-2xl font-bold text-primary mt-12 mb-4">Good Moves in Some Cities</h2>
+                <p class="text-lg text-secondary leading-relaxed mb-6">Some new steps help - even if only in certain areas:</p>
+                <ul class="list-disc pl-6 text-lg text-secondary leading-relaxed mb-6 space-y-2">
+                    <li><strong>Digital Health:</strong> In Vadodara, all patient health records in primary centers became digital, making it easier to monitor and respond to diseases.</li>
+                    <li><strong>Clean Energy:</strong> Mangaluru uses solar rooftops to supply more affordable power.</li>
+                    <li><strong>Smart Cities:</strong> Projects across the country bring technology to water, transport, education, and park management.</li>
+                    <li><strong>Better Public Transport:</strong> Private investments led to metro rails, electric buses, and app-based taxi services, easing mobility for many.</li>
+                </ul>
+
+                <div class="border-l-4 border-accent bg-blue-50 p-6 my-8 rounded-r-lg italic text-lg text-secondary shadow-sm">
+                    <p class="text-lg text-secondary leading-relaxed mb-6">Too many agencies, poor transfer of power, and uncoordinated efforts are the main causes for gaps in city services. Simple solutions, often local and data-driven, can help close these gaps.</p>
+                </div>
+
+                <h2 class="text-2xl font-bold text-primary mt-12 mb-4">Why Problems Remain</h2>
+                <p class="text-lg text-secondary leading-relaxed mb-6">Many governance efforts do not reach all corners of a city. Civic agencies are often underfunded. Some communities benefit more than others, leading to a mix of well-managed and poorly managed areas within the same city. The poor and less-connected suffer the most. There is also a lack of regular engagement with local communities, researchers, and non-government groups, even though stronger partnerships have shown promise where tried.</p>
+
+                <h2 class="text-2xl font-bold text-primary mt-12 mb-4">What Can Be Done? Practical Ideas</h2>
+                <ul class="list-disc pl-6 text-lg text-secondary leading-relaxed mb-6 space-y-2">
+                    <li><strong>Give More Power Locally:</strong> Municipalities should control their resources and get the needed authority.</li>
+                    <li><strong>Train Officials:</strong> Regular training for local staff helps them manage new technologies and public needs.</li>
+                    <li><strong>Work With Communities:</strong> Local meetings and regular feedback help target real needs.</li>
+                    <li><strong>Use Data:</strong> Reliable data on populations and city issues leads to better decisions.</li>
+                    <li><strong>Involve Experts:</strong> Government, universities, non-profits, and businesses need to work together directly.</li>
+                    <li><strong>Improve Funding:</strong> Cities need direct, steady funding from state and central bodies.</li>
+                    <li><strong>Online Services:</strong> More routine services should be made available digitally for ease and efficiency.</li>
+                </ul>
+
+                <div class="border-l-4 border-emerald-500 bg-emerald-50 p-6 my-8 rounded-r-lg text-secondary shadow-sm">
+                    <h3 style="margin-top:0; font-size: 1.3rem;">Summary</h3>
+                    <ul style="margin-bottom:0;">
+                        <li>Indian cities face heavy stress as they get bigger.</li>
+                        <li>Some new steps help but only reach a few spots.</li>
+                        <li>Gaps in power, authority, and community involvement hold back progress.</li>
+                        <li>Simple, local steps and partnerships with outside experts can make things better.</li>
+                    </ul>
+                </div>
+
+                <h2 class="text-2xl font-bold text-primary mt-12 mb-4">Conclusion</h2>
+                <p class="text-lg text-secondary leading-relaxed mb-6">Urban life in India is full of promise, but problems cannot be ignored. For Indian cities to offer a better quality of life, governance must be clear, accountable, and rooted in daily realities. Streets, services, health, and safety need the steady hand of local governments working with their communities. By focusing on trust, data, and shared responsibility, Indian cities can create safer and happier spaces for everyone.</p>
+            
+            </div>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="mt-auto border-t border-gray-200 bg-white py-8">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p class="text-sm text-secondary">© <span id="year"></span> Shivanshu Sharma. All rights reserved.</p>
+            <div class="flex gap-4">
+                <a href="https://github.com/uhsnavihs23" target="_blank" class="text-secondary hover:text-accent transition-colors">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" /></svg>
+                </a>
+                <a href="https://linkedin.com/in/shivanshu-sharma-2302" target="_blank" class="text-secondary hover:text-accent transition-colors">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Recommender</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-50 text-primary flex flex-col min-h-screen">
+
+    <!-- Navbar -->
+    <header class="sticky top-0 z-50 w-full backdrop-blur-md bg-white/80 border-b border-gray-200">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+            <a href="../../index.html" class="text-xl font-bold tracking-tight text-primary hover:text-accent transition-colors">Shivanshu Sharma</a>
+            <nav class="flex gap-6">
+                <a href="../../index.html" class="text-sm font-medium transition-colors hover:text-accent text-secondary">Home</a>
+                <a href="../../projects/index.html" class="text-sm font-medium transition-colors hover:text-accent text-accent">Projects</a>
+                <a href="../../about.html" class="text-sm font-medium transition-colors hover:text-accent text-secondary">About</a>
+            </nav>
+        </div>
+    </header>
+
+
+    <!-- Navbar -->
+    <header class="sticky top-0 z-50 w-full backdrop-blur-md bg-white/80 border-b border-gray-200">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+            <a href="../../index.html" class="text-xl font-bold tracking-tight text-primary hover:text-accent transition-colors">Shivanshu Sharma</a>
+            <nav class="flex gap-6">
+                <a href="../../index.html" class="text-sm font-medium transition-colors hover:text-accent text-secondary">Home</a>
+                <a href="../../projects/index.html" class="text-sm font-medium transition-colors hover:text-accent text-accent">Projects</a>
+                <a href="../../about.html" class="text-sm font-medium transition-colors hover:text-accent text-secondary">About</a>
+            </nav>
+        </div>
+    </header>
+
+<main class="flex-grow flex justify-center items-center py-12 px-4">
+
+<main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 py-12 w-full">
+    <div class="container mx-auto p-4">
+        <h1 class="text-3xl font-bold text-center mb-4 text-blue-800">Book Recommender</h1>
+        <div class="flex flex-col sm:flex-row justify-center gap-4 mb-4">
+            <select id="category" class="w-full sm:w-1/3 p-2 border rounded" aria-label="Select book category">
+                <option value="">All Categories</option>
+                <option value="fiction">Fiction</option>
+                <option value="nonfiction">Nonfiction</option>
+                <option value="science">Science</option>
+                <option value="history">History</option>
+                <option value="biography">Biography</option>
+            </select>
+            <select id="language" class="w-full sm:w-1/3 p-2 border rounded" aria-label="Select book language">
+                <option value="">All Languages</option>
+                <option value="en">English</option>
+                <option value="es">Spanish</option>
+                <option value="fr">French</option>
+            </select>
+            <select id="year" class="w-full sm:w-1/3 p-2 border rounded" aria-label="Select book year">
+                <option value="">All Years</option>
+            </select>
+        </div>
+        <div id="books" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+        <div class="flex justify-center mt-4 space-x-4">
+            <button id="prev-btn" class="p-2 bg-blue-500 text-white rounded disabled:bg-gray-400">Previous</button>
+            <span id="page-info" class="p-2"></span>
+            <button id="next-btn" class="p-2 bg-blue-500 text-white rounded disabled:bg-gray-400">Next</button>
+        </div>
+    </div>
+    <div id="book-modal"
+        class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center z-50 transition-opacity duration-300"
+        aria-modal="true" role="dialog">
+        <div id="modal-content"
+            class="bg-white p-6 rounded-lg max-w-4xl max-h-[90vh] overflow-y-auto relative transform transition-transform duration-300"
+            tabindex="-1">
+            <button id="close-modal" class="absolute top-4 right-4 text-blue-800 hover:text-blue-600 text-2xl"
+                aria-label="Close modal">×</button>
+        </div>
+    </div>
+    <script src=""></script>
+</main>
+
+
+
+</html>

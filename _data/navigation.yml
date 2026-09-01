@@ -1,9 +1,0 @@
-main:
-  - name: News
-    url: /posts/news/
-  - name: Projects
-    url: /
-  - name: About
-    url: /about/
-  - name: Timeline
-    url: /archives/
