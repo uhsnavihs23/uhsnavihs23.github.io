@@ -6,7 +6,7 @@
     <title>Global Intelligence Dashboard | Shivanshu Sharma</title>
     <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
@@ -54,16 +54,7 @@
             overflow: hidden;
         }
         
-        /* PDF specific styling (black text, white bg for print) */
-        #pdf-report {
-            color: #000;
-            background: #fff;
-            font-family: Arial, sans-serif;
-        }
-        #pdf-report h3 { color: #111; border-bottom: 2px solid #000; padding-bottom: 4px; margin-top: 20px; }
-        #pdf-report h4 { color: #333; font-weight: bold; margin-bottom: 4px; }
-        #pdf-report p { font-size: 14px; line-height: 1.5; color: #444; }
-    </style>
+            </style>
 </head>
 <body class="bg-bgColor text-primary flex flex-col min-h-screen">
     <!-- Header -->
@@ -99,7 +90,7 @@
             <div class="flex-1 flex gap-2 overflow-x-auto pb-2 md:pb-0">
                 <button onclick="setMode('international')" id="btn-international" class="filter-btn px-4 py-2 rounded-lg text-sm font-medium bg-accent text-white transition-colors whitespace-nowrap shadow-sm">Global News</button>
                 <button onclick="setMode('national')" id="btn-national" class="filter-btn px-4 py-2 rounded-lg text-sm font-medium bg-gray-100 dark:bg-gray-800 text-secondary hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors whitespace-nowrap">National News</button>
-                <button onclick="setMode('digest')" id="btn-digest" class="filter-btn px-4 py-2 rounded-lg text-sm font-medium bg-gray-100 dark:bg-gray-800 text-secondary hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors whitespace-nowrap">📝 Daily Digest (PDF)</button>
+                <button onclick="setMode('digest')" id="btn-digest" class="filter-btn px-4 py-2 rounded-lg text-sm font-medium bg-gray-100 dark:bg-gray-800 text-secondary hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors whitespace-nowrap">📝 Daily Digest</button>
             </div>
             
             <div class="flex items-center gap-3">
@@ -122,12 +113,7 @@
         
         <!-- Daily Digest View -->
         <div id="digest-view" class="hidden">
-            <div class="flex flex-col sm:flex-row gap-4 mb-6 justify-end">
-                <button onclick="downloadPDF()" class="px-5 py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-lg transition-colors shadow-sm flex items-center">
-                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg> Download PDF
-                </button>
-                
-            </div>
+            
             
             <div class="bg-white p-8 sm:p-12 rounded-xl shadow-lg border border-gray-200 overflow-x-auto">
                 <div id="pdf-report">
@@ -413,19 +399,7 @@
             reportDiv.innerHTML = html;
         }
 
-        function downloadPDF() {
-            const element = document.getElementById('pdf-report');
-            const date = dateFilter.value === 'All' ? allStories[0].date : dateFilter.value;
-            const opt = {
-                margin:       0.5, // 0.5 inch margins on all sides directly via jsPDF
-                filename:     `Intelligence-Digest-${date}.pdf`,
-                image:        { type: 'jpeg', quality: 0.98 },
-                html2canvas:  { scale: 2, useCORS: true, letterRendering: true },
-                jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' },
-                pagebreak:    { mode: 'css', before: '#nextpage1' }
-            };
-            html2pdf().set(opt).from(element).save();
-        }
+        
         
         init();
     </script>
