@@ -115,7 +115,7 @@
         <div id="digest-view" class="hidden">
             
             
-            <div class="bg-white p-8 sm:p-12 rounded-xl shadow-lg border border-gray-200 overflow-x-auto">
+            <div class="overflow-x-auto pb-10">
                 <div id="pdf-report">
                     <!-- Populated by JS -->
                 </div>
@@ -323,77 +323,86 @@
             }
         }
         
-        function renderDigest() {
+                function renderDigest() {
             const selectedDate = dateFilter.value === 'All' ? allStories[0].date : dateFilter.value;
             const dailyNews = allStories.filter(s => s.date === selectedDate);
             const reportDiv = document.getElementById('pdf-report');
             
             if(dailyNews.length === 0) { 
-                reportDiv.innerHTML = "<p style='color:black; padding: 20px;'>No data available for this date.</p>"; 
+                reportDiv.innerHTML = "<p class='text-primary py-10 text-center'>No data available for this date.</p>"; 
                 return; 
             }
 
-            const intl = dailyNews.filter(s => s.section === 'International');
-            const nat = dailyNews.filter(s => s.section === 'National');
+            const intl = dailyNews.filter(s => s.section === 'International').slice(0, 10);
+            const natGov = dailyNews.filter(s => s.report_category === 'National_Govt').slice(0, 15);
+            const opp = dailyNews.filter(s => s.report_category === 'National_Opposition').slice(0, 5);
+            const jud = dailyNews.filter(s => s.report_category === 'National_Judicial').slice(0, 5);
             
-            // Client-Ready Corporate PDF Structure
+            // Rebuilding as a strict A4 Page View
             let html = `
-                <div style="width: 100%; background: white; color: black; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">
-                    
-                    <div style="border-bottom: 2px solid #0f172a; padding-bottom: 15px; margin-bottom: 25px; display: flex; justify-content: space-between; align-items: flex-end;">
-                        <div>
-                            <h2 style="font-size: 24px; font-weight: 800; color: #0f172a; margin: 0; text-transform: uppercase; letter-spacing: 1px;">Global Intelligence Digest</h2>
-                            <p style="font-size: 10px; color: #475569; margin-top: 4px; text-transform: uppercase; letter-spacing: 0.5px; font-weight: bold;">Confidential & Proprietary</p>
+                <div class="max-w-[800px] mx-auto bg-white dark:bg-[#1a1b1e] shadow-2xl border border-gray-200 dark:border-gray-800 rounded-sm my-8" style="min-height: 1122px;">
+                    <!-- A4 Inner Padding -->
+                    <div class="p-10 sm:p-14 md:p-16">
+                        
+                        <!-- Header -->
+                        <div class="text-center border-b-[3px] border-gray-800 dark:border-gray-200 pb-6 mb-10">
+                            <h2 class="text-3xl font-black uppercase tracking-widest text-gray-900 dark:text-white mb-2" style="font-family: Georgia, serif;">Daily Intelligence Digest</h2>
+                            <p class="text-lg font-bold text-gray-600 dark:text-gray-400">Date: ${formatDate(selectedDate)}</p>
+                            <p class="text-xs font-semibold text-gray-400 dark:text-gray-500 tracking-[0.2em] uppercase mt-4">Confidential & Proprietary</p>
                         </div>
-                        <div style="text-align: right;">
-                            <p style="font-size: 12px; color: #0f172a; font-weight: 600; margin: 0;">Date: ${formatDate(selectedDate)}</p>
-                        </div>
-                    </div>
             `;
             
-            if(nat.length > 0) {
-                html += `
-                    <div style="margin-bottom: 15px; padding-bottom: 5px; border-bottom: 1px solid #cbd5e1;">
-                        <h3 style="margin: 0; color: #1e3a8a; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; font-weight: 800;">National Affairs</h3>
-                    </div>
+            const generateSection = (title, items) => {
+                if(items.length === 0) return '';
+                
+                let sectionHtml = `
+                    <div class="mb-10">
+                        <h3 class="text-xl font-bold uppercase tracking-wider text-gray-900 dark:text-white border-b border-gray-300 dark:border-gray-700 pb-2 mb-6" style="font-family: Georgia, serif;">
+                            ${title}
+                        </h3>
+                        <ul class="list-disc pl-5 space-y-6 marker:text-accent">
                 `;
-                nat.slice(0, 15).forEach(s => {
-                    html += `
-                        <div style="margin-bottom: 16px; page-break-inside: avoid;">
-                            <h4 style="margin: 0 0 4px 0; font-size: 14px; color: #0f172a; font-weight: 700; line-height: 1.3;">${s.title}</h4>
-                            <p style="margin: 0 0 6px 0; font-size: 10px; color: #64748b; font-weight: 600; text-transform: uppercase;">
-                                Source: <a href="${s.link}" target="_blank" style="color: #2563eb; text-decoration: none;">${s.source} &rarr;</a>
-                            </p>
-                            <p style="margin: 0; font-size: 12px; color: #334155; line-height: 1.5; text-align: justify;">${s.summary}</p>
-                        </div>
+                
+                items.forEach(item => {
+                    sectionHtml += `
+                            <li class="pl-2">
+                                <div class="flex flex-col">
+                                    <h4 class="text-base font-bold text-gray-900 dark:text-gray-100 leading-snug mb-2">
+                                        ${item.title}
+                                    </h4>
+                                    <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed text-justify mb-2">
+                                        ${item.summary || ''}
+                                    </p>
+                                    <div>
+                                        <a href="${item.link}" target="_blank" class="text-xs font-bold uppercase tracking-wider text-accent hover:underline">
+                                            [ Source: ${item.source || 'Intel Link'} ]
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
                     `;
                 });
-            }
-            
-            if(intl.length > 0) {
-                html += `
-                    <div style="margin-bottom: 15px; margin-top: 30px; padding-bottom: 5px; border-bottom: 1px solid #cbd5e1;">
-                        <h3 style="margin: 0; color: #047857; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; font-weight: 800;">International Developments</h3>
+                
+                sectionHtml += `
+                        </ul>
                     </div>
                 `;
-                intl.slice(0, 15).forEach(s => {
-                    html += `
-                        <div style="margin-bottom: 16px; page-break-inside: avoid;">
-                            <h4 style="margin: 0 0 4px 0; font-size: 14px; color: #0f172a; font-weight: 700; line-height: 1.3;">${s.title}</h4>
-                            <p style="margin: 0 0 6px 0; font-size: 10px; color: #64748b; font-weight: 600; text-transform: uppercase;">
-                                Source: <a href="${s.link}" target="_blank" style="color: #059669; text-decoration: none;">${s.source} &rarr;</a>
-                            </p>
-                            <p style="margin: 0; font-size: 12px; color: #334155; line-height: 1.5; text-align: justify;">${s.summary}</p>
-                        </div>
-                    `;
-                });
-            }
+                return sectionHtml;
+            };
+
+            html += generateSection("1. Global / International Updates", intl);
+            html += generateSection("2. National: Government Policies & Mandates", natGov);
+            html += generateSection("3. Opposition Activity", opp);
+            html += generateSection("4. Judicial & Supreme Court Verdicts", jud);
             
             html += `
-                <div style="text-align: center; margin-top: 40px; padding-top: 15px; border-top: 1px solid #e2e8f0; page-break-inside: avoid;">
-                    <p style="font-size: 9px; color: #94a3b8; margin: 0; text-transform: uppercase; letter-spacing: 1px;">End of Report • PoliticalIntel Engine</p>
-                </div>
-                </div>
+                        <!-- Footer -->
+                        <div class="text-center mt-16 pt-8 border-t border-gray-300 dark:border-gray-700">
+                            <p class="text-xs font-bold uppercase tracking-widest text-gray-500">End of Report</p>
+                        </div>
+                        
+                    </div> <!-- End A4 Inner -->
+                </div> <!-- End A4 Outer -->
             `;
             
             reportDiv.innerHTML = html;
