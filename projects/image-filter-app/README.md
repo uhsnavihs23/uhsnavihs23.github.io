@@ -20,4 +20,4 @@ Upload an image (PNG, JPEG, WebP, HEIC) to apply filters, crop with templates, c
 3. Open `index.html` in a browser.
 
 ## Live Demo
-[Try it here](https://5hivanshu-5harma.github.io/projects/image-filter-app/)
+[Try it here](https://sharma-shivanshu.github.io/projects/image-filter-app/)

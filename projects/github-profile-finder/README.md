@@ -16,4 +16,4 @@ Enter a GitHub username to view details like name, bio, number of repositories, 
 3. Open `index.html` in a browser.
 
 ## Live Demo
-[Try it here](https://5hivanshu-5harma.github.io/projects/github-profile-finder/)
+[Try it here](https://sharma-shivanshu.github.io/projects/github-profile-finder/)
