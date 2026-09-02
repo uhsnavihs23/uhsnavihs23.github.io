@@ -1,130 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Food Delivery Logistics Optimization | Shivanshu Sharma</title>
-    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <script>
-        Chart.defaults.font.family = "'Inter', sans-serif";
-        Chart.defaults.color = '#475569';
-        
-        // Volume Chart (Line)
-        new Chart(document.getElementById('volumeChart'), {
-            type: 'line',
-            data: {
-                labels: ['8AM', '11AM', '2PM', '5PM', '8PM', '11PM'],
-                datasets: [{
-                    label: 'Order Volume',
-                    data: [120, 450, 890, 320, 1450, 400],
-                    borderColor: '#2563eb',
-                    backgroundColor: 'rgba(37, 99, 235, 0.1)',
-                    borderWidth: 3,
-                    fill: true,
-                    tension: 0.4
-                }]
-            },
-            options: {
-                responsive: true, maintainAspectRatio: false,
-                plugins: { title: { display: true, text: 'Order Volume by Hour', font: { size: 14, weight: 'bold' } }, legend: { display: false } },
-                scales: { y: { beginAtZero: true } }
-            }
-        });
+import re
 
-        // Latency Chart (Bar)
-        new Chart(document.getElementById('latencyChart'), {
-            type: 'bar',
-            data: {
-                labels: ['8AM', '11AM', '2PM', '5PM', '8PM', '11PM'],
-                datasets: [{
-                    label: 'Avg Latency (Mins)',
-                    data: [18, 22, 28, 24, 42, 20],
-                    backgroundColor: '#ef4444',
-                    borderRadius: 4
-                }]
-            },
-            options: {
-                responsive: true, maintainAspectRatio: false,
-                plugins: { title: { display: true, text: 'Delivery Latency by Hour', font: { size: 14, weight: 'bold' } }, legend: { display: false } },
-                scales: { y: { beginAtZero: true } }
-            }
-        });
+with open('projects/data-analyst-projects/food-delivery-analytics/index.html', 'r') as f:
+    content = f.read()
 
-        // Traffic vs Time Chart
-        new Chart(document.getElementById('trafficChart'), {
-            type: 'bar',
-            data: {
-                labels: ['Low Traffic (8km)', 'Medium Traffic (5km)', 'High Traffic (4km)', 'Jam Traffic (3km)'],
-                datasets: [{
-                    label: 'Avg Delivery Time (Minutes)',
-                    data: [18, 24, 32, 45],
-                    backgroundColor: '#8b5cf6',
-                    borderRadius: 6
-                }]
-            },
-            options: {
-                responsive: true, maintainAspectRatio: false,
-                plugins: { legend: { display: false }, title: { display: false } },
-                scales: { y: { beginAtZero: true, title: { display: true, text: 'Minutes' } } }
-            }
-        });
+# Replace the <main> block
+main_pattern = r'<main class="max-w-4xl mx-auto px-4 sm:px-6 py-12">.*?</main>'
 
-        // Vehicle Performance Chart
-        new Chart(document.getElementById('vehicleChart'), {
-            type: 'line',
-            data: {
-                labels: ['Clear', 'Cloudy', 'Windy', 'Fog', 'Rain'],
-                datasets: [
-                    { label: 'Motorcycle', data: [22, 23, 24, 28, 30], borderColor: '#0f172a', borderWidth: 3, tension: 0.3 },
-                    { label: 'Electric Scooter (EV)', data: [20, 21, 23, 31, 38], borderColor: '#10b981', borderWidth: 3, tension: 0.3 }
-                ]
-            },
-            options: {
-                responsive: true, maintainAspectRatio: false,
-                plugins: { title: { display: false } },
-                scales: { y: { beginAtZero: false, min: 15, title: { display: true, text: 'Avg Minutes' } } }
-            }
-        });
-
-        // Feature Importance Chart
-        new Chart(document.getElementById('featureChart'), {
-            type: 'bar',
-            data: {
-                labels: ['Traffic Density', 'Weather Condition', 'Delivery Distance', 'Preparation Time', 'Vehicle Type', 'Driver Age'],
-                datasets: [{
-                    label: 'Random Forest Feature Importance',
-                    data: [0.38, 0.25, 0.18, 0.12, 0.05, 0.02],
-                    backgroundColor: ['#2563eb', '#3b82f6', '#60a5fa', '#93c5fd', '#bfdbfe', '#dbeafe'],
-                    borderRadius: 4
-                }]
-            },
-            options: {
-                indexAxis: 'y',
-                responsive: true, maintainAspectRatio: false,
-                plugins: { legend: { display: false }, title: { display: false } },
-                scales: { x: { beginAtZero: true, title: { display: true, text: 'Importance Weight' } } }
-            }
-        });
-    </script>
-    <style>
-        body { background-color: var(--bg-color); color: var(--text-primary); }
-        .prose p { margin-bottom: 1.25rem; line-height: 1.7; color: #334155; }
-        .prose h3 { font-size: 1.25rem; font-weight: 700; color: #0f172a; margin-top: 2rem; margin-bottom: 1rem; }
-    </style>
-</head>
-<body class="bg-bgColor min-h-screen">
-    <!-- Header -->
-    <header class="bg-white border-b border-gray-200 sticky top-0 z-50">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-            <a href="../../index.html" class="text-xl font-bold tracking-tight text-primary hover:text-accent transition-colors">Shivanshu Sharma</a>
-            <a href="../../projects/index.html" class="text-sm font-medium transition-colors hover:text-accent text-secondary">&larr; Back to Projects</a>
-        </div>
-    </header>
-
-    <main class="max-w-5xl mx-auto px-4 sm:px-6 py-12">
+new_main = """<main class="max-w-5xl mx-auto px-4 sm:px-6 py-12">
         
         <div class="mb-12 border-b border-gray-200 pb-8">
             <h1 class="text-4xl font-extrabold tracking-tight text-gray-900 mb-4">Food Delivery Logistics & Profitability Optimization</h1>
@@ -237,16 +119,13 @@ model.fit(df_clean[features], df_clean[<span class="text-green-600">'Time_taken(
                 </div>
             </div>
         </div>
-    </main>
+    </main>"""
 
-    <!-- Footer -->
-    <footer class="border-t border-gray-200 bg-white py-8">
-        <div class="max-w-5xl mx-auto px-4 text-center text-sm text-gray-500">
-            <p>© Shivanshu Sharma. Built for data-driven operations.</p>
-        </div>
-    </footer>
+content = re.sub(main_pattern, new_main, content, flags=re.DOTALL)
 
-    <script>
+# Update the scripts to add the 3 new charts
+script_pattern = r'<script>.*?</script>'
+new_script = """<script>
         Chart.defaults.font.family = "'Inter', sans-serif";
         Chart.defaults.color = '#475569';
         
@@ -346,6 +225,10 @@ model.fit(df_clean[features], df_clean[<span class="text-green-600">'Time_taken(
                 scales: { x: { beginAtZero: true, title: { display: true, text: 'Importance Weight' } } }
             }
         });
-    </script>
-</body>
-</html>
+    </script>"""
+
+content = re.sub(script_pattern, new_script, content, flags=re.DOTALL)
+
+with open('projects/data-analyst-projects/food-delivery-analytics/index.html', 'w') as f:
+    f.write(content)
+
