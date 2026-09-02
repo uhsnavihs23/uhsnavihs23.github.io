@@ -1,25 +1,36 @@
-import glob
+import os
 import re
 
-def clean_file(filepath):
+def fix_duplicates(filepath):
     with open(filepath, 'r') as f:
         content = f.read()
 
-    # Remove ALL Navbar blocks
-    content = re.sub(r'\s*<!-- Navbar -->\s*<header.*?</header>\s*', '\n', content, flags=re.DOTALL)
-    
-    # Remove ALL Footer blocks
-    content = re.sub(r'\s*<!-- Footer -->\s*<footer.*?</footer>\s*', '\n', content, flags=re.DOTALL)
-    
+    # Find all headers
+    headers = list(re.finditer(r'<header.*?</header>', content, flags=re.DOTALL))
+    if len(headers) > 1:
+        # Keep the first one, remove the others
+        first_header_end = headers[0].end()
+        # To remove others, we can just replace them with empty string in the remaining text
+        rest_of_text = content[first_header_end:]
+        rest_of_text = re.sub(r'<header.*?</header>', '', rest_of_text, flags=re.DOTALL)
+        content = content[:first_header_end] + rest_of_text
+
+    # Find all footers
+    footers = list(re.finditer(r'<footer.*?</footer>', content, flags=re.DOTALL))
+    if len(footers) > 1:
+        # Keep the first one, remove the others
+        first_footer_end = footers[0].end()
+        rest_of_text = content[first_footer_end:]
+        rest_of_text = re.sub(r'<footer.*?</footer>', '', rest_of_text, flags=re.DOTALL)
+        content = content[:first_footer_end] + rest_of_text
+
     with open(filepath, 'w') as f:
         f.write(content)
 
-for filepath in glob.glob('./**/*.html', recursive=True):
-    if 'ambient-noise' in filepath or 'budget-visualizer' in filepath or 'pomodoro-timer' in filepath or 'color-palette' in filepath or 'breathing-room' in filepath:
-        continue # I manually built these correctly
-    if filepath in ['./index.html', './about.html', './projects/index.html']:
-        continue # these are handled cleanly by their own scripts
-    
-    clean_file(filepath)
+for root, _, files in os.walk('.'):
+    if 'node_modules' in root or '.git' in root or 'scratch' in root:
+        continue
+    for file in files:
+        if file.endswith('.html'):
+            fix_duplicates(os.path.join(root, file))
 
-print("Removed duplicates.")

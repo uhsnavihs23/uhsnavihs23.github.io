@@ -223,9 +223,11 @@
     </script>
 
     <!-- Footer -->
+            <script>document.getElementById('footerYear').textContent = new Date().getFullYear();</script>
+    <script data-goatcounter="https://23022000.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
     <footer class="mt-auto border-t border-borderColor bg-cardBg py-8">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p class="text-sm text-secondary">© <span id="year"></span> Shivanshu Sharma. All rights reserved.</p>
+            <p class="text-sm text-secondary">© <span id="footerYear"></span> Shivanshu Sharma. All rights reserved.</p>
             <div class="flex gap-4 items-center">
                 <a href="https://23022000.goatcounter.com/" target="_blank" rel="noopener" class="opacity-70 hover:opacity-100 transition-opacity mr-2">
                     <img src="https://23022000.goatcounter.com/count?p=/&t=portfolio" width="auto" height="26" alt="Views">
@@ -239,9 +241,6 @@
             </div>
         </div>
     </footer>
-    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
-    <script data-goatcounter="https://23022000.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
-
     <!-- Theme Script -->
     <script>
         const html = document.documentElement;
