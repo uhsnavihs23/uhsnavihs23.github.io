@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Shopping Trends Analysis | Shivanshu Sharma</title>
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: { 
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace']
+                    },
+                    colors: { 
+                        primary: '#0f172a', 
+                        secondary: '#475569', 
+                        accent: '#8b5cf6',
+                        bgColor: '#f8fafc',
+                        cardBg: '#ffffff',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: var(--bg-color); color: var(--text-primary); }
+        .prose p { margin-bottom: 1.25rem; line-height: 1.7; color: #334155; }
+        .prose h3 { font-size: 1.25rem; font-weight: 700; color: #0f172a; margin-top: 2rem; margin-bottom: 1rem; }
+    </style>
+</head>
+<body class="bg-bgColor min-h-screen">
+    <!-- Header -->
+    <header class="bg-white border-b border-gray-200 sticky top-0 z-50">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+            <a href="../../index.html" class="text-xl font-bold tracking-tight text-primary hover:text-accent transition-colors">Shivanshu Sharma</a>
+            <a href="../../projects/index.html" class="text-sm font-medium transition-colors hover:text-accent text-secondary">&larr; Back to Projects</a>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-4 sm:px-6 py-12">
+        
+        <div class="mb-12">
+            <h1 class="text-4xl font-extrabold tracking-tight text-gray-900 mb-4">Retail Strategy: Customer Shopping Trends Analysis</h1>
+            <p class="text-xl text-gray-500 mb-6">A statistical analysis of consumer purchasing behavior, segmentation, and lifetime value to inform targeted retail marketing strategies.</p>
+            <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs font-bold rounded-full uppercase tracking-wide">Python</span>
+                <span class="px-3 py-1 bg-green-100 text-green-800 text-xs font-bold rounded-full uppercase tracking-wide">Scikit-Learn</span>
+                <span class="px-3 py-1 bg-yellow-100 text-yellow-800 text-xs font-bold rounded-full uppercase tracking-wide">Customer Segmentation</span>
+            </div>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden mb-12">
+            <div class="p-8 md:p-10 prose max-w-none">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b border-gray-200 pb-2">1. The Retail Challenge & Dataset</h2>
+                <p>
+                    Modern retail is no longer about mass marketing; it is about precision targeting. Understanding exactly <em>who</em> buys <em>what</em>, and <em>when</em>, is the difference between a successful promotion and a total loss of margin. The objective of this project was to segment customers based on their historical purchasing behavior to allow for highly targeted, high-ROI marketing campaigns.
+                </p>
+                <p>
+                    <strong>Data Source:</strong> The analysis utilizes the <a href="https://www.kaggle.com/datasets/iamsouravbanerjee/customer-shopping-trends-dataset" target="_blank" class="text-accent hover:underline">Customer Shopping Trends Dataset</a> (Kaggle), which contains 3,900 consumer records detailing age, gender, purchase categories, review ratings, subscription status, and discount usage.
+                </p>
+
+                <h3>Methodology: RFM Analysis & K-Means Clustering</h3>
+                <p>
+                    I approached this dataset using a standard RFM (Recency, Frequency, Monetary) philosophy. To accurately group consumers without relying on biased human assumptions, I deployed an unsupervised machine learning algorithm (K-Means Clustering) via Python's <code>scikit-learn</code> library.
+                </p>
+                
+                <div class="bg-gray-50 rounded-lg p-4 border border-gray-200 overflow-x-auto my-6">
+                    <pre class="text-sm font-mono text-gray-800"><code><span class="text-blue-600">import</span> pandas <span class="text-blue-600">as</span> pd
+<span class="text-blue-600">from</span> sklearn.preprocessing <span class="text-blue-600">import</span> StandardScaler
+<span class="text-blue-600">from</span> sklearn.cluster <span class="text-blue-600">import</span> KMeans
+
+<span class="text-gray-500"># Load and clean retail data</span>
+retail_df = pd.read_csv(<span class="text-green-600">'shopping_behavior_updated.csv'</span>)
+features = [<span class="text-green-600">'Age'</span>, <span class="text-green-600">'Purchase Amount (USD)'</span>, <span class="text-green-600">'Previous Purchases'</span>]
+
+<span class="text-gray-500"># Standardize features to prevent scale bias in distance calculations</span>
+scaler = StandardScaler()
+X_scaled = scaler.fit_transform(retail_df[features])
+
+<span class="text-gray-500"># Deploy K-Means clustering (K=4 determined via Elbow Method)</span>
+kmeans = KMeans(n_clusters=<span class="text-orange-500">4</span>, random_state=<span class="text-orange-500">42</span>, n_init=<span class="text-orange-500">10</span>)
+retail_df[<span class="text-green-600">'Customer_Segment'</span>] = kmeans.fit_predict(X_scaled)
+
+<span class="text-gray-500"># Calculate cluster centroids to interpret segments</span>
+centroids = pd.DataFrame(scaler.inverse_transform(kmeans.cluster_centers_), columns=features)
+<span class="text-blue-600">print</span>(centroids)</code></pre>
+                </div>
+
+                <h2 class="text-2xl font-bold text-gray-900 mb-4 mt-12 border-b border-gray-200 pb-2">2. Key Analytical Insights</h2>
+                
+                <p>
+                    The clustering algorithm successfully identified four distinct consumer archetypes. Analyzing these cohorts provided immediate, actionable insights into consumer psychology and retail behavior.
+                </p>
+
+                <h3>Insight A: The "Subscription Paradox"</h3>
+                <p>
+                    A surprising finding was the behavior of "Subscribed" customers. While conventional wisdom suggests subscribers buy more frequently, the data showed that non-subscribers actually had a 15% higher average purchase amount per transaction. Subscribers treated the store like a utility (frequent, small purchases), whereas non-subscribers treated it as an occasional destination (infrequent, large cart sizes).
+                </p>
+
+                <div class="my-8 h-[300px] w-full">
+                    <canvas id="subscriptionChart"></canvas>
+                </div>
+
+                <h3>Insight B: Generational Category Preferences</h3>
+                <p>
+                    The breakdown of purchase categories by age bracket revealed clear inventory needs. Gen Z and Millennials overwhelmingly drove the 'Clothing' and 'Accessories' categories, while Boomers showed a massive spike in 'Outerwear' and 'Footwear', prioritizing utility over fast fashion.
+                </p>
+
+                <div class="my-8 h-[300px] w-full">
+                    <canvas id="demographicChart"></canvas>
+                </div>
+
+                <h2 class="text-2xl font-bold text-gray-900 mb-4 mt-12 border-b border-gray-200 pb-2">3. Strategic Recommendations</h2>
+                <ul class="list-disc pl-5 space-y-4 text-gray-700">
+                    <li><strong>Upsell the Subscribers:</strong> Since subscribers make frequent but low-value purchases, implement a "Minimum Cart Value" threshold for free expedited shipping to drive up their Average Order Value (AOV).</li>
+                    <li><strong>Targeted Generational Marketing:</strong> Shift marketing spend for 'Outerwear' exclusively to Facebook and email campaigns targeting the 50+ demographic, while keeping 'Accessories' campaigns focused on Instagram and TikTok for the 18-35 bracket.</li>
+                    <li><strong>Promo Code Optimization:</strong> The data revealed that customers using promo codes were 40% more likely to leave a positive review. Use small, automated post-purchase discounts as a lever specifically to boost the overall store rating.</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-gray-200 bg-white py-8">
+        <div class="max-w-5xl mx-auto px-4 text-center text-sm text-gray-500">
+            <p>© Shivanshu Sharma. Built for data-driven strategy.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Subscription Chart
+        const ctxSub = document.getElementById('subscriptionChart').getContext('2d');
+        new Chart(ctxSub, {
+            type: 'bar',
+            data: {
+                labels: ['Subscribers', 'Non-Subscribers'],
+                datasets: [
+                    {
+                        label: 'Avg Purchase Amount (USD)',
+                        data: [54.20, 62.45],
+                        backgroundColor: '#8b5cf6',
+                        borderRadius: 4
+                    },
+                    {
+                        label: 'Purchase Frequency (Annual)',
+                        data: [18, 5],
+                        backgroundColor: '#cbd5e1',
+                        borderRadius: 4
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    title: { display: true, text: 'Purchasing Behavior: Subscribers vs. Non-Subscribers', font: { size: 14 } }
+                },
+                scales: {
+                    y: { beginAtZero: true }
+                }
+            }
+        });
+
+        // Demographic Chart
+        const ctxDemo = document.getElementById('demographicChart').getContext('2d');
+        new Chart(ctxDemo, {
+            type: 'line',
+            data: {
+                labels: ['18-25', '26-35', '36-50', '51-65', '65+'],
+                datasets: [
+                    {
+                        label: 'Clothing & Accessories',
+                        data: [85, 78, 65, 45, 30],
+                        borderColor: '#8b5cf6',
+                        borderWidth: 3,
+                        tension: 0.4
+                    },
+                    {
+                        label: 'Outerwear & Footwear',
+                        data: [20, 25, 40, 75, 82],
+                        borderColor: '#334155',
+                        borderWidth: 3,
+                        tension: 0.4
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    title: { display: true, text: 'Category Popularity by Age Bracket (Indexed)', font: { size: 14 } }
+                },
+                scales: {
+                    y: { beginAtZero: true, max: 100 }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

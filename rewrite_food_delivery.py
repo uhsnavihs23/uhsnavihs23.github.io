@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+html = """<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -199,3 +199,7 @@ df_clean = df[df[<span class="text-green-600">'Time_taken(min)'</span>] <= upper
     </script>
 </body>
 </html>
+"""
+
+with open('projects/data-analyst-projects/food-delivery-analytics/index.html', 'w') as f:
+    f.write(html)
