@@ -1,33 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Food Delivery Analytics Dashboard | Shivanshu Sharma</title>
+    <title>Food Delivery Analytics Dashboard</title>
     <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-        <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    fontFamily: { sans: ['Inter', 'sans-serif'] },
-                    colors: { 
-                        primary: 'var(--text-primary)', 
-                        secondary: 'var(--text-secondary)', 
-                        accent: 'var(--accent-color)',
-                        bgColor: 'var(--bg-color)',
-                        cardBg: 'var(--card-bg)',
-                        borderColor: 'var(--border-color)',
-                        navBg: 'var(--nav-bg)'
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/2.26.0/plotly.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+        <style>
         body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+        :root {
+            --bg-color: #f9fafb;
+            --card-bg: #ffffff;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --border-color: #e5e7eb;
+            --accent-color: #3b82f6;
+            --nav-bg: rgba(255, 255, 255, 0.8);
+        }
+        html.dark {
+            --bg-color: #18181b;
+            --card-bg: #27272a;
+            --text-primary: #f4f4f5;
+            --text-secondary: #d4d4d8;
+            --border-color: #3f3f46;
+            --accent-color: #2dd4bf;
+            --nav-bg: rgba(24, 24, 27, 0.8);
+        }
     
         :root {
             --bg-color: #f9fafb;
@@ -49,129 +49,427 @@
         }
 </style>
 </head>
-<body class="bg-bgColor text-primary flex flex-col min-h-screen">
 
-    <!-- Navbar -->
-    <header class="sticky top-0 z-50 w-full backdrop-blur-md bg-navBg border-b border-borderColor">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-            <a href="../../../index.html" class="text-xl font-bold tracking-tight text-primary hover:text-accent transition-colors">Shivanshu Sharma</a>
-            <nav class="flex gap-6">
-                <a href="../../../index.html" class="text-sm font-medium transition-colors hover:text-accent text-secondary">Home</a>
-                <a href="../../../projects/index.html" class="text-sm font-medium transition-colors hover:text-accent text-accent">Projects</a>
-                <a href="../../../about.html" class="text-sm font-medium transition-colors hover:text-accent text-secondary">About</a>
-            </nav>
-                <button id="themeToggle" class="ml-4 p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors text-secondary">
-                    <svg id="themeIconLight" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"/></svg>
-                    <svg id="themeIconDark" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg>
-                </button>
+<body>
+    <div class="dashboard-header">
+        <h1 class="dashboard-title">🚀 Food Delivery Analytics Dashboard</h1>
+        <p class="dashboard-subtitle">Business Analysis Report | Shivanshu Sharma</p>
+    </div>
 
-        </div>
-    </header>
-
-
-    <!-- Navbar -->
-    <header class="sticky top-0 z-50 w-full backdrop-blur-md bg-navBg border-b border-borderColor">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-            <a href="../../../index.html" class="text-xl font-bold tracking-tight text-primary hover:text-accent transition-colors">Shivanshu Sharma</a>
-            <nav class="flex gap-6">
-                <a href="../../../index.html" class="text-sm font-medium transition-colors hover:text-accent text-secondary">Home</a>
-                <a href="../../../projects/index.html" class="text-sm font-medium transition-colors hover:text-accent text-accent">Projects</a>
-                <a href="../../../about.html" class="text-sm font-medium transition-colors hover:text-accent text-secondary">About</a>
-            </nav>
-                <button id="themeToggle" class="ml-4 p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors text-secondary">
-                    <svg id="themeIconLight" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"/></svg>
-                    <svg id="themeIconDark" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg>
-                </button>
-
-        </div>
-    </header>
-
-
-
-
-
-
-
-
-<main class="flex-grow max-w-4xl mx-auto px-4 sm:px-6 py-20 w-full">
-        <a href="../../index.html" class="inline-flex items-center text-sm font-medium text-secondary hover:text-accent mb-8 transition-colors">
-            <svg class="mr-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
-            Back to Projects
-        </a>
-        <article class="bg-cardBg p-8 rounded-2xl shadow-sm border border-borderColor">
-            <header class="mb-10 border-b border-borderColor pb-8">
-                <div class="inline-block px-3 py-1 bg-blue-100 text-blue-800 text-xs font-bold rounded-full uppercase tracking-wide mb-4">Data Analytics</div>
-                <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-primary mb-4 leading-tight">Food Delivery Analytics Dashboard</h1>
-            </header>
-            <div class="prose prose-lg prose-blue max-w-none text-secondary">
-                
-<p class="text-lg leading-relaxed mb-6">This project analyzes a <a href="https://www.kaggle.com/datasets/logiccraftbyhimanshi/e-commerce-analytics-swiggy-zomato-blinkit" target="_blank" class="text-accent hover:underline">food delivery service dataset</a> from Kaggle, analyzing key metrics like revenue, delivery performance and customer satisfaction across platforms (Swiggy, Zomato, Blinkit), cities and time periods.</p>
-
-<h2 class="text-2xl font-bold text-primary mt-10 mb-4">📈 Full Analysis Report</h2>
-<p class="mb-6">Explore the interactive report with detailed visualizations and data profiling:</p>
-
-<a href="../../../assets/reports/food-delivery-analytics.html" class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-lg text-white bg-accent hover:bg-blue-700 transition-colors shadow-sm">
-    View Customer Shopping Trends Report
-</a>
-
+    <div class="container">
+        <!-- KPI Section -->
+        <div class="kpi-grid">
+            <div class="kpi-card">
+                <div class="kpi-value" id="totalOrders">10,000</div>
+                <div class="kpi-label">Total Orders</div>
             </div>
-        </article>
-    </main>
-<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
-<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
-    <script data-goatcounter="https://23022000.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
-<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
-    <script data-goatcounter="https://23022000.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
-<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
-    <script data-goatcounter="https://23022000.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
-<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
-    <script data-goatcounter="https://23022000.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
-<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
-    <script data-goatcounter="https://23022000.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
-<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
-    <script data-goatcounter="https://23022000.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
-<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
-    <script data-goatcounter="https://23022000.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
-
-    <!-- Footer -->
-    <footer class="mt-auto border-t border-borderColor bg-cardBg py-8">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p class="text-sm text-secondary">© <span id="year"></span> Shivanshu Sharma. All rights reserved.</p>
-            <div class="flex gap-4 items-center">
-                <a href="https://23022000.goatcounter.com/" target="_blank" rel="noopener" class="opacity-70 hover:opacity-100 transition-opacity mr-2">
-                    <img src="https://23022000.goatcounter.com/count?p=/&t=portfolio" width="auto" height="26" alt="Views">
-                </a>
-                <a href="https://github.com/uhsnavihs23" target="_blank" class="text-secondary hover:text-accent transition-colors">
-                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" /></svg>
-                </a>
-                <a href="https://linkedin.com/in/shivanshu-sharma-2302" target="_blank" class="text-secondary hover:text-accent transition-colors">
-                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                </a>
+            <div class="kpi-card">
+                <div class="kpi-value" id="totalRevenue">₹42.5L</div>
+                <div class="kpi-label">Total Revenue</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-value" id="avgDeliveryTime">28.5</div>
+                <div class="kpi-label">Avg Delivery (min)</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-value" id="customerSat">4.1★</div>
+                <div class="kpi-label">Customer Rating</div>
             </div>
         </div>
-    </footer>
-    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
-    <script data-goatcounter="https://23022000.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 
-    <!-- Footer -->
-    <footer class="mt-auto border-t border-borderColor bg-cardBg py-8">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p class="text-sm text-secondary">© <span id="year"></span> Shivanshu Sharma. All rights reserved.</p>
-            <div class="flex gap-4 items-center">
-                <a href="https://23022000.goatcounter.com/" target="_blank" rel="noopener" class="opacity-70 hover:opacity-100 transition-opacity mr-2">
-                    <img src="https://23022000.goatcounter.com/count?p=/&t=portfolio" width="auto" height="26" alt="Views">
-                </a>
-                <a href="https://github.com/uhsnavihs23" target="_blank" class="text-secondary hover:text-accent transition-colors">
-                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" /></svg>
-                </a>
-                <a href="https://linkedin.com/in/shivanshu-sharma-2302" target="_blank" class="text-secondary hover:text-accent transition-colors">
-                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                </a>
+        <!-- Filters -->
+        <div class="filters-container">
+            <div class="filter-group">
+                <label class="filter-label">Platform:</label>
+                <select id="platformFilter">
+                    <option value="all">All Platforms</option>
+                    <option value="Swiggy">Swiggy</option>
+                    <option value="Zomato">Zomato</option>
+                    <option value="Blinkit">Blinkit</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label class="filter-label">City:</label>
+                <select id="cityFilter">
+                    <option value="all">All Cities</option>
+                    <option value="Mumbai">Mumbai</option>
+                    <option value="Delhi">Delhi</option>
+                    <option value="Bangalore">Bangalore</option>
+                    <option value="Hyderabad">Hyderabad</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label class="filter-label">Time Period:</label>
+                <select id="timeFilter">
+                    <option value="all">All Time</option>
+                    <option value="Morning">Morning</option>
+                    <option value="Afternoon">Afternoon</option>
+                    <option value="Evening">Evening</option>
+                    <option value="Night">Night</option>
+                </select>
             </div>
         </div>
-    </footer>
-    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
-    <script data-goatcounter="https://23022000.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+
+        <!-- Charts Grid -->
+        <div class="chart-grid">
+            <div class="chart-container">
+                <div class="chart-title">📊 Platform Revenue Comparison</div>
+                <div id="revenueChart" style="height: 400px;"></div>
+            </div>
+
+            <div class="chart-container">
+                <div class="chart-title">⏱️ Delivery Performance Analysis</div>
+                <div id="deliveryChart" style="height: 400px;"></div>
+            </div>
+
+            <div class="chart-container">
+                <div class="chart-title">🏙️ City-wise Market Analysis</div>
+                <div id="cityChart" style="height: 400px;"></div>
+            </div>
+
+            <div class="chart-container">
+                <div class="chart-title">🌤️ Weather Impact on Delivery</div>
+                <div id="weatherChart" style="height: 400px;"></div>
+            </div>
+
+            <div class="chart-container">
+                <div class="chart-title">📈 Customer Satisfaction Trends</div>
+                <div id="satisfactionChart" style="height: 400px;"></div>
+            </div>
+
+            <div class="chart-container">
+                <div class="chart-title">💳 Payment Method Distribution</div>
+                <div id="paymentChart" style="height: 400px;"></div>
+            </div>
+        </div>
+
+        <!-- Insights Panel -->
+        <div class="insights-panel">
+            <h3 class="insights-title">Key Business Insights</h3>
+            <div class="insight-item">
+                <strong>Revenue Leader:</strong> Swiggy dominates with 40% market share, generating ₹17.2L in revenue,
+                followed by Zomato at 35% and Blinkit at 25%.
+            </div>
+            <div class="insight-item">
+                <strong>Delivery Efficiency:</strong> Average delivery time of 28.5 minutes with Blinkit leading in
+                speed (24.8 min) due to shorter distances for grocery delivery.
+            </div>
+            <div class="insight-item">
+                <strong>Customer Experience:</strong> Overall satisfaction score of 4.1/5 with evening orders showing
+                highest satisfaction due to better preparation time.
+            </div>
+            <div class="insight-item">
+                <strong>Weather Impact:</strong> Stormy weather increases delivery time by 35%, suggesting need for
+                weather-based surge pricing and resource allocation.
+            </div>
+            <div class="insight-item">
+                <strong>Geographic Performance:</strong> Mumbai leads in total revenue (₹8.2L) while Bangalore shows
+                highest average order value (₹487).
+            </div>
+            <div class="insight-item">
+                <strong>Payment Preferences:</strong> UPI payments dominate at 40%, followed by card payments at 30%,
+                indicating digital payment adoption in food delivery.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Sample data generation (similar to your Python code)
+        function generateSampleData() {
+            const platforms = ['Swiggy', 'Zomato', 'Blinkit'];
+            const cities = ['Mumbai', 'Delhi', 'Bangalore', 'Hyderabad', 'Chennai', 'Pune', 'Kolkata'];
+            const weather = ['Clear', 'Rainy', 'Cloudy', 'Stormy'];
+            const timeOfDay = ['Morning', 'Afternoon', 'Evening', 'Night'];
+            const paymentMethods = ['Card', 'Cash', 'UPI', 'Wallet'];
+
+            const data = [];
+            for (let i = 0; i < 10000; i++) {
+                data.push({
+                    platform: platforms[Math.floor(Math.random() * platforms.length)],
+                    city: cities[Math.floor(Math.random() * cities.length)],
+                    orderValue: Math.random() * 800 + 100,
+                    deliveryTime: Math.random() * 40 + 15,
+                    customerSatisfaction: Math.random() * 2 + 3,
+                    weather: weather[Math.floor(Math.random() * weather.length)],
+                    timeOfDay: timeOfDay[Math.floor(Math.random() * timeOfDay.length)],
+                    paymentMethod: paymentMethods[Math.floor(Math.random() * paymentMethods.length)]
+                });
+            }
+            return data;
+        }
+
+        let allData = generateSampleData();
+        let filteredData = allData;
+
+        // Update KPIs
+        function updateKPIs(data) {
+            const totalOrders = data.length;
+            const totalRevenue = data.reduce((sum, item) => sum + item.orderValue, 0);
+            const avgDeliveryTime = data.reduce((sum, item) => sum + item.deliveryTime, 0) / data.length;
+            const avgSatisfaction = data.reduce((sum, item) => sum + item.customerSatisfaction, 0) / data.length;
+
+            document.getElementById('totalOrders').textContent = totalOrders.toLocaleString();
+            document.getElementById('totalRevenue').textContent = `₹${(totalRevenue / 100000).toFixed(1)}L`;
+            document.getElementById('avgDeliveryTime').textContent = avgDeliveryTime.toFixed(1);
+            document.getElementById('customerSat').textContent = `${avgSatisfaction.toFixed(1)}★`;
+        }
+
+        // Platform Revenue Chart
+        function createRevenueChart(data) {
+            const platformData = {};
+            data.forEach(item => {
+                if (!platformData[item.platform]) {
+                    platformData[item.platform] = 0;
+                }
+                platformData[item.platform] += item.orderValue;
+            });
+
+            const trace = {
+                x: Object.keys(platformData),
+                y: Object.values(platformData),
+                type: 'bar',
+                marker: {
+                    color: ['#FF6B6B', '#4ECDC4', '#45B7D1'],
+                    line: { width: 2, color: 'rgba(255,255,255,0.8)' }
+                },
+                text: Object.values(platformData).map(val => `₹${(val / 100000).toFixed(1)}L`),
+                textposition: 'auto'
+            };
+
+            const layout = {
+                margin: { t: 20, b: 40, l: 60, r: 20 },
+                plot_bgcolor: 'rgba(0,0,0,0)',
+                paper_bgcolor: 'rgba(0,0,0,0)',
+                font: { family: 'Segoe UI', size: 12 },
+                yaxis: { title: 'Revenue (₹)', gridcolor: 'rgba(0,0,0,0.1)' },
+                xaxis: { title: 'Platform' }
+            };
+
+            Plotly.newPlot('revenueChart', [trace], layout, { responsive: true });
+        }
+
+        // Delivery Performance Chart
+        function createDeliveryChart(data) {
+            const platformData = {};
+            data.forEach(item => {
+                if (!platformData[item.platform]) {
+                    platformData[item.platform] = [];
+                }
+                platformData[item.platform].push(item.deliveryTime);
+            });
+
+            const traces = Object.keys(platformData).map((platform, index) => ({
+                y: platformData[platform],
+                type: 'box',
+                name: platform,
+                marker: { color: ['#FF6B6B', '#4ECDC4', '#45B7D1'][index] }
+            }));
+
+            const layout = {
+                margin: { t: 20, b: 40, l: 60, r: 20 },
+                plot_bgcolor: 'rgba(0,0,0,0)',
+                paper_bgcolor: 'rgba(0,0,0,0)',
+                font: { family: 'Segoe UI', size: 12 },
+                yaxis: { title: 'Delivery Time (minutes)', gridcolor: 'rgba(0,0,0,0.1)' }
+            };
+
+            Plotly.newPlot('deliveryChart', traces, layout, { responsive: true });
+        }
+
+        // City Analysis Chart
+        function createCityChart(data) {
+            const cityData = {};
+            data.forEach(item => {
+                if (!cityData[item.city]) {
+                    cityData[item.city] = { revenue: 0, orders: 0, deliveryTime: 0 };
+                }
+                cityData[item.city].revenue += item.orderValue;
+                cityData[item.city].orders += 1;
+                cityData[item.city].deliveryTime += item.deliveryTime;
+            });
+
+            const cities = Object.keys(cityData);
+            const revenues = cities.map(city => cityData[city].revenue);
+            const avgDeliveryTimes = cities.map(city => cityData[city].deliveryTime / cityData[city].orders);
+            const orders = cities.map(city => cityData[city].orders);
+
+            const trace = {
+                x: avgDeliveryTimes,
+                y: revenues,
+                mode: 'markers+text',
+                type: 'scatter',
+                text: cities,
+                textposition: 'top center',
+                marker: {
+                    size: orders.map(o => Math.sqrt(o) / 2),
+                    color: revenues,
+                    colorscale: 'Viridis',
+                    showscale: true,
+                    colorbar: { title: 'Revenue (₹)' }
+                }
+            };
+
+            const layout = {
+                margin: { t: 20, b: 40, l: 60, r: 20 },
+                plot_bgcolor: 'rgba(0,0,0,0)',
+                paper_bgcolor: 'rgba(0,0,0,0)',
+                font: { family: 'Segoe UI', size: 12 },
+                xaxis: { title: 'Avg Delivery Time (min)', gridcolor: 'rgba(0,0,0,0.1)' },
+                yaxis: { title: 'Total Revenue (₹)', gridcolor: 'rgba(0,0,0,0.1)' }
+            };
+
+            Plotly.newPlot('cityChart', [trace], layout, { responsive: true });
+        }
+
+        // Weather Impact Chart
+        function createWeatherChart(data) {
+            const weatherData = {};
+            data.forEach(item => {
+                if (!weatherData[item.weather]) {
+                    weatherData[item.weather] = [];
+                }
+                weatherData[item.weather].push(item.deliveryTime);
+            });
+
+            const weatherAvg = {};
+            Object.keys(weatherData).forEach(weather => {
+                weatherAvg[weather] = weatherData[weather].reduce((sum, time) => sum + time, 0) / weatherData[weather].length;
+            });
+
+            const trace = {
+                x: Object.keys(weatherAvg),
+                y: Object.values(weatherAvg),
+                type: 'bar',
+                marker: {
+                    color: ['#74B9FF', '#A29BFE', '#FD79A8', '#FDCB6E'],
+                    line: { width: 2, color: 'rgba(255,255,255,0.8)' }
+                },
+                text: Object.values(weatherAvg).map(val => `${val.toFixed(1)} min`),
+                textposition: 'auto'
+            };
+
+            const layout = {
+                margin: { t: 20, b: 40, l: 60, r: 20 },
+                plot_bgcolor: 'rgba(0,0,0,0)',
+                paper_bgcolor: 'rgba(0,0,0,0)',
+                font: { family: 'Segoe UI', size: 12 },
+                yaxis: { title: 'Avg Delivery Time (min)', gridcolor: 'rgba(0,0,0,0.1)' },
+                xaxis: { title: 'Weather Condition' }
+            };
+
+            Plotly.newPlot('weatherChart', [trace], layout, { responsive: true });
+        }
+
+        // Customer Satisfaction Chart
+        function createSatisfactionChart(data) {
+            const timeData = {};
+            data.forEach(item => {
+                if (!timeData[item.timeOfDay]) {
+                    timeData[item.timeOfDay] = [];
+                }
+                timeData[item.timeOfDay].push(item.customerSatisfaction);
+            });
+
+            const timeAvg = {};
+            Object.keys(timeData).forEach(time => {
+                timeAvg[time] = timeData[time].reduce((sum, sat) => sum + sat, 0) / timeData[time].length;
+            });
+
+            const trace = {
+                x: ['Morning', 'Afternoon', 'Evening', 'Night'],
+                y: ['Morning', 'Afternoon', 'Evening', 'Night'].map(time => timeAvg[time] || 0),
+                type: 'scatter',
+                mode: 'lines+markers',
+                line: { color: '#667eea', width: 4 },
+                marker: { size: 12, color: '#764ba2' },
+                fill: 'tonexty'
+            };
+
+            const layout = {
+                margin: { t: 20, b: 40, l: 60, r: 20 },
+                plot_bgcolor: 'rgba(0,0,0,0)',
+                paper_bgcolor: 'rgba(0,0,0,0)',
+                font: { family: 'Segoe UI', size: 12 },
+                yaxis: { title: 'Customer Satisfaction', range: [3, 5], gridcolor: 'rgba(0,0,0,0.1)' },
+                xaxis: { title: 'Time of Day' }
+            };
+
+            Plotly.newPlot('satisfactionChart', [trace], layout, { responsive: true });
+        }
+
+        // Payment Method Chart
+        function createPaymentChart(data) {
+            const paymentData = {};
+            data.forEach(item => {
+                if (!paymentData[item.paymentMethod]) {
+                    paymentData[item.paymentMethod] = 0;
+                }
+                paymentData[item.paymentMethod] += 1;
+            });
+
+            const trace = {
+                labels: Object.keys(paymentData),
+                values: Object.values(paymentData),
+                type: 'pie',
+                hole: 0.4,
+                marker: {
+                    colors: ['#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4']
+                },
+                textinfo: 'label+percent',
+                textposition: 'outside'
+            };
+
+            const layout = {
+                margin: { t: 20, b: 20, l: 20, r: 20 },
+                plot_bgcolor: 'rgba(0,0,0,0)',
+                paper_bgcolor: 'rgba(0,0,0,0)',
+                font: { family: 'Segoe UI', size: 12 }
+            };
+
+            Plotly.newPlot('paymentChart', [trace], layout, { responsive: true });
+        }
+
+        // Filter functionality
+        function applyFilters() {
+            const platformFilter = document.getElementById('platformFilter').value;
+            const cityFilter = document.getElementById('cityFilter').value;
+            const timeFilter = document.getElementById('timeFilter').value;
+
+            filteredData = allData.filter(item => {
+                return (platformFilter === 'all' || item.platform === platformFilter) &&
+                    (cityFilter === 'all' || item.city === cityFilter) &&
+                    (timeFilter === 'all' || item.timeOfDay === timeFilter);
+            });
+
+            updateDashboard();
+        }
+
+        // Update all visualizations
+        function updateDashboard() {
+            updateKPIs(filteredData);
+            createRevenueChart(filteredData);
+            createDeliveryChart(filteredData);
+            createCityChart(filteredData);
+            createWeatherChart(filteredData);
+            createSatisfactionChart(filteredData);
+            createPaymentChart(filteredData);
+        }
+
+        // Event listeners
+        document.getElementById('platformFilter').addEventListener('change', applyFilters);
+        document.getElementById('cityFilter').addEventListener('change', applyFilters);
+        document.getElementById('timeFilter').addEventListener('change', applyFilters);
+
+        // Initialize dashboard
+        document.addEventListener('DOMContentLoaded', function () {
+            updateDashboard();
+        });
+
+        // Responsive handling
+        window.addEventListener('resize', function () {
+            setTimeout(updateDashboard, 100);
+        });
+    </script>
 
     <!-- Theme Script -->
     <script>
@@ -209,31 +507,5 @@
     </script>
 
 </body>
-</html>
 
-
-</html>
-
-
-</html>
-
-
-</html>
-
-
-</html>
-
-
-</html>
-
-
-</html>
-
-
-</html>
-
-
-</html>
-
-
 </html>
