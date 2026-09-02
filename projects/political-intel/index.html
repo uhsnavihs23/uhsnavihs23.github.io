@@ -333,10 +333,8 @@
                 return; 
             }
 
-            const intl = dailyNews.filter(s => s.section === 'International').slice(0, 10);
-            const natGov = dailyNews.filter(s => s.report_category === 'National_Govt').slice(0, 15);
-            const opp = dailyNews.filter(s => s.report_category === 'National_Opposition').slice(0, 5);
-            const jud = dailyNews.filter(s => s.report_category === 'National_Judicial').slice(0, 5);
+                        const intl = dailyNews.filter(s => s.section === 'International').slice(0, 15);
+            const nat = dailyNews.filter(s => s.section === 'National').slice(0, 25);
             
             // Rebuilding as a strict A4 Page View
             let html = `
@@ -390,10 +388,8 @@
                 return sectionHtml;
             };
 
-            html += generateSection("1. Global / International Updates", intl);
-            html += generateSection("2. National: Government Policies & Mandates", natGov);
-            html += generateSection("3. Opposition Activity", opp);
-            html += generateSection("4. Judicial & Supreme Court Verdicts", jud);
+            html += generateSection("Global", intl);
+            html += generateSection("National", nat);
             
             html += `
                         <!-- Footer -->
