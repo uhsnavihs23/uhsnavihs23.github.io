@@ -143,8 +143,8 @@
             <!-- Breathing Circle -->
             <div class="relative w-64 h-64 flex items-center justify-center mb-16" id="breatheWrapper">
                 <!-- Guide Ring -->
-                <div class="absolute w-full h-full rounded-full border-2 border-gray-700 opacity-50"></div>
-                <div class="absolute w-[250%] h-[250%] rounded-full border-2 border-gray-700 opacity-20 border-dashed"></div>
+                <div class="absolute w-full h-full rounded-full border-2 border-borderColor opacity-50"></div>
+                <div class="absolute w-[250%] h-[250%] rounded-full border-2 border-borderColor opacity-20 border-dashed"></div>
                 
                 <!-- Animated Circle -->
                 <div class="w-24 h-24 rounded-full bg-sky-400 opacity-80 animate-breathe shadow-[0_0_40px_rgba(56,189,248,0.5)]"></div>
@@ -159,11 +159,11 @@
             <!-- Controls -->
             <div class="flex flex-col items-center gap-6 mt-8">
                 <!-- Counter -->
-                <div class="bg-gray-800/50 backdrop-blur border border-gray-700 rounded-2xl px-8 py-4 text-center shadow-lg">
+                <div class="bg-gray-800/50 backdrop-blur border border-borderColor rounded-2xl px-8 py-4 text-center shadow-lg">
                     <p class="text-gray-400 text-sm font-medium uppercase tracking-wider mb-1">Sets Completed</p>
                     <div class="flex items-baseline justify-center gap-2">
                         <span id="setCount" class="text-4xl font-extrabold text-white">0</span>
-                        <span class="text-gray-500 font-medium">/ 5 Recommended</span>
+                        <span class="text-secondary font-medium">/ 5 Recommended</span>
                     </div>
                 </div>
 
@@ -175,7 +175,7 @@
                         <span id="toggleText">Pause</span>
                     </button>
                     
-                    <button id="resetBtn" class="flex items-center gap-2 px-6 py-3 rounded-xl bg-gray-800 text-white font-bold border border-gray-700 hover:bg-gray-700 transition-all shadow-lg hover:scale-105">
+                    <button id="resetBtn" class="flex items-center gap-2 px-6 py-3 rounded-xl bg-gray-800 text-white font-bold border border-borderColor hover:bg-gray-700 transition-all shadow-lg hover:scale-105">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
                         Reset
                     </button>

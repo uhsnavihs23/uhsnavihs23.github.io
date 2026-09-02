@@ -76,14 +76,14 @@
                     <svg class="w-6 h-6 text-red-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/></svg>
                     Focus Room
                 </h1>
-                <p class="text-sm text-gray-500 mt-1">Boost your productivity with timed sessions.</p>
+                <p class="text-sm text-secondary mt-1">Boost your productivity with timed sessions.</p>
             </div>
 
             <!-- Mode Selector -->
             <div class="flex justify-center p-6 gap-3">
                 <button id="mode-pomodoro" class="mode-btn px-4 py-2 rounded-full text-sm font-bold bg-red-100 text-red-700 transition-all">Pomodoro</button>
-                <button id="mode-short" class="mode-btn px-4 py-2 rounded-full text-sm font-bold text-gray-500 hover:bg-gray-100 transition-all">Short Break</button>
-                <button id="mode-long" class="mode-btn px-4 py-2 rounded-full text-sm font-bold text-gray-500 hover:bg-gray-100 transition-all">Long Break</button>
+                <button id="mode-short" class="mode-btn px-4 py-2 rounded-full text-sm font-bold text-secondary hover:bg-gray-100 transition-all">Short Break</button>
+                <button id="mode-long" class="mode-btn px-4 py-2 rounded-full text-sm font-bold text-secondary hover:bg-gray-100 transition-all">Long Break</button>
             </div>
 
             <!-- Timer Display -->
@@ -100,7 +100,7 @@
                 <button id="pause-btn" class="hidden w-20 h-20 rounded-full bg-gray-800 text-white flex items-center justify-center hover:bg-gray-900 hover:scale-105 transition-all shadow-lg">
                     <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zM7 8a1 1 0 012 0v4a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v4a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd"/></svg>
                 </button>
-                <button id="reset-btn" class="w-14 h-14 rounded-full bg-gray-100 text-gray-600 flex items-center justify-center hover:bg-gray-200 transition-all self-center ml-2">
+                <button id="reset-btn" class="w-14 h-14 rounded-full bg-gray-100 text-secondary flex items-center justify-center hover:bg-gray-200 transition-all self-center ml-2">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
                 </button>
             </div>
@@ -161,7 +161,7 @@
             
             // Update mode buttons
             Object.keys(modeBtns).forEach(k => {
-                modeBtns[k].className = 'mode-btn px-4 py-2 rounded-full text-sm font-bold text-gray-500 hover:bg-gray-100 transition-all';
+                modeBtns[k].className = 'mode-btn px-4 py-2 rounded-full text-sm font-bold text-secondary hover:bg-gray-100 transition-all';
             });
             modeBtns[mode].className = `mode-btn px-4 py-2 rounded-full text-sm font-bold transition-all ${MODES[mode].btnColor}`;
             

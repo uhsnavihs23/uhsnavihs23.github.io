@@ -73,15 +73,15 @@
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
                         <div class="bg-bgColor border border-borderColor p-6 rounded-xl">
                             <div class="text-3xl font-black text-primary">5,000</div>
-                            <div class="text-sm font-bold text-gray-500 uppercase tracking-wide mt-1">Unique Customers</div>
+                            <div class="text-sm font-bold text-secondary uppercase tracking-wide mt-1">Unique Customers</div>
                         </div>
                         <div class="bg-bgColor border border-borderColor p-6 rounded-xl">
                             <div class="text-3xl font-black text-primary">25,951</div>
-                            <div class="text-sm font-bold text-gray-500 uppercase tracking-wide mt-1">Total Transactions</div>
+                            <div class="text-sm font-bold text-secondary uppercase tracking-wide mt-1">Total Transactions</div>
                         </div>
                         <div class="bg-bgColor border border-borderColor p-6 rounded-xl">
                             <div class="text-3xl font-black text-emerald-600">$3,450,932</div>
-                            <div class="text-sm font-bold text-gray-500 uppercase tracking-wide mt-1">Gross Revenue</div>
+                            <div class="text-sm font-bold text-secondary uppercase tracking-wide mt-1">Gross Revenue</div>
                         </div>
                     </div>
                     <div class="border-l-4 border-amber-500 bg-amber-50 p-6 rounded-r-lg text-secondary">
@@ -117,7 +117,7 @@
                     <p class="text-secondary mb-4">The analysis was performed using <strong>Pandas</strong> for data wrangling and <strong>Plotly</strong> for interactive visualization. The raw data consisted of transactional records featuring <code>customer_id</code>, <code>transaction_date</code>, and <code>amount</code>.</p>
                     
                     <div class="bg-gray-900 rounded-xl overflow-hidden shadow-sm">
-                        <div class="flex items-center px-4 py-2 bg-gray-800 border-b border-gray-700">
+                        <div class="flex items-center px-4 py-2 bg-gray-800 border-b border-borderColor">
                             <div class="flex space-x-2">
                                 <div class="w-3 h-3 rounded-full bg-red-500"></div>
                                 <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
@@ -147,8 +147,8 @@ retention_matrix = cohort_counts.divide(cohort_sizes, axis=0) * 100</code></pre>
                 </section>
                 
                 <div class="flex justify-center mt-12 border-t border-borderColor pt-10">
-                    <a href="../../../assets/data/ecommerce_transactions_sample.csv" download class="inline-flex items-center px-6 py-3 bg-cardBg border border-gray-300 rounded-lg text-primary font-bold hover:bg-bgColor transition-colors shadow-sm">
-                        <svg class="w-5 h-5 mr-2 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                    <a href="../../../assets/data/ecommerce_transactions_sample.csv" download class="inline-flex items-center px-6 py-3 bg-cardBg border border-borderColor rounded-lg text-primary font-bold hover:bg-bgColor transition-colors shadow-sm">
+                        <svg class="w-5 h-5 mr-2 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
                         Download Raw Dataset (CSV)
                     </a>
                 </div>

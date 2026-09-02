@@ -81,7 +81,7 @@
             <div class="flex gap-3">
                 <div class="bg-cardBg rounded-lg p-1 shadow-sm border border-borderColor inline-flex">
                     <button id="monthlyToggle" class="px-4 py-2 rounded-md text-sm font-bold bg-accent text-white shadow transition-all">Monthly</button>
-                    <button id="yearlyToggle" class="px-4 py-2 rounded-md text-sm font-bold text-gray-500 hover:text-gray-700 transition-all">Yearly</button>
+                    <button id="yearlyToggle" class="px-4 py-2 rounded-md text-sm font-bold text-secondary hover:text-gray-700 transition-all">Yearly</button>
                 </div>
                 <button id="exportBtn" class="bg-gray-900 hover:bg-gray-800 text-white px-4 py-2 rounded-lg font-bold text-sm shadow-sm transition-all flex items-center">
                     <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
@@ -102,11 +102,11 @@
                     </h2>
                     
                     <form id="incForm" class="flex flex-col gap-3 mb-4 border-b border-borderColor pb-4">
-                        <input type="text" id="incName" required class="w-full bg-bgColor border border-gray-300 rounded-lg px-4 py-2.5 focus:ring-2 focus:ring-emerald-400" placeholder="e.g. Salary, Bonus, Incentive">
+                        <input type="text" id="incName" required class="w-full bg-bgColor border border-borderColor rounded-lg px-4 py-2.5 focus:ring-2 focus:ring-emerald-400" placeholder="e.g. Salary, Bonus, Incentive">
                         <div class="flex gap-3">
                             <div class="relative flex-grow">
-                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"><span class="text-gray-500 font-bold">₹</span></div>
-                                <input type="number" id="incAmount" required class="w-full pl-8 pr-4 py-2.5 bg-bgColor border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-400" placeholder="Amount">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"><span class="text-secondary font-bold">₹</span></div>
+                                <input type="number" id="incAmount" required class="w-full pl-8 pr-4 py-2.5 bg-bgColor border border-borderColor rounded-lg focus:ring-2 focus:ring-emerald-400" placeholder="Amount">
                             </div>
                             <button type="submit" class="bg-emerald-50 hover:bg-emerald-100 text-emerald-700 border border-emerald-200 px-6 py-2.5 rounded-lg font-bold transition-colors shadow-sm whitespace-nowrap">Add</button>
                         </div>
@@ -122,13 +122,13 @@
                     </h2>
                     
                     <form id="expenseForm" class="flex flex-col gap-3 mb-4 border-b border-borderColor pb-4">
-                        <input type="text" id="expName" required class="w-full bg-bgColor border border-gray-300 rounded-lg px-4 py-2.5 focus:ring-2 focus:ring-red-400" placeholder="Expense Name (e.g. Rent)">
+                        <input type="text" id="expName" required class="w-full bg-bgColor border border-borderColor rounded-lg px-4 py-2.5 focus:ring-2 focus:ring-red-400" placeholder="Expense Name (e.g. Rent)">
                         <div class="grid grid-cols-2 gap-3">
                             <div class="relative">
-                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"><span class="text-gray-500 font-bold">₹</span></div>
-                                <input type="number" id="expAmount" required class="w-full pl-8 pr-3 py-2.5 bg-bgColor border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-400" placeholder="Amount">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"><span class="text-secondary font-bold">₹</span></div>
+                                <input type="number" id="expAmount" required class="w-full pl-8 pr-3 py-2.5 bg-bgColor border border-borderColor rounded-lg focus:ring-2 focus:ring-red-400" placeholder="Amount">
                             </div>
-                            <select id="expCategory" class="bg-bgColor border border-gray-300 rounded-lg px-3 py-2.5 text-sm font-medium text-gray-600 focus:ring-2 focus:ring-red-400">
+                            <select id="expCategory" class="bg-bgColor border border-borderColor rounded-lg px-3 py-2.5 text-sm font-medium text-secondary focus:ring-2 focus:ring-red-400">
                                 <option value="needs">Need (50%)</option>
                                 <option value="wants">Want (30%)</option>
                             </select>
@@ -145,13 +145,13 @@
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div class="bg-cardBg rounded-2xl p-6 shadow-sm border border-borderColor flex flex-col justify-center relative overflow-hidden">
                         <div class="absolute -right-4 -top-4 w-16 h-16 rounded-full bg-emerald-50 opacity-50"></div>
-                        <div class="text-sm font-bold text-gray-500 uppercase tracking-wider mb-2">Total Income</div>
+                        <div class="text-sm font-bold text-secondary uppercase tracking-wider mb-2">Total Income</div>
                         <div id="sumIncome" class="text-3xl font-black text-primary">₹0</div>
                         <div id="incomeLabel" class="text-xs text-emerald-600 font-bold mt-2">Monthly Projection</div>
                     </div>
                     <div class="bg-cardBg rounded-2xl p-6 shadow-sm border border-borderColor flex flex-col justify-center relative overflow-hidden">
                         <div class="absolute -right-4 -top-4 w-16 h-16 rounded-full bg-red-50 opacity-50"></div>
-                        <div class="text-sm font-bold text-gray-500 uppercase tracking-wider mb-2">Total Expenses</div>
+                        <div class="text-sm font-bold text-secondary uppercase tracking-wider mb-2">Total Expenses</div>
                         <div id="sumExpenses" class="text-3xl font-black text-red-500">₹0</div>
                         <div id="expenseLabel" class="text-xs text-red-600 font-bold mt-2">Monthly Projection</div>
                     </div>
@@ -190,7 +190,7 @@
                                 <div class="w-full bg-gray-100 rounded-full h-2.5">
                                     <div id="barNeeds" class="bg-blue-500 h-2.5 rounded-full" style="width: 0%"></div>
                                 </div>
-                                <div id="msgNeeds" class="text-xs text-gray-500 mt-1"></div>
+                                <div id="msgNeeds" class="text-xs text-secondary mt-1"></div>
                             </div>
                             
                             <!-- Wants -->
@@ -202,7 +202,7 @@
                                 <div class="w-full bg-gray-100 rounded-full h-2.5">
                                     <div id="barWants" class="bg-amber-400 h-2.5 rounded-full" style="width: 0%"></div>
                                 </div>
-                                <div id="msgWants" class="text-xs text-gray-500 mt-1"></div>
+                                <div id="msgWants" class="text-xs text-secondary mt-1"></div>
                             </div>
 
                             <!-- Savings -->
@@ -214,7 +214,7 @@
                                 <div class="w-full bg-gray-100 rounded-full h-2.5">
                                     <div id="barSavings" class="bg-emerald-500 h-2.5 rounded-full" style="width: 0%"></div>
                                 </div>
-                                <div id="msgSavings" class="text-xs text-gray-500 mt-1"></div>
+                                <div id="msgSavings" class="text-xs text-secondary mt-1"></div>
                             </div>
                         </div>
                     </div>
@@ -308,12 +308,12 @@
             isYearly = yearly;
             if (yearly) {
                 yearlyToggle.className = 'px-4 py-2 rounded-md text-sm font-bold bg-accent text-white shadow transition-all';
-                monthlyToggle.className = 'px-4 py-2 rounded-md text-sm font-bold text-gray-500 hover:text-gray-700 transition-all';
+                monthlyToggle.className = 'px-4 py-2 rounded-md text-sm font-bold text-secondary hover:text-gray-700 transition-all';
                 document.getElementById('incomeLabel').textContent = 'Yearly Projection';
                 document.getElementById('expenseLabel').textContent = 'Yearly Projection';
             } else {
                 monthlyToggle.className = 'px-4 py-2 rounded-md text-sm font-bold bg-accent text-white shadow transition-all';
-                yearlyToggle.className = 'px-4 py-2 rounded-md text-sm font-bold text-gray-500 hover:text-gray-700 transition-all';
+                yearlyToggle.className = 'px-4 py-2 rounded-md text-sm font-bold text-secondary hover:text-gray-700 transition-all';
                 document.getElementById('incomeLabel').textContent = 'Monthly Projection';
                 document.getElementById('expenseLabel').textContent = 'Monthly Projection';
             }
@@ -449,7 +449,7 @@
                 const amount = inc.amount * multiplier;
                 totalIncome += amount;
                 incomeList.innerHTML += `
-                    <div class="flex justify-between items-center p-3 bg-cardBg border border-borderColor rounded-lg hover:border-gray-300 transition-colors group">
+                    <div class="flex justify-between items-center p-3 bg-cardBg border border-borderColor rounded-lg hover:border-borderColor transition-colors group">
                         <div class="font-bold text-gray-800">${inc.name}</div>
                         <div class="flex items-center gap-3">
                             <span class="font-black text-emerald-700">₹${amount.toLocaleString('en-IN')}</span>
@@ -477,7 +477,7 @@
                     : '<span class="bg-amber-100 text-amber-700 text-[10px] uppercase font-bold px-2 py-0.5 rounded ml-2">Want</span>';
 
                 expenseList.innerHTML += `
-                    <div class="flex justify-between items-center p-3 bg-cardBg border border-borderColor rounded-lg hover:border-gray-300 transition-colors group">
+                    <div class="flex justify-between items-center p-3 bg-cardBg border border-borderColor rounded-lg hover:border-borderColor transition-colors group">
                         <div class="font-bold text-gray-800 flex items-center">${exp.name} ${catBadge}</div>
                         <div class="flex items-center gap-3">
                             <span class="font-black text-gray-900">₹${amount.toLocaleString('en-IN')}</span>
