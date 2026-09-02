@@ -101,7 +101,7 @@ certificates_html = """
 """
 
 # Inject before the <div id="contact-card">
-content = content.replace('<!-- Contact Section -->\n        <div id="contact-card"', certificates_html + '\n        <!-- Contact Section -->\n        <div id="contact-card"')
+content = content.replace('<!-- Contact Card -->\n        <div id="contact-card"', certificates_html + '\n        <!-- Contact Card -->\n        <div id="contact-card"')
 
 
 # 2. Add the Modal HTML and JS before </body>
