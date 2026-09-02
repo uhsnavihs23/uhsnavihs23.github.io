@@ -1,212 +1,129 @@
-import os
+import re
 
-html = """<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About | Shivanshu Sharma</title>
-    <link rel="icon" type="image/svg+xml" href="./favicon.svg">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: { sans: ['Inter', 'sans-serif'] },
-                    colors: { primary: '#0f172a', secondary: '#475569', accent: '#3b82f6' }
-                }
-            }
-        }
-    </script>
-    <style>
-        body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
-    </style>
-</head>
-<body class="bg-gray-50 text-primary flex flex-col min-h-screen">
+with open('about.html', 'r') as f:
+    content = f.read()
 
-    <!-- Navbar -->
-    <header class="sticky top-0 z-50 w-full backdrop-blur-md bg-white/80 border-b border-gray-200">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-            <a href="./index.html" class="text-xl font-bold tracking-tight text-primary hover:text-accent transition-colors">Shivanshu Sharma</a>
-            <nav class="flex gap-6">
-                <a href="./index.html" class="text-sm font-medium transition-colors hover:text-accent text-secondary">Home</a>
-                <a href="./projects/index.html" class="text-sm font-medium transition-colors hover:text-accent text-secondary">Projects</a>
-                <a href="./about.html" class="text-sm font-medium transition-colors hover:text-accent text-accent">About</a>
-            </nav>
-        </div>
-    </header>
+# 1. Update Bio
+content = content.replace("analyzing urban governance, and building functional web applications.", "and building functional web applications.")
 
-    <main class="flex-grow max-w-4xl mx-auto px-4 sm:px-6 py-12 w-full">
-        <div class="text-center mb-8">
-            <h1 class="text-4xl font-extrabold tracking-tight text-primary mb-4">About Me</h1>
-            <div class="w-24 h-1 bg-accent mx-auto rounded-full"></div>
-        </div>
-        
-        <div class="bg-white rounded-3xl p-8 sm:p-12 shadow-sm border border-gray-200 mb-12">
-            <div class="prose prose-lg prose-blue max-w-none text-secondary text-center mb-8">
-                <p class="text-2xl font-medium text-primary mb-6">Hello, I'm <span class="font-bold">Shivanshu Sharma</span>. I am a Strategy & Management Consultant, and an alumnus of IIT Gandhinagar.</p>
-                <p class="mb-4">My work revolves around the intersection of data, policy, and technology. I am passionate about transforming raw data into structured insights, analyzing urban governance, and building functional web applications.</p>
-            </div>
-            
-            <div class="flex flex-wrap justify-center gap-4 pt-4 border-t border-gray-100 mb-12">
-                <a href="#contact-card" class="px-6 py-3 bg-primary text-white font-medium rounded-xl hover:bg-gray-800 transition-colors shadow-sm">Contact Me</a>
-                <a href="https://github.com/uhsnavihs23" target="_blank" class="px-6 py-3 bg-white border border-gray-300 text-primary font-medium rounded-xl hover:bg-gray-50 transition-colors shadow-sm flex items-center gap-2">
-                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" /></svg>
-                    GitHub Profile
-                </a>
-                <a href="https://linkedin.com/in/shivanshu-sharma-2302" target="_blank" class="px-6 py-3 bg-white border border-gray-300 text-primary font-medium rounded-xl hover:bg-gray-50 transition-colors shadow-sm flex items-center gap-2">
-                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                    LinkedIn
-                </a>
-            </div>
+# 2. Update Email
+content = content.replace("shivanshu.sharma0023@gmail.com", "shivanshu.sharma@alumni.iitgn.ac.in")
 
-            <!-- Tech Stack -->
-            <div class="mb-12">
-                <h3 class="text-xl font-bold text-primary mb-6 border-b border-gray-100 pb-2 text-center">Tech Stack & Tools</h3>
-                <!-- Used SkillIcons for 3D square logos and SimpleIcons for missing ones. 
-                     Justified content center with gap for a clean wrap effect. -->
-                <div class="flex flex-wrap justify-center gap-4 mt-4">
-                    <img src="https://skillicons.dev/icons?i=py" alt="Python" class="h-10 w-10 hover:scale-110 transition-transform hover:shadow-lg rounded-xl" title="Python">
-                    <img src="https://skillicons.dev/icons?i=js" alt="JavaScript" class="h-10 w-10 hover:scale-110 transition-transform hover:shadow-lg rounded-xl" title="JavaScript">
-                    <img src="https://skillicons.dev/icons?i=html" alt="HTML5" class="h-10 w-10 hover:scale-110 transition-transform hover:shadow-lg rounded-xl" title="HTML5">
-                    <img src="https://skillicons.dev/icons?i=css" alt="CSS3" class="h-10 w-10 hover:scale-110 transition-transform hover:shadow-lg rounded-xl" title="CSS3">
-                    <img src="https://skillicons.dev/icons?i=tailwind" alt="Tailwind CSS" class="h-10 w-10 hover:scale-110 transition-transform hover:shadow-lg rounded-xl" title="Tailwind CSS">
-                    <img src="https://skillicons.dev/icons?i=java" alt="Java" class="h-10 w-10 hover:scale-110 transition-transform hover:shadow-lg rounded-xl" title="Java">
-                    <img src="https://skillicons.dev/icons?i=cs" alt="C#" class="h-10 w-10 hover:scale-110 transition-transform hover:shadow-lg rounded-xl" title="C#">
-                    <img src="https://skillicons.dev/icons?i=cpp" alt="C++" class="h-10 w-10 hover:scale-110 transition-transform hover:shadow-lg rounded-xl" title="C++">
-                    
-                    <img src="https://skillicons.dev/icons?i=mysql" alt="MySQL" class="h-10 w-10 hover:scale-110 transition-transform hover:shadow-lg rounded-xl" title="MySQL">
-                    <img src="https://skillicons.dev/icons?i=jupyter" alt="Jupyter" class="h-10 w-10 hover:scale-110 transition-transform hover:shadow-lg rounded-xl" title="Jupyter">
-                    
-                    <img src="https://skillicons.dev/icons?i=react" alt="React" class="h-10 w-10 hover:scale-110 transition-transform hover:shadow-lg rounded-xl" title="React">
-                    <img src="https://skillicons.dev/icons?i=nodejs" alt="Node.js" class="h-10 w-10 hover:scale-110 transition-transform hover:shadow-lg rounded-xl" title="Node.js">
-                    
-                    <img src="https://skillicons.dev/icons?i=git" alt="Git" class="h-10 w-10 hover:scale-110 transition-transform hover:shadow-lg rounded-xl" title="Git">
-                    <img src="https://skillicons.dev/icons?i=github" alt="GitHub" class="h-10 w-10 hover:scale-110 transition-transform hover:shadow-lg rounded-xl" title="GitHub">
-                    <img src="https://skillicons.dev/icons?i=vscode" alt="VS Code" class="h-10 w-10 hover:scale-110 transition-transform hover:shadow-lg rounded-xl" title="VS Code">
-                    
-                    <!-- Clean SVG icons from CDN for specific tools that skillicons doesn't have -->
-                    <div class="h-10 w-10 bg-white rounded-xl shadow-sm border border-gray-100 flex items-center justify-center hover:scale-110 transition-transform hover:shadow-lg" title="Google Workspace">
-                        <img src="https://cdn.simpleicons.org/google/4285F4" alt="Google Workspace" class="h-6 w-6">
+# 3. Add AI Tools to Tech Stack
+ai_tools = """
+                    <!-- AI Tools -->
+                    <div class="h-10 w-10 bg-cardBg rounded-xl shadow-sm border border-borderColor flex items-center justify-center hover:scale-110 transition-transform hover:shadow-lg" title="ChatGPT">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-6 w-6"><path fill="currentColor" d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9807 4.1818a5.9847 5.9847 0 0 0-3.9977 2.9 6.0462 6.0462 0 0 0 .7427 7.0966 5.98 5.98 0 0 0 .511 4.9107 6.051 6.051 0 0 0 6.5146 2.9001A5.9847 5.9847 0 0 0 13.2599 24a6.0557 6.0557 0 0 0 5.7718-4.2058 5.9894 5.9894 0 0 0 3.9977-2.9001 6.0557 6.0557 0 0 0-.7475-7.073zm-9.022 12.6081a4.4755 4.4755 0 0 1-2.8764-1.0408l.1419-.0804 4.7783-2.7582a.7948.7948 0 0 0 .3927-.6813v-6.7369l2.02 1.1686a.071.071 0 0 1 .038.052v5.5826a4.504 4.504 0 0 1-4.4945 4.4944zm-9.6607-4.1254a4.4708 4.4708 0 0 1-.5346-3.0137l.142.0852 4.783 2.7582a.7712.7712 0 0 0 .7806 0l5.8428-3.3685v2.3324a.0804.0804 0 0 1-.0332.0615L9.74 19.9502a4.4992 4.4992 0 0 1-6.1408-1.6464zM2.3408 7.8956a4.485 4.485 0 0 1 2.3655-1.9728V11.6a.7664.7664 0 0 0 .3879.6765l5.8144 3.3543-2.0201 1.1685a.0757.0757 0 0 1-.071 0l-4.8303-2.7865A4.504 4.504 0 0 1 2.3408 7.8956zm16.0993 3.8558L12.5973 8.3829a.0757.0757 0 0 1-.0379-.052V2.7483a4.504 4.504 0 0 1 5.8683 1.637l-.1419.0804-4.783 2.7582a.7948.7948 0 0 0-.3927.6813v6.7369l2.02-1.1686a.071.071 0 0 1 .038-.052v-5.5826a4.504 4.504 0 0 1 5.2536-4.2255zm-1.0264 6.3262l-4.783-2.7582a.7712.7712 0 0 0-.7806 0l-5.8428 3.3685v-2.3324a.0804.0804 0 0 1 .0332-.0615l4.835-2.7913a4.4992 4.4992 0 0 1 6.1408 1.6464V18.0776zm-8.8775-6.8407l-2.02-1.1685a.071.071 0 0 1-.038-.052V4.4338a4.504 4.504 0 0 1 5.2536 4.2255l-.142-.0852-4.783-2.7582a.7948.7948 0 0 0-.3927-.6813v6.7369a.071.071 0 0 1-.038.052l-2.02 1.1686zM12 14.1798l-2.946-1.7011v-3.4022L12 7.3754l2.946 1.7011v3.4022L12 14.1798z"/></svg>
                     </div>
-                    <div class="h-10 w-10 bg-white rounded-xl shadow-sm border border-gray-100 flex items-center justify-center hover:scale-110 transition-transform hover:shadow-lg" title="Google Apps Script">
-                        <img src="https://cdn.simpleicons.org/googleappsscript/4285F4" alt="Apps Script" class="h-6 w-6">
+                    <div class="h-10 w-10 bg-cardBg rounded-xl shadow-sm border border-borderColor flex items-center justify-center hover:scale-110 transition-transform hover:shadow-lg" title="GitHub Copilot">
+                        <img src="https://cdn.simpleicons.org/githubcopilot/000000" alt="Copilot" class="h-6 w-6 dark:invert">
                     </div>
-                    <div class="h-10 w-10 bg-white rounded-xl shadow-sm border border-gray-100 flex items-center justify-center hover:scale-110 transition-transform hover:shadow-lg" title="Microsoft Suite">
-                        <img src="https://cdn.simpleicons.org/microsoft/5E5E5E" alt="MS Suite" class="h-6 w-6">
+                    <div class="h-10 w-10 bg-cardBg rounded-xl shadow-sm border border-borderColor flex items-center justify-center hover:scale-110 transition-transform hover:shadow-lg" title="Claude">
+                        <img src="https://cdn.simpleicons.org/anthropic/000000" alt="Claude" class="h-6 w-6 dark:invert">
                     </div>
-                    <div class="h-10 w-10 bg-white rounded-xl shadow-sm border border-gray-100 flex items-center justify-center hover:scale-110 transition-transform hover:shadow-lg" title="Jira">
-                        <img src="https://cdn.simpleicons.org/jira/0052CC" alt="Jira" class="h-6 w-6">
+                    <div class="h-10 w-10 bg-cardBg rounded-xl shadow-sm border border-borderColor flex items-center justify-center hover:scale-110 transition-transform hover:shadow-lg" title="Gemini">
+                        <img src="https://cdn.simpleicons.org/googlegemini/4285F4" alt="Gemini" class="h-6 w-6">
                     </div>
-                    <div class="h-10 w-10 bg-white rounded-xl shadow-sm border border-gray-100 flex items-center justify-center hover:scale-110 transition-transform hover:shadow-lg" title="Power BI">
-                        <img src="https://cdn.simpleicons.org/powerbi/F2C811" alt="Power BI" class="h-6 w-6">
+                    <div class="h-10 w-10 bg-cardBg rounded-xl shadow-sm border border-borderColor flex items-center justify-center hover:scale-110 transition-transform hover:shadow-lg" title="Perplexity">
+                        <img src="https://cdn.simpleicons.org/perplexity/222222" alt="Perplexity" class="h-6 w-6 dark:invert">
                     </div>
-                </div>
-            </div>
+"""
+# inject AI tools at the end of the flex container for tech stack
+content = re.sub(r'(<div class="h-10 w-10 bg-cardBg.*?alt="Power BI".*?</div>)', r'\1' + ai_tools, content, flags=re.DOTALL)
 
-            <!-- Background & Experience -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Education -->
+# 4. Add new sections below Experience
+new_sections = """
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
+                <!-- Core Competencies -->
                 <div>
-                    <h3 class="text-xl font-bold text-primary mb-6 border-b border-gray-100 pb-2">Education</h3>
-                    <div class="relative border-l-2 border-accent pl-6 pb-6">
-                        <div class="absolute w-3 h-3 bg-accent rounded-full -left-[7px] top-1"></div>
-                        <h4 class="font-bold text-primary">Indian Institute of Technology, Gandhinagar</h4>
-                        <p class="text-sm text-secondary mb-1">B.Tech, Electrical Engineering • Minor in Management</p>
-                        <p class="text-xs text-gray-400 font-medium">2018 – 2022</p>
+                    <h3 class="text-xl font-bold text-primary mb-6 border-b border-borderColor pb-2">Core Competencies</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-bgColor border border-borderColor rounded-lg text-sm text-primary font-medium">Project Management</span>
+                        <span class="px-3 py-1 bg-bgColor border border-borderColor rounded-lg text-sm text-primary font-medium">Strategic Planning</span>
+                        <span class="px-3 py-1 bg-bgColor border border-borderColor rounded-lg text-sm text-primary font-medium">Client Management</span>
+                        <span class="px-3 py-1 bg-bgColor border border-borderColor rounded-lg text-sm text-primary font-medium">Management Consulting</span>
                     </div>
                 </div>
 
-                <!-- Experience -->
+                <!-- Volunteering -->
                 <div>
-                    <h3 class="text-xl font-bold text-primary mb-6 border-b border-gray-100 pb-2">Experience</h3>
+                    <h3 class="text-xl font-bold text-primary mb-6 border-b border-borderColor pb-2">Volunteering</h3>
+                    <ul class="space-y-3 text-sm text-secondary">
+                        <li class="flex items-start gap-2">
+                            <svg class="w-4 h-4 text-accent mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                            Teaching Assistant for Prof. Marcos Inácio Severo de Almeida (Federal University of Goiás, Brazil)
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <svg class="w-4 h-4 text-accent mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                            Educating underprivileged children with Nyasa (IITGN)
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <svg class="w-4 h-4 text-accent mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                            Blood Donation Camp in partnership with The Gujarat Cancer & Research Institute (GCRI)
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Achievements & Scholarships -->
+            <div class="mt-12">
+                <h3 class="text-xl font-bold text-primary mb-6 border-b border-borderColor pb-2">Achievements & Scholarships</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="bg-bgColor border border-borderColor p-4 rounded-xl">
+                        <div class="flex items-center gap-3 mb-2">
+                            <div class="p-2 bg-yellow-100 dark:bg-yellow-900/30 text-yellow-600 dark:text-yellow-400 rounded-lg">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg>
+                            </div>
+                            <h4 class="font-bold text-primary text-sm">Pioneer Batch Gold Medal</h4>
+                        </div>
+                        <p class="text-xs text-secondary">Outstanding Leadership - IITGN (₹25,000)</p>
+                    </div>
                     
-                    <div class="relative border-l-2 border-accent pl-6 pb-6">
-                        <div class="absolute w-3 h-3 bg-accent rounded-full -left-[7px] top-1"></div>
-                        <h4 class="font-bold text-primary">NwN</h4>
-                        <p class="text-sm text-secondary mb-1">Strategy & Management Consultant</p>
-                        <p class="text-xs text-gray-400 font-medium">Jul 2022 – Present</p>
+                    <div class="bg-bgColor border border-borderColor p-4 rounded-xl">
+                        <div class="flex items-center gap-3 mb-2">
+                            <div class="p-2 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-lg">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path></svg>
+                            </div>
+                            <h4 class="font-bold text-primary text-sm">Class of 2013 Scholarship</h4>
+                        </div>
+                        <p class="text-xs text-secondary">₹1,00,000 Award</p>
                     </div>
-
-                    <div class="relative border-l-2 border-gray-300 pl-6 pb-6">
-                        <div class="absolute w-3 h-3 bg-gray-300 rounded-full -left-[7px] top-1"></div>
-                        <h4 class="font-bold text-primary">Udaipur Cement Works Limited</h4>
-                        <p class="text-sm text-secondary mb-1">Industrial Intern (YOLOv3 Modeling)</p>
-                        <p class="text-xs text-gray-400 font-medium">Aug 2021 – Dec 2021</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="mt-4 pt-6 border-t border-gray-100 text-center">
-                <p class="text-sm text-gray-500">Recognized with the <strong>Pioneer Batch Gold Medal for Outstanding Leadership (2022)</strong> at IIT Gandhinagar.</p>
-            </div>
-        </div>
-
-        <!-- Contact Card -->
-        <div id="contact-card" class="bg-primary text-white rounded-3xl p-8 sm:p-12 shadow-xl relative overflow-hidden mt-12">
-            <div class="absolute -right-20 -top-20 w-64 h-64 bg-white opacity-5 rounded-full blur-3xl"></div>
-            <div class="absolute -left-10 -bottom-10 w-40 h-40 bg-accent opacity-20 rounded-full blur-2xl"></div>
-            
-            <div class="relative z-10 flex flex-col md:flex-row gap-12">
-                <div class="md:w-1/2">
-                    <h2 class="text-3xl font-extrabold mb-4">Get In Touch</h2>
-                    <p class="text-gray-300 mb-8 leading-relaxed">Whether you have a question, a project proposal, or just want to say hi, feel free to drop a message. All fields below are optional!</p>
                     
-                    <div class="bg-gray-800/50 backdrop-blur border border-gray-700 rounded-xl p-6">
-                        <p class="text-sm text-gray-400 font-medium uppercase tracking-wider mb-2">Direct Email</p>
-                        <a href="mailto:shivanshu.sharma0023@gmail.com" class="text-base font-bold text-accent hover:text-white transition-colors break-all block">
-                            shivanshu.sharma0023@gmail.com
-                        </a>
+                    <div class="bg-bgColor border border-borderColor p-4 rounded-xl">
+                        <div class="flex items-center gap-3 mb-2">
+                            <div class="p-2 bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 rounded-lg">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                            </div>
+                            <h4 class="font-bold text-primary text-sm">Excellence in Social Work & Leadership</h4>
+                        </div>
+                        <p class="text-xs text-secondary">₹20,000 Scholarship</p>
+                    </div>
+
+                    <div class="bg-bgColor border border-borderColor p-4 rounded-xl">
+                        <div class="flex items-center gap-3 mb-2">
+                            <div class="p-2 bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 rounded-lg">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 002-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+                            </div>
+                            <h4 class="font-bold text-primary text-sm">Bronze Medalist</h4>
+                        </div>
+                        <p class="text-xs text-secondary">Inter-IIT Tech Meet 8.0, IIT Roorkee</p>
+                    </div>
+                    
+                    <div class="bg-bgColor border border-borderColor p-4 rounded-xl sm:col-span-2">
+                        <div class="flex items-center gap-3 mb-2">
+                            <div class="p-2 bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 rounded-lg">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            </div>
+                            <h4 class="font-bold text-primary text-sm">JEE Advanced</h4>
+                        </div>
+                        <p class="text-xs text-secondary">All India Rank (AIR) 3093</p>
                     </div>
                 </div>
-
-                <div class="md:w-1/2">
-                    <form action="https://formsubmit.co/shivanshu.sharma0023@gmail.com" method="POST" class="space-y-4">
-                        <input type="hidden" name="_captcha" value="false">
-                        <input type="hidden" name="_subject" value="New Contact Form Submission from Portfolio">
-                        
-                        <div>
-                            <label class="block text-sm font-medium text-gray-400 mb-1 ml-1">Your Name <span class="text-gray-600">(Optional)</span></label>
-                            <input type="text" name="name" class="w-full bg-gray-800 border border-gray-700 rounded-xl px-4 py-3 text-white focus:ring-2 focus:ring-accent focus:border-transparent outline-none transition-all placeholder-gray-600" placeholder="John Doe">
-                        </div>
-                        <div>
-                            <label class="block text-sm font-medium text-gray-400 mb-1 ml-1">Email <span class="text-gray-600">(Optional but needed for reply)</span></label>
-                            <input type="email" name="email" class="w-full bg-gray-800 border border-gray-700 rounded-xl px-4 py-3 text-white focus:ring-2 focus:ring-accent focus:border-transparent outline-none transition-all placeholder-gray-600" placeholder="john@example.com">
-                        </div>
-                        <div>
-                            <label class="block text-sm font-medium text-gray-400 mb-1 ml-1">Message</label>
-                            <textarea name="message" rows="4" required class="w-full bg-gray-800 border border-gray-700 rounded-xl px-4 py-3 text-white focus:ring-2 focus:ring-accent focus:border-transparent outline-none transition-all placeholder-gray-600" placeholder="Hi Shivanshu..."></textarea>
-                        </div>
-                        <button type="submit" class="w-full bg-accent hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-xl transition-colors shadow-lg">Send Message &rarr;</button>
-                    </form>
-                </div>
             </div>
-        </div>
+"""
+# we replace the old Pioneer Batch Gold Medal sentence at the bottom of the card with the new sections
+old_medal = r'<div class="mt-4 pt-6 border-t border-borderColor text-center">\s*<p class="text-sm text-secondary">Recognized with the <strong>Pioneer Batch Gold Medal for Outstanding Leadership \(2022\)</strong> at IIT Gandhinagar.</p>\s*</div>'
+content = re.sub(old_medal, new_sections, content)
 
-    </main>
-
-    <!-- Footer -->
-    <footer class="mt-auto border-t border-gray-200 bg-white py-8">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p class="text-sm text-secondary">© <span id="year"></span> Shivanshu Sharma. All rights reserved.</p>
-            <div class="flex gap-4 items-center">
-                <a href="https://23022000.goatcounter.com/" target="_blank" rel="noopener" class="opacity-70 hover:opacity-100 transition-opacity mr-2">
-                    <img src="https://23022000.goatcounter.com/count?p=/&t=portfolio" width="auto" height="26" alt="Views">
-                </a>
-                <a href="https://github.com/uhsnavihs23" target="_blank" class="text-secondary hover:text-accent transition-colors">
-                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" /></svg>
-                </a>
-                <a href="https://linkedin.com/in/shivanshu-sharma-2302" target="_blank" class="text-secondary hover:text-accent transition-colors">
-                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                </a>
-            </div>
-        </div>
-    </footer>
-    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
-    <script data-goatcounter="https://23022000.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
-</body>
-</html>"""
-
-with open('./about.html', 'w') as f:
-    f.write(html)
+with open('about.html', 'w') as f:
+    f.write(content)
