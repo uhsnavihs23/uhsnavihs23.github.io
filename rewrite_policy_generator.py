@@ -1,4 +1,7 @@
-<!DOCTYPE html>
+import re
+
+# We will just rewrite the whole thing with a stunning Tailwind UI that fits the portfolio.
+html = """<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -221,15 +224,11 @@
                     // Real data synthesis
                     document.getElementById('briefSummary').textContent = `Recent analyses indicate escalating complexities regarding ${topic}. Major stakeholders, including government bodies and regional actors, face mounting pressure to address the structural deficits highlighted in recent weeks.`;
                     
-                    let contextText = `Currently, the discourse around ${topic} is shaped by several key events:
-
-`;
+                    let contextText = `Currently, the discourse around ${topic} is shaped by several key events:\n\n`;
                     articles.slice(0,3).forEach(a => {
-                        contextText += `- "${a.title}" (${a.source.name})
-`;
+                        contextText += `- "${a.title}" (${a.source.name})\n`;
                     });
-                    document.getElementById('briefContext').innerText = contextText + "
-These developments underscore a critical need for targeted regulatory intervention.";
+                    document.getElementById('briefContext').innerText = contextText + "\nThese developments underscore a critical need for targeted regulatory intervention.";
                     
                     const challenges = [
                         "Fragmented jurisdictional responsibilities leading to implementation bottlenecks.",
@@ -279,4 +278,7 @@ These developments underscore a critical need for targeted regulatory interventi
         }
     </script>
 </body>
-</html>
+</html>"""
+
+with open('projects/policy-brief-generator/index.html', 'w') as f:
+    f.write(html)
