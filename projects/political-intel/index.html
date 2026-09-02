@@ -6,6 +6,7 @@
     <title>Global Intelligence Dashboard | Shivanshu Sharma</title>
     <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
@@ -52,6 +53,16 @@
             -webkit-box-orient: vertical;
             overflow: hidden;
         }
+        
+        /* PDF specific styling (black text, white bg for print) */
+        #pdf-report {
+            color: #000;
+            background: #fff;
+            font-family: Arial, sans-serif;
+        }
+        #pdf-report h3 { color: #111; border-bottom: 2px solid #000; padding-bottom: 4px; margin-top: 20px; }
+        #pdf-report h4 { color: #333; font-weight: bold; margin-bottom: 4px; }
+        #pdf-report p { font-size: 14px; line-height: 1.5; color: #444; }
     </style>
 </head>
 <body class="bg-bgColor text-primary flex flex-col min-h-screen">
@@ -79,15 +90,16 @@
 
         <div class="mb-10 text-center">
             <h1 class="text-4xl font-extrabold tracking-tight text-primary mb-4">Global Intelligence Dashboard</h1>
-            <p class="text-lg text-secondary max-w-2xl mx-auto">Real-time tracking of geopolitical developments, national events, and strategic intelligence synthesized from global feeds.</p>
+            <p class="text-lg text-secondary max-w-2xl mx-auto">Real-time tracking of geopolitical developments, national events, and strategic intelligence.</p>
             <p class="text-xs text-secondary mt-4 font-mono tracking-wider uppercase">Last Updated: <span id="lastUpdated" class="font-bold text-accent">Fetching...</span></p>
         </div>
 
         <!-- Controls -->
         <div class="bg-cardBg p-4 rounded-xl border border-borderColor shadow-sm flex flex-col md:flex-row gap-4 mb-8">
             <div class="flex-1 flex gap-2 overflow-x-auto pb-2 md:pb-0">
-                <button onclick="setMode('international')" id="btn-international" class="filter-btn px-4 py-2 rounded-lg text-sm font-medium bg-accent text-white transition-colors whitespace-nowrap">Global News</button>
-                <button onclick="setMode('national')" id="btn-national" class="filter-btn px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-100 dark:hover:bg-gray-800 text-secondary transition-colors whitespace-nowrap">National News</button>
+                <button onclick="setMode('international')" id="btn-international" class="filter-btn px-4 py-2 rounded-lg text-sm font-medium bg-accent text-white transition-colors whitespace-nowrap shadow-sm">Global News</button>
+                <button onclick="setMode('national')" id="btn-national" class="filter-btn px-4 py-2 rounded-lg text-sm font-medium bg-gray-100 dark:bg-gray-800 text-secondary hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors whitespace-nowrap">National News</button>
+                <button onclick="setMode('digest')" id="btn-digest" class="filter-btn px-4 py-2 rounded-lg text-sm font-medium bg-gray-100 dark:bg-gray-800 text-secondary hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors whitespace-nowrap">📝 Daily Digest (PDF)</button>
             </div>
             
             <div class="flex items-center gap-3">
@@ -98,13 +110,32 @@
             </div>
         </div>
 
-        <!-- News Grid -->
-        <div id="newsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <!-- Populated by JS -->
+        <!-- News Grid View -->
+        <div id="grid-view">
+            <div id="newsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Populated by JS -->
+            </div>
+            <div id="loadingState" class="flex justify-center py-20 hidden">
+                <svg class="animate-spin h-8 w-8 text-accent" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+            </div>
         </div>
         
-        <div id="loadingState" class="flex justify-center py-20 hidden">
-            <svg class="animate-spin h-8 w-8 text-accent" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+        <!-- Daily Digest View -->
+        <div id="digest-view" class="hidden">
+            <div class="flex flex-col sm:flex-row gap-4 mb-6 justify-end">
+                <button onclick="downloadPDF()" class="px-5 py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-lg transition-colors shadow-sm flex items-center">
+                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg> Download PDF
+                </button>
+                <button onclick="window.print()" class="px-5 py-2 bg-gray-600 hover:bg-gray-700 text-white font-bold rounded-lg transition-colors shadow-sm flex items-center">
+                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg> Print
+                </button>
+            </div>
+            
+            <div class="bg-white p-8 sm:p-12 rounded-xl shadow-lg border border-gray-200 overflow-x-auto">
+                <div id="pdf-report" class="max-w-4xl mx-auto">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
         </div>
     </main>
 
@@ -115,9 +146,6 @@
             <div class="flex gap-4 items-center">
                 <a href="https://23022000.goatcounter.com/" target="_blank" rel="noopener" class="opacity-70 hover:opacity-100 transition-opacity mr-2">
                     <img src="https://23022000.goatcounter.com/count?p=/&t=portfolio" width="auto" height="26" alt="Views">
-                </a>
-                <a href="https://github.com/uhsnavihs23" target="_blank" class="text-secondary hover:text-accent transition-colors">
-                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" /></svg>
                 </a>
             </div>
         </div>
@@ -159,13 +187,20 @@
         const loading = document.getElementById('loadingState');
         const dateFilter = document.getElementById('dateFilter');
         
-        dateFilter.addEventListener('change', renderStories);
+        dateFilter.addEventListener('change', renderUI);
+
+        function formatDate(dateStr) {
+            const d = new Date(dateStr);
+            if (isNaN(d)) return dateStr;
+            const options = { day: 'numeric', month: 'short', year: 'numeric' };
+            return d.toLocaleDateString('en-GB', options); 
+        }
 
         async function init() {
             loading.classList.remove('hidden');
             grid.innerHTML = '';
             try {
-                // Fetch live data directly from the github repository backend
+                // Fetch live data directly from the local JSON
                 const response = await fetch('./data/news.json');
                 const data = await response.json();
                 
@@ -177,11 +212,11 @@
                     document.getElementById('lastUpdated').textContent = date.toLocaleString();
                 }
                 
-                // Remove UP Focus stories entirely
+                // Remove UP Focus entirely
                 allStories = allStories.filter(s => s.section !== 'UP_Focus' && s.report_category !== 'UP_Focus');
                 
                 populateDateDropdown();
-                renderStories();
+                renderUI();
             } catch(e) {
                 console.error(e);
                 grid.innerHTML = '<p class="col-span-full text-center text-red-500">Failed to fetch intelligence data. The backend might be unreachable.</p>';
@@ -192,15 +227,14 @@
         
         function setMode(mode) {
             currentMode = mode;
-            // Update button styles
             document.querySelectorAll('.filter-btn').forEach(btn => {
                 if (btn.id === `btn-${mode}`) {
-                    btn.className = "filter-btn px-4 py-2 rounded-lg text-sm font-medium bg-accent text-white transition-colors whitespace-nowrap";
+                    btn.className = "filter-btn px-4 py-2 rounded-lg text-sm font-medium bg-accent text-white transition-colors whitespace-nowrap shadow-sm";
                 } else {
-                    btn.className = "filter-btn px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-100 dark:hover:bg-gray-800 text-secondary transition-colors whitespace-nowrap";
+                    btn.className = "filter-btn px-4 py-2 rounded-lg text-sm font-medium bg-gray-100 dark:bg-gray-800 text-secondary hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors whitespace-nowrap";
                 }
             });
-            renderStories();
+            renderUI();
         }
         
         function populateDateDropdown() {
@@ -208,21 +242,33 @@
             dates.forEach(d => {
                 const opt = document.createElement('option');
                 opt.value = d;
-                opt.textContent = d;
+                opt.textContent = formatDate(d); // Formats as 26 Sept 2026
                 dateFilter.appendChild(opt);
             });
+            if(dates.length > 0) dateFilter.value = dates[0]; // Default to latest date
         }
         
-        function renderStories() {
+        function renderUI() {
+            if(currentMode === 'digest') {
+                document.getElementById('grid-view').classList.add('hidden');
+                document.getElementById('digest-view').classList.remove('hidden');
+                renderDigest();
+            } else {
+                document.getElementById('digest-view').classList.add('hidden');
+                document.getElementById('grid-view').classList.remove('hidden');
+                renderGrid();
+            }
+        }
+
+        function renderGrid() {
             const selectedDate = dateFilter.value;
             let filtered = allStories.filter(s => {
-                // Determine if it matches mode
                 let matchesMode = false;
-                if (currentMode === 'international' && s.section.toLowerCase().includes('international')) matchesMode = true;
-                if (currentMode === 'national' && s.section.toLowerCase().includes('national')) matchesMode = true;
+                // FIX: Exact match or strict contains to avoid 'National' bleeding into 'International'
+                if (currentMode === 'international' && s.section === 'International') matchesMode = true;
+                if (currentMode === 'national' && s.section === 'National') matchesMode = true;
                 
                 let matchesDate = selectedDate === 'All' || s.date === selectedDate;
-                
                 return matchesMode && matchesDate;
             });
             
@@ -233,7 +279,8 @@
                 return;
             }
             
-            filtered.forEach(story => {
+            // PERFORMANCE FIX: Only render top 50 to prevent DOM lag on tab switch
+            filtered.slice(0, 50).forEach(story => {
                 const card = document.createElement('div');
                 card.className = "bg-cardBg rounded-xl border border-borderColor overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col h-full";
                 
@@ -241,7 +288,7 @@
                     <div class="p-6 flex-grow flex flex-col">
                         <div class="flex justify-between items-start mb-3">
                             <span class="text-xs font-bold uppercase tracking-wider text-accent bg-blue-50 dark:bg-blue-900/30 px-2 py-1 rounded">${story.source || 'Intel Source'}</span>
-                            <span class="text-xs text-secondary font-medium">${story.date}</span>
+                            <span class="text-xs text-secondary font-medium">${formatDate(story.date)}</span>
                         </div>
                         <h3 class="text-lg font-bold text-primary mb-3 leading-snug"><a href="${story.link}" target="_blank" class="hover:text-accent transition-colors">${story.title}</a></h3>
                         <p class="text-secondary text-sm leading-relaxed flex-grow line-clamp-3">${story.summary || ''}</p>
@@ -255,6 +302,69 @@
                 `;
                 grid.appendChild(card);
             });
+        }
+        
+        function renderDigest() {
+            const selectedDate = dateFilter.value === 'All' ? allStories[0].date : dateFilter.value;
+            const dailyNews = allStories.filter(s => s.date === selectedDate);
+            const reportDiv = document.getElementById('pdf-report');
+            
+            if(dailyNews.length === 0) { 
+                reportDiv.innerHTML = "<p style='color:black;'>No data available for this date.</p>"; 
+                return; 
+            }
+
+            const intl = dailyNews.filter(s => s.section === 'International');
+            const nat = dailyNews.filter(s => s.section === 'National');
+            
+            let html = `
+                <div style="text-align: center; border-bottom: 2px solid #000; padding-bottom: 10px; margin-bottom: 20px;">
+                    <h2 style="font-size: 28px; font-weight: bold; margin: 0;">Daily Intelligence Digest</h2>
+                    <p style="font-size: 16px; margin-top: 5px; color: #555;">Date: ${formatDate(selectedDate)}</p>
+                    <p style="font-size: 12px; color: #999; text-transform: uppercase;">Generated by PoliticalIntel / Shivanshu Sharma</p>
+                </div>
+            `;
+            
+            if(nat.length > 0) {
+                html += `<h3>National Affairs</h3>`;
+                nat.slice(0, 15).forEach(s => {
+                    html += `
+                        <div style="margin-bottom: 15px;">
+                            <h4 style="margin: 0; font-size: 16px;">${s.title}</h4>
+                            <p style="margin: 3px 0; font-size: 14px;"><em>Source: ${s.source}</em></p>
+                            <p style="margin: 0; font-size: 14px; text-align: justify;">${s.summary}</p>
+                        </div>
+                    `;
+                });
+            }
+            
+            if(intl.length > 0) {
+                html += `<h3>International Developments</h3>`;
+                intl.slice(0, 15).forEach(s => {
+                    html += `
+                        <div style="margin-bottom: 15px;">
+                            <h4 style="margin: 0; font-size: 16px;">${s.title}</h4>
+                            <p style="margin: 3px 0; font-size: 14px;"><em>Source: ${s.source}</em></p>
+                            <p style="margin: 0; font-size: 14px; text-align: justify;">${s.summary}</p>
+                        </div>
+                    `;
+                });
+            }
+            
+            reportDiv.innerHTML = html;
+        }
+
+        function downloadPDF() {
+            const element = document.getElementById('pdf-report');
+            const date = dateFilter.value === 'All' ? allStories[0].date : dateFilter.value;
+            const opt = {
+                margin:       0.5,
+                filename:     `Intelligence-Digest-${date}.pdf`,
+                image:        { type: 'jpeg', quality: 0.98 },
+                html2canvas:  { scale: 2 },
+                jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' }
+            };
+            html2pdf().set(opt).from(element).save();
         }
         
         init();
