@@ -305,7 +305,7 @@
             <a href="../../index.html" style="display:inline-flex; align-items:center; color:white; text-decoration:none; margin-bottom:1rem; font-size:0.9rem; opacity:0.8; transition:opacity 0.2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.8">&larr; Back to Projects</a>
             <div>
                 <h1>IIT Gandhinagar Campus Energy Dashboard</h1>
-                <p>An end-to-end analysis of electricity consumption trends and optimization strategies (Oct 2019 – Jan
+                <p>An end-to-end analysis of electricity consumption trends and optimization strategies (Oct 2019 - Jan
                     2022)</p>
             </div>
             <div class="header-badge">
@@ -315,22 +315,21 @@
         </div>
     </div>
     <div class="container">
-        <div class="tabs">
-            <div class="tab active" data-tab="overview">
-                <i data-lucide="trending-up"></i>
-                <span>Overview</span>
-            </div>
-            <div class="tab" data-tab="analysis">
-                <i data-lucide="bar-chart"></i>
-                <span>Deep-Dive Analysis</span>
-            </div>
-            <div class="tab" data-tab="recommendations">
-                <i data-lucide="target"></i>
-                <span>Recommendations</span>
-            </div>
-        </div>
+        
+            
         <!-- Overview Tab -->
-        <div class="tab-content" id="overview-content">
+        
+        <div class="intro-card" style="margin-top: 2rem; background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+            <h2 style="font-size: 1.5rem; color: #111827; margin-bottom: 1rem;">Research Context and Objectives</h2>
+            <p style="color: #4b5563; line-height: 1.6; margin-bottom: 1rem;">
+                IIT Gandhinagar is committed to building a sustainable and energy efficient campus. As part of this sustainability initiative, it was critical to understand the underlying patterns of electricity consumption across academic blocks, housing grids, and research facilities.
+            </p>
+            <p style="color: #4b5563; line-height: 1.6;">
+                This comprehensive research report transitions raw smart meter data into actionable operational insights. The objective is simple: identify baseline consumption behaviors, isolate peak demand triggers, and formulate practical strategies to optimize energy usage without compromising campus operations.
+            </p>
+        </div>
+
+<div class="report-section" id="overview-content" style="margin-top: 2rem;">
             <div class="kpi-grid">
                 <div class="kpi-card">
                     <div class="kpi-header">
@@ -391,7 +390,15 @@
             </div>
         </div>
         <!-- Analysis Tab -->
-        <div class="tab-content hidden" id="analysis-content">
+        <div class="report-section" id="analysis-content" style="margin-top: 4rem;">
+
+            <div style="background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); margin-bottom: 2rem;">
+                <h2 style="font-size: 1.5rem; color: #111827; margin-bottom: 1rem;">Deep Dive: Consumption Patterns</h2>
+                <p style="color: #4b5563; line-height: 1.6;">
+                    The core of our research involved dissecting 28 months of granular electricity data. We observed clear cyclical trends heavily influenced by academic calendars and seasonal weather changes. By stepping away from abstract data models and looking at operational realities, the graphs below illustrate precisely when and how the campus draws power.
+                </p>
+            </div>
+
             <div class="chart-card">
                 <h3 class="chart-title">Energy Usage Trends and Forecasting</h3>
                 <div class="chart-container" style="height: 400px;">
@@ -420,7 +427,7 @@
             </div>
         </div>
         <!-- Recommendations Tab -->
-        <div class="tab-content hidden" id="recommendations-content">
+        <div class="report-section" id="recommendations-content" style="margin-top: 4rem;">
             <div class="intro-card">
                 <h3 class="intro-title">Optimization Recommendations</h3>
                 <p class="intro-description">Based on comprehensive analysis of 28 months of consumption data</p>
@@ -897,7 +904,7 @@
 
             // Initialize charts and tabs
             initCharts();
-            initTabs();
+            
         });
 
         // Handle window resize
