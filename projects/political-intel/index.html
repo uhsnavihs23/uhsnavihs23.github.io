@@ -194,7 +194,8 @@
                 } else {
                     allStories = data.stories;
                     const date = new Date(data.generated_at);
-                    document.getElementById('lastUpdated').textContent = date.toLocaleString();
+                    const options = { day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' };
+                    document.getElementById('lastUpdated').textContent = date.toLocaleString('en-GB', options);
                 }
                 
                 allStories = allStories.filter(s => s.section !== 'UP_Focus' && s.report_category !== 'UP_Focus' && !/[\u0900-\u097F]/.test(s.title));
