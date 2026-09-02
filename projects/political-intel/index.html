@@ -197,7 +197,7 @@
                     document.getElementById('lastUpdated').textContent = date.toLocaleString();
                 }
                 
-                allStories = allStories.filter(s => s.section !== 'UP_Focus' && s.report_category !== 'UP_Focus');
+                allStories = allStories.filter(s => s.section !== 'UP_Focus' && s.report_category !== 'UP_Focus' && !/[\u0900-\u097F]/.test(s.title));
                 
                 populateDateDropdown();
                 renderUI();
