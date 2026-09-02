@@ -8,206 +8,46 @@
     <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/2.26.0/plotly.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        <style>
+        body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+        :root {
+            --bg-color: #f9fafb;
+            --card-bg: #ffffff;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --border-color: #e5e7eb;
+            --accent-color: #3b82f6;
+            --nav-bg: rgba(255, 255, 255, 0.8);
         }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            color: #333;
+        html.dark {
+            --bg-color: #18181b;
+            --card-bg: #27272a;
+            --text-primary: #f4f4f5;
+            --text-secondary: #d4d4d8;
+            --border-color: #3f3f46;
+            --accent-color: #2dd4bf;
+            --nav-bg: rgba(24, 24, 27, 0.8);
         }
-
-        .dashboard-header {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 20px;
-            text-align: center;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
+    
+        :root {
+            --bg-color: #f9fafb;
+            --card-bg: #ffffff;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --border-color: #e5e7eb;
+            --accent-color: #3b82f6;
+            --nav-bg: rgba(255, 255, 255, 0.8);
         }
-
-        .dashboard-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #1a365d;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        html.dark {
+            --bg-color: #18181b;
+            --card-bg: #27272a;
+            --text-primary: #f4f4f5;
+            --text-secondary: #d4d4d8;
+            --border-color: #3f3f46;
+            --accent-color: #2dd4bf;
+            --nav-bg: rgba(24, 24, 27, 0.8);
         }
-
-        .dashboard-subtitle {
-            font-size: 1.1rem;
-            color: #4a5568;
-            font-weight: 500;
-        }
-
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .kpi-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-bottom: 30px;
-        }
-
-        .kpi-card {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 25px;
-            text-align: center;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .kpi-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
-        }
-
-        .kpi-value {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 8px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .kpi-label {
-            font-size: 0.9rem;
-            color: #718096;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .chart-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-            gap: 20px;
-            margin-bottom: 30px;
-        }
-
-        .chart-container {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 20px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .chart-title {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: #2d3748;
-            margin-bottom: 15px;
-            text-align: center;
-        }
-
-        .filters-container {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-        }
-
-        .filter-group {
-            display: inline-block;
-            margin-right: 20px;
-            margin-bottom: 10px;
-        }
-
-        .filter-label {
-            display: block;
-            font-weight: 600;
-            color: #4a5568;
-            margin-bottom: 5px;
-        }
-
-        select {
-            padding: 8px 15px;
-            border-radius: 8px;
-            border: 2px solid #e2e8f0;
-            background: white;
-            font-size: 14px;
-            min-width: 150px;
-            transition: border-color 0.3s ease;
-        }
-
-        select:focus {
-            outline: none;
-            border-color: #667eea;
-        }
-
-        .insights-panel {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 25px;
-            margin-top: 20px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-        }
-
-        .insights-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #1a365d;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-        }
-
-        .insights-title::before {
-            content: "💡";
-            margin-right: 10px;
-            font-size: 1.8rem;
-        }
-
-        .insight-item {
-            background: linear-gradient(135deg, #f7fafc, #edf2f7);
-            border-left: 4px solid #667eea;
-            padding: 15px 20px;
-            margin-bottom: 15px;
-            border-radius: 8px;
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        .loading {
-            text-align: center;
-            padding: 40px;
-            font-size: 1.1rem;
-            color: #4a5568;
-        }
-
-        @media (max-width: 768px) {
-            .dashboard-title {
-                font-size: 1.8rem;
-            }
-
-            .chart-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .kpi-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-    </style>
+</style>
 </head>
 
 <body>
@@ -630,6 +470,42 @@
             setTimeout(updateDashboard, 100);
         });
     </script>
+
+    <!-- Theme Script -->
+    <script>
+        const html = document.documentElement;
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIconLight = document.getElementById('themeIconLight');
+        const themeIconDark = document.getElementById('themeIconDark');
+        
+        function setTheme(isDark) {
+            if (isDark) {
+                html.classList.add('dark');
+                themeIconLight.classList.remove('hidden');
+                themeIconDark.classList.add('hidden');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                html.classList.remove('dark');
+                themeIconLight.classList.add('hidden');
+                themeIconDark.classList.remove('hidden');
+                localStorage.setItem('theme', 'light');
+            }
+        }
+        
+        // Initialize theme (default to non-dark unless local storage says otherwise)
+        if (localStorage.getItem('theme') === 'dark') {
+            setTheme(true);
+        } else {
+            setTheme(false); // default non-dark
+        }
+        
+        if (themeToggle) {
+            themeToggle.addEventListener('click', () => {
+                setTheme(!html.classList.contains('dark'));
+            });
+        }
+    </script>
+
 </body>
 
 </html>

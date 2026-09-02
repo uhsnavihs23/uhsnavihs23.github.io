@@ -7,24 +7,52 @@
     <link rel="icon" type="image/svg+xml" href="./favicon.svg">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script>
+        <script>
         tailwind.config = {
+            darkMode: 'class',
             theme: {
                 extend: {
                     fontFamily: { sans: ['Inter', 'sans-serif'] },
-                    colors: { primary: '#0f172a', secondary: '#475569', accent: '#3b82f6' }
+                    colors: { 
+                        primary: 'var(--text-primary)', 
+                        secondary: 'var(--text-secondary)', 
+                        accent: 'var(--accent-color)',
+                        bgColor: 'var(--bg-color)',
+                        cardBg: 'var(--card-bg)',
+                        borderColor: 'var(--border-color)',
+                        navBg: 'var(--nav-bg)'
+                    }
                 }
             }
         }
     </script>
     <style>
         body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
-    </style>
+    
+        :root {
+            --bg-color: #f9fafb;
+            --card-bg: #ffffff;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --border-color: #e5e7eb;
+            --accent-color: #3b82f6;
+            --nav-bg: rgba(255, 255, 255, 0.8);
+        }
+        html.dark {
+            --bg-color: #18181b;
+            --card-bg: #27272a;
+            --text-primary: #f4f4f5;
+            --text-secondary: #d4d4d8;
+            --border-color: #3f3f46;
+            --accent-color: #2dd4bf;
+            --nav-bg: rgba(24, 24, 27, 0.8);
+        }
+</style>
 </head>
-<body class="bg-gray-50 text-primary flex flex-col min-h-screen">
+<body class="bg-bgColor text-primary flex flex-col min-h-screen">
 
     <!-- Navbar -->
-    <header class="sticky top-0 z-50 w-full backdrop-blur-md bg-white/80 border-b border-gray-200">
+    <header class="sticky top-0 z-50 w-full backdrop-blur-md bg-navBg border-b border-borderColor">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
             <a href="./index.html" class="text-xl font-bold tracking-tight text-primary hover:text-accent transition-colors">Shivanshu Sharma</a>
             <nav class="flex gap-6">
@@ -32,6 +60,11 @@
                 <a href="./projects/index.html" class="text-sm font-medium transition-colors hover:text-accent text-secondary">Projects</a>
                 <a href="./about.html" class="text-sm font-medium transition-colors hover:text-accent text-secondary">About</a>
             </nav>
+                <button id="themeToggle" class="ml-4 p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors text-secondary">
+                    <svg id="themeIconLight" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"/></svg>
+                    <svg id="themeIconDark" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg>
+                </button>
+
         </div>
     </header>
 
@@ -49,7 +82,7 @@
                     <a href="./projects/index.html" class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-lg text-white bg-accent hover:bg-blue-700 transition-colors shadow-sm">
                         View My Work
                     </a>
-                    <a href="./about.html" class="inline-flex items-center justify-center px-6 py-3 border border-gray-300 text-base font-medium rounded-lg text-primary bg-white hover:bg-gray-50 transition-colors shadow-sm">
+                    <a href="./about.html" class="inline-flex items-center justify-center px-6 py-3 border border-gray-300 text-base font-medium rounded-lg text-primary bg-cardBg hover:bg-bgColor transition-colors shadow-sm">
                         More About Me
                     </a>
                 </div>
@@ -61,14 +94,14 @@
         </section>
 
         <!-- Featured Projects -->
-        <section class="bg-white py-20 border-t border-gray-200">
+        <section class="bg-cardBg py-20 border-t border-borderColor">
             <div class="max-w-5xl mx-auto px-4 sm:px-6">
                 <h2 class="text-3xl font-bold text-primary mb-2 text-center">Featured Work</h2>
                 <div class="w-16 h-1 bg-accent mx-auto rounded mb-12"></div>
                 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <!-- Card 1 -->
-                    <a href="./projects/market-tracker/index.html" class="group block h-full bg-gray-50 rounded-2xl overflow-hidden border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                    <a href="./projects/market-tracker/index.html" class="group block h-full bg-bgColor rounded-2xl overflow-hidden border border-borderColor hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
                         <div class="h-48 bg-gray-200 overflow-hidden relative">
                             <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&q=80&w=800" alt="Market Tracker" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                             <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
@@ -81,7 +114,7 @@
                     </a>
 
                     <!-- Card 2 -->
-                    <a href="./projects/urban-governance.html" class="group block h-full bg-gray-50 rounded-2xl overflow-hidden border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                    <a href="./projects/urban-governance.html" class="group block h-full bg-bgColor rounded-2xl overflow-hidden border border-borderColor hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
                         <div class="h-48 bg-gray-200 overflow-hidden relative">
                             <img src="https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?auto=format&fit=crop&q=80&w=800" alt="Urban Governance" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                             <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
@@ -94,7 +127,7 @@
                     </a>
 
                     <!-- Card 3 -->
-                    <a href="./projects/image-filter-app/index.html" class="group block h-full bg-gray-50 rounded-2xl overflow-hidden border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                    <a href="./projects/image-filter-app/index.html" class="group block h-full bg-bgColor rounded-2xl overflow-hidden border border-borderColor hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
                         <div class="h-48 bg-gray-200 overflow-hidden relative">
                             <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&q=80&w=800" alt="Image Editor" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                             <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
@@ -118,7 +151,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="mt-auto border-t border-gray-200 bg-white py-8">
+    <footer class="mt-auto border-t border-borderColor bg-cardBg py-8">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row justify-between items-center gap-4">
             <p class="text-sm text-secondary">© <span id="year"></span> Shivanshu Sharma. All rights reserved.</p>
             <div class="flex gap-4 items-center">
@@ -136,5 +169,41 @@
     </footer>
     <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
     <script data-goatcounter="https://23022000.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+
+    <!-- Theme Script -->
+    <script>
+        const html = document.documentElement;
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIconLight = document.getElementById('themeIconLight');
+        const themeIconDark = document.getElementById('themeIconDark');
+        
+        function setTheme(isDark) {
+            if (isDark) {
+                html.classList.add('dark');
+                themeIconLight.classList.remove('hidden');
+                themeIconDark.classList.add('hidden');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                html.classList.remove('dark');
+                themeIconLight.classList.add('hidden');
+                themeIconDark.classList.remove('hidden');
+                localStorage.setItem('theme', 'light');
+            }
+        }
+        
+        // Initialize theme (default to non-dark unless local storage says otherwise)
+        if (localStorage.getItem('theme') === 'dark') {
+            setTheme(true);
+        } else {
+            setTheme(false); // default non-dark
+        }
+        
+        if (themeToggle) {
+            themeToggle.addEventListener('click', () => {
+                setTheme(!html.classList.contains('dark'));
+            });
+        }
+    </script>
+
 </body>
 </html>

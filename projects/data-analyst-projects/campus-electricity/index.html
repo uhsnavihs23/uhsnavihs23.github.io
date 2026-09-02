@@ -7,28 +7,56 @@
     <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script>
+        <script>
         tailwind.config = {
+            darkMode: 'class',
             theme: {
                 extend: {
                     fontFamily: { sans: ['Inter', 'sans-serif'] },
-                    colors: { primary: '#0f172a', secondary: '#475569', accent: '#3b82f6' }
+                    colors: { 
+                        primary: 'var(--text-primary)', 
+                        secondary: 'var(--text-secondary)', 
+                        accent: 'var(--accent-color)',
+                        bgColor: 'var(--bg-color)',
+                        cardBg: 'var(--card-bg)',
+                        borderColor: 'var(--border-color)',
+                        navBg: 'var(--nav-bg)'
+                    }
                 }
             }
         }
     </script>
     <style>
         body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
-    </style>
+    
+        :root {
+            --bg-color: #f9fafb;
+            --card-bg: #ffffff;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --border-color: #e5e7eb;
+            --accent-color: #3b82f6;
+            --nav-bg: rgba(255, 255, 255, 0.8);
+        }
+        html.dark {
+            --bg-color: #18181b;
+            --card-bg: #27272a;
+            --text-primary: #f4f4f5;
+            --text-secondary: #d4d4d8;
+            --border-color: #3f3f46;
+            --accent-color: #2dd4bf;
+            --nav-bg: rgba(24, 24, 27, 0.8);
+        }
+</style>
 </head>
-<body class="bg-gray-50 text-primary flex flex-col min-h-screen">
+<body class="bg-bgColor text-primary flex flex-col min-h-screen">
 <main class="flex-grow max-w-4xl mx-auto px-4 sm:px-6 py-20 w-full">
         <a href="../../index.html" class="inline-flex items-center text-sm font-medium text-secondary hover:text-accent mb-8 transition-colors">
             <svg class="mr-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
             Back to Projects
         </a>
-        <article class="bg-white p-8 rounded-2xl shadow-sm border border-gray-200">
-            <header class="mb-10 border-b border-gray-100 pb-8">
+        <article class="bg-cardBg p-8 rounded-2xl shadow-sm border border-borderColor">
+            <header class="mb-10 border-b border-borderColor pb-8">
                 <div class="inline-block px-3 py-1 bg-blue-100 text-blue-800 text-xs font-bold rounded-full uppercase tracking-wide mb-4">Data Analytics</div>
                 <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-primary mb-4 leading-tight">Campus Electricity Consumption Analysis & Optimization</h1>
             </header>
@@ -46,5 +74,41 @@
     </main>
 <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
     <script data-goatcounter="https://23022000.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+
+    <!-- Theme Script -->
+    <script>
+        const html = document.documentElement;
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIconLight = document.getElementById('themeIconLight');
+        const themeIconDark = document.getElementById('themeIconDark');
+        
+        function setTheme(isDark) {
+            if (isDark) {
+                html.classList.add('dark');
+                themeIconLight.classList.remove('hidden');
+                themeIconDark.classList.add('hidden');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                html.classList.remove('dark');
+                themeIconLight.classList.add('hidden');
+                themeIconDark.classList.remove('hidden');
+                localStorage.setItem('theme', 'light');
+            }
+        }
+        
+        // Initialize theme (default to non-dark unless local storage says otherwise)
+        if (localStorage.getItem('theme') === 'dark') {
+            setTheme(true);
+        } else {
+            setTheme(false); // default non-dark
+        }
+        
+        if (themeToggle) {
+            themeToggle.addEventListener('click', () => {
+                setTheme(!html.classList.contains('dark'));
+            });
+        }
+    </script>
+
 </body>
 </html>

@@ -9,294 +9,46 @@
     <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
     <script src="./Campus_energy_analytics-IIT Gandhinagar_files/chart.min.js"></script>
     <script src="./Campus_energy_analytics-IIT Gandhinagar_files/lucide.js"></script>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        <style>
+        body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+        :root {
+            --bg-color: #f9fafb;
+            --card-bg: #ffffff;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --border-color: #e5e7eb;
+            --accent-color: #3b82f6;
+            --nav-bg: rgba(255, 255, 255, 0.8);
         }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background-color: #f9fafb;
-            min-height: 100vh;
+        html.dark {
+            --bg-color: #18181b;
+            --card-bg: #27272a;
+            --text-primary: #f4f4f5;
+            --text-secondary: #d4d4d8;
+            --border-color: #3f3f46;
+            --accent-color: #2dd4bf;
+            --nav-bg: rgba(24, 24, 27, 0.8);
         }
-
-        .header {
-            background: white;
-            border-bottom: 1px solid #e5e7eb;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    
+        :root {
+            --bg-color: #f9fafb;
+            --card-bg: #ffffff;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --border-color: #e5e7eb;
+            --accent-color: #3b82f6;
+            --nav-bg: rgba(255, 255, 255, 0.8);
         }
-
-        .header-content {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 1rem 1.5rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        html.dark {
+            --bg-color: #18181b;
+            --card-bg: #27272a;
+            --text-primary: #f4f4f5;
+            --text-secondary: #d4d4d8;
+            --border-color: #3f3f46;
+            --accent-color: #2dd4bf;
+            --nav-bg: rgba(24, 24, 27, 0.8);
         }
-
-        .header h1 {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #111827;
-            margin-bottom: 0.25rem;
-        }
-
-        .header p {
-            font-size: 0.875rem;
-            color: #6b7280;
-        }
-
-        .header-badge {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 0.875rem;
-            font-weight: 500;
-        }
-
-        .container {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 1.5rem;
-        }
-
-        .tabs {
-            display: flex;
-            gap: 0.25rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .tab {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.5rem 1rem;
-            border-radius: 0.5rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.2s;
-            border: 1px solid transparent;
-        }
-
-        .tab.active {
-            background-color: #dbeafe;
-            color: #1d4ed8;
-            border-color: #bfdbfe;
-        }
-
-        .tab:not(.active) {
-            color: #6b7280;
-        }
-
-        .tab:not(.active):hover {
-            color: #111827;
-            background-color: #f3f4f6;
-        }
-
-        .kpi-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .kpi-card {
-            background: white;
-            padding: 1rem;
-            border-radius: 0.5rem;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-            border: 1px solid #e5e7eb;
-        }
-
-        .kpi-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-        }
-
-        .kpi-title {
-            font-size: 0.875rem;
-            color: #6b7280;
-            margin-bottom: 0.25rem;
-        }
-
-        .kpi-value {
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin-bottom: 0.25rem;
-        }
-
-        .kpi-subtitle {
-            font-size: 0.75rem;
-            color: #9ca3af;
-        }
-
-        .kpi-trend {
-            font-size: 0.875rem;
-            font-weight: 500;
-            color: #059669;
-        }
-
-        .chart-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .chart-card {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 0.5rem;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-        }
-
-        .chart-title {
-            font-size: 1.125rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        .chart-container {
-            position: relative;
-            height: 300px;
-        }
-
-        .recommendations-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .recommendation-card {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 0.5rem;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-            transition: box-shadow 0.2s;
-        }
-
-        .recommendation-card:hover {
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .rec-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 0.75rem;
-        }
-
-        .rec-icon {
-            width: 2rem;
-            height: 2rem;
-            background-color: #dbeafe;
-            border-radius: 0.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 0.75rem;
-        }
-
-        .rec-title {
-            font-size: 1.125rem;
-            font-weight: 600;
-        }
-
-        .rec-description {
-            color: #6b7280;
-            margin-bottom: 1rem;
-        }
-
-        .rec-details {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-
-        .rec-detail {
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .rec-detail-label {
-            font-size: 0.875rem;
-            font-weight: 500;
-        }
-
-        .rec-detail-value {
-            font-size: 0.875rem;
-        }
-
-        .warning-card {
-            background-color: #fefce8;
-            border: 1px solid #fde047;
-            padding: 1.5rem;
-            border-radius: 0.5rem;
-        }
-
-        .warning-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 0.75rem;
-        }
-
-        .warning-title {
-            font-size: 1.125rem;
-            font-weight: 600;
-            color: #92400e;
-            margin-left: 0.5rem;
-        }
-
-        .warning-list {
-            list-style: none;
-            color: #92400e;
-        }
-
-        .warning-list li {
-            margin-bottom: 0.5rem;
-        }
-
-        .hidden {
-            display: none !important;
-        }
-
-        .intro-card {
-            background: linear-gradient(to right, #eff6ff, #f0fdf4);
-            padding: 1.5rem;
-            border-radius: 0.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .intro-title {
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .intro-description {
-            color: #6b7280;
-        }
-
-        .color-blue {
-            color: #2563eb;
-        }
-
-        .color-green {
-            color: #059669;
-        }
-
-        .color-red {
-            color: #dc2626;
-        }
-
-        .color-yellow {
-            color: #d97706;
-        }
-    </style>
+</style>
 </head>
 
 <body>
@@ -910,6 +662,42 @@
     </script>
     <div style="text-align: center; color: #6b7280; padding: 2rem 0; font-size: 0.8rem;">© Shivanshu Sharma | Campus
         Sustainability Initiative, IIT Gandhinagar</div>
+
+    <!-- Theme Script -->
+    <script>
+        const html = document.documentElement;
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIconLight = document.getElementById('themeIconLight');
+        const themeIconDark = document.getElementById('themeIconDark');
+        
+        function setTheme(isDark) {
+            if (isDark) {
+                html.classList.add('dark');
+                themeIconLight.classList.remove('hidden');
+                themeIconDark.classList.add('hidden');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                html.classList.remove('dark');
+                themeIconLight.classList.add('hidden');
+                themeIconDark.classList.remove('hidden');
+                localStorage.setItem('theme', 'light');
+            }
+        }
+        
+        // Initialize theme (default to non-dark unless local storage says otherwise)
+        if (localStorage.getItem('theme') === 'dark') {
+            setTheme(true);
+        } else {
+            setTheme(false); // default non-dark
+        }
+        
+        if (themeToggle) {
+            themeToggle.addEventListener('click', () => {
+                setTheme(!html.classList.contains('dark'));
+            });
+        }
+    </script>
+
 </body>
 
 </html>

@@ -1,63 +1,42 @@
-<style>
-  .pb-container { max-width: 760px; margin: 0 auto; padding: 1rem 0 3rem; }
-  .pb-subtitle { font-size: 0.95rem; color: var(--text-muted-color); margin-bottom: 2rem; }
-  .pb-input-row { display: flex; gap: 0.75rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
-  .pb-input-row input[type="text"] {
-    flex: 1; min-width: 200px; padding: 0.65rem 1rem;
-    border: 1.5px solid var(--border-color); border-radius: 8px;
-    font-size: 1rem; background: var(--main-bg); color: var(--text-color); outline: none;
-  }
-  .pb-input-row input[type="text"]:focus { border-color: #3b6cf8; }
-  .pb-btn {
-    padding: 0.65rem 1.4rem; background: #3b6cf8; color: #fff;
-    border: none; border-radius: 8px; font-size: 1rem;
-    font-weight: 600; cursor: pointer; transition: opacity 0.2s;
-  }
-  .pb-btn:hover { opacity: 0.85; }
-  .pb-btn:disabled { opacity: 0.5; cursor: not-allowed; }
-  .pb-status { font-size: 0.9rem; color: var(--text-muted-color); margin-bottom: 1rem; min-height: 1.2rem; }
-  .pb-error { color: #c0392b; font-size: 0.9rem; margin-bottom: 1rem; display: none; }
-  .brief-box {
-    background: var(--card-bg, #fff); border: 1.5px solid var(--border-color);
-    border-radius: 12px; padding: 1.75rem 2rem; display: none;
-  }
-  .brief-box.visible { display: block; }
-  .brief-header {
-    display: flex; justify-content: space-between; align-items: flex-start;
-    margin-bottom: 1.5rem; flex-wrap: wrap; gap: 0.75rem;
-  }
-  .brief-title { font-size: 1.3rem; font-weight: 700; color: var(--text-color); }
-  .brief-date {
-    font-size: 0.8rem; color: var(--text-muted-color);
-    background: var(--highlight-bg, #f0ede8); padding: 0.25rem 0.6rem; border-radius: 5px;
-  }
-  .pb-section { margin-bottom: 1.4rem; }
-  .pb-section-label {
-    font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
-    letter-spacing: 0.07em; color: #3b6cf8; margin-bottom: 0.4rem;
-  }
-  .pb-section-content { font-size: 0.95rem; line-height: 1.7; color: var(--text-color); }
-  .pb-section-content ul { padding-left: 1.2rem; margin-top: 0.3rem; }
-  .pb-section-content ul li { margin-bottom: 0.3rem; }
-  .pb-sources { margin-top: 1.5rem; border-top: 1px solid var(--border-color); padding-top: 1rem; }
-  .pb-sources-label {
-    font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
-    letter-spacing: 0.07em; color: var(--text-muted-color); margin-bottom: 0.5rem;
-  }
-  .pb-source-item { font-size: 0.85rem; margin-bottom: 0.4rem; }
-  .pb-source-item a { color: #3b6cf8; text-decoration: none; }
-  .pb-source-item a:hover { text-decoration: underline; }
-  .pb-copy-btn {
-    margin-top: 1.2rem; background: var(--highlight-bg, #f0ede8);
-    color: var(--text-color); font-size: 0.85rem; padding: 0.45rem 1rem;
-    border: none; border-radius: 8px; cursor: pointer;
-  }
-  .pb-copy-btn:hover { opacity: 0.8; }
-  .pb-note {
-    font-size: 0.8rem; color: var(--text-muted-color); margin-top: 2rem;
-    padding: 0.75rem 1rem; background: var(--highlight-bg, #faf8f5);
-    border-radius: 8px; border: 1px solid var(--border-color);
-  }
+    <style>
+        body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+        :root {
+            --bg-color: #f9fafb;
+            --card-bg: #ffffff;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --border-color: #e5e7eb;
+            --accent-color: #3b82f6;
+            --nav-bg: rgba(255, 255, 255, 0.8);
+        }
+        html.dark {
+            --bg-color: #18181b;
+            --card-bg: #27272a;
+            --text-primary: #f4f4f5;
+            --text-secondary: #d4d4d8;
+            --border-color: #3f3f46;
+            --accent-color: #2dd4bf;
+            --nav-bg: rgba(24, 24, 27, 0.8);
+        }
+    
+        :root {
+            --bg-color: #f9fafb;
+            --card-bg: #ffffff;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --border-color: #e5e7eb;
+            --accent-color: #3b82f6;
+            --nav-bg: rgba(255, 255, 255, 0.8);
+        }
+        html.dark {
+            --bg-color: #18181b;
+            --card-bg: #27272a;
+            --text-primary: #f4f4f5;
+            --text-secondary: #d4d4d8;
+            --border-color: #3f3f46;
+            --accent-color: #2dd4bf;
+            --nav-bg: rgba(24, 24, 27, 0.8);
+        }
 </style>
 
 <div class="pb-container">

@@ -7,24 +7,52 @@
     <link rel="icon" type="image/svg+xml" href="./favicon.svg">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script>
+        <script>
         tailwind.config = {
+            darkMode: 'class',
             theme: {
                 extend: {
                     fontFamily: { sans: ['Inter', 'sans-serif'] },
-                    colors: { primary: '#0f172a', secondary: '#475569', accent: '#3b82f6' }
+                    colors: { 
+                        primary: 'var(--text-primary)', 
+                        secondary: 'var(--text-secondary)', 
+                        accent: 'var(--accent-color)',
+                        bgColor: 'var(--bg-color)',
+                        cardBg: 'var(--card-bg)',
+                        borderColor: 'var(--border-color)',
+                        navBg: 'var(--nav-bg)'
+                    }
                 }
             }
         }
     </script>
     <style>
         body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
-    </style>
+    
+        :root {
+            --bg-color: #f9fafb;
+            --card-bg: #ffffff;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --border-color: #e5e7eb;
+            --accent-color: #3b82f6;
+            --nav-bg: rgba(255, 255, 255, 0.8);
+        }
+        html.dark {
+            --bg-color: #18181b;
+            --card-bg: #27272a;
+            --text-primary: #f4f4f5;
+            --text-secondary: #d4d4d8;
+            --border-color: #3f3f46;
+            --accent-color: #2dd4bf;
+            --nav-bg: rgba(24, 24, 27, 0.8);
+        }
+</style>
 </head>
-<body class="bg-gray-50 text-primary flex flex-col min-h-screen">
+<body class="bg-bgColor text-primary flex flex-col min-h-screen">
 
     <!-- Navbar -->
-    <header class="sticky top-0 z-50 w-full backdrop-blur-md bg-white/80 border-b border-gray-200">
+    <header class="sticky top-0 z-50 w-full backdrop-blur-md bg-navBg border-b border-borderColor">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
             <a href="./index.html" class="text-xl font-bold tracking-tight text-primary hover:text-accent transition-colors">Shivanshu Sharma</a>
             <nav class="flex gap-6">
@@ -32,6 +60,11 @@
                 <a href="./projects/index.html" class="text-sm font-medium transition-colors hover:text-accent text-secondary">Projects</a>
                 <a href="./about.html" class="text-sm font-medium transition-colors hover:text-accent text-accent">About</a>
             </nav>
+                <button id="themeToggle" class="ml-4 p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors text-secondary">
+                    <svg id="themeIconLight" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"/></svg>
+                    <svg id="themeIconDark" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg>
+                </button>
+
         </div>
     </header>
 
@@ -41,19 +74,19 @@
             <div class="w-24 h-1 bg-accent mx-auto rounded-full"></div>
         </div>
         
-        <div class="bg-white rounded-3xl p-8 sm:p-12 shadow-sm border border-gray-200 mb-12">
+        <div class="bg-cardBg rounded-3xl p-8 sm:p-12 shadow-sm border border-borderColor mb-12">
             <div class="prose prose-lg prose-blue max-w-none text-secondary text-center mb-8">
                 <p class="text-2xl font-medium text-primary mb-6">Hello, I'm <span class="font-bold">Shivanshu Sharma</span>. I am a Strategy & Management Consultant, and an alumnus of IIT Gandhinagar.</p>
                 <p class="mb-4">My work revolves around the intersection of data, policy, and technology. I am passionate about transforming raw data into structured insights, analyzing urban governance, and building functional web applications.</p>
             </div>
             
-            <div class="flex flex-wrap justify-center gap-4 pt-4 border-t border-gray-100 mb-12">
-                <a href="#contact-card" class="px-6 py-3 bg-primary text-white font-medium rounded-xl hover:bg-gray-800 transition-colors shadow-sm">Contact Me</a>
-                <a href="https://github.com/uhsnavihs23" target="_blank" class="px-6 py-3 bg-white border border-gray-300 text-primary font-medium rounded-xl hover:bg-gray-50 transition-colors shadow-sm flex items-center gap-2">
+            <div class="flex flex-wrap justify-center gap-4 pt-4 border-t border-borderColor mb-12">
+                <a href="#contact-card" class="px-6 py-3 bg-slate-900 text-white font-medium rounded-xl hover:bg-gray-800 transition-colors shadow-sm">Contact Me</a>
+                <a href="https://github.com/uhsnavihs23" target="_blank" class="px-6 py-3 bg-cardBg border border-gray-300 text-primary font-medium rounded-xl hover:bg-bgColor transition-colors shadow-sm flex items-center gap-2">
                     <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" /></svg>
                     GitHub Profile
                 </a>
-                <a href="https://linkedin.com/in/shivanshu-sharma-2302" target="_blank" class="px-6 py-3 bg-white border border-gray-300 text-primary font-medium rounded-xl hover:bg-gray-50 transition-colors shadow-sm flex items-center gap-2">
+                <a href="https://linkedin.com/in/shivanshu-sharma-2302" target="_blank" class="px-6 py-3 bg-cardBg border border-gray-300 text-primary font-medium rounded-xl hover:bg-bgColor transition-colors shadow-sm flex items-center gap-2">
                     <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                     LinkedIn
                 </a>
@@ -61,7 +94,7 @@
 
             <!-- Tech Stack -->
             <div class="mb-12">
-                <h3 class="text-xl font-bold text-primary mb-6 border-b border-gray-100 pb-2 text-center">Tech Stack & Tools</h3>
+                <h3 class="text-xl font-bold text-primary mb-6 border-b border-borderColor pb-2 text-center">Tech Stack & Tools</h3>
                 <!-- Used SkillIcons for 3D square logos and SimpleIcons for missing ones. 
                      Justified content center with gap for a clean wrap effect. -->
                 <div class="flex flex-wrap justify-center gap-4 mt-4">
@@ -75,7 +108,7 @@
                     <img src="https://skillicons.dev/icons?i=cpp" alt="C++" class="h-10 w-10 hover:scale-110 transition-transform hover:shadow-lg rounded-xl" title="C++">
                     
                     <img src="https://skillicons.dev/icons?i=mysql" alt="MySQL" class="h-10 w-10 hover:scale-110 transition-transform hover:shadow-lg rounded-xl" title="MySQL">
-                    <div class="h-10 w-10 bg-white rounded-xl shadow-sm border border-gray-100 flex items-center justify-center hover:scale-110 transition-transform hover:shadow-lg" title="Jupyter">
+                    <div class="h-10 w-10 bg-cardBg rounded-xl shadow-sm border border-borderColor flex items-center justify-center hover:scale-110 transition-transform hover:shadow-lg" title="Jupyter">
                         <img src="https://cdn.simpleicons.org/jupyter/F37626" alt="Jupyter" class="h-6 w-6">
                     </div>
                     
@@ -87,19 +120,19 @@
                     <img src="https://skillicons.dev/icons?i=vscode" alt="VS Code" class="h-10 w-10 hover:scale-110 transition-transform hover:shadow-lg rounded-xl" title="VS Code">
                     
                     <!-- Clean SVG icons from CDN for specific tools that skillicons doesn't have -->
-                    <div class="h-10 w-10 bg-white rounded-xl shadow-sm border border-gray-100 flex items-center justify-center hover:scale-110 transition-transform hover:shadow-lg" title="Google Workspace">
+                    <div class="h-10 w-10 bg-cardBg rounded-xl shadow-sm border border-borderColor flex items-center justify-center hover:scale-110 transition-transform hover:shadow-lg" title="Google Workspace">
                         <img src="https://cdn.simpleicons.org/google/4285F4" alt="Google Workspace" class="h-6 w-6">
                     </div>
-                    <div class="h-10 w-10 bg-white rounded-xl shadow-sm border border-gray-100 flex items-center justify-center hover:scale-110 transition-transform hover:shadow-lg" title="Google Apps Script">
+                    <div class="h-10 w-10 bg-cardBg rounded-xl shadow-sm border border-borderColor flex items-center justify-center hover:scale-110 transition-transform hover:shadow-lg" title="Google Apps Script">
                         <img src="https://cdn.simpleicons.org/googleappsscript/4285F4" alt="Apps Script" class="h-6 w-6">
                     </div>
-                    <div class="h-10 w-10 bg-white rounded-xl shadow-sm border border-gray-100 flex items-center justify-center hover:scale-110 transition-transform hover:shadow-lg" title="Microsoft Suite">
+                    <div class="h-10 w-10 bg-cardBg rounded-xl shadow-sm border border-borderColor flex items-center justify-center hover:scale-110 transition-transform hover:shadow-lg" title="Microsoft Suite">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-6 w-6"><path fill="#f25022" d="M11.4 0H0v11.4h11.4z"/><path fill="#7fba00" d="M24 0H12.6v11.4H24z"/><path fill="#00a4ef" d="M11.4 12.6H0V24h11.4z"/><path fill="#ffb900" d="M24 12.6H12.6V24H24z"/></svg>
                     </div>
-                    <div class="h-10 w-10 bg-white rounded-xl shadow-sm border border-gray-100 flex items-center justify-center hover:scale-110 transition-transform hover:shadow-lg" title="Jira">
+                    <div class="h-10 w-10 bg-cardBg rounded-xl shadow-sm border border-borderColor flex items-center justify-center hover:scale-110 transition-transform hover:shadow-lg" title="Jira">
                         <img src="https://cdn.simpleicons.org/jira/0052CC" alt="Jira" class="h-6 w-6">
                     </div>
-                    <div class="h-10 w-10 bg-white rounded-xl shadow-sm border border-gray-100 flex items-center justify-center hover:scale-110 transition-transform hover:shadow-lg" title="Power BI">
+                    <div class="h-10 w-10 bg-cardBg rounded-xl shadow-sm border border-borderColor flex items-center justify-center hover:scale-110 transition-transform hover:shadow-lg" title="Power BI">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-6 w-6"><path fill="#E6AD10" d="M8.644 19.851v-6.315H4.212v6.315h4.432z"/><path fill="#F2C811" d="M15.344 19.851v-12.63h-4.433v12.63h4.433z"/><path fill="#F9E076" d="M22.043 19.851V0h-4.432v19.851h4.432z"/></svg>
                     </div>
                 </div>
@@ -109,7 +142,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <!-- Education -->
                 <div>
-                    <h3 class="text-xl font-bold text-primary mb-6 border-b border-gray-100 pb-2">Education</h3>
+                    <h3 class="text-xl font-bold text-primary mb-6 border-b border-borderColor pb-2">Education</h3>
                     <div class="relative border-l-2 border-accent pl-6 pb-6">
                         <div class="absolute w-3 h-3 bg-accent rounded-full -left-[7px] top-1"></div>
                         <h4 class="font-bold text-primary">Indian Institute of Technology, Gandhinagar</h4>
@@ -120,7 +153,7 @@
 
                 <!-- Experience -->
                 <div>
-                    <h3 class="text-xl font-bold text-primary mb-6 border-b border-gray-100 pb-2">Experience</h3>
+                    <h3 class="text-xl font-bold text-primary mb-6 border-b border-borderColor pb-2">Experience</h3>
                     
                     <div class="relative border-l-2 border-accent pl-6 pb-6">
                         <div class="absolute w-3 h-3 bg-accent rounded-full -left-[7px] top-1"></div>
@@ -138,14 +171,14 @@
                 </div>
             </div>
             
-            <div class="mt-4 pt-6 border-t border-gray-100 text-center">
+            <div class="mt-4 pt-6 border-t border-borderColor text-center">
                 <p class="text-sm text-gray-500">Recognized with the <strong>Pioneer Batch Gold Medal for Outstanding Leadership (2022)</strong> at IIT Gandhinagar.</p>
             </div>
         </div>
 
         <!-- Contact Card -->
-        <div id="contact-card" class="bg-primary text-white rounded-3xl p-8 sm:p-12 shadow-xl relative overflow-hidden mt-12">
-            <div class="absolute -right-20 -top-20 w-64 h-64 bg-white opacity-5 rounded-full blur-3xl"></div>
+        <div id="contact-card" class="bg-slate-900 text-white rounded-3xl p-8 sm:p-12 shadow-xl relative overflow-hidden mt-12">
+            <div class="absolute -right-20 -top-20 w-64 h-64 bg-cardBg opacity-5 rounded-full blur-3xl"></div>
             <div class="absolute -left-10 -bottom-10 w-40 h-40 bg-accent opacity-20 rounded-full blur-2xl"></div>
             
             <div class="relative z-10 flex flex-col md:flex-row gap-12">
@@ -187,7 +220,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="mt-auto border-t border-gray-200 bg-white py-8">
+    <footer class="mt-auto border-t border-borderColor bg-cardBg py-8">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row justify-between items-center gap-4">
             <p class="text-sm text-secondary">© <span id="year"></span> Shivanshu Sharma. All rights reserved.</p>
             <div class="flex gap-4 items-center">
@@ -205,5 +238,41 @@
     </footer>
     <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
     <script data-goatcounter="https://23022000.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+
+    <!-- Theme Script -->
+    <script>
+        const html = document.documentElement;
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIconLight = document.getElementById('themeIconLight');
+        const themeIconDark = document.getElementById('themeIconDark');
+        
+        function setTheme(isDark) {
+            if (isDark) {
+                html.classList.add('dark');
+                themeIconLight.classList.remove('hidden');
+                themeIconDark.classList.add('hidden');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                html.classList.remove('dark');
+                themeIconLight.classList.add('hidden');
+                themeIconDark.classList.remove('hidden');
+                localStorage.setItem('theme', 'light');
+            }
+        }
+        
+        // Initialize theme (default to non-dark unless local storage says otherwise)
+        if (localStorage.getItem('theme') === 'dark') {
+            setTheme(true);
+        } else {
+            setTheme(false); // default non-dark
+        }
+        
+        if (themeToggle) {
+            themeToggle.addEventListener('click', () => {
+                setTheme(!html.classList.contains('dark'));
+            });
+        }
+    </script>
+
 </body>
 </html>

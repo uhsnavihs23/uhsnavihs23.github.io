@@ -7,28 +7,56 @@
     <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script>
+        <script>
         tailwind.config = {
+            darkMode: 'class',
             theme: {
                 extend: {
                     fontFamily: { sans: ['Inter', 'sans-serif'] },
-                    colors: { primary: '#0f172a', secondary: '#475569', accent: '#3b82f6' }
+                    colors: { 
+                        primary: 'var(--text-primary)', 
+                        secondary: 'var(--text-secondary)', 
+                        accent: 'var(--accent-color)',
+                        bgColor: 'var(--bg-color)',
+                        cardBg: 'var(--card-bg)',
+                        borderColor: 'var(--border-color)',
+                        navBg: 'var(--nav-bg)'
+                    }
                 }
             }
         }
     </script>
     <style>
         body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
-    </style>
+    
+        :root {
+            --bg-color: #f9fafb;
+            --card-bg: #ffffff;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --border-color: #e5e7eb;
+            --accent-color: #3b82f6;
+            --nav-bg: rgba(255, 255, 255, 0.8);
+        }
+        html.dark {
+            --bg-color: #18181b;
+            --card-bg: #27272a;
+            --text-primary: #f4f4f5;
+            --text-secondary: #d4d4d8;
+            --border-color: #3f3f46;
+            --accent-color: #2dd4bf;
+            --nav-bg: rgba(24, 24, 27, 0.8);
+        }
+</style>
 </head>
-<body class="bg-gray-50 text-primary flex flex-col min-h-screen">
+<body class="bg-bgColor text-primary flex flex-col min-h-screen">
 <main class="flex-grow max-w-5xl mx-auto px-4 sm:px-6 py-12 w-full">
         <a href="../../index.html" class="inline-flex items-center text-sm font-medium text-secondary hover:text-accent mb-8 transition-colors">
             <svg class="mr-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
             Back to Projects
         </a>
 
-        <div class="bg-white rounded-3xl shadow-sm border border-gray-200 overflow-hidden">
+        <div class="bg-cardBg rounded-3xl shadow-sm border border-borderColor overflow-hidden">
             <div class="bg-gradient-to-r from-blue-900 to-indigo-800 p-10 text-white">
                 <div class="inline-block px-3 py-1 bg-blue-800 border border-blue-600 text-blue-100 text-xs font-bold rounded-full uppercase tracking-wide mb-4">Data Analytics / Python</div>
                 <h1 class="text-4xl font-extrabold mb-4">Customer Cohort & Retention Analysis</h1>
@@ -43,15 +71,15 @@
                         Executive Summary
                     </h2>
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
-                        <div class="bg-gray-50 border border-gray-100 p-6 rounded-xl">
+                        <div class="bg-bgColor border border-borderColor p-6 rounded-xl">
                             <div class="text-3xl font-black text-primary">5,000</div>
                             <div class="text-sm font-bold text-gray-500 uppercase tracking-wide mt-1">Unique Customers</div>
                         </div>
-                        <div class="bg-gray-50 border border-gray-100 p-6 rounded-xl">
+                        <div class="bg-bgColor border border-borderColor p-6 rounded-xl">
                             <div class="text-3xl font-black text-primary">25,951</div>
                             <div class="text-sm font-bold text-gray-500 uppercase tracking-wide mt-1">Total Transactions</div>
                         </div>
-                        <div class="bg-gray-50 border border-gray-100 p-6 rounded-xl">
+                        <div class="bg-bgColor border border-borderColor p-6 rounded-xl">
                             <div class="text-3xl font-black text-emerald-600">$3,450,932</div>
                             <div class="text-sm font-bold text-gray-500 uppercase tracking-wide mt-1">Gross Revenue</div>
                         </div>
@@ -74,7 +102,7 @@
                     </h2>
                     <p class="text-secondary mb-6">This heatmap visualizes the percentage of customers who returned to make a purchase in the months following their initial acquisition. Darker colors indicate higher retention.</p>
                     
-                    <div class="border border-gray-200 rounded-xl overflow-hidden shadow-sm">
+                    <div class="border border-borderColor rounded-xl overflow-hidden shadow-sm">
                         <div style="height:100%; width:100%;">                        <script>window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
         <script charset="utf-8" src="https://cdn.plot.ly/plotly-4.0.0.min.js" integrity="sha256-FEYfO0yRyLtZCpnW0Dw/0DHKQO7Afrq3ml4+rBB818o=" crossorigin="anonymous"></script>                <div id="cee2295c-b424-4336-80bf-29a755cae94d" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script>                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("cee2295c-b424-4336-80bf-29a755cae94d")) {                    Plotly.newPlot(                        "cee2295c-b424-4336-80bf-29a755cae94d",                        [{"coloraxis":"coloraxis","name":"0","texttemplate":"%{z}","x":["Month 0","Month 1","Month 2","Month 3","Month 4","Month 5","Month 6","Month 7","Month 8","Month 9","Month 10","Month 11"],"y":["2023-01","2023-02","2023-03","2023-04","2023-05","2023-06","2023-07","2023-08","2023-09","2023-10","2023-11","2023-12"],"z":{"dtype":"f8","bdata":"AAAAAAAAWUAAAAAAAABRQM3MzMzMDE1AzczMzMwMS0CamZmZmRlGQJqZmZmZ2UBAmpmZmZkZPUAzMzMzM7M2QAAAAAAAADJAZmZmZmZmKEBmZmZmZmYoQM3MzMzMTDtAAAAAAAAAWUBmZmZmZmZPQJqZmZmZWU1AMzMzMzOzSkAAAAAAAMBDQGZmZmZmJkJAzczMzMxMPECamZmZmZk0QDMzMzMzMylAAAAAAAAAKkDNzMzMzMxAQAAAAAAAAPh\u002fAAAAAAAAWUAAAAAAAMBMQAAAAAAAgElAZmZmZmamQkDNzMzMzEw\u002fQGZmZmZm5jdAMzMzMzMzNkBmZmZmZmYsQM3MzMzMzCpAMzMzMzMzPkAAAAAAAAD4fwAAAAAAAPh\u002fAAAAAAAAWUAAAAAAAIBJQJqZmZmZGUhAMzMzMzNzQ0CamZmZmRk\u002fQDMzMzMzszRAZmZmZmbmMkBmZmZmZmYpQDMzMzMzMztAAAAAAAAA+H8AAAAAAAD4fwAAAAAAAPh\u002fAAAAAAAAWUAzMzMzM7NLQM3MzMzMDEhAAAAAAABARECamZmZmRk+QAAAAAAAgDZAMzMzMzMzMUBmZmZmZmY8QAAAAAAAAPh\u002fAAAAAAAA+H8AAAAAAAD4fwAAAAAAAPh\u002fAAAAAAAAWUCamZmZmRlKQJqZmZmZWUVAMzMzMzMzP0BmZmZmZmY5QM3MzMzMzDJAAAAAAAAAOUAAAAAAAAD4fwAAAAAAAPh\u002fAAAAAAAA+H8AAAAAAAD4fwAAAAAAAPh\u002fAAAAAAAAWUDNzMzMzIxIQDMzMzMzM0RAAAAAAAAAP0AzMzMzM7M0QDMzMzMzMzpAAAAAAAAA+H8AAAAAAAD4fwAAAAAAAPh\u002fAAAAAAAA+H8AAAAAAAD4fwAAAAAAAPh\u002fAAAAAAAAWUDNzMzMzAxJQAAAAAAAwENAAAAAAAAAO0CamZmZmdlAQAAAAAAAAPh\u002fAAAAAAAA+H8AAAAAAAD4fwAAAAAAAPh\u002fAAAAAAAA+H8AAAAAAAD4fwAAAAAAAPh\u002fAAAAAAAAWUBmZmZmZiZIQJqZmZmZWUFAAAAAAABAQkAAAAAAAAD4fwAAAAAAAPh\u002fAAAAAAAA+H8AAAAAAAD4fwAAAAAAAPh\u002fAAAAAAAA+H8AAAAAAAD4fwAAAAAAAPh\u002fAAAAAAAAWUAAAAAAAABHQGZmZmZmJkNAAAAAAAAA+H8AAAAAAAD4fwAAAAAAAPh\u002fAAAAAAAA+H8AAAAAAAD4fwAAAAAAAPh\u002fAAAAAAAA+H8AAAAAAAD4fwAAAAAAAPh\u002fAAAAAAAAWUDNzMzMzAxHQAAAAAAAAPh\u002fAAAAAAAA+H8AAAAAAAD4fwAAAAAAAPh\u002fAAAAAAAA+H8AAAAAAAD4fwAAAAAAAPh\u002fAAAAAAAA+H8AAAAAAAD4fwAAAAAAAPh\u002fAAAAAAAAWUAAAAAAAAD4fwAAAAAAAPh\u002fAAAAAAAA+H8AAAAAAAD4fwAAAAAAAPh\u002fAAAAAAAA+H8AAAAAAAD4fwAAAAAAAPh\u002fAAAAAAAA+H8AAAAAAAD4fwAAAAAAAPh\u002f","shape":"12, 12"},"type":"heatmap","xaxis":"x","yaxis":"y","hovertemplate":"Months Since First Purchase: %{x}\u003cbr\u003eAcquisition Cohort: %{y}\u003cbr\u003eRetention (%): %{z}\u003cextra\u003e\u003c\u002fextra\u003e"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermap":[{"type":"scattermap","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05}}},"xaxis":{"anchor":"y","domain":[0.0,1.0],"title":{"text":"Months Since First Purchase"}},"yaxis":{"anchor":"x","domain":[0.0,1.0],"autorange":"reversed","title":{"text":"Acquisition Cohort"}},"coloraxis":{"colorbar":{"title":{"text":"Retention (%)"}},"colorscale":[[0.0,"rgb(255,255,217)"],[0.125,"rgb(237,248,177)"],[0.25,"rgb(199,233,180)"],[0.375,"rgb(127,205,187)"],[0.5,"rgb(65,182,196)"],[0.625,"rgb(29,145,192)"],[0.75,"rgb(34,94,168)"],[0.875,"rgb(37,52,148)"],[1.0,"rgb(8,29,88)"]],"autocolorscale":false},"margin":{"t":80,"l":120,"r":40,"b":80},"title":{"text":"Customer Retention Cohort Analysis","font":{"size":24,"family":"Inter","color":"#1e293b"}},"font":{"family":"Inter","color":"#475569"},"plot_bgcolor":"white","paper_bgcolor":"white"},                        {"responsive": true}                    )                };            </script>        </div>
                     </div>
@@ -118,8 +146,8 @@ retention_matrix = cohort_counts.divide(cohort_sizes, axis=0) * 100</code></pre>
                     </div>
                 </section>
                 
-                <div class="flex justify-center mt-12 border-t border-gray-100 pt-10">
-                    <a href="../../../assets/data/ecommerce_transactions_sample.csv" download class="inline-flex items-center px-6 py-3 bg-white border border-gray-300 rounded-lg text-primary font-bold hover:bg-gray-50 transition-colors shadow-sm">
+                <div class="flex justify-center mt-12 border-t border-borderColor pt-10">
+                    <a href="../../../assets/data/ecommerce_transactions_sample.csv" download class="inline-flex items-center px-6 py-3 bg-cardBg border border-gray-300 rounded-lg text-primary font-bold hover:bg-bgColor transition-colors shadow-sm">
                         <svg class="w-5 h-5 mr-2 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
                         Download Raw Dataset (CSV)
                     </a>
@@ -128,5 +156,41 @@ retention_matrix = cohort_counts.divide(cohort_sizes, axis=0) * 100</code></pre>
         </div>
     </main>
 <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+
+    <!-- Theme Script -->
+    <script>
+        const html = document.documentElement;
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIconLight = document.getElementById('themeIconLight');
+        const themeIconDark = document.getElementById('themeIconDark');
+        
+        function setTheme(isDark) {
+            if (isDark) {
+                html.classList.add('dark');
+                themeIconLight.classList.remove('hidden');
+                themeIconDark.classList.add('hidden');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                html.classList.remove('dark');
+                themeIconLight.classList.add('hidden');
+                themeIconDark.classList.remove('hidden');
+                localStorage.setItem('theme', 'light');
+            }
+        }
+        
+        // Initialize theme (default to non-dark unless local storage says otherwise)
+        if (localStorage.getItem('theme') === 'dark') {
+            setTheme(true);
+        } else {
+            setTheme(false); // default non-dark
+        }
+        
+        if (themeToggle) {
+            themeToggle.addEventListener('click', () => {
+                setTheme(!html.classList.contains('dark'));
+            });
+        }
+    </script>
+
 </body>
 </html>

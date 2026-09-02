@@ -7,24 +7,52 @@
     <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script>
+        <script>
         tailwind.config = {
+            darkMode: 'class',
             theme: {
                 extend: {
                     fontFamily: { sans: ['Inter', 'sans-serif'] },
-                    colors: { primary: '#0f172a', secondary: '#475569', accent: '#3b82f6' }
+                    colors: { 
+                        primary: 'var(--text-primary)', 
+                        secondary: 'var(--text-secondary)', 
+                        accent: 'var(--accent-color)',
+                        bgColor: 'var(--bg-color)',
+                        cardBg: 'var(--card-bg)',
+                        borderColor: 'var(--border-color)',
+                        navBg: 'var(--nav-bg)'
+                    }
                 }
             }
         }
     </script>
     <style>
         body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
-    </style>
+    
+        :root {
+            --bg-color: #f9fafb;
+            --card-bg: #ffffff;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --border-color: #e5e7eb;
+            --accent-color: #3b82f6;
+            --nav-bg: rgba(255, 255, 255, 0.8);
+        }
+        html.dark {
+            --bg-color: #18181b;
+            --card-bg: #27272a;
+            --text-primary: #f4f4f5;
+            --text-secondary: #d4d4d8;
+            --border-color: #3f3f46;
+            --accent-color: #2dd4bf;
+            --nav-bg: rgba(24, 24, 27, 0.8);
+        }
+</style>
 </head>
-<body class="bg-gray-50 text-primary flex flex-col min-h-screen">
+<body class="bg-bgColor text-primary flex flex-col min-h-screen">
 
     <!-- Navbar -->
-    <header class="sticky top-0 z-50 w-full backdrop-blur-md bg-white/80 border-b border-gray-200">
+    <header class="sticky top-0 z-50 w-full backdrop-blur-md bg-navBg border-b border-borderColor">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
             <a href="../../index.html" class="text-xl font-bold tracking-tight text-primary hover:text-accent transition-colors">Shivanshu Sharma</a>
             <nav class="flex gap-6">
@@ -32,6 +60,11 @@
                 <a href="../../projects/index.html" class="text-sm font-medium transition-colors hover:text-accent text-accent">Projects</a>
                 <a href="../../about.html" class="text-sm font-medium transition-colors hover:text-accent text-secondary">About</a>
             </nav>
+                <button id="themeToggle" class="ml-4 p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors text-secondary">
+                    <svg id="themeIconLight" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"/></svg>
+                    <svg id="themeIconDark" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg>
+                </button>
+
         </div>
     </header>
 
@@ -39,14 +72,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
     
-    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 py-12 w-full bg-gray-50 min-h-screen">
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 py-12 w-full bg-bgColor min-h-screen">
         <div class="flex flex-col md:flex-row justify-between items-center mb-10 gap-4">
             <div>
                 <h1 class="text-3xl font-extrabold text-primary mb-2">Smart Finance Visualizer</h1>
                 <p class="text-secondary">Analyze your cash flow, test the 50/30/20 rule, and export your financial report.</p>
             </div>
             <div class="flex gap-3">
-                <div class="bg-white rounded-lg p-1 shadow-sm border border-gray-200 inline-flex">
+                <div class="bg-cardBg rounded-lg p-1 shadow-sm border border-borderColor inline-flex">
                     <button id="monthlyToggle" class="px-4 py-2 rounded-md text-sm font-bold bg-accent text-white shadow transition-all">Monthly</button>
                     <button id="yearlyToggle" class="px-4 py-2 rounded-md text-sm font-bold text-gray-500 hover:text-gray-700 transition-all">Yearly</button>
                 </div>
@@ -62,18 +95,18 @@
             <!-- Left Column: Inputs -->
             <div class="lg:col-span-4 space-y-6">
                 <!-- Incomes -->
-                <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-200">
+                <div class="bg-cardBg rounded-2xl p-6 shadow-sm border border-borderColor">
                     <h2 class="text-lg font-bold text-emerald-600 mb-4 flex items-center">
                         <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                         Income Sources
                     </h2>
                     
-                    <form id="incForm" class="flex flex-col gap-3 mb-4 border-b border-gray-100 pb-4">
-                        <input type="text" id="incName" required class="w-full bg-gray-50 border border-gray-300 rounded-lg px-4 py-2.5 focus:ring-2 focus:ring-emerald-400" placeholder="e.g. Salary, Bonus, Incentive">
+                    <form id="incForm" class="flex flex-col gap-3 mb-4 border-b border-borderColor pb-4">
+                        <input type="text" id="incName" required class="w-full bg-bgColor border border-gray-300 rounded-lg px-4 py-2.5 focus:ring-2 focus:ring-emerald-400" placeholder="e.g. Salary, Bonus, Incentive">
                         <div class="flex gap-3">
                             <div class="relative flex-grow">
                                 <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"><span class="text-gray-500 font-bold">₹</span></div>
-                                <input type="number" id="incAmount" required class="w-full pl-8 pr-4 py-2.5 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-400" placeholder="Amount">
+                                <input type="number" id="incAmount" required class="w-full pl-8 pr-4 py-2.5 bg-bgColor border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-400" placeholder="Amount">
                             </div>
                             <button type="submit" class="bg-emerald-50 hover:bg-emerald-100 text-emerald-700 border border-emerald-200 px-6 py-2.5 rounded-lg font-bold transition-colors shadow-sm whitespace-nowrap">Add</button>
                         </div>
@@ -82,20 +115,20 @@
                 </div>
 
                 <!-- Expenses -->
-                <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-200">
+                <div class="bg-cardBg rounded-2xl p-6 shadow-sm border border-borderColor">
                     <h2 class="text-lg font-bold text-red-500 mb-4 flex items-center">
                         <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                         Expenses
                     </h2>
                     
-                    <form id="expenseForm" class="flex flex-col gap-3 mb-4 border-b border-gray-100 pb-4">
-                        <input type="text" id="expName" required class="w-full bg-gray-50 border border-gray-300 rounded-lg px-4 py-2.5 focus:ring-2 focus:ring-red-400" placeholder="Expense Name (e.g. Rent)">
+                    <form id="expenseForm" class="flex flex-col gap-3 mb-4 border-b border-borderColor pb-4">
+                        <input type="text" id="expName" required class="w-full bg-bgColor border border-gray-300 rounded-lg px-4 py-2.5 focus:ring-2 focus:ring-red-400" placeholder="Expense Name (e.g. Rent)">
                         <div class="grid grid-cols-2 gap-3">
                             <div class="relative">
                                 <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"><span class="text-gray-500 font-bold">₹</span></div>
-                                <input type="number" id="expAmount" required class="w-full pl-8 pr-3 py-2.5 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-400" placeholder="Amount">
+                                <input type="number" id="expAmount" required class="w-full pl-8 pr-3 py-2.5 bg-bgColor border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-400" placeholder="Amount">
                             </div>
-                            <select id="expCategory" class="bg-gray-50 border border-gray-300 rounded-lg px-3 py-2.5 text-sm font-medium text-gray-600 focus:ring-2 focus:ring-red-400">
+                            <select id="expCategory" class="bg-bgColor border border-gray-300 rounded-lg px-3 py-2.5 text-sm font-medium text-gray-600 focus:ring-2 focus:ring-red-400">
                                 <option value="needs">Need (50%)</option>
                                 <option value="wants">Want (30%)</option>
                             </select>
@@ -110,20 +143,20 @@
             <div class="lg:col-span-8 space-y-6">
                 <!-- KPI Cards -->
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-200 flex flex-col justify-center relative overflow-hidden">
+                    <div class="bg-cardBg rounded-2xl p-6 shadow-sm border border-borderColor flex flex-col justify-center relative overflow-hidden">
                         <div class="absolute -right-4 -top-4 w-16 h-16 rounded-full bg-emerald-50 opacity-50"></div>
                         <div class="text-sm font-bold text-gray-500 uppercase tracking-wider mb-2">Total Income</div>
                         <div id="sumIncome" class="text-3xl font-black text-primary">₹0</div>
                         <div id="incomeLabel" class="text-xs text-emerald-600 font-bold mt-2">Monthly Projection</div>
                     </div>
-                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-200 flex flex-col justify-center relative overflow-hidden">
+                    <div class="bg-cardBg rounded-2xl p-6 shadow-sm border border-borderColor flex flex-col justify-center relative overflow-hidden">
                         <div class="absolute -right-4 -top-4 w-16 h-16 rounded-full bg-red-50 opacity-50"></div>
                         <div class="text-sm font-bold text-gray-500 uppercase tracking-wider mb-2">Total Expenses</div>
                         <div id="sumExpenses" class="text-3xl font-black text-red-500">₹0</div>
                         <div id="expenseLabel" class="text-xs text-red-600 font-bold mt-2">Monthly Projection</div>
                     </div>
                     <div class="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl p-6 shadow-md text-white flex flex-col justify-center relative overflow-hidden">
-                        <div class="absolute -right-4 -top-4 w-16 h-16 rounded-full bg-white opacity-10"></div>
+                        <div class="absolute -right-4 -top-4 w-16 h-16 rounded-full bg-cardBg opacity-10"></div>
                         <div class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-2">Net Savings</div>
                         <div id="sumBalance" class="text-3xl font-black text-white">₹0</div>
                         <div class="flex items-center mt-2">
@@ -134,7 +167,7 @@
                 </div>
 
                 <!-- 50/30/20 Rule Analyzer & Chart -->
-                <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-200">
+                <div class="bg-cardBg rounded-2xl p-8 shadow-sm border border-borderColor">
                     <div class="flex flex-col md:flex-row gap-8 items-center">
                         <!-- Chart -->
                         <div class="w-full md:w-1/2 relative h-64 flex justify-center">
@@ -416,7 +449,7 @@
                 const amount = inc.amount * multiplier;
                 totalIncome += amount;
                 incomeList.innerHTML += `
-                    <div class="flex justify-between items-center p-3 bg-white border border-gray-100 rounded-lg hover:border-gray-300 transition-colors group">
+                    <div class="flex justify-between items-center p-3 bg-cardBg border border-borderColor rounded-lg hover:border-gray-300 transition-colors group">
                         <div class="font-bold text-gray-800">${inc.name}</div>
                         <div class="flex items-center gap-3">
                             <span class="font-black text-emerald-700">₹${amount.toLocaleString('en-IN')}</span>
@@ -444,7 +477,7 @@
                     : '<span class="bg-amber-100 text-amber-700 text-[10px] uppercase font-bold px-2 py-0.5 rounded ml-2">Want</span>';
 
                 expenseList.innerHTML += `
-                    <div class="flex justify-between items-center p-3 bg-white border border-gray-100 rounded-lg hover:border-gray-300 transition-colors group">
+                    <div class="flex justify-between items-center p-3 bg-cardBg border border-borderColor rounded-lg hover:border-gray-300 transition-colors group">
                         <div class="font-bold text-gray-800 flex items-center">${exp.name} ${catBadge}</div>
                         <div class="flex items-center gap-3">
                             <span class="font-black text-gray-900">₹${amount.toLocaleString('en-IN')}</span>
@@ -531,7 +564,7 @@
     </script>
 
     <!-- Footer -->
-    <footer class="mt-auto border-t border-gray-200 bg-white py-8">
+    <footer class="mt-auto border-t border-borderColor bg-cardBg py-8">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row justify-between items-center gap-4">
             <p class="text-sm text-secondary">© <span id="year"></span> Shivanshu Sharma. All rights reserved.</p>
             <div class="flex gap-4 items-center">
@@ -549,5 +582,41 @@
     </footer>
     <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
     <script data-goatcounter="https://23022000.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+
+    <!-- Theme Script -->
+    <script>
+        const html = document.documentElement;
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIconLight = document.getElementById('themeIconLight');
+        const themeIconDark = document.getElementById('themeIconDark');
+        
+        function setTheme(isDark) {
+            if (isDark) {
+                html.classList.add('dark');
+                themeIconLight.classList.remove('hidden');
+                themeIconDark.classList.add('hidden');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                html.classList.remove('dark');
+                themeIconLight.classList.add('hidden');
+                themeIconDark.classList.remove('hidden');
+                localStorage.setItem('theme', 'light');
+            }
+        }
+        
+        // Initialize theme (default to non-dark unless local storage says otherwise)
+        if (localStorage.getItem('theme') === 'dark') {
+            setTheme(true);
+        } else {
+            setTheme(false); // default non-dark
+        }
+        
+        if (themeToggle) {
+            themeToggle.addEventListener('click', () => {
+                setTheme(!html.classList.contains('dark'));
+            });
+        }
+    </script>
+
 </body>
 </html>

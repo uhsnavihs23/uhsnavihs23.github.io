@@ -7,24 +7,52 @@
     <link rel="icon" type="image/svg+xml" href="../favicon.svg">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script>
+        <script>
         tailwind.config = {
+            darkMode: 'class',
             theme: {
                 extend: {
                     fontFamily: { sans: ['Inter', 'sans-serif'] },
-                    colors: { primary: '#0f172a', secondary: '#475569', accent: '#3b82f6' }
+                    colors: { 
+                        primary: 'var(--text-primary)', 
+                        secondary: 'var(--text-secondary)', 
+                        accent: 'var(--accent-color)',
+                        bgColor: 'var(--bg-color)',
+                        cardBg: 'var(--card-bg)',
+                        borderColor: 'var(--border-color)',
+                        navBg: 'var(--nav-bg)'
+                    }
                 }
             }
         }
     </script>
     <style>
         body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
-    </style>
+    
+        :root {
+            --bg-color: #f9fafb;
+            --card-bg: #ffffff;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --border-color: #e5e7eb;
+            --accent-color: #3b82f6;
+            --nav-bg: rgba(255, 255, 255, 0.8);
+        }
+        html.dark {
+            --bg-color: #18181b;
+            --card-bg: #27272a;
+            --text-primary: #f4f4f5;
+            --text-secondary: #d4d4d8;
+            --border-color: #3f3f46;
+            --accent-color: #2dd4bf;
+            --nav-bg: rgba(24, 24, 27, 0.8);
+        }
+</style>
 </head>
-<body class="bg-gray-50 text-primary flex flex-col min-h-screen">
+<body class="bg-bgColor text-primary flex flex-col min-h-screen">
 
     <!-- Navbar -->
-    <header class="sticky top-0 z-50 w-full backdrop-blur-md bg-white/80 border-b border-gray-200">
+    <header class="sticky top-0 z-50 w-full backdrop-blur-md bg-navBg border-b border-borderColor">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
             <a href="../index.html" class="text-xl font-bold tracking-tight text-primary hover:text-accent transition-colors">Shivanshu Sharma</a>
             <nav class="flex gap-6">
@@ -32,6 +60,11 @@
                 <a href="../projects/index.html" class="text-sm font-medium transition-colors hover:text-accent text-accent">Projects</a>
                 <a href="../about.html" class="text-sm font-medium transition-colors hover:text-accent text-secondary">About</a>
             </nav>
+                <button id="themeToggle" class="ml-4 p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors text-secondary">
+                    <svg id="themeIconLight" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"/></svg>
+                    <svg id="themeIconDark" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg>
+                </button>
+
         </div>
     </header>
 
@@ -49,25 +82,25 @@
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <!-- Cohort Analysis -->
-                <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow flex flex-col">
+                <div class="bg-cardBg p-6 rounded-xl border border-borderColor shadow-sm hover:shadow-md transition-shadow flex flex-col">
                     <h3 class="text-xl font-bold text-primary mb-2">Customer Cohort & Retention</h3>
                     <p class="text-secondary text-sm mb-4 flex-grow">End-to-end Python analysis on 25k+ e-commerce transactions to map user retention across cohorts using Plotly.</p>
                     <a href="./data-analyst-projects/cohort-retention/index.html" class="text-accent font-medium hover:underline mt-auto">View Project &rarr;</a>
                 </div>
                 <!-- Campus Electricity -->
-                <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow flex flex-col">
+                <div class="bg-cardBg p-6 rounded-xl border border-borderColor shadow-sm hover:shadow-md transition-shadow flex flex-col">
                     <h3 class="text-xl font-bold text-primary mb-2">Campus Electricity Analysis</h3>
                     <p class="text-secondary text-sm mb-4 flex-grow">Identified a 10% reduction potential (13 lakh kWh/year) in campus electricity consumption.</p>
                     <a href="./data-analyst-projects/campus-electricity/index.html" class="text-accent font-medium hover:underline mt-auto">View Project &rarr;</a>
                 </div>
                 <!-- Food Delivery -->
-                <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow flex flex-col">
+                <div class="bg-cardBg p-6 rounded-xl border border-borderColor shadow-sm hover:shadow-md transition-shadow flex flex-col">
                     <h3 class="text-xl font-bold text-primary mb-2">Food Delivery Analytics</h3>
                     <p class="text-secondary text-sm mb-4 flex-grow">End-to-end analysis of a food delivery dataset exploring customer behaviour and revenue insights.</p>
                     <a href="./data-analyst-projects/food-delivery-analytics/index.html" class="text-accent font-medium hover:underline mt-auto">View Project &rarr;</a>
                 </div>
                 <!-- Shopping Trends -->
-                <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow flex flex-col">
+                <div class="bg-cardBg p-6 rounded-xl border border-borderColor shadow-sm hover:shadow-md transition-shadow flex flex-col">
                     <h3 class="text-xl font-bold text-primary mb-2">Customer Shopping Trends</h3>
                     <p class="text-secondary text-sm mb-4 flex-grow">Analysis of consumer shopping patterns with actionable segmentation and visual dashboards.</p>
                     <a href="./data-analyst-projects/project-1-customer-shopping-trends-analysis/index.html" class="text-accent font-medium hover:underline mt-auto">View Project &rarr;</a>
@@ -83,55 +116,55 @@
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <!-- Color Palette -->
-                <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow flex flex-col">
+                <div class="bg-cardBg p-6 rounded-xl border border-borderColor shadow-sm hover:shadow-md transition-shadow flex flex-col">
                     <h3 class="text-xl font-bold text-primary mb-2">Color Palette Generator</h3>
                     <p class="text-secondary text-sm mb-4 flex-grow">Instantly generate beautiful, cohesive color palettes and check their WCAG contrast ratio for accessibility.</p>
                     <a href="./color-palette/index.html" class="text-accent font-medium hover:underline mt-auto">View App &rarr;</a>
                 </div>
                 <!-- Breathing Room -->
-                <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow flex flex-col">
+                <div class="bg-cardBg p-6 rounded-xl border border-borderColor shadow-sm hover:shadow-md transition-shadow flex flex-col">
                     <h3 class="text-xl font-bold text-primary mb-2">The Breathing Room</h3>
                     <p class="text-secondary text-sm mb-4 flex-grow">A sleek, CSS-animated visual pacing tool designed to guide box breathing exercises for stress relief.</p>
                     <a href="./breathing-room/index.html" class="text-accent font-medium hover:underline mt-auto">View App &rarr;</a>
                 </div>
                 <!-- Ambient Mixer -->
-                <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow flex flex-col">
+                <div class="bg-cardBg p-6 rounded-xl border border-borderColor shadow-sm hover:shadow-md transition-shadow flex flex-col">
                     <h3 class="text-xl font-bold text-primary mb-2">Deep Work Ambient Mixer</h3>
                     <p class="text-secondary text-sm mb-4 flex-grow">A sleek audio mixer with customizable ambient soundscapes (Rain, Cafe, Thunder) to aid focus.</p>
                     <a href="./ambient-noise/index.html" class="text-accent font-medium hover:underline mt-auto">View App &rarr;</a>
                 </div>
                 <!-- Pomodoro Timer -->
-                <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow flex flex-col">
+                <div class="bg-cardBg p-6 rounded-xl border border-borderColor shadow-sm hover:shadow-md transition-shadow flex flex-col">
                     <h3 class="text-xl font-bold text-primary mb-2">Pomodoro Focus Room</h3>
                     <p class="text-secondary text-sm mb-4 flex-grow">A sleek, distraction-free productivity timer with Pomodoro, short, and long break intervals.</p>
                     <a href="./pomodoro-timer/index.html" class="text-accent font-medium hover:underline mt-auto">View App &rarr;</a>
                 </div>
                 <!-- Budget Visualizer -->
-                <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow flex flex-col">
+                <div class="bg-cardBg p-6 rounded-xl border border-borderColor shadow-sm hover:shadow-md transition-shadow flex flex-col">
                     <h3 class="text-xl font-bold text-primary mb-2">Smart Finance Visualizer</h3>
                     <p class="text-secondary text-sm mb-4 flex-grow">Input your income and expenses to instantly generate a breakdown of your cash flow using Chart.js.</p>
                     <a href="./budget-visualizer/index.html" class="text-accent font-medium hover:underline mt-auto">View App &rarr;</a>
                 </div>
                 <!-- Market Tracker -->
-                <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow flex flex-col">
+                <div class="bg-cardBg p-6 rounded-xl border border-borderColor shadow-sm hover:shadow-md transition-shadow flex flex-col">
                     <h3 class="text-xl font-bold text-primary mb-2">India Market Tracker</h3>
                     <p class="text-secondary text-sm mb-4 flex-grow">Live prices and 7-day trend charts for Nifty 50, Sensex, and Gold. No API key needed.</p>
                     <a href="./market-tracker/index.html" class="text-accent font-medium hover:underline mt-auto">View App &rarr;</a>
                 </div>
                 <!-- Image Editor -->
-                <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow flex flex-col">
+                <div class="bg-cardBg p-6 rounded-xl border border-borderColor shadow-sm hover:shadow-md transition-shadow flex flex-col">
                     <h3 class="text-xl font-bold text-primary mb-2">Image Editor Web App</h3>
                     <p class="text-secondary text-sm mb-4 flex-grow">Browser-based image editing tool with filters, adjustments, and multi-format export support.</p>
                     <a href="./image-filter-app/index.html" class="text-accent font-medium hover:underline mt-auto">View App &rarr;</a>
                 </div>
                 <!-- Movie Recommender -->
-                <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow flex flex-col">
+                <div class="bg-cardBg p-6 rounded-xl border border-borderColor shadow-sm hover:shadow-md transition-shadow flex flex-col">
                     <h3 class="text-xl font-bold text-primary mb-2">Movie Recommender</h3>
                     <p class="text-secondary text-sm mb-4 flex-grow">Recommendation engine — search, discover, and explore films by genre and rating.</p>
                     <a href="./movie-recommender/index.html" class="text-accent font-medium hover:underline mt-auto">View App &rarr;</a>
                 </div>
                 <!-- GitHub Finder -->
-                <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow flex flex-col">
+                <div class="bg-cardBg p-6 rounded-xl border border-borderColor shadow-sm hover:shadow-md transition-shadow flex flex-col">
                     <h3 class="text-xl font-bold text-primary mb-2">GitHub Profile Finder</h3>
                     <p class="text-secondary text-sm mb-4 flex-grow">Analytics dashboard to search and explore GitHub user profiles, repos, and language breakdowns.</p>
                     <a href="./github-profile-finder/index.html" class="text-accent font-medium hover:underline mt-auto">View App &rarr;</a>
@@ -146,12 +179,12 @@
                 <div class="h-px bg-gray-200 flex-grow ml-6"></div>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow flex flex-col">
+                <div class="bg-cardBg p-6 rounded-xl border border-borderColor shadow-sm hover:shadow-md transition-shadow flex flex-col">
                     <h3 class="text-xl font-bold text-primary mb-2">Urban Governance in India</h3>
                     <p class="text-secondary text-sm mb-4 flex-grow">A structural analysis of what's broken in urban governance and how cities can be fixed from the ground up.</p>
                     <a href="./urban-governance.html" class="text-accent font-medium hover:underline mt-auto">Read Article &rarr;</a>
                 </div>
-                <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow flex flex-col">
+                <div class="bg-cardBg p-6 rounded-xl border border-borderColor shadow-sm hover:shadow-md transition-shadow flex flex-col">
                     <h3 class="text-xl font-bold text-primary mb-2">India Policy Brief Generator</h3>
                     <p class="text-secondary text-sm mb-4 flex-grow">Generate structured policy briefs from live Indian news headlines on any topic.</p>
                     <a href="./policy-brief-generator/index.html" class="text-accent font-medium hover:underline mt-auto">View App &rarr;</a>
@@ -161,7 +194,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="mt-auto border-t border-gray-200 bg-white py-8">
+    <footer class="mt-auto border-t border-borderColor bg-cardBg py-8">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row justify-between items-center gap-4">
             <p class="text-sm text-secondary">© <span id="year"></span> Shivanshu Sharma. All rights reserved.</p>
             <div class="flex gap-4 items-center">
@@ -179,5 +212,41 @@
     </footer>
     <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
     <script data-goatcounter="https://23022000.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+
+    <!-- Theme Script -->
+    <script>
+        const html = document.documentElement;
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIconLight = document.getElementById('themeIconLight');
+        const themeIconDark = document.getElementById('themeIconDark');
+        
+        function setTheme(isDark) {
+            if (isDark) {
+                html.classList.add('dark');
+                themeIconLight.classList.remove('hidden');
+                themeIconDark.classList.add('hidden');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                html.classList.remove('dark');
+                themeIconLight.classList.add('hidden');
+                themeIconDark.classList.remove('hidden');
+                localStorage.setItem('theme', 'light');
+            }
+        }
+        
+        // Initialize theme (default to non-dark unless local storage says otherwise)
+        if (localStorage.getItem('theme') === 'dark') {
+            setTheme(true);
+        } else {
+            setTheme(false); // default non-dark
+        }
+        
+        if (themeToggle) {
+            themeToggle.addEventListener('click', () => {
+                setTheme(!html.classList.contains('dark'));
+            });
+        }
+    </script>
+
 </body>
 </html>

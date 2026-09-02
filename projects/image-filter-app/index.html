@@ -10,12 +10,52 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cropperjs@1.5.13/dist/cropper.min.css">
     <link rel="stylesheet" href="../image-filter-app/style.css">
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+        :root {
+            --bg-color: #f9fafb;
+            --card-bg: #ffffff;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --border-color: #e5e7eb;
+            --accent-color: #3b82f6;
+            --nav-bg: rgba(255, 255, 255, 0.8);
+        }
+        html.dark {
+            --bg-color: #18181b;
+            --card-bg: #27272a;
+            --text-primary: #f4f4f5;
+            --text-secondary: #d4d4d8;
+            --border-color: #3f3f46;
+            --accent-color: #2dd4bf;
+            --nav-bg: rgba(24, 24, 27, 0.8);
+        }
+    
+        :root {
+            --bg-color: #f9fafb;
+            --card-bg: #ffffff;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --border-color: #e5e7eb;
+            --accent-color: #3b82f6;
+            --nav-bg: rgba(255, 255, 255, 0.8);
+        }
+        html.dark {
+            --bg-color: #18181b;
+            --card-bg: #27272a;
+            --text-primary: #f4f4f5;
+            --text-secondary: #d4d4d8;
+            --border-color: #3f3f46;
+            --accent-color: #2dd4bf;
+            --nav-bg: rgba(24, 24, 27, 0.8);
+        }
+</style>
 </head>
 
-<body class="bg-gray-50 text-primary flex flex-col min-h-screen">
+<body class="bg-bgColor text-primary flex flex-col min-h-screen">
 
     <!-- Navbar -->
-    <header class="sticky top-0 z-50 w-full backdrop-blur-md bg-white/80 border-b border-gray-200">
+    <header class="sticky top-0 z-50 w-full backdrop-blur-md bg-navBg border-b border-borderColor">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
             <a href="../../index.html" class="text-xl font-bold tracking-tight text-primary hover:text-accent transition-colors">Shivanshu Sharma</a>
             <nav class="flex gap-6">
@@ -23,12 +63,17 @@
                 <a href="../../projects/index.html" class="text-sm font-medium transition-colors hover:text-accent text-accent">Projects</a>
                 <a href="../../about.html" class="text-sm font-medium transition-colors hover:text-accent text-secondary">About</a>
             </nav>
+                <button id="themeToggle" class="ml-4 p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors text-secondary">
+                    <svg id="themeIconLight" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"/></svg>
+                    <svg id="themeIconDark" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg>
+                </button>
+
         </div>
     </header>
 
 
     <!-- Navbar -->
-    <header class="sticky top-0 z-50 w-full backdrop-blur-md bg-white/80 border-b border-gray-200">
+    <header class="sticky top-0 z-50 w-full backdrop-blur-md bg-navBg border-b border-borderColor">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
             <a href="../../index.html" class="text-xl font-bold tracking-tight text-primary hover:text-accent transition-colors">Shivanshu Sharma</a>
             <nav class="flex gap-6">
@@ -36,6 +81,11 @@
                 <a href="../../projects/index.html" class="text-sm font-medium transition-colors hover:text-accent text-accent">Projects</a>
                 <a href="../../about.html" class="text-sm font-medium transition-colors hover:text-accent text-secondary">About</a>
             </nav>
+                <button id="themeToggle" class="ml-4 p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors text-secondary">
+                    <svg id="themeIconLight" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"/></svg>
+                    <svg id="themeIconDark" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg>
+                </button>
+
         </div>
     </header>
 
@@ -55,7 +105,7 @@
 <main class="flex-grow flex justify-center items-center py-12 px-4">
 
 <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 py-12 w-full">
-    <div class="container bg-white p-6 rounded-lg shadow-lg max-w-5xl w-full">
+    <div class="container bg-cardBg p-6 rounded-lg shadow-lg max-w-5xl w-full">
         <h1 class="text-3xl font-bold text-gray-800 mb-4 text-center">Image Editing App</h1>
         <p class="text-gray-600 mb-4 text-center">Upload an image (PNG, JPEG, WebP, HEIC) to edit or convert.</p>
         <input type="file" id="imageUpload" accept="image/png,image/jpeg,image/webp,image/heic,image/heif"
@@ -114,7 +164,7 @@
             <h2 class="text-xl font-semibold mb-4">Edit Image</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div class="space-y-4">
-                    <div class="p-4 bg-gray-50 rounded">
+                    <div class="p-4 bg-bgColor rounded">
                         <h3 class="text-lg font-medium mb-2">Filters</h3>
                         <label class="block mb-2">Brightness: <input type="range" id="brightness" min="0" max="200"
                                 value="100" class="w-full"></label>
@@ -125,7 +175,7 @@
                         <label class="block mb-2">Sepia: <input type="range" id="sepia" min="0" max="100" value="0"
                                 class="w-full"></label>
                     </div>
-                    <div class="p-4 bg-gray-50 rounded">
+                    <div class="p-4 bg-bgColor rounded">
                         <h3 class="text-lg font-medium mb-2">Borders</h3>
                         <label class="block mb-2">Border Width (px): <input type="number" id="borderWidth" min="0"
                                 max="50" value="0" class="border rounded p-2 w-full"></label>
@@ -134,7 +184,7 @@
                     </div>
                 </div>
                 <div class="space-y-4">
-                    <div class="p-4 bg-gray-50 rounded">
+                    <div class="p-4 bg-bgColor rounded">
                         <h3 class="text-lg font-medium mb-2">Size Settings</h3>
                         <label class="block mb-2">Shape:
                             <select id="shape" class="border rounded p-2">
@@ -162,7 +212,7 @@
                                     value="300" class="border rounded p-2 w-24"></label>
                         </div>
                     </div>
-                    <div class="p-4 bg-gray-50 rounded">
+                    <div class="p-4 bg-bgColor rounded">
                         <h3 class="text-lg font-medium mb-2">Crop</h3>
                         <label class="block mb-2">Crop Template:
                             <select id="cropTemplate" class="border rounded p-2">
@@ -178,7 +228,7 @@
                     </div>
                 </div>
             </div>
-            <div class="p-4 bg-gray-50 rounded mt-4">
+            <div class="p-4 bg-bgColor rounded mt-4">
                 <h3 class="text-lg font-medium mb-2">Download Edited Image</h3>
                 <label class="block mb-2">Compression Quality:
                     <select id="editCompressionPreset" class="border rounded p-2 mr-2">
