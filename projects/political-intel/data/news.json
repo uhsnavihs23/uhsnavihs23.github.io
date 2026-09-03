@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-03T21:28:43.299098+00:00",
+  "generated_at": "2026-09-03T23:38:35.180586+00:00",
   "stories": [
     {
       "id": "3647bc50f8096d196f6586305a8a49c7",
@@ -27900,6 +27900,19 @@
       "lang": "en"
     },
     {
+      "id": "135ad0f6b2224f30cc1382c3fb1afba1",
+      "title": "Tunisia’s top court upholds conviction of opposition figures, activists",
+      "link": "https://www.aljazeera.com/news/2026/9/3/tunisias-top-court-upholds-conviction-of-opposition-figures-activists?traffic_source=rss",
+      "summary": "Critics claim Tunisia’s judiciary acts under political pressure, as opposition leaders face lengthy prison terms.",
+      "date": "2026-09-03",
+      "timestamp": "Thu, 03 Sep 2026 23:23:26 +0000",
+      "section": "International",
+      "report_category": "International",
+      "source": "Al Jazeera",
+      "district": "",
+      "lang": "en"
+    },
+    {
       "id": "5de3e34b9be44c7a480ab597233e275a",
       "title": "Supreme Court asks NHAI to consider setting up CCTVs, monitoring rooms at toll plazas",
       "link": "https://www.thehindu.com/news/national/supreme-court-asks-nhai-to-consider-setting-up-cctvs-monitoring-rooms-at-toll-plazas/article71424663.ece",
@@ -27974,6 +27987,19 @@
       "section": "National",
       "report_category": "National_Judicial",
       "source": "The Hindu",
+      "district": "",
+      "lang": "en"
+    },
+    {
+      "id": "737de413020bebee574e28dbbce4e879",
+      "title": "DR Congo joins countries pledging embassy move to Jerusalem",
+      "link": "https://www.aljazeera.com/news/2026/9/3/dr-congo-joins-countries-pledging-embassy-move-to-jerusalem?traffic_source=rss",
+      "summary": "DR Congo has renewed its pledge to move its embassy in Israel from Tel Aviv to Jerusalem.",
+      "date": "2026-09-03",
+      "timestamp": "Thu, 03 Sep 2026 23:05:12 +0000",
+      "section": "International",
+      "report_category": "International",
+      "source": "Al Jazeera",
       "district": "",
       "lang": "en"
     },
@@ -28075,8 +28101,8 @@
       "summary": "Gloria Steinem, 92, who gave feminism a good name and an image that debunked the stereotype, died in her New York home; through her life, she had a strong connection with India",
       "date": "2026-09-03",
       "timestamp": "Thu, 03 Sep 2026 22:50:30 +0530",
-      "section": "National",
-      "report_category": "National_General",
+      "section": "International",
+      "report_category": "International",
       "source": "The Hindu",
       "district": "",
       "lang": "en"
@@ -28186,6 +28212,19 @@
       "lang": "en"
     },
     {
+      "id": "ad711b3bc468445fbd9d6c5b6a11b000",
+      "title": "Transplanted pig kidney works in US man's body for record 271 days",
+      "link": "https://www.bbc.co.uk/news/articles/c305qn2jeggo?at_medium=RSS&at_campaign=rss",
+      "summary": "A man has lived for a record nine months with a transplanted pig kidney while waiting for a human transplant.",
+      "date": "2026-09-03",
+      "timestamp": "Thu, 03 Sep 2026 22:31:23 GMT",
+      "section": "International",
+      "report_category": "International",
+      "source": "BBC World",
+      "district": "",
+      "lang": "en"
+    },
+    {
       "id": "14dd08092015d2eae068d51ef09057cc",
       "title": "BJP alleges irregularities in Jharkhand exam tendering process",
       "link": "https://www.thehindu.com/news/national/jharkhand/bjp-alleges-irregularities-in-jharkhand-exam-tendering-process/article71424957.ece",
@@ -28264,6 +28303,19 @@
       "lang": "en"
     },
     {
+      "id": "1b191213f894f4b3dd939cdf916f99d6",
+      "title": "US investigating if missile hit Iran wedding, Vance says",
+      "link": "https://www.bbc.co.uk/news/articles/cy4zvk3z2k1o?at_medium=RSS&at_campaign=rss",
+      "summary": "The Iranian Red Crescent Society (IRCS) said shrapnel from a missile hit the ceremony and killed four people on Tuesday.",
+      "date": "2026-09-03",
+      "timestamp": "Thu, 03 Sep 2026 22:19:59 GMT",
+      "section": "International",
+      "report_category": "International",
+      "source": "BBC World",
+      "district": "",
+      "lang": "en"
+    },
+    {
       "id": "3252483ea4eb711f355ea75898369101",
       "title": "El Nino could be strongest in decades, UN warns",
       "link": "https://www.thehindu.com/news/international/el-nino-could-be-strongest-in-decades-un-warns/article71425407.ece",
@@ -28312,6 +28364,19 @@
       "section": "International",
       "report_category": "International",
       "source": "The Hindu",
+      "district": "",
+      "lang": "en"
+    },
+    {
+      "id": "caa090780e484f0d2481fd2130db2f80",
+      "title": "Why are people calling Venezuela oil deal a new form of US colonialism?",
+      "link": "https://www.aljazeera.com/video/newsfeed/2026/9/3/aje-onl-nf_us-venezuela-oil-deal_colonialism-030926?traffic_source=rss",
+      "summary": "Critics call the US multi-billion-dollar oil deal in Venezuela modern-day colonialism.",
+      "date": "2026-09-03",
+      "timestamp": "Thu, 03 Sep 2026 22:08:33 +0000",
+      "section": "International",
+      "report_category": "International",
+      "source": "Al Jazeera",
       "district": "",
       "lang": "en"
     },
@@ -28498,6 +28563,19 @@
       "lang": "en"
     },
     {
+      "id": "7a77db14d2eedfd396d042657cacb9bf",
+      "title": "Burnham, Macron talk border security and stronger Europe-UK ties",
+      "link": "https://www.aljazeera.com/news/2026/9/3/burnham-macron-talk-border-security-and-stronger-europe-uk-ties?traffic_source=rss",
+      "summary": "New UK Prime Minister Andy Burnham discussed shared challenges in his first official meeting with the French president.",
+      "date": "2026-09-03",
+      "timestamp": "Thu, 03 Sep 2026 21:40:42 +0000",
+      "section": "International",
+      "report_category": "International",
+      "source": "Al Jazeera",
+      "district": "",
+      "lang": "en"
+    },
+    {
       "id": "87bc837a10e0ed50575a6aaada23317b",
       "title": "SLBC conducts quarterly performance reviews of banks in Karnataka",
       "link": "https://www.thehindu.com/news/national/karnataka/slbc-conducts-quarterly-performance-reviews-of-banks-in-karnataka/article71425113.ece",
@@ -28572,6 +28650,19 @@
       "section": "National",
       "report_category": "National_Judicial",
       "source": "The Hindu",
+      "district": "",
+      "lang": "en"
+    },
+    {
+      "id": "a542b0a7849c11abc737be96d4b3a8c0",
+      "title": "NYC’s AI ban through grade 8 sets stage for rest of US, experts say",
+      "link": "https://www.aljazeera.com/economy/2026/9/3/nycs-ai-ban-through-grade-8-sets-stage-for-rest-of-us-experts-say?traffic_source=rss",
+      "summary": "The ban will last for one year and affect 600,000 students.",
+      "date": "2026-09-03",
+      "timestamp": "Thu, 03 Sep 2026 21:32:55 +0000",
+      "section": "International",
+      "report_category": "International",
+      "source": "Al Jazeera",
       "district": "",
       "lang": "en"
     },
@@ -28832,19 +28923,6 @@
       "section": "International",
       "report_category": "International",
       "source": "Al Jazeera",
-      "district": "",
-      "lang": "en"
-    },
-    {
-      "id": "247ebeed1b2a697579a01701fc6c1d5c",
-      "title": "Home Secy reviews Himalayan States’ preparedness for glacial lake outbursts",
-      "link": "https://www.thehindu.com/news/national/home-secy-reviews-himalayan-states-preparedness-for-glacial-lake-outbursts/article71424103.ece",
-      "summary": "States must move beyond a response-oriented approach and focus on preventive mitigation, risk reduction, and community-level readiness, says Home Secy; stresses need for better early warning systems",
-      "date": "2026-09-03",
-      "timestamp": "Thu, 03 Sep 2026 20:06:58 +0530",
-      "section": "National",
-      "report_category": "National_Opposition",
-      "source": "The Hindu",
       "district": "",
       "lang": "en"
     },
@@ -29772,6 +29850,19 @@
       "lang": "en"
     },
     {
+      "id": "b7fb275471c5af8c47838abc6f394575",
+      "title": "US billionaire Leon Black defies summons and sues Epstein panel",
+      "link": "https://www.bbc.co.uk/news/articles/cddve618plzo?at_medium=RSS&at_campaign=rss",
+      "summary": "The lawsuit calls the House Oversight Committee's subpoenas, which ordered him to share nondisclosure agreements, \"invalid\".",
+      "date": "2026-09-03",
+      "timestamp": "Thu, 03 Sep 2026 18:14:57 GMT",
+      "section": "International",
+      "report_category": "International",
+      "source": "BBC World",
+      "district": "",
+      "lang": "en"
+    },
+    {
       "id": "7256f517efb9473f79c15439bb242c02",
       "title": "Israel releases Lebanese civilian, says five prisoners will be freed",
       "link": "https://www.aljazeera.com/news/2026/9/3/israel-releases-lebanese-civilian-says-five-more-will-be-freed?traffic_source=rss",
@@ -29954,6 +30045,19 @@
       "lang": "en"
     },
     {
+      "id": "02a42a6cf1dff2ccd72e8c75aa168b7d",
+      "title": "Trump hints US would not back UK over Falkland Islands due to lack of Iran war support",
+      "link": "https://www.bbc.co.uk/news/articles/c1kx4m70l4yo?at_medium=RSS&at_campaign=rss",
+      "summary": "The US president says the UK was not \"there to help me\" in his ongoing war with Iran.",
+      "date": "2026-09-03",
+      "timestamp": "Thu, 03 Sep 2026 16:16:49 GMT",
+      "section": "International",
+      "report_category": "International",
+      "source": "BBC World",
+      "district": "",
+      "lang": "en"
+    },
+    {
       "id": "9242fe3aecb926055d60a4d56b5bc39c",
       "title": "Houthi fighters clash with Yemeni government forces in country’s southwest",
       "link": "https://www.aljazeera.com/news/2026/9/3/houthi-fighters-clash-with-yemeni-government-forces-in-countrys-southwest?traffic_source=rss",
@@ -30002,6 +30106,19 @@
       "section": "International",
       "report_category": "International",
       "source": "Al Jazeera",
+      "district": "",
+      "lang": "en"
+    },
+    {
+      "id": "1f17a0abedaa3a0055df596de7dac074",
+      "title": "Around 2,000 fall ill in Indonesia after eating free school meals",
+      "link": "https://www.bbc.co.uk/news/articles/cx2z7lz7777o?at_medium=RSS&at_campaign=rss",
+      "summary": "Authorities are investigating several suspected outbreaks amid growing criticism of the scheme.",
+      "date": "2026-09-03",
+      "timestamp": "Thu, 03 Sep 2026 15:48:06 GMT",
+      "section": "International",
+      "report_category": "International",
+      "source": "BBC World",
       "district": "",
       "lang": "en"
     },
@@ -68200,6 +68317,32 @@
       "lang": "en"
     },
     {
+      "id": "351f3120c0a2c60515766a09d57932f3",
+      "title": "ISRO successfully launches Earth observation satellite EOS-05",
+      "link": "https://www.thehindu.com/sci-tech/science/isro-gslv-f17-eos-05-satellite-rocket-launch-september-4-sriharikota-updates/article71425914.ece",
+      "summary": "The EOS-05 is India’s first ever imaging satellite to monitor from Geosynchronous orbit about 36,000 km above the Earth.",
+      "date": "2026-09-04",
+      "timestamp": "Fri, 04 Sep 2026 04:03:17 +0530",
+      "section": "National",
+      "report_category": "National_Govt",
+      "source": "The Hindu",
+      "district": "",
+      "lang": "en"
+    },
+    {
+      "id": "247ebeed1b2a697579a01701fc6c1d5c",
+      "title": "Home Secretary reviews Himalayan States’ preparedness for glacial lake outbursts",
+      "link": "https://www.thehindu.com/news/national/home-secy-reviews-himalayan-states-preparedness-for-glacial-lake-outbursts/article71424103.ece",
+      "summary": "States must move beyond a response-oriented approach and focus on preventive mitigation, risk reduction, and community-level readiness, says Home Secretary; stresses need for better early warning systems",
+      "date": "2026-09-04",
+      "timestamp": "Fri, 04 Sep 2026 02:36:14 +0530",
+      "section": "National",
+      "report_category": "National_Opposition",
+      "source": "The Hindu",
+      "district": "",
+      "lang": "en"
+    },
+    {
       "id": "42406a0c6932aadc08287c1a13e54f08",
       "title": "On Uttam Kumar’s birth centenary, West Bengal CM vows to keep politics out of Tollywood",
       "link": "https://www.thehindu.com/news/national/west-bengal/on-uttam-kumars-birth-centenary-west-bengal-cm-vows-to-keep-politics-out-of-tollywood/article71424013.ece",
@@ -68286,6 +68429,19 @@
       "timestamp": "Fri, 04 Sep 2026 01:03:48 +0530",
       "section": "National",
       "report_category": "National_Govt",
+      "source": "The Hindu",
+      "district": "",
+      "lang": "en"
+    },
+    {
+      "id": "869ecc8e43ee1ef5b561b2b62397b822",
+      "title": "Fair eyeing to ‘educate Sanatani people about spirituality, culture’ to be held in Kanpur",
+      "link": "https://www.thehindu.com/news/national/uttar-pradesh/fair-eyeing-to-educate-sanatani-people-about-spirituality-culture-to-be-held-in-kanpur/article71425087.ece",
+      "summary": "The objective of the fair is to correct an unfair perception about a majority population of the country and build a proper image of India that tallies with reality to enable the country, which is emerging as a global power, to play its rightful role in the world",
+      "date": "2026-09-04",
+      "timestamp": "Fri, 04 Sep 2026 00:54:29 +0530",
+      "section": "National",
+      "report_category": "National_Opposition",
       "source": "The Hindu",
       "district": "",
       "lang": "en"
@@ -68382,6 +68538,19 @@
       "lang": "en"
     },
     {
+      "id": "f97f95de4d04f179d1b7300bd219e7a3",
+      "title": "Centre willing to return unfilled NEET-SS seats to T.N. government doctors, tells Supreme Court",
+      "link": "https://www.thehindu.com/news/national/centre-willing-to-return-unfilled-neet-ss-seats-to-tn-government-doctors-tells-supreme-court/article71425162.ece",
+      "summary": "In a previous hearing, the Union government had submitted that out of the 152 seats transferred by the State of Tamil Nadu, approximately 40 seats continued to remain vacant",
+      "date": "2026-09-04",
+      "timestamp": "Fri, 04 Sep 2026 00:29:49 +0530",
+      "section": "National",
+      "report_category": "National_Judicial",
+      "source": "The Hindu",
+      "district": "",
+      "lang": "en"
+    },
+    {
       "id": "387ff14448264d1cb1b4508934da141a",
       "title": "Manickam Tagore alleges Narikuravar students were pushed out of govt. bus in Pudukkottai",
       "link": "https://www.thehindu.com/news/national/tamil-nadu/manickam-tagore-alleges-narikuravar-students-were-pushed-out-of-govt-bus-in-pudukkottai/article71423691.ece",
@@ -68414,6 +68583,32 @@
       "summary": "",
       "date": "2026-09-04",
       "timestamp": "Fri, 04 Sep 2026 00:25:43 +0530",
+      "section": "National",
+      "report_category": "National_General",
+      "source": "The Hindu",
+      "district": "",
+      "lang": "en"
+    },
+    {
+      "id": "29d106ed83baefc7f434510007fedda9",
+      "title": "Marandi flags NMC rule violations in RINPAS Director appointment",
+      "link": "https://www.thehindu.com/news/national/jharkhand/marandi-flags-nmc-rule-violations-in-rinpas-director-appointment/article71423966.ece",
+      "summary": "Jharkhand Opposition leader Babulal Marandi seeks cancellation of RINPAS Director , cites alleged violations of NMC rules",
+      "date": "2026-09-04",
+      "timestamp": "Fri, 04 Sep 2026 00:23:38 +0530",
+      "section": "National",
+      "report_category": "National_Opposition",
+      "source": "The Hindu",
+      "district": "",
+      "lang": "en"
+    },
+    {
+      "id": "8a1e831fec629cf008b013613a1f2706",
+      "title": "Report warns against bid to privatise Employees’ State Insurance Corporation",
+      "link": "https://www.thehindu.com/news/national/report-warns-against-bid-to-privatise-employees-state-insurance-corporation/article71425421.ece",
+      "summary": "ESIC Director General Ashok Kumar Singh says implementation of Code on Social Security will help in more number of workers availing ESIC benefits",
+      "date": "2026-09-04",
+      "timestamp": "Fri, 04 Sep 2026 00:22:10 +0530",
       "section": "National",
       "report_category": "National_General",
       "source": "The Hindu",
@@ -68455,6 +68650,19 @@
       "timestamp": "Fri, 04 Sep 2026 00:17:54 +0530",
       "section": "National",
       "report_category": "National_Judicial",
+      "source": "The Hindu",
+      "district": "",
+      "lang": "en"
+    },
+    {
+      "id": "4361a6602928bb03c5c100f89cd034a8",
+      "title": "Farmers’ union to mobilise one million ‘swayamsevaks’ to fight trade deals",
+      "link": "https://www.thehindu.com/news/national//article71425157.ece",
+      "summary": "SKM leaders said delegations have met more than 100 Ministers, MPs, and MLAs across the country with a charter of demands that includes cancellation of all FTAs",
+      "date": "2026-09-04",
+      "timestamp": "Fri, 04 Sep 2026 00:16:55 +0530",
+      "section": "National",
+      "report_category": "National_Govt",
       "source": "The Hindu",
       "district": "",
       "lang": "en"
@@ -68625,6 +68833,58 @@
       "section": "National",
       "report_category": "National_General",
       "source": "The Hindu",
+      "district": "",
+      "lang": "en"
+    },
+    {
+      "id": "8a9cc656e9c18b4e8afdfd026cabc007",
+      "title": "Reclaimed water revives Tucson river, bringing 37 dragonfly species in just 4 months",
+      "link": "https://timesofindia.indiatimes.com/science/nearly-70-years-after-tucsons-santa-cruz-river-ran-dry-2-8-million-gallons-of-reclaimed-water-began-flowing-daily-within-4-months-37-dragonfly-and-damselfly-species-were-recorded/articleshow/133716182.cms",
+      "summary": "",
+      "date": "2026-09-03",
+      "timestamp": "2026-09-04T03:55:00+05:30",
+      "section": "International",
+      "report_category": "International",
+      "source": "TOI World",
+      "district": "",
+      "lang": "en"
+    },
+    {
+      "id": "ef5083dace918de7306fef6ae4bfc845",
+      "title": "Isro’s GSLV-F17 successfully places EOS-05 Earth observation satellite in geosynchronous orbit",
+      "link": "https://timesofindia.indiatimes.com/india/isros-gslv-f17-successfully-places-eos-05-earth-observation-satellite-in-geosynchronous-orbit/articleshow/133746002.cms",
+      "summary": "",
+      "date": "2026-09-03",
+      "timestamp": "2026-09-04T03:20:59+05:30",
+      "section": "National",
+      "report_category": "National_Govt",
+      "source": "TOI India",
+      "district": "",
+      "lang": "en"
+    },
+    {
+      "id": "680b12fd3196a93b965800a4b58eddf4",
+      "title": "Deadly flood damages Grand Canyon’s vital water pipeline, threatening 6 million visitors",
+      "link": "https://timesofindia.indiatimes.com/life-style/travel/a-12-5-mile-pipeline-supplied-water-to-the-grand-canyon-now-a-deadly-flood-has-damaged-the-lifeline-threatening-the-parks-6-million-annual-visitors/articleshow/133715386.cms",
+      "summary": "",
+      "date": "2026-09-03",
+      "timestamp": "2026-09-04T02:55:00+05:30",
+      "section": "International",
+      "report_category": "International",
+      "source": "TOI World",
+      "district": "",
+      "lang": "en"
+    },
+    {
+      "id": "7e85163b032d51a0d223d467219614b2",
+      "title": "India, Belgium deepen defence, clean-energy ties; to double trade",
+      "link": "https://timesofindia.indiatimes.com/india/india-belgium-deepen-defence-clean-energy-ties-to-double-trade/articleshow/133745995.cms",
+      "summary": "",
+      "date": "2026-09-03",
+      "timestamp": "2026-09-04T02:45:35+05:30",
+      "section": "National",
+      "report_category": "National_General",
+      "source": "TOI India",
       "district": "",
       "lang": "en"
     },
