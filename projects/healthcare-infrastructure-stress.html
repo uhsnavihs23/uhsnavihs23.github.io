@@ -12,7 +12,7 @@
             darkMode: 'class',
             theme: {
                 extend: {
-                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] },
                     colors: { 
                         primary: 'var(--text-primary)', 
                         secondary: 'var(--text-secondary)', 
@@ -47,6 +47,58 @@
             --nav-bg: rgba(24, 24, 27, 0.8);
         }
     </style>
+
+<style>
+    /* UNIVERSAL THEME VARIABLES */
+    :root {
+        --bg-color: #f9fafb;
+        --card-bg: #ffffff;
+        --text-primary: #0f172a;
+        --text-secondary: #475569;
+        --border-color: #e5e7eb;
+        --accent-color: #3b82f6;
+        --nav-bg: rgba(255, 255, 255, 0.8);
+    }
+    html.dark {
+        --bg-color: #18181b;
+        --card-bg: #27272a;
+        --text-primary: #f4f4f5;
+        --text-secondary: #d4d4d8;
+        --border-color: #3f3f46;
+        --accent-color: #2dd4bf;
+        --nav-bg: rgba(24, 24, 27, 0.8);
+    }
+    
+    /* GLOBAL OVERRIDES FOR TAILWIND HARDCODED CLASSES */
+    html.dark body { background-color: var(--bg-color) !important; color: var(--text-primary) !important; }
+    html.dark .bg-white { background-color: var(--card-bg) !important; }
+    html.dark .bg-gray-50, html.dark .bg-slate-50 { background-color: var(--bg-color) !important; }
+    html.dark .text-gray-900, html.dark .text-gray-800, html.dark .text-slate-900, html.dark .text-slate-800, html.dark .text-black { color: var(--text-primary) !important; }
+    html.dark .text-gray-700, html.dark .text-gray-600, html.dark .text-gray-500, html.dark .text-slate-700, html.dark .text-slate-600, html.dark .text-slate-500 { color: var(--text-secondary) !important; }
+    html.dark .border-gray-200, html.dark .border-gray-300, html.dark .border-slate-200, html.dark .border-slate-300 { border-color: var(--border-color) !important; }
+    
+    /* COMPATIBILITY OVERRIDES FOR INLINE STYLES AND CUSTOM CSS (Campus Electricity) */
+    html.dark .header, html.dark .intro-card, html.dark .kpi-card, html.dark .chart-card, html.dark .impact-card, html.dark .recommendation-card, html.dark .warning-card { 
+        background-color: var(--card-bg) !important; 
+        border-color: var(--border-color) !important;
+    }
+    html.dark .header { background: var(--card-bg) !important; }
+    html.dark .header h1, html.dark .header-badge, html.dark h2, html.dark h3, html.dark h4, html.dark .kpi-value, html.dark .rec-title { color: var(--text-primary) !important; }
+    html.dark .header p, html.dark p, html.dark .kpi-label, html.dark .rec-description, html.dark .rec-detail-label { color: var(--text-secondary) !important; }
+    
+    /* OVERRIDES FOR TAILWIND PROSE */
+    html.dark .prose h1, html.dark .prose h2, html.dark .prose h3, html.dark .prose h4 { color: var(--text-primary) !important; }
+    html.dark .prose p, html.dark .prose li, html.dark .prose span { color: var(--text-secondary) !important; }
+    
+    /* OVERRIDES FOR HEADER SPECIFICALLY */
+    html.dark header.bg-white\/80 { background-color: var(--nav-bg) !important; }
+    
+    /* ANY ELEMENT WITH WHITE BG IN DARK MODE */
+    html.dark [style*="background: white"], html.dark [style*="background-color: white"], html.dark [style*="background-color: #ffffff"] { background-color: var(--card-bg) !important; }
+    html.dark [style*="color: #111827"], html.dark [style*="color: #0f172a"] { color: var(--text-primary) !important; }
+    html.dark [style*="color: #4b5563"], html.dark [style*="color: #6b7280"] { color: var(--text-secondary) !important; }
+</style>
+
 </head>
 <body class="bg-bgColor text-primary flex flex-col min-h-screen">
     <!-- Header -->

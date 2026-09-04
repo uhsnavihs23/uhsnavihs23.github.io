@@ -1,8 +1,16 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+import os
+import re
 
+base_path = "/Users/shivanshusharma/Documents/AGY_Projects/live_site_repo"
+html_files = []
+for root, dirs, files in os.walk(base_path):
+    if '.git' in root or '.github' in root:
+        continue
+    for file in files:
+        if file.endswith('.html'):
+            html_files.append(os.path.join(root, file))
+
+universal_dark_mode_css = """
 <style>
     /* UNIVERSAL THEME VARIABLES */
     :root {
@@ -53,11 +61,41 @@
     html.dark [style*="color: #111827"], html.dark [style*="color: #0f172a"] { color: var(--text-primary) !important; }
     html.dark [style*="color: #4b5563"], html.dark [style*="color: #6b7280"] { color: var(--text-secondary) !important; }
 </style>
+"""
 
-</head>
-<body><script>
-const topic = "test";
-let contextText = `Currently, the discourse around ${topic} is shaped by several key events:\n\n`;
-contextText += `- "test" (test)\n`;
-document.getElementById('briefContext').innerText = contextText + "\nThese developments underscore a critical need for targeted regulatory intervention.";
-</script></body></html>
+for filepath in html_files:
+    with open(filepath, 'r') as f:
+        content = f.read()
+
+    # 1. Inject the universal CSS into <head>
+    if '/* UNIVERSAL THEME VARIABLES */' not in content:
+        content = re.sub(r'(</head>)', universal_dark_mode_css + r'\n\1', content, flags=re.IGNORECASE)
+
+    # 2. Re-wire Tailwind config if it exists so that custom colors use var()
+    # It will override the colors dict.
+    if 'tailwind.config =' in content:
+        # Find the tailwind.config script and replace it with a standard dynamic one
+        replacement_config = """tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] },
+                    colors: { 
+                        primary: 'var(--text-primary)', 
+                        secondary: 'var(--text-secondary)', 
+                        accent: 'var(--accent-color)',
+                        bgColor: 'var(--bg-color)',
+                        cardBg: 'var(--card-bg)',
+                        borderColor: 'var(--border-color)',
+                        navBg: 'var(--nav-bg)'
+                    }
+                }
+            }
+        }"""
+        # Using a non-greedy match to replace the whole config object
+        content = re.sub(r'tailwind\.config\s*=\s*\{.*?\}(?=\s*</script>)', replacement_config, content, flags=re.DOTALL)
+        
+    with open(filepath, 'w') as f:
+        f.write(content)
+
+print("Theme support injected universally!")
