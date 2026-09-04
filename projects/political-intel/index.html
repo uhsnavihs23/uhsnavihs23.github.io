@@ -93,72 +93,123 @@
     html.dark tr:hover { background-color: rgba(255,255,255,0.05) !important; }
 
 
-    /* GO RETRO BETA FEATURE */
+    
+    /* GO RETRO BETA FEATURE (2010 IE8 / Windows 7 Aero Aesthetic) */
     html.retro body {
-        font-family: "Comic Sans MS", "Chalkboard SE", "Comic Neue", "Times New Roman", serif !important;
-        background-color: #c0c0c0 !important;
-        color: #000000 !important;
+        font-family: "Segoe UI", Tahoma, Arial, sans-serif !important;
+        background-color: #e8f1f8 !important; /* Windows 7 default background color */
+        color: #333333 !important;
     }
+    
+    /* Aero Glass Header */
     html.retro header {
-        background-color: #000080 !important;
-        border-bottom: 2px outset #ffffff !important;
+        background: linear-gradient(to bottom, #e3effa 0%, #c4ddf3 49%, #a5cbf0 50%, #cce0f5 100%) !important;
+        border-bottom: 1px solid #7a9ebe !important;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.8) !important;
+        border-radius: 0 0 6px 6px !important;
+        backdrop-filter: blur(5px) !important;
     }
     html.retro header a, html.retro header span {
-        color: #ffffff !important;
+        color: #1e395b !important;
+        text-shadow: 0 1px 0 rgba(255,255,255,0.8) !important;
     }
     html.retro header nav a {
-        background-color: #c0c0c0 !important;
-        color: #000000 !important;
-        border: 2px outset #ffffff !important;
-        padding: 2px 8px !important;
-        margin-right: 4px !important;
-        text-decoration: none !important;
-        font-family: "MS Sans Serif", "Tahoma", sans-serif !important;
-        border-radius: 0 !important;
+        background: transparent !important;
+        color: #1e395b !important;
+        border: 1px solid transparent !important;
+        padding: 4px 10px !important;
+        border-radius: 4px !important;
+        font-weight: normal !important;
     }
-    html.retro header nav a:active {
-        border-style: inset !important;
+    html.retro header nav a:hover {
+        background: linear-gradient(to bottom, #f3f8fd 0%, #e2effa 100%) !important;
+        border: 1px solid #b8d6f2 !important;
+        box-shadow: inset 0 0 2px #fff !important;
     }
+    
+    /* Content Area */
     html.retro main {
-        border: 2px inset #ffffff !important;
         background-color: #ffffff !important;
-        margin-top: 10px !important;
-        padding: 15px !important;
+        border: 1px solid #aebac9 !important;
+        border-radius: 5px !important;
+        box-shadow: 0 0 8px rgba(0,0,0,0.1) !important;
+        margin-top: 15px !important;
+        padding: 20px !important;
     }
+    
     html.retro h1, html.retro h2, html.retro h3, html.retro h4 {
-        font-family: "Times New Roman", Times, serif !important;
-        color: #000080 !important;
-        border-bottom: 1px dashed #808080 !important;
-        margin-bottom: 10px !important;
+        font-family: "Segoe UI", Tahoma, Arial, sans-serif !important;
+        color: #003399 !important; /* Classic IE blue heading */
+        font-weight: 600 !important;
+        border-bottom: 1px solid #dce4ec !important;
+        padding-bottom: 5px !important;
+        margin-bottom: 15px !important;
     }
+    
     html.retro a {
-        color: #0000EE !important;
+        color: #0066cc !important;
+        text-decoration: none !important;
+    }
+    html.retro a:hover {
         text-decoration: underline !important;
     }
+    
+    /* Cards */
     html.retro .bg-cardBg, html.retro .bg-white, html.retro [style*="background-color: var(--card-bg)"] {
-        background-color: #ffffff !important;
-        border: 2px inset #808080 !important;
-        box-shadow: none !important;
-        border-radius: 0 !important;
+        background: linear-gradient(to bottom, #ffffff 0%, #f7f9fc 100%) !important;
+        border: 1px solid #c5d2e0 !important;
+        border-radius: 4px !important;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.05) !important;
     }
+    
+    /* Buttons */
     html.retro button {
-        background-color: #c0c0c0 !important;
-        border: 2px outset #ffffff !important;
-        border-radius: 0 !important;
-        color: #000000 !important;
-        font-family: "MS Sans Serif", sans-serif !important;
+        background: linear-gradient(to bottom, #f2f6fb 0%, #dbe7f5 49%, #c4d8ed 50%, #dae7f5 100%) !important;
+        border: 1px solid #8ca6c2 !important;
+        border-radius: 3px !important;
+        color: #1e395b !important;
+        font-family: "Segoe UI", Tahoma, sans-serif !important;
+        padding: 4px 12px !important;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.8), 0 1px 1px rgba(0,0,0,0.1) !important;
     }
     html.retro button:active {
-        border: 2px inset #ffffff !important;
+        background: linear-gradient(to bottom, #c4d8ed 0%, #a5cbf0 100%) !important;
+        box-shadow: inset 0 1px 3px rgba(0,0,0,0.2) !important;
     }
-    html.retro img {
-        border: 2px outset #c0c0c0 !important;
-    }
+    
+    /* The Retro Toggle Button itself */
     html.retro #retroToggle {
-        border: 2px inset #ffffff !important;
-        background-color: #808080 !important;
-        color: #ffffff !important;
+        background: linear-gradient(to bottom, #ff9999 0%, #cc0000 100%) !important;
+        border: 1px solid #800000 !important;
+        color: white !important;
+        text-shadow: none !important;
+        font-family: "Segoe UI", Tahoma, sans-serif !important;
+        border-radius: 4px !important;
     }
+    
+    /* Ensure dark mode colors don't clash by heavily forcing text/bg inside retro */
+    html.retro * {
+        scrollbar-color: #c4d8ed #f0f4f9 !important;
+    }
+    
+    /* Force specific text elements */
+    html.retro p, html.retro span, html.retro div {
+        color: inherit;
+    }
+
+
+
+    /* DARK AERO (Zune Theme) FOR DARK MODE + RETRO */
+    html.dark.retro body { background-color: #111111 !important; color: #e0e0e0 !important; }
+    html.dark.retro header { background: linear-gradient(to bottom, #444444 0%, #222222 49%, #111111 50%, #1a1a1a 100%) !important; border-bottom: 1px solid #000000 !important; }
+    html.dark.retro header a, html.dark.retro header span { color: #ffffff !important; text-shadow: 0 1px 2px rgba(0,0,0,0.8) !important; }
+    html.dark.retro header nav a:hover { background: linear-gradient(to bottom, #555 0%, #333 100%) !important; border: 1px solid #777 !important; }
+    html.dark.retro main { background-color: #1e1e1e !important; border: 1px solid #333333 !important; box-shadow: 0 0 8px rgba(0,0,0,0.5) !important; }
+    html.dark.retro h1, html.dark.retro h2, html.dark.retro h3, html.dark.retro h4 { color: #6699ff !important; border-bottom: 1px solid #333333 !important; }
+    html.dark.retro a { color: #6699ff !important; }
+    html.dark.retro .bg-cardBg, html.dark.retro .bg-white, html.dark.retro [style*="background-color: var(--card-bg)"] { background: linear-gradient(to bottom, #2a2a2a 0%, #222222 100%) !important; border: 1px solid #111111 !important; }
+    html.dark.retro button { background: linear-gradient(to bottom, #555555 0%, #333333 49%, #222222 50%, #333333 100%) !important; border: 1px solid #000 !important; color: #ffffff !important; box-shadow: inset 0 1px 0 rgba(255,255,255,0.2) !important; }
+    html.dark.retro button:active { background: linear-gradient(to bottom, #222 0%, #111 100%) !important; box-shadow: inset 0 1px 3px rgba(0,0,0,0.5) !important; }
 
 </style>
 
@@ -239,7 +290,7 @@
                 <a href="../../projects/index.html" class="text-sm font-medium transition-colors hover:text-accent text-accent">Projects</a>
                 <a href="../../about.html" class="text-sm font-medium transition-colors hover:text-accent text-secondary">About</a>
                 
-<button id="retroToggle" title="Go Retro" class="ml-2 p-1 rounded hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors text-secondary" style="font-family: 'Comic Sans MS', cursive; font-size: 0.75rem; font-weight: bold; border: 1px solid currentColor;">Retro</button>
+<button id="retroToggle" title="Go Retro" class="ml-2 p-1 rounded hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors text-secondary" style="font-family: 'Segoe UI', Tahoma, sans-serif; font-size: 0.75rem; font-weight: bold; border: 1px solid currentColor;">Retro</button>
 
 <button id="themeToggle" class="ml-4 p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors text-secondary">
                     <svg id="themeIconLight" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"/></svg>

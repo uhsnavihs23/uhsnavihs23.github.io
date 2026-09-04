@@ -4,6 +4,7 @@ const movieContainer = document.getElementById('movies');
 const genreSelect = document.getElementById('genre');
 const languageSelect = document.getElementById('language');
 const yearSelect = document.getElementById('year');
+const sortBySelect = document.getElementById('sortBy');
 const prevBtn = document.getElementById('prev-btn');
 const nextBtn = document.getElementById('next-btn');
 const pageInfo = document.getElementById('page-info');
@@ -14,6 +15,7 @@ let currentPage = 1;
 let currentGenre = '';
 let currentLanguage = '';
 let currentYear = '';
+let currentSortBy = 'popularity.desc';
 
 // Fetch and populate genres
 async function fetchGenres() {
@@ -54,11 +56,13 @@ function populateYears() {
 }
 
 // Fetch movies
-async function fetchMovies(genreId, language, year, page = 1) {
+async function fetchMovies(genreId, language, year, sortBy, page = 1) {
     let url = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&page=${page}`;
     if (genreId) url += `&with_genres=${genreId}`;
     if (language) url += `&with_original_language=${language}`;
     if (year) url += `&primary_release_year=${year}`;
+    if (sortBy) url += `&sort_by=${sortBy}`;
+    else url += `&sort_by=popularity.desc`;
     const response = await fetch(url);
     const data = await response.json();
     movieContainer.innerHTML = '';
@@ -114,31 +118,38 @@ async function showMovieDetails(movieId) {
 genreSelect.addEventListener('change', (e) => {
     currentGenre = e.target.value;
     currentPage = 1;
-    fetchMovies(currentGenre, currentLanguage, currentYear, currentPage);
+    fetchMovies(currentGenre, currentLanguage, currentYear, currentSortBy, currentPage);
 });
 
 languageSelect.addEventListener('change', (e) => {
     currentLanguage = e.target.value;
     currentPage = 1;
-    fetchMovies(currentGenre, currentLanguage, currentYear, currentPage);
+    fetchMovies(currentGenre, currentLanguage, currentYear, currentSortBy, currentPage);
+});
+
+
+sortBySelect.addEventListener('change', (e) => {
+    currentSortBy = e.target.value;
+    currentPage = 1;
+    fetchMovies(currentGenre, currentLanguage, currentYear, currentSortBy);
 });
 
 yearSelect.addEventListener('change', (e) => {
     currentYear = e.target.value;
     currentPage = 1;
-    fetchMovies(currentGenre, currentLanguage, currentYear, currentPage);
+    fetchMovies(currentGenre, currentLanguage, currentYear, currentSortBy, currentPage);
 });
 
 prevBtn.addEventListener('click', () => {
     if (currentPage > 1) {
         currentPage--;
-        fetchMovies(currentGenre, currentLanguage, currentYear, currentPage);
+        fetchMovies(currentGenre, currentLanguage, currentYear, currentSortBy, currentPage);
     }
 });
 
 nextBtn.addEventListener('click', () => {
     currentPage++;
-    fetchMovies(currentGenre, currentLanguage, currentYear, currentPage);
+    fetchMovies(currentGenre, currentLanguage, currentYear, currentSortBy, currentPage);
 });
 
 closeModal.addEventListener('click', () => {
@@ -159,4 +170,4 @@ window.addEventListener('keydown', (e) => {
 fetchGenres();
 fetchLanguages();
 populateYears();
-fetchMovies(currentGenre, currentLanguage, currentYear, currentPage);
+fetchMovies(currentGenre, currentLanguage, currentYear, currentSortBy, currentPage);
