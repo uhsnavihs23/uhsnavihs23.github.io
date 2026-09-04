@@ -7,13 +7,13 @@
     <title>Customer Shopping Trends Analysis | Shivanshu Sharma</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             darkMode: 'class',
             theme: {
                 extend: {
-                    fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] },
+                    fontFamily: { sans: ['Geist', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] },
                     colors: { 
                         primary: 'var(--text-primary)', 
                         secondary: 'var(--text-secondary)', 
@@ -219,24 +219,24 @@
 
 <style>
     /* UNIVERSAL THEME VARIABLES */
-    :root {
-        --bg-color: #f9fafb;
-        --card-bg: #ffffff;
-        --text-primary: #0f172a;
-        --text-secondary: #475569;
-        --border-color: #e5e7eb;
-        --accent-color: #3b82f6;
-        --nav-bg: rgba(255, 255, 255, 0.8);
-    }
-    html.dark {
-        --bg-color: #18181b;
-        --card-bg: #27272a;
-        --text-primary: #f4f4f5;
-        --text-secondary: #d4d4d8;
-        --border-color: #3f3f46;
-        --accent-color: #2dd4bf;
-        --nav-bg: rgba(24, 24, 27, 0.8);
-    }
+            :root {
+            --bg-color: #ffffff;
+            --card-bg: #ffffff;
+            --text-primary: #000000;
+            --text-secondary: #666666;
+            --border-color: #eaeaea;
+            --accent-color: #0070f3;
+            --nav-bg: rgba(255, 255, 255, 0.8);
+        }
+            html.dark {
+            --bg-color: #000000;
+            --card-bg: #0a0a0a;
+            --text-primary: #ededed;
+            --text-secondary: #a1a1a1;
+            --border-color: #333333;
+            --accent-color: #3291ff;
+            --nav-bg: rgba(0, 0, 0, 0.8);
+        }
     
     /* GLOBAL OVERRIDES FOR TAILWIND HARDCODED CLASSES */
     html.dark body { background-color: var(--bg-color) !important; color: var(--text-primary) !important; }

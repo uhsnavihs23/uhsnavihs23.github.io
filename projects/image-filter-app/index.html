@@ -12,23 +12,23 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
-        :root {
-            --bg-color: #f9fafb;
+                :root {
+            --bg-color: #ffffff;
             --card-bg: #ffffff;
-            --text-primary: #0f172a;
-            --text-secondary: #475569;
-            --border-color: #e5e7eb;
-            --accent-color: #3b82f6;
+            --text-primary: #000000;
+            --text-secondary: #666666;
+            --border-color: #eaeaea;
+            --accent-color: #0070f3;
             --nav-bg: rgba(255, 255, 255, 0.8);
         }
-        html.dark {
-            --bg-color: #18181b;
-            --card-bg: #27272a;
-            --text-primary: #f4f4f5;
-            --text-secondary: #d4d4d8;
-            --border-color: #3f3f46;
-            --accent-color: #2dd4bf;
-            --nav-bg: rgba(24, 24, 27, 0.8);
+                html.dark {
+            --bg-color: #000000;
+            --card-bg: #0a0a0a;
+            --text-primary: #ededed;
+            --text-secondary: #a1a1a1;
+            --border-color: #333333;
+            --accent-color: #3291ff;
+            --nav-bg: rgba(0, 0, 0, 0.8);
         }
     
         :root {
@@ -345,7 +345,7 @@
 <main class="flex-grow flex justify-center items-center py-12 px-4">
 
 <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 py-12 w-full">
-    <div class="container bg-cardBg p-6 rounded-lg shadow-lg max-w-5xl w-full">
+    <div class="container bg-cardBg p-6 rounded-lg shadow-sm max-w-5xl w-full">
         <h1 class="text-3xl font-bold text-gray-800 mb-4 text-center">Image Editing App</h1>
         <p class="text-secondary mb-4 text-center">Upload an image (PNG, JPEG, WebP, HEIC) to edit or convert.</p>
         <input type="file" id="imageUpload" accept="image/png,image/jpeg,image/webp,image/heic,image/heif"

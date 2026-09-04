@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Color Palette Generator | Shivanshu Sharma</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&display=swap" rel="stylesheet">
         <script>
         tailwind.config = {
             darkMode: 'class',
             theme: {
                 extend: {
-                    fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] },
+                    fontFamily: { sans: ['Geist', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] },
                     colors: { 
                         primary: 'var(--text-primary)', 
                         secondary: 'var(--text-secondary)', 
@@ -29,23 +29,23 @@
     <style>
         body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
     
-        :root {
-            --bg-color: #f9fafb;
+                :root {
+            --bg-color: #ffffff;
             --card-bg: #ffffff;
-            --text-primary: #0f172a;
-            --text-secondary: #475569;
-            --border-color: #e5e7eb;
-            --accent-color: #3b82f6;
+            --text-primary: #000000;
+            --text-secondary: #666666;
+            --border-color: #eaeaea;
+            --accent-color: #0070f3;
             --nav-bg: rgba(255, 255, 255, 0.8);
         }
-        html.dark {
-            --bg-color: #18181b;
-            --card-bg: #27272a;
-            --text-primary: #f4f4f5;
-            --text-secondary: #d4d4d8;
-            --border-color: #3f3f46;
-            --accent-color: #2dd4bf;
-            --nav-bg: rgba(24, 24, 27, 0.8);
+                html.dark {
+            --bg-color: #000000;
+            --card-bg: #0a0a0a;
+            --text-primary: #ededed;
+            --text-secondary: #a1a1a1;
+            --border-color: #333333;
+            --accent-color: #3291ff;
+            --nav-bg: rgba(0, 0, 0, 0.8);
         }
 
     /* DYNAMIC LIGHT-BOX COLOR OVERRIDES FOR DARK THEME */
@@ -335,7 +335,7 @@
         
         <!-- Contrast Checker UI -->
         <div class="max-w-3xl mx-auto w-full mt-12 px-4">
-            <div class="bg-cardBg rounded-2xl p-6 shadow-sm border border-borderColor">
+            <div class="bg-cardBg rounded-lg p-6 shadow-sm border border-borderColor">
                 <h3 class="font-bold text-gray-800 text-lg mb-4 flex items-center">
                     <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
                     WCAG Accessibility Contrast Checker
@@ -368,7 +368,7 @@
             </div>
         </div>
         
-        <div id="toast" class="fixed bottom-10 left-1/2 transform -translate-x-1/2 bg-gray-900 text-white px-6 py-3 rounded-full font-medium shadow-xl opacity-0 pointer-events-none transition-opacity duration-300 z-50">
+        <div id="toast" class="fixed bottom-10 left-1/2 transform -translate-x-1/2 bg-gray-900 text-white px-6 py-3 rounded-full font-medium shadow-md opacity-0 pointer-events-none transition-opacity duration-300 z-50">
             Copied to clipboard!
         </div>
 
@@ -445,7 +445,7 @@
                 
                 // Add column
                 const col = document.createElement('div');
-                col.className = 'flex-1 rounded-2xl md:rounded-3xl flex items-end justify-center pb-6 transition-all duration-300 hover:flex-[1.5] shadow-sm cursor-pointer border border-black/5 group overflow-hidden relative';
+                col.className = 'flex-1 rounded-lg md:rounded-xl flex items-end justify-center pb-6 transition-all duration-300 hover:flex-[1.5] shadow-sm cursor-pointer border border-black/5 group overflow-hidden relative';
                 col.style.backgroundColor = hex;
                 col.onclick = () => copyHex(hex);
                 

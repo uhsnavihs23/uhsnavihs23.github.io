@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pomodoro Timer & Focus Room | Shivanshu Sharma</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&display=swap" rel="stylesheet">
         <script>
         tailwind.config = {
             darkMode: 'class',
             theme: {
                 extend: {
-                    fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] },
+                    fontFamily: { sans: ['Geist', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] },
                     colors: { 
                         primary: 'var(--text-primary)', 
                         secondary: 'var(--text-secondary)', 
@@ -29,23 +29,23 @@
     <style>
         body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
     
-        :root {
-            --bg-color: #f9fafb;
+                :root {
+            --bg-color: #ffffff;
             --card-bg: #ffffff;
-            --text-primary: #0f172a;
-            --text-secondary: #475569;
-            --border-color: #e5e7eb;
-            --accent-color: #3b82f6;
+            --text-primary: #000000;
+            --text-secondary: #666666;
+            --border-color: #eaeaea;
+            --accent-color: #0070f3;
             --nav-bg: rgba(255, 255, 255, 0.8);
         }
-        html.dark {
-            --bg-color: #18181b;
-            --card-bg: #27272a;
-            --text-primary: #f4f4f5;
-            --text-secondary: #d4d4d8;
-            --border-color: #3f3f46;
-            --accent-color: #2dd4bf;
-            --nav-bg: rgba(24, 24, 27, 0.8);
+                html.dark {
+            --bg-color: #000000;
+            --card-bg: #0a0a0a;
+            --text-primary: #ededed;
+            --text-secondary: #a1a1a1;
+            --border-color: #333333;
+            --accent-color: #3291ff;
+            --nav-bg: rgba(0, 0, 0, 0.8);
         }
 
     /* DYNAMIC LIGHT-BOX COLOR OVERRIDES FOR DARK THEME */
@@ -323,7 +323,7 @@
     </header>
 
     <main class="flex-grow flex items-center justify-center py-12 px-4 w-full bg-bgColor transition-colors duration-500" id="app-bg">
-        <div class="max-w-md w-full bg-cardBg rounded-3xl shadow-xl overflow-hidden border border-borderColor">
+        <div class="max-w-md w-full bg-cardBg rounded-xl shadow-md overflow-hidden border border-borderColor">
             <!-- Header -->
             <div class="p-6 text-center border-b border-borderColor">
                 <h1 class="text-2xl font-bold text-gray-800 flex justify-center items-center gap-2">
@@ -348,10 +348,10 @@
 
             <!-- Controls -->
             <div class="flex justify-center gap-4 pb-10">
-                <button id="start-btn" class="w-20 h-20 rounded-full bg-red-500 text-white flex items-center justify-center hover:bg-red-600 hover:scale-105 transition-all shadow-lg shadow-red-200">
+                <button id="start-btn" class="w-20 h-20 rounded-full bg-red-500 text-white flex items-center justify-center hover:bg-red-600 hover:scale-105 transition-all shadow-sm shadow-red-200">
                     <svg class="w-8 h-8 ml-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"/></svg>
                 </button>
-                <button id="pause-btn" class="hidden w-20 h-20 rounded-full bg-gray-800 text-white flex items-center justify-center hover:bg-gray-900 hover:scale-105 transition-all shadow-lg">
+                <button id="pause-btn" class="hidden w-20 h-20 rounded-full bg-gray-800 text-white flex items-center justify-center hover:bg-gray-900 hover:scale-105 transition-all shadow-sm">
                     <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zM7 8a1 1 0 012 0v4a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v4a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd"/></svg>
                 </button>
                 <button id="reset-btn" class="w-14 h-14 rounded-full bg-gray-100 text-secondary flex items-center justify-center hover:bg-gray-200 transition-all self-center ml-2">
@@ -411,7 +411,7 @@
             
             // Update UI colors
             appBg.className = `flex-grow flex items-center justify-center py-12 px-4 w-full transition-colors duration-500 ${MODES[mode].bg}`;
-            startBtn.className = `w-20 h-20 rounded-full text-white flex items-center justify-center hover:scale-105 transition-all shadow-lg ${MODES[mode].color} hover:opacity-90`;
+            startBtn.className = `w-20 h-20 rounded-full text-white flex items-center justify-center hover:scale-105 transition-all shadow-sm ${MODES[mode].color} hover:opacity-90`;
             
             // Update mode buttons
             Object.keys(modeBtns).forEach(k => {

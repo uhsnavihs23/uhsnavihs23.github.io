@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Deep Work Ambient Mixer | Shivanshu Sharma</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&display=swap" rel="stylesheet">
         <script>
         tailwind.config = {
             darkMode: 'class',
             theme: {
                 extend: {
-                    fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] },
+                    fontFamily: { sans: ['Geist', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] },
                     colors: { 
                         primary: 'var(--text-primary)', 
                         secondary: 'var(--text-secondary)', 
@@ -29,23 +29,23 @@
     <style>
         body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
     
-        :root {
-            --bg-color: #f9fafb;
+                :root {
+            --bg-color: #ffffff;
             --card-bg: #ffffff;
-            --text-primary: #0f172a;
-            --text-secondary: #475569;
-            --border-color: #e5e7eb;
-            --accent-color: #3b82f6;
+            --text-primary: #000000;
+            --text-secondary: #666666;
+            --border-color: #eaeaea;
+            --accent-color: #0070f3;
             --nav-bg: rgba(255, 255, 255, 0.8);
         }
-        html.dark {
-            --bg-color: #18181b;
-            --card-bg: #27272a;
-            --text-primary: #f4f4f5;
-            --text-secondary: #d4d4d8;
-            --border-color: #3f3f46;
-            --accent-color: #2dd4bf;
-            --nav-bg: rgba(24, 24, 27, 0.8);
+                html.dark {
+            --bg-color: #000000;
+            --card-bg: #0a0a0a;
+            --text-primary: #ededed;
+            --text-secondary: #a1a1a1;
+            --border-color: #333333;
+            --accent-color: #3291ff;
+            --nav-bg: rgba(0, 0, 0, 0.8);
         }
 
     /* DYNAMIC LIGHT-BOX COLOR OVERRIDES FOR DARK THEME */
@@ -330,10 +330,10 @@
         </div>
 
         <!-- Master Controls & Presets -->
-        <div class="bg-cardBg rounded-3xl p-6 shadow-sm border border-borderColor mb-10 flex flex-col md:flex-row justify-between items-center gap-6">
+        <div class="bg-cardBg rounded-xl p-6 shadow-sm border border-borderColor mb-10 flex flex-col md:flex-row justify-between items-center gap-6">
             
             <div class="flex items-center gap-4">
-                <button id="masterPlayBtn" class="w-14 h-14 bg-gray-900 text-white rounded-full flex items-center justify-center hover:bg-gray-800 transition-all shadow-lg hover:scale-105">
+                <button id="masterPlayBtn" class="w-14 h-14 bg-gray-900 text-white rounded-full flex items-center justify-center hover:bg-gray-800 transition-all shadow-sm hover:scale-105">
                     <svg id="masterPlayIcon" class="w-6 h-6 ml-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"/></svg>
                     <svg id="masterPauseIcon" class="w-6 h-6 hidden" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zM7 8a1 1 0 012 0v4a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v4a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd"/></svg>
                 </button>
@@ -404,7 +404,7 @@
             };
 
             const card = document.createElement('div');
-            card.className = `bg-cardBg rounded-3xl p-6 shadow-sm border border-borderColor hover:shadow-md transition-shadow relative overflow-hidden group cursor-pointer`;
+            card.className = `bg-cardBg rounded-xl p-6 shadow-sm border border-borderColor hover:shadow-md transition-shadow relative overflow-hidden group cursor-pointer`;
             card.innerHTML = `
                 <div class="absolute -right-4 -top-4 w-20 h-20 rounded-full ${colorMap[sound.color].split(' ')[0]} opacity-30 transition-transform group-hover:scale-150 duration-500"></div>
                 <div class="relative z-10">
