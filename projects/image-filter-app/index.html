@@ -12,23 +12,23 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
-                :root {
-            --bg-color: #ffffff;
+                        :root {
+            --bg-color: #f9fafb;
             --card-bg: #ffffff;
-            --text-primary: #000000;
-            --text-secondary: #666666;
-            --border-color: #eaeaea;
-            --accent-color: #0070f3;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --border-color: #e5e7eb;
+            --accent-color: #3b82f6;
             --nav-bg: rgba(255, 255, 255, 0.8);
         }
-                html.dark {
-            --bg-color: #000000;
-            --card-bg: #0a0a0a;
-            --text-primary: #ededed;
-            --text-secondary: #a1a1a1;
-            --border-color: #333333;
-            --accent-color: #3291ff;
-            --nav-bg: rgba(0, 0, 0, 0.8);
+                        html.dark {
+            --bg-color: #18181b;
+            --card-bg: #27272a;
+            --text-primary: #f4f4f5;
+            --text-secondary: #d4d4d8;
+            --border-color: #3f3f46;
+            --accent-color: #2dd4bf;
+            --nav-bg: rgba(24, 24, 27, 0.8);
         }
     
         :root {
@@ -49,6 +49,16 @@
             --accent-color: #2dd4bf;
             --nav-bg: rgba(24, 24, 27, 0.8);
         }
+
+    
+    /* FIX EXPLICIT WHITE/LIGHT BACKGROUNDS IN DARK MODE */
+    html.dark .bg-white { background-color: var(--card-bg) !important; color: var(--text-primary) !important; border-color: var(--border-color) !important; }
+    html.dark .bg-gray-50, html.dark .bg-slate-50 { background-color: var(--bg-color) !important; color: var(--text-primary) !important; }
+    html.dark .text-gray-900, html.dark .text-gray-800, html.dark .text-slate-900, html.dark .text-slate-800, html.dark .text-black { color: var(--text-primary) !important; }
+    html.dark .text-gray-700, html.dark .text-gray-600, html.dark .text-gray-500, html.dark .text-slate-700, html.dark .text-slate-600, html.dark .text-slate-500 { color: var(--text-secondary) !important; }
+    html.dark .border-gray-200, html.dark .border-gray-300, html.dark .border-slate-200, html.dark .border-slate-300 { border-color: var(--border-color) !important; }
+    html.dark table, html.dark th, html.dark td { border-color: var(--border-color) !important; }
+    html.dark input, html.dark select, html.dark textarea { background-color: var(--card-bg) !important; color: var(--text-primary) !important; border-color: var(--border-color) !important; }
 
     /* DYNAMIC LIGHT-BOX COLOR OVERRIDES FOR DARK THEME */
     html.dark .bg-amber-100, html.dark .bg-amber-50 { background-color: rgba(245, 158, 11, 0.15) !important; color: #fcd34d !important; }
