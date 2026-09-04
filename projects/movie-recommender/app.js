@@ -4,7 +4,6 @@ const movieContainer = document.getElementById('movies');
 const genreSelect = document.getElementById('genre');
 const languageSelect = document.getElementById('language');
 const yearSelect = document.getElementById('year');
-const sortBySelect = document.getElementById('sortBy');
 const prevBtn = document.getElementById('prev-btn');
 const nextBtn = document.getElementById('next-btn');
 const pageInfo = document.getElementById('page-info');
@@ -15,7 +14,7 @@ let currentPage = 1;
 let currentGenre = '';
 let currentLanguage = '';
 let currentYear = '';
-let currentSortBy = 'popularity.desc';
+let currentSortBy = 'primary_release_date.desc';
 
 // Fetch and populate genres
 async function fetchGenres() {
@@ -128,11 +127,6 @@ languageSelect.addEventListener('change', (e) => {
 });
 
 
-sortBySelect.addEventListener('change', (e) => {
-    currentSortBy = e.target.value;
-    currentPage = 1;
-    fetchMovies(currentGenre, currentLanguage, currentYear, currentSortBy);
-});
 
 yearSelect.addEventListener('change', (e) => {
     currentYear = e.target.value;
@@ -171,3 +165,19 @@ fetchGenres();
 fetchLanguages();
 populateYears();
 fetchMovies(currentGenre, currentLanguage, currentYear, currentSortBy, currentPage);
+
+const sortButtons = document.querySelectorAll('.sort-btn');
+sortButtons.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        // Reset styles
+        sortButtons.forEach(b => {
+            b.className = "sort-btn px-4 py-2 bg-gray-200 text-black rounded hover:bg-gray-300 font-medium dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600";
+        });
+        // Set active style
+        e.target.className = "sort-btn px-4 py-2 bg-blue-600 text-white rounded shadow hover:bg-blue-700 font-medium";
+        
+        currentSortBy = e.target.getAttribute('data-sort');
+        currentPage = 1;
+        fetchMovies(currentGenre, currentLanguage, currentYear, currentSortBy);
+    });
+});
