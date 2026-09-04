@@ -329,7 +329,8 @@
         if (themeToggle) {
             themeToggle.addEventListener('click', () => {
                 setTheme(!html.classList.contains('dark'));
-            }
+            });
+        }
 
         const retroToggle = document.getElementById('retroToggle');
         function setRetro(isRetro) {
@@ -343,8 +344,7 @@
         }
         if (localStorage.getItem('retro') === 'true') { setRetro(true); } else { setRetro(false); }
         if (retroToggle) { retroToggle.addEventListener('click', () => { setRetro(!html.classList.contains('retro')); }); }
-);
-        }
+
     </script>
 
 </body>
