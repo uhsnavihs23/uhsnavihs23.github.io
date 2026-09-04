@@ -14,7 +14,7 @@ let currentPage = 1;
 let currentGenre = '';
 let currentLanguage = '';
 let currentYear = '';
-let currentSortBy = 'primary_release_date.desc';
+let currentSortBy = 'popularity.desc';
 
 // Fetch and populate genres
 async function fetchGenres() {

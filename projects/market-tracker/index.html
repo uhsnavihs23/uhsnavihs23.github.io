@@ -89,35 +89,31 @@
     
     
     
-    /* GO RETRO BETA FEATURE (True Internet Explorer Emulator) */
-    html.retro {
-        background: #004e98 !important; /* Windows XP Desktop */
-    }
+    
+    /* GO RETRO BETA FEATURE (Consistent Full-Screen IE6) */
     html.retro body {
         font-family: Tahoma, "Microsoft Sans Serif", sans-serif !important;
-        background-color: transparent !important;
+        background-color: #ffffff !important;
         color: #000000 !important;
+        padding-top: 135px !important; /* Room for IE Chrome Top */
+        padding-bottom: 25px !important; /* Room for IE Chrome Bottom */
         margin: 0 !important;
-        padding: 0 !important;
     }
     
-    /* Hide modern header entirely in retro mode */
+    /* Hide modern header entirely */
     html.retro header { display: none !important; }
     
+    /* Do not mess with main/margins so layouts don't break! */
     html.retro main {
-        margin: 110px 20px 20px 20px !important;
-        background-color: #ffffff !important;
-        border: 3px inset #d4d0c8 !important;
-        border-radius: 0 !important;
-        padding: 20px !important;
-        min-height: calc(100vh - 160px) !important;
+        background-color: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
     }
     
     html.retro footer {
-        margin: 0 20px 20px 20px !important;
-        background: #ece9d8 !important;
-        border: 2px outset #ffffff !important;
-        border-top-color: #aca899 !important;
+        background: transparent !important;
+        border: none !important;
+        margin-bottom: 10px !important;
     }
     
     html.retro h1, html.retro h2, html.retro h3, html.retro h4 { font-family: "Times New Roman", Times, serif !important; color: #000000 !important; }
@@ -143,6 +139,11 @@
         box-shadow: none !important;
     }
     html.retro button:active { border-style: inset !important; }
+    
+    /* Global fixes for relative paths in fake IE nav */
+    html.retro #ie-chrome-top a { text-decoration: none !important; color: #000 !important; }
+    html.retro #ie-chrome-top a:hover { background: #c1d2ee !important; }
+
 
 
 
@@ -460,56 +461,100 @@
         }
 
         
+        
         const retroToggle = document.getElementById('retroToggle');
         function setRetro(isRetro) {
             if (isRetro) {
                 html.classList.add('retro');
                 localStorage.setItem('retro', 'true');
-                if (!document.getElementById('ie-chrome')) {
-                    const chrome = document.createElement('div');
-                    chrome.id = 'ie-chrome';
-                    chrome.style.cssText = 'position: fixed; top: 0; left: 0; right: 0; z-index: 999999; font-family: Tahoma, sans-serif;';
-                    chrome.innerHTML = `
-                        <div style="background: linear-gradient(to right, #0058e6 0%, #3a93ff 100%); padding: 4px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #00138c;">
+                if (!document.getElementById('ie-chrome-top')) {
+                    // Calculate root path for absolute links
+                    const rootPath = window.location.pathname.includes('/projects/') ? 
+                        (window.location.pathname.includes('/data-analyst-projects/') ? '../../' : '../') : './';
+                        
+                    const chromeTop = document.createElement('div');
+                    chromeTop.id = 'ie-chrome-top';
+                    chromeTop.style.cssText = 'position: fixed; top: 0; left: 0; right: 0; z-index: 999999; font-family: Tahoma, sans-serif; background: #ece9d8; border-bottom: 2px solid #aca899;';
+                    chromeTop.innerHTML = `
+                        <div style="background: linear-gradient(to right, #0058e6 0%, #3a93ff 100%); padding: 3px 4px; display: flex; justify-content: space-between; align-items: center;">
                             <div style="color: white; font-size: 13px; font-weight: bold; text-shadow: 1px 1px 1px #00138c; display: flex; align-items: center;">
                                 <img src="https://win98icons.alexmeub.com/icons/png/msie1-2.png" width="16" height="16" style="margin-right: 5px;" alt="IE">
-                                Microsoft Internet Explorer
+                                Shivanshu Sharma - Microsoft Internet Explorer
                             </div>
                             <div style="display:flex; gap:2px;">
-                                <button style="background:#ece9d8; border: 1px outset #fff; font-size: 10px; width:20px; height:20px; cursor:pointer; color:#000; padding:0; line-height:10px;">_</button>
-                                <button style="background:#ece9d8; border: 1px outset #fff; font-size: 10px; width:20px; height:20px; cursor:pointer; color:#000; padding:0; line-height:10px;">□</button>
-                                <button onclick="document.getElementById('retroToggle').click()" style="background:#e81123; border: 1px outset #fff; font-size: 10px; font-weight:bold; width:20px; height:20px; cursor:pointer; color:white; padding:0; line-height:10px;">X</button>
+                                <button style="background:#ece9d8; border: 1px outset #fff; font-size: 10px; width:16px; height:16px; cursor:pointer; color:#000; padding:0; line-height:10px;">_</button>
+                                <button style="background:#ece9d8; border: 1px outset #fff; font-size: 10px; width:16px; height:16px; cursor:pointer; color:#000; padding:0; line-height:10px;">□</button>
+                                <button onclick="document.getElementById('retroToggle').click()" style="background:#e81123; border: 1px outset #fff; font-size: 10px; font-weight:bold; width:16px; height:16px; cursor:pointer; color:white; padding:0; line-height:10px;">X</button>
                             </div>
                         </div>
-                        <div style="background: #ece9d8; padding: 2px 5px; border-bottom: 1px solid #aca899; font-size: 11px; color: #000;">
-                            <span style="margin-right:10px; cursor:pointer;"><u>F</u>ile</span><span style="margin-right:10px; cursor:pointer;"><u>E</u>dit</span><span style="margin-right:10px; cursor:pointer;"><u>V</u>iew</span><span style="margin-right:10px; cursor:pointer;"><u>F</u>avorites</span><span style="margin-right:10px; cursor:pointer;"><u>T</u>ools</span><span style="cursor:pointer;"><u>H</u>elp</span>
+                        <div style="padding: 2px 5px; font-size: 11px; color: #000; display: flex; gap: 10px; align-items: center; border-bottom: 1px solid #aca899;">
+                            <span style="cursor:pointer;"><u>F</u>ile</span>
+                            <span style="cursor:pointer;"><u>E</u>dit</span>
+                            <span style="cursor:pointer;"><u>V</u>iew</span>
+                            <span style="cursor:pointer;"><u>F</u>avorites</span>
+                            <span style="cursor:pointer;"><u>T</u>ools</span>
+                            <span style="cursor:pointer;"><u>H</u>elp</span>
+                            <div style="width: 1px; height: 12px; background: #aca899; margin: 0 5px;"></div>
+                            <a href="/index.html" style="padding: 0 4px;">Home</a>
+                            <a href="/projects/index.html" style="padding: 0 4px;">Projects</a>
+                            <a href="/about.html" style="padding: 0 4px;">About</a>
+                            <span onclick="document.getElementById('themeToggle').click()" style="cursor:pointer; color: #000; font-weight: bold; margin-left: 10px; border: 1px outset #fff; padding: 0 4px; background: #ece9d8;">Toggle Theme</span>
                         </div>
-                        <div style="background: #ece9d8; padding: 4px 5px; border-bottom: 1px solid #aca899; display: flex; align-items: center; gap: 4px;">
-                            <button style="background:transparent; border:none; color: #888; font-size:11px; display:flex; flex-direction:row; align-items:center; gap:2px; box-shadow:none;"><span style="font-size:16px;">⇦</span> Back</button>
-                            <button style="background:transparent; border:none; color: #888; font-size:11px; display:flex; flex-direction:row; align-items:center; gap:2px; box-shadow:none;"><span style="font-size:16px;">⇨</span></button>
-                            <button style="background:transparent; border:none; color: #000; font-size:11px; display:flex; flex-direction:row; align-items:center; gap:2px; box-shadow:none; cursor:pointer;"><span style="font-size:16px;">✖</span></button>
-                            <button style="background:transparent; border:none; color: #000; font-size:11px; display:flex; flex-direction:row; align-items:center; gap:2px; box-shadow:none; cursor:pointer;" onclick="location.reload()"><span style="font-size:16px;">⟳</span></button>
-                            <div style="height: 20px; width: 1px; background: #aca899; margin: 0 5px;"></div>
-                            <span style="font-size: 11px; color: #000;">Address</span>
-                            <input type="text" value="${window.location.href}" readonly style="flex:1; border: 2px inset #fff; padding: 2px; font-size: 11px; color:#000; background:#fff; height:18px;">
-                            <button style="font-size: 11px; border: 1px outset #fff; background: #ece9d8; color: #000; padding: 2px 6px; cursor:pointer; height:22px;">Go</button>
+                        <div style="padding: 2px 5px; border-top: 1px solid #fff; border-bottom: 1px solid #aca899; display: flex; align-items: center; gap: 2px;">
+                            <button onclick="history.back()" style="background:transparent; border:1px solid transparent; color: #000; font-size:11px; display:flex; align-items:center; gap:3px; cursor:pointer; padding:2px 4px; box-shadow:none;" onmouseover="this.style.border='1px outset #fff'" onmouseout="this.style.border='1px solid transparent'">
+                                <img src="https://win98icons.alexmeub.com/icons/png/back-0.png" width="24" height="24"> Back
+                            </button>
+                            <button onclick="history.forward()" style="background:transparent; border:1px solid transparent; color: #000; font-size:11px; display:flex; align-items:center; gap:3px; cursor:pointer; padding:2px 4px; box-shadow:none;" onmouseover="this.style.border='1px outset #fff'" onmouseout="this.style.border='1px solid transparent'">
+                                <img src="https://win98icons.alexmeub.com/icons/png/forward-0.png" width="24" height="24">
+                            </button>
+                            <button onclick="location.reload()" style="background:transparent; border:1px solid transparent; color: #000; font-size:11px; display:flex; align-items:center; gap:3px; cursor:pointer; padding:2px 4px; box-shadow:none;" onmouseover="this.style.border='1px outset #fff'" onmouseout="this.style.border='1px solid transparent'">
+                                <img src="https://win98icons.alexmeub.com/icons/png/refresh-0.png" width="22" height="22">
+                            </button>
+                            <button onclick="location.href='/index.html'" style="background:transparent; border:1px solid transparent; color: #000; font-size:11px; display:flex; align-items:center; gap:3px; cursor:pointer; padding:2px 4px; box-shadow:none;" onmouseover="this.style.border='1px outset #fff'" onmouseout="this.style.border='1px solid transparent'">
+                                <img src="https://win98icons.alexmeub.com/icons/png/home-0.png" width="22" height="22">
+                            </button>
                         </div>
-                        <div style="background: #ffffe1; border-bottom: 1px solid #000; padding: 5px; font-size: 12px; color: #000; display:flex; justify-content:space-between; align-items:center;">
-                            <span>⚠️ <strong>Disclaimer:</strong> You are viewing this site in Retro Mode, emulating Microsoft Internet Explorer (circa 2005). Layouts and colors have intentionally been altered.</span>
-                            <button onclick="document.getElementById('retroToggle').click()" style="font-size:11px; padding:2px 8px; font-weight:bold;">Exit Retro Mode</button>
+                        <div style="padding: 2px 5px; border-top: 1px solid #fff; display: flex; align-items: center; gap: 4px;">
+                            <span style="font-size: 11px; color: #000; padding-left: 2px;">Address</span>
+                            <div style="flex:1; display:flex; border: 2px inset #fff; background: #fff; height: 20px; align-items:center; padding:0 2px;">
+                                <img src="https://win98icons.alexmeub.com/icons/png/msie1-2.png" width="14" height="14" style="margin-right:3px;">
+                                <input type="text" value="${window.location.href}" readonly style="flex:1; border:none; outline:none; font-family: Tahoma, sans-serif; font-size: 11px; color:#000; background:transparent;">
+                            </div>
+                            <button style="font-size: 11px; border: 1px outset #fff; background: #ece9d8; color: #000; padding: 1px 6px; cursor:pointer; height:20px; display:flex; align-items:center; gap:2px; box-shadow:none;">
+                                <img src="https://win98icons.alexmeub.com/icons/png/search_web-0.png" width="14" height="14"> Go
+                            </button>
+                        </div>
+                        <div style="background: #ffffe1; border-top: 1px solid #000; padding: 3px 10px; font-size: 11px; color: #000;">
+                            ⚠️ <strong>Retro Mode Active:</strong> IE6 emulation running. <a href="javascript:void(0)" onclick="document.getElementById('retroToggle').click()" style="color:#0000ee; text-decoration:underline;">Click here to exit</a>.
                         </div>
                     `;
-                    document.body.insertBefore(chrome, document.body.firstChild);
+                    document.body.insertBefore(chromeTop, document.body.firstChild);
+                    
+                    const chromeBottom = document.createElement('div');
+                    chromeBottom.id = 'ie-chrome-bottom';
+                    chromeBottom.style.cssText = 'position: fixed; bottom: 0; left: 0; right: 0; z-index: 999999; font-family: Tahoma, sans-serif; background: #ece9d8; border-top: 2px outset #fff; padding: 2px 5px; display: flex; justify-content: space-between; font-size: 11px; color: #000;';
+                    chromeBottom.innerHTML = `
+                        <div style="display:flex; align-items:center; gap:5px; border: 1px inset #fff; padding: 1px 5px; flex:1; max-width: 300px;">
+                            <img src="https://win98icons.alexmeub.com/icons/png/msie1-2.png" width="14" height="14"> Done
+                        </div>
+                        <div style="display:flex; align-items:center; gap:5px; border: 1px inset #fff; padding: 1px 5px; width: 150px;">
+                            <img src="https://win98icons.alexmeub.com/icons/png/world-0.png" width="14" height="14"> Internet
+                        </div>
+                    `;
+                    document.body.appendChild(chromeBottom);
                 }
             } else {
                 html.classList.remove('retro');
                 localStorage.setItem('retro', 'false');
-                const chrome = document.getElementById('ie-chrome');
-                if (chrome) chrome.remove();
+                const chromeTop = document.getElementById('ie-chrome-top');
+                if (chromeTop) chromeTop.remove();
+                const chromeBottom = document.getElementById('ie-chrome-bottom');
+                if (chromeBottom) chromeBottom.remove();
             }
         }
         if (localStorage.getItem('retro') === 'true') { setRetro(true); } else { setRetro(false); }
         if (retroToggle) { retroToggle.addEventListener('click', () => { setRetro(!html.classList.contains('retro')); }); }
+
 
 
     </script>
