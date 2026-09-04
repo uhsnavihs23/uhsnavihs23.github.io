@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-04T21:07:42.637672+00:00",
+  "generated_at": "2026-09-04T23:31:07.675141+00:00",
   "stories": [
     {
       "id": "3647bc50f8096d196f6586305a8a49c7",
@@ -41693,6 +41693,19 @@
       "lang": "en"
     },
     {
+      "id": "29ea0307c6676f064069c981a1846e7a",
+      "title": "Trump calls Iran conflict 'small potatoes', says he agrees with Vance that it's not 'war'",
+      "link": "https://www.thehindu.com/news/international/trump-calls-iran-conflict-small-potatoes-says-he-agrees-with-vance-that-its-not-war/article71429847.ece",
+      "summary": "I call it a military conflict because it's small potatoes for us. It's not a big thing, said U.S. Vice-President J.D. Vance",
+      "date": "2026-09-05",
+      "timestamp": "Sat, 05 Sep 2026 02:44:40 +0530",
+      "section": "International",
+      "report_category": "International",
+      "source": "The Hindu",
+      "district": "",
+      "lang": "en"
+    },
+    {
       "id": "a4c3a179a3c90091bcb5b0b92f7a90d3",
       "title": "Sree Krishna Jayanti processions part of RSS’ political project: Jayarajan",
       "link": "https://www.thehindu.com/news/national/kerala/sree-krishna-jayanti-processions-part-of-rss-political-project-jayarajan/article71429573.ece",
@@ -41784,6 +41797,19 @@
       "lang": "en"
     },
     {
+      "id": "c7fe60d0c704b8a83c4790ae5fd4b1a0",
+      "title": "Three bonded labour victims rescued from cold storage at West Bengal’s Alipurduar",
+      "link": "https://www.thehindu.com/news/national/west-bengal/three-bonded-labour-victims-rescued-from-cold-storage-at-west-bengals-alipurduar/article71428990.ece",
+      "summary": "Local contractors from Sundarbans had engaged the victims after payment of some advance and all the three were denied minimum wages and their movement was restricted. The rescue was made from a cold storage facility.",
+      "date": "2026-09-05",
+      "timestamp": "Sat, 05 Sep 2026 01:25:25 +0530",
+      "section": "National",
+      "report_category": "National_Judicial",
+      "source": "The Hindu",
+      "district": "",
+      "lang": "en"
+    },
+    {
       "id": "7bbd1d48fe96d74da195dcfb8cf3b186",
       "title": "Congress MLA Ramya Haridas hospitalised after late-night fracas at party colleague’s house",
       "link": "https://www.thehindu.com/news/national/kerala/congress-mla-ramya-haridas-hospitalised-after-late-night-fracas-at-party-colleagues-house/article71429822.ece",
@@ -41792,6 +41818,19 @@
       "timestamp": "Sat, 05 Sep 2026 01:24:47 +0530",
       "section": "National",
       "report_category": "National_Opposition",
+      "source": "The Hindu",
+      "district": "",
+      "lang": "en"
+    },
+    {
+      "id": "6c9721d406c0e49c82cfbeaefa3423d7",
+      "title": "Bihar reiterates parents’ salaries, agricultural income cannot be counted for OBC creamy layer",
+      "link": "https://www.thehindu.com/news/national/bihar-reiterates-parents-salaries-agricultural-income-cannot-be-counted-for-obc-creamy-layer/article71429725.ece",
+      "summary": "The State’s September 1 order does not explicitly mention the Rohith Nathan judgment or the issues it dealt with regarding the application of the income test",
+      "date": "2026-09-05",
+      "timestamp": "Sat, 05 Sep 2026 01:04:03 +0530",
+      "section": "National",
+      "report_category": "National_General",
       "source": "The Hindu",
       "district": "",
       "lang": "en"
@@ -41823,6 +41862,19 @@
       "lang": "en"
     },
     {
+      "id": "f8cb7df7aa8b01b626fb51c2f9315f58",
+      "title": "Missing: boundary walls, bathrooms, blackboards",
+      "link": "https://www.thehindu.com/news/national/missing-from-hindi-heartland-schools-boundary-walls-bathrooms-blackboards/article71429291.ece",
+      "summary": "Across north and central India, government school education, especially in rural areas, is a challenge, both in terms of the number of teachers in every school and the state of the building that houses children. Reporters from four States track the state of school education. Amarnath Tewary, Ashna Butani, Mayank Kumar, and Mehul Malpani examine teaching quality and infrastructural support",
+      "date": "2026-09-05",
+      "timestamp": "Sat, 05 Sep 2026 00:58:29 +0530",
+      "section": "National",
+      "report_category": "National_Judicial",
+      "source": "The Hindu",
+      "district": "",
+      "lang": "en"
+    },
+    {
       "id": "c44ac0698e4f218bb837f4cb0709e4aa",
       "title": "‘Will protest if constructionon Pallikaranai Marshland is not halted’",
       "link": "https://www.thehindu.com/news/national/tamil-nadu/will-protest-if-constructionon-pallikaranai-marshland-is-not-halted/article71428941.ece",
@@ -41844,6 +41896,19 @@
       "timestamp": "Sat, 05 Sep 2026 00:50:26 +0530",
       "section": "National",
       "report_category": "National_Judicial",
+      "source": "The Hindu",
+      "district": "",
+      "lang": "en"
+    },
+    {
+      "id": "0b0c3c35037a8d4a1dca66f576e7f7f3",
+      "title": "Akhilesh promises ‘world-class’ development of Braj region if Samajwadi Party returns to power",
+      "link": "https://www.thehindu.com/news/national/uttar-pradesh/akhilesh-promises-world-class-development-of-braj-region-if-samajwadi-party-returns-to-power/article71429377.ece",
+      "summary": "We believe that proper development is possible only with the consent and cooperation of the people of Braj, says Samajwadi Party (SP) president Akhilesh Yadav",
+      "date": "2026-09-05",
+      "timestamp": "Sat, 05 Sep 2026 00:48:52 +0530",
+      "section": "National",
+      "report_category": "National_Govt",
       "source": "The Hindu",
       "district": "",
       "lang": "en"
@@ -59581,6 +59646,19 @@
       "lang": "en"
     },
     {
+      "id": "6c93631b556c5b666d3d277f1a51ca82",
+      "title": "Germany's far-right AfD bids for first taste of power in eastern vote",
+      "link": "https://www.bbc.co.uk/news/articles/cvgypkzgy4wo?at_medium=RSS&at_campaign=rss",
+      "summary": "If it wins an outright majority in Saxony-Anhalt, it would be the first time a far-right party has held state-level power in Germany since World War Two.",
+      "date": "2026-09-04",
+      "timestamp": "Fri, 04 Sep 2026 23:07:23 GMT",
+      "section": "International",
+      "report_category": "International",
+      "source": "BBC World",
+      "district": "",
+      "lang": "en"
+    },
+    {
       "id": "754dea457b75acbc5f91469f340a0ca3",
       "title": "Belgian PM pitches Port of Antwerp-Bruges as India’s trade gateway to Europe",
       "link": "https://www.thehindu.com/news/national/belgian-pm-pitches-port-of-antwerp-bruges-as-indias-trade-gateway-to-europe/article71429469.ece",
@@ -59668,6 +59746,32 @@
       "section": "National",
       "report_category": "National_Judicial",
       "source": "The Hindu",
+      "district": "",
+      "lang": "en"
+    },
+    {
+      "id": "945c49ec381c78f261e34a53de9d34aa",
+      "title": "Mock Republican convention website redirects users to Epstein Files",
+      "link": "https://www.aljazeera.com/news/2026/9/4/mock-republican-convention-website-redirects-users-to-epstein-files?traffic_source=rss",
+      "summary": "Democratic lawmakers poke fun at prank website, while Republicans slam 'fake news' and redirect users to real one.",
+      "date": "2026-09-04",
+      "timestamp": "Fri, 04 Sep 2026 22:51:06 +0000",
+      "section": "International",
+      "report_category": "International",
+      "source": "Al Jazeera",
+      "district": "",
+      "lang": "en"
+    },
+    {
+      "id": "c2ea84b6c19cb9ea5d6e199ef84b36ef",
+      "title": "Mistrial declared in Lindsay Clancy murder case, after jury deadlocks",
+      "link": "https://www.bbc.co.uk/news/articles/cpwlrj2je1po?at_medium=RSS&at_campaign=rss",
+      "summary": "The mistrial now puts the murder case - and Clancy's future - in limbo as to whether she will be held criminally liable in the deaths of her three kids.",
+      "date": "2026-09-04",
+      "timestamp": "Fri, 04 Sep 2026 22:48:38 GMT",
+      "section": "International",
+      "report_category": "International",
+      "source": "BBC World",
       "district": "",
       "lang": "en"
     },
@@ -59906,6 +60010,19 @@
       "lang": "en"
     },
     {
+      "id": "84b81fea016ba6a3adb7ed1c8f8cdd7b",
+      "title": "Nepal bet nearly everything on hydropower - the floods show why that's a problem",
+      "link": "https://www.bbc.co.uk/news/articles/cy0zx368prno?at_medium=RSS&at_campaign=rss",
+      "summary": "More than 10% of Nepal's energy generation capacity was knocked out by last week's floods.",
+      "date": "2026-09-04",
+      "timestamp": "Fri, 04 Sep 2026 22:02:52 GMT",
+      "section": "International",
+      "report_category": "International",
+      "source": "BBC World",
+      "district": "",
+      "lang": "en"
+    },
+    {
       "id": "bd0a18ee6a9cd1c2761c24e27031c9bf",
       "title": "NTA takes AICTE help to map facilities for setting up testing centres",
       "link": "https://www.thehindu.com/news/national/nta-takes-aicte-help-to-map-facilities-for-setting-up-testing-centres/article71428278.ece",
@@ -59915,6 +60032,19 @@
       "section": "National",
       "report_category": "National_General",
       "source": "The Hindu",
+      "district": "",
+      "lang": "en"
+    },
+    {
+      "id": "6f88fe13d154d943e0cd3f7f4b0d5e60",
+      "title": "Israeli police kill Palestinian in Jerusalem as army blocks aid for Qusra",
+      "link": "https://www.aljazeera.com/news/2026/9/4/israeli-police-kill-palestinian-in-jerusalem-as-army-blocks-aid-for-qusra?traffic_source=rss",
+      "summary": "Israeli forces bar Israeli and Palestinian activists from delivering food and medicine to homes besieged by settlers.",
+      "date": "2026-09-04",
+      "timestamp": "Fri, 04 Sep 2026 21:58:47 +0000",
+      "section": "International",
+      "report_category": "International",
+      "source": "Al Jazeera",
       "district": "",
       "lang": "en"
     },
@@ -59941,6 +60071,110 @@
       "section": "National",
       "report_category": "National_General",
       "source": "The Hindu",
+      "district": "",
+      "lang": "en"
+    },
+    {
+      "id": "bfd5fe24061a5b4401b53ee7071dc053",
+      "title": "Costa Rican president signals openness to domestic US military operations",
+      "link": "https://www.aljazeera.com/news/2026/9/4/costa-rican-president-signals-openness-to-domestic-us-military-operations?traffic_source=rss",
+      "summary": "President Laura Fernandez notes that Congress would need to approve any US military operations within the country.",
+      "date": "2026-09-04",
+      "timestamp": "Fri, 04 Sep 2026 21:45:56 +0000",
+      "section": "International",
+      "report_category": "International",
+      "source": "Al Jazeera",
+      "district": "",
+      "lang": "en"
+    },
+    {
+      "id": "6f3d3030d2b91a48d9f652751397f20b",
+      "title": "Betis beat Real Madrid as Mbappe misses penalty in first La Liga defeat",
+      "link": "https://www.aljazeera.com/sports/2026/9/4/real-madrid-beaten-by-betis-as-mourinho-suffers-first-defeat-on-return?traffic_source=rss",
+      "summary": "Jose Mourinho's winning start to his second spell at Real Madrid ends with a 1-0 La Liga defeat at Real Betis.",
+      "date": "2026-09-04",
+      "timestamp": "Fri, 04 Sep 2026 21:37:56 +0000",
+      "section": "International",
+      "report_category": "International",
+      "source": "Al Jazeera",
+      "district": "",
+      "lang": "en"
+    },
+    {
+      "id": "e59868c20b449669943220248a5b215c",
+      "title": "US regulator opens safety investigation as Tesla launches driverless taxis",
+      "link": "https://www.aljazeera.com/video/newsfeed/2026/9/4/us-regulator-opens-safety-investigation-as-tesla-launches-driverless-taxis?traffic_source=rss",
+      "summary": "The US National Highway Traffic Safety Administration has opened up an investigation into Tesla’s new self-driving car.",
+      "date": "2026-09-04",
+      "timestamp": "Fri, 04 Sep 2026 21:27:26 +0000",
+      "section": "International",
+      "report_category": "International",
+      "source": "Al Jazeera",
+      "district": "",
+      "lang": "en"
+    },
+    {
+      "id": "79ea324c2002bd28594a94b89681f515",
+      "title": "Witkoff and Kushner will travel to ‘end’ Russia’s war in Ukraine: Trump",
+      "link": "https://www.aljazeera.com/news/2026/9/4/witkoff-and-kushner-will-travel-to-end-russias-war-in-ukraine-trump?traffic_source=rss",
+      "summary": "Steve Witkoff and Jared Kushner will travel to Ukraine and Russia this weekend to help restart peace negotiations.",
+      "date": "2026-09-04",
+      "timestamp": "Fri, 04 Sep 2026 21:19:05 +0000",
+      "section": "International",
+      "report_category": "International",
+      "source": "Al Jazeera",
+      "district": "",
+      "lang": "en"
+    },
+    {
+      "id": "bc658a36a479b66fee6c31a5fe5a6d64",
+      "title": "Sabalenka interrupts US Open match against Rakhimova over cannabis smell",
+      "link": "https://www.aljazeera.com/sports/2026/9/4/sabalenka-interrupts-us-open-match-against-rakhimova-over-cannabis-smell?traffic_source=rss",
+      "summary": "World number one Aryna Sabalenka's straight-sets US Open win against Kamilla Rakhimova stopped by smell of cannabis.",
+      "date": "2026-09-04",
+      "timestamp": "Fri, 04 Sep 2026 21:05:03 +0000",
+      "section": "International",
+      "report_category": "International",
+      "source": "Al Jazeera",
+      "district": "",
+      "lang": "en"
+    },
+    {
+      "id": "aaa6753352b97ef0eff5b7ad4c1a2006",
+      "title": "Liverpool beat Ipswich as Isak goals hand Iraola first Premier League win",
+      "link": "https://www.aljazeera.com/sports/2026/9/4/liverpool-beat-ipswich-as-isak-goals-hand-iraola-first-premier-league-win?traffic_source=rss",
+      "summary": "Bradley Barcola makes his debut as Alexander Isak scores both Liverpool goals in 2-0 win at Ipswich Town.",
+      "date": "2026-09-04",
+      "timestamp": "Fri, 04 Sep 2026 20:55:16 +0000",
+      "section": "International",
+      "report_category": "International",
+      "source": "Al Jazeera",
+      "district": "",
+      "lang": "en"
+    },
+    {
+      "id": "d3a0d0a90b3a987e1b4cb40b6bbd1ddd",
+      "title": "Nigel Farage heckled as he denies Reform UK took illegal funding",
+      "link": "https://www.aljazeera.com/video/newsfeed/2026/9/4/nigel-farage-heckled-as-he-denies-reform-uk-took-illegal-funding?traffic_source=rss",
+      "summary": "Reform UK leader Nigel Farage was heckled by protesters on Friday, as he addressed the party’s conference in Birmingham.",
+      "date": "2026-09-04",
+      "timestamp": "Fri, 04 Sep 2026 20:53:12 +0000",
+      "section": "International",
+      "report_category": "International",
+      "source": "Al Jazeera",
+      "district": "",
+      "lang": "en"
+    },
+    {
+      "id": "e1440beb34f95154caf4ce12c5dd6a63",
+      "title": "Will Europe pay the US to provide military aid to Ukraine?",
+      "link": "https://www.aljazeera.com/video/inside-story/2026/9/4/will-europe-pay-the-us-to-provide-military-aid-to-ukraine?traffic_source=rss",
+      "summary": "US President Donald Trump laments past financial support for Ukraine's war effort and has vowed to claw the money back.",
+      "date": "2026-09-04",
+      "timestamp": "Fri, 04 Sep 2026 20:52:55 +0000",
+      "section": "International",
+      "report_category": "International",
+      "source": "Al Jazeera",
       "district": "",
       "lang": "en"
     },
@@ -63884,6 +64118,97 @@
       "lang": "en"
     },
     {
+      "id": "86a713b600d617889fd45bfc8e37d7f0",
+      "title": "SC overturns trial court, HC orders to acquit kidnap-murder accused",
+      "link": "https://timesofindia.indiatimes.com/india/sc-overturns-trial-court-hc-orders-to-acquit-kidnap-murder-accused/articleshow/133780855.cms",
+      "summary": "",
+      "date": "2026-09-04",
+      "timestamp": "2026-09-05T04:49:06+05:30",
+      "section": "National",
+      "report_category": "National_Judicial",
+      "source": "TOI India",
+      "district": "",
+      "lang": "en"
+    },
+    {
+      "id": "ad67162f27682ff940bfcfbcb06b0587",
+      "title": "A pigeon with a ‘bleeding heart’ has returned after 20 years in Philippines, but its comeback may not be good news",
+      "link": "https://timesofindia.indiatimes.com/science/a-pigeon-with-a-bleeding-heart-has-returned-after-20-years-rare-philippine-bird-spotted-in-2026-but-why-its-comeback-may-not-be-good-news/articleshow/133755269.cms",
+      "summary": "In a stunning turn of events, a Mindoro bleeding-heart pigeon, a critically endangered species, has been photographed for the first time in twenty years. This sighting, occurring in the vibrant Puerto Galera rainforest on Mindoro island, confirms the species still thrives in its natural habitat. The joint efforts of indigenous patrollers and conservationists highlight the importance of protecting the fragile ecosystem that supports this rare bird.",
+      "date": "2026-09-04",
+      "timestamp": "2026-09-05T03:50:00+05:30",
+      "section": "International",
+      "report_category": "International",
+      "source": "TOI World",
+      "district": "",
+      "lang": "en"
+    },
+    {
+      "id": "9373675a8b5fe39b7fba85e63a643afc",
+      "title": "'Exceptionally rare': All 3 hydraulic systems of plane failed together",
+      "link": "https://timesofindia.indiatimes.com/india/exceptionally-rare-all-3-hydraulic-systems-of-plane-failed-together/articleshow/133778893.cms",
+      "summary": "",
+      "date": "2026-09-04",
+      "timestamp": "2026-09-05T03:14:23+05:30",
+      "section": "National",
+      "report_category": "National_General",
+      "source": "TOI India",
+      "district": "",
+      "lang": "en"
+    },
+    {
+      "id": "83396416c4aa0a7bc2307add0ab1d8c5",
+      "title": "Hours after AAIB report, AI sacks Phuket flight pilot",
+      "link": "https://timesofindia.indiatimes.com/india/hours-after-aaib-report-ai-sacks-phuket-flight-pilot/articleshow/133778805.cms",
+      "summary": "",
+      "date": "2026-09-04",
+      "timestamp": "2026-09-05T03:04:24+05:30",
+      "section": "National",
+      "report_category": "National_General",
+      "source": "TOI India",
+      "district": "",
+      "lang": "en"
+    },
+    {
+      "id": "c8e2f42f143f9152d92885d0f32b0c28",
+      "title": "In 1989, Detroit Zoo began saving lost snails; 37 years later, 500 head 5,000 miles to Tahiti",
+      "link": "https://timesofindia.indiatimes.com/science/in-1989-detroit-zoo-began-helping-save-snails-wiped-out-in-the-wild-37-years-later-500-are-travelling-5000-miles-to-tahiti-part-of-a-program-that-has-returned-17000/articleshow/133754476.cms",
+      "summary": "Hundreds of tiny snails are journeying over 5,000 miles from Michigan to Tahiti. This release is part of a long-running international conservation program for endangered native snails. Invasive predators had caused severe population collapses for these unique mollusks in their native islands. The Detroit Zoo has been breeding and caring for these snails since 1989. This ongoing effort has successfully returned over 17,000 snails to their natural habitat.",
+      "date": "2026-09-04",
+      "timestamp": "2026-09-05T02:50:00+05:30",
+      "section": "International",
+      "report_category": "International",
+      "source": "TOI World",
+      "district": "",
+      "lang": "en"
+    },
+    {
+      "id": "8473cc23d951b624e0ee38611c0f252b",
+      "title": "Europe waking up to Modi's warning 'a bit late': Belgian PM",
+      "link": "https://timesofindia.indiatimes.com/india/europe-waking-up-to-modis-warning-a-bit-late-belgian-pm/articleshow/133778574.cms",
+      "summary": "",
+      "date": "2026-09-04",
+      "timestamp": "2026-09-05T02:47:55+05:30",
+      "section": "National",
+      "report_category": "National_Govt",
+      "source": "TOI India",
+      "district": "",
+      "lang": "en"
+    },
+    {
+      "id": "88308814c52249ee28536f8b4e353040",
+      "title": "Coal stock at thermal plants plummets, 'critical' at 50 units",
+      "link": "https://timesofindia.indiatimes.com/india/coal-stock-at-thermal-plants-plummets-critical-at-50-units/articleshow/133778434.cms",
+      "summary": "",
+      "date": "2026-09-04",
+      "timestamp": "2026-09-05T02:39:25+05:30",
+      "section": "National",
+      "report_category": "National_General",
+      "source": "TOI India",
+      "district": "",
+      "lang": "en"
+    },
+    {
       "id": "bcf524c926a5b0acbf255fdde1dd46d8",
       "title": "Who is Bhavesh Lathiya, a Gujarati businessman dealing with 'Vitamin C and antacid', sentenced to 4.5 years in a US prison in a first-of-its-kind case?",
       "link": "https://timesofindia.indiatimes.com/world/us/who-is-bhavesh-lathiya-a-gujarati-businessman-dealing-with-vitamin-c-and-antacid-sentenced-to-4-5-years-in-a-us-prison-in-a-first-of-its-kind-case/articleshow/133778128.cms",
@@ -64277,6 +64602,19 @@
       "id": "6f58160657a2c1917d11bdd708501a0c",
       "title": "Ricky Hatton’s mansion, where he was found dead in 2025, sold for £1.5m, £350k below asking price",
       "link": "https://timesofindia.indiatimes.com/world/uk/ricky-hattons-luxury-mansion-where-the-boxing-legend-was-found-dead-in-2025-sold-for-1-5-million-350000-below-original-asking-price-five-bedroom-home-featured-pool-gym-and-manchester-city-memorabilia/articleshow/133768975.cms",
+      "summary": "Late boxing legend Ricky Hatton’s luxury mansion in Greater Manchester has sold for £1.5 million, £350,000 below its original asking price. The five-bedroom property, where Hatton was found dead in 2025, featured a heated indoor pool, jacuzzi, gym, cinema, games room and Manchester City memorabilia. The sale comes amid reports over his estate.",
+      "date": "2026-09-04",
+      "timestamp": "2026-09-04T21:15:19+05:30",
+      "section": "International",
+      "report_category": "International",
+      "source": "TOI World",
+      "district": "",
+      "lang": "en"
+    },
+    {
+      "id": "232dad7787c84e0c2e6d8690b9230bae",
+      "title": "Ricky Hatton’s mansion, where he was found dead in 2025, sold for £1.5m, £350k below asking price",
+      "link": "https://timesofindia.indiatimes.com/world/uk/ricky-hattons-luxury-mansion-where-the-boxing-legend-was-found-dead-in-2025-sold-for-1-5m-350k-below-original-asking-price-five-bedroom-home-featured-pool-gym-and-manchester-city-memorabilia/articleshow/133768975.cms",
       "summary": "Late boxing legend Ricky Hatton’s luxury mansion in Greater Manchester has sold for £1.5 million, £350,000 below its original asking price. The five-bedroom property, where Hatton was found dead in 2025, featured a heated indoor pool, jacuzzi, gym, cinema, games room and Manchester City memorabilia. The sale comes amid reports over his estate.",
       "date": "2026-09-04",
       "timestamp": "2026-09-04T21:15:19+05:30",
