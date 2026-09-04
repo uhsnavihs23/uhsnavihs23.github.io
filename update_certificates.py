@@ -108,7 +108,7 @@ content = content.replace('<!-- Contact Card -->\n        <div id="contact-card"
 modal_html = """
     <!-- Certifications Modal -->
     <div id="certModal" class="fixed inset-0 z-[100] hidden bg-black/60 backdrop-blur-sm items-center justify-center p-4 opacity-0 transition-opacity duration-300">
-        <div class="bg-cardBg border border-borderColor rounded-2xl w-full max-w-4xl max-h-[90vh] flex flex-col transform scale-95 transition-transform duration-300 shadow-2xl" id="certModalContentWrapper">
+        <div class="bg-cardBg border border-borderColor rounded-lg w-full max-w-4xl max-h-[90vh] flex flex-col transform scale-95 transition-transform duration-300 shadow-md" id="certModalContentWrapper">
             
             <div class="flex justify-between items-center p-6 border-b border-borderColor">
                 <h3 id="certModalTitle" class="text-2xl font-bold text-primary">Certificate Title</h3>

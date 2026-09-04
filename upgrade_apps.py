@@ -123,7 +123,7 @@ news_html = """
                 const dateStr = article.pubDate.toLocaleDateString('en-US', {month: 'short', day: 'numeric'});
                 
                 newsGrid.innerHTML += `
-                    <a href="${article.link}" target="_blank" class="flex flex-col bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-xl transition-all duration-300 group">
+                    <a href="${article.link}" target="_blank" class="flex flex-col bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition-all duration-300 group">
                         <div class="h-48 overflow-hidden bg-gray-100">
                             <img src="${article.image}" onerror="this.src='https://images.unsplash.com/photo-1585829365295-ab7cd400c167?w=800&q=80'" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         </div>
@@ -177,7 +177,7 @@ github_html = """
 
         <!-- Search Bar -->
         <div class="max-w-2xl mx-auto mb-12 relative">
-            <div class="relative flex items-center shadow-lg rounded-2xl overflow-hidden">
+            <div class="relative flex items-center shadow-lg rounded-lg overflow-hidden">
                 <div class="absolute inset-y-0 left-0 pl-5 flex items-center pointer-events-none bg-white">
                     <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
                 </div>
@@ -200,16 +200,16 @@ github_html = """
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 <!-- Profile Sidebar -->
                 <div class="lg:col-span-1 space-y-6">
-                    <div class="bg-white rounded-3xl shadow-sm border border-gray-200 p-8 text-center relative overflow-hidden">
+                    <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-8 text-center relative overflow-hidden">
                         <div class="absolute top-0 left-0 right-0 h-32 bg-gradient-to-br from-gray-900 to-gray-800"></div>
-                        <img id="avatar" src="" class="w-40 h-40 rounded-full border-4 border-white shadow-xl mx-auto relative z-10 bg-white object-cover">
+                        <img id="avatar" src="" class="w-40 h-40 rounded-full border-4 border-white shadow-md mx-auto relative z-10 bg-white object-cover">
                         <h2 id="name" class="text-3xl font-extrabold text-primary mt-4"></h2>
                         <a id="usernameLink" href="" target="_blank" class="text-accent hover:underline font-medium text-lg inline-block mb-4">
                             @<span id="username"></span>
                         </a>
                         <p id="bio" class="text-secondary text-base mb-6 leading-relaxed"></p>
                         
-                        <div class="flex flex-col gap-3 text-sm text-left font-medium text-gray-600 bg-gray-50 p-5 rounded-2xl">
+                        <div class="flex flex-col gap-3 text-sm text-left font-medium text-gray-600 bg-gray-50 p-5 rounded-lg">
                             <div class="flex items-center"><svg class="w-5 h-5 mr-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.243-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg><span id="location" class="truncate"></span></div>
                             <div class="flex items-center"><svg class="w-5 h-5 mr-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg><span id="company" class="truncate"></span></div>
                             <div class="flex items-center"><svg class="w-5 h-5 mr-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg><a id="blog" href="#" target="_blank" class="hover:text-accent truncate"></a></div>
@@ -224,26 +224,26 @@ github_html = """
                 <div class="lg:col-span-2 space-y-8">
                     <!-- Stats Grid -->
                     <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
-                        <div class="bg-white border border-gray-200 p-6 rounded-3xl shadow-sm text-center transform hover:-translate-y-1 transition-transform">
+                        <div class="bg-white border border-gray-200 p-6 rounded-xl shadow-sm text-center transform hover:-translate-y-1 transition-transform">
                             <div class="text-4xl font-black text-primary" id="repos">0</div>
                             <div class="text-sm font-bold text-gray-400 uppercase tracking-wider mt-2">Repositories</div>
                         </div>
-                        <div class="bg-white border border-gray-200 p-6 rounded-3xl shadow-sm text-center transform hover:-translate-y-1 transition-transform">
+                        <div class="bg-white border border-gray-200 p-6 rounded-xl shadow-sm text-center transform hover:-translate-y-1 transition-transform">
                             <div class="text-4xl font-black text-accent" id="followers">0</div>
                             <div class="text-sm font-bold text-gray-400 uppercase tracking-wider mt-2">Followers</div>
                         </div>
-                        <div class="bg-white border border-gray-200 p-6 rounded-3xl shadow-sm text-center transform hover:-translate-y-1 transition-transform">
+                        <div class="bg-white border border-gray-200 p-6 rounded-xl shadow-sm text-center transform hover:-translate-y-1 transition-transform">
                             <div class="text-4xl font-black text-emerald-500" id="stars">0</div>
                             <div class="text-sm font-bold text-gray-400 uppercase tracking-wider mt-2">Total Stars</div>
                         </div>
-                        <div class="bg-white border border-gray-200 p-6 rounded-3xl shadow-sm text-center transform hover:-translate-y-1 transition-transform">
+                        <div class="bg-white border border-gray-200 p-6 rounded-xl shadow-sm text-center transform hover:-translate-y-1 transition-transform">
                             <div class="text-4xl font-black text-amber-500" id="gists">0</div>
                             <div class="text-sm font-bold text-gray-400 uppercase tracking-wider mt-2">Gists</div>
                         </div>
                     </div>
 
                     <!-- Chart -->
-                    <div class="bg-white border border-gray-200 p-8 rounded-3xl shadow-sm">
+                    <div class="bg-white border border-gray-200 p-8 rounded-xl shadow-sm">
                         <h3 class="text-xl font-bold text-primary mb-6 border-b border-gray-100 pb-4">Top Languages Breakdown</h3>
                         <div class="h-64 relative w-full flex justify-center">
                             <canvas id="languageChart"></canvas>
@@ -251,7 +251,7 @@ github_html = """
                     </div>
 
                     <!-- Repositories List -->
-                    <div class="bg-white border border-gray-200 p-8 rounded-3xl shadow-sm">
+                    <div class="bg-white border border-gray-200 p-8 rounded-xl shadow-sm">
                         <h3 class="text-xl font-bold text-primary mb-6 border-b border-gray-100 pb-4">Top Starred Repositories</h3>
                         <div id="repoList" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <!-- Repos will be injected here -->
@@ -354,7 +354,7 @@ github_html = """
                 topRepos.forEach(repo => {
                     const lang = repo.language || '-';
                     repoList.innerHTML += `
-                        <a href="${repo.html_url}" target="_blank" class="block bg-gray-50 p-5 rounded-2xl border border-gray-200 hover:border-accent hover:shadow-md transition-all">
+                        <a href="${repo.html_url}" target="_blank" class="block bg-gray-50 p-5 rounded-lg border border-gray-200 hover:border-accent hover:shadow-md transition-all">
                             <h4 class="text-lg font-bold text-primary mb-1 truncate group-hover:text-accent">${repo.name}</h4>
                             <p class="text-sm text-gray-500 mb-4 h-10 overflow-hidden">${repo.description || 'No description'}</p>
                             <div class="flex items-center justify-between text-xs font-bold">

@@ -7,7 +7,7 @@ html = get_tailwind_head("Campus Electricity Consumption Analysis", 3) + get_hea
             <svg class="mr-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
             Back to Projects
         </a>
-        <article class="bg-white p-8 rounded-2xl shadow-sm border border-gray-200">
+        <article class="bg-white p-8 rounded-lg shadow-sm border border-gray-200">
             <header class="mb-10 border-b border-gray-100 pb-8">
                 <div class="inline-block px-3 py-1 bg-blue-100 text-blue-800 text-xs font-bold rounded-full uppercase tracking-wide mb-4">Data Analytics</div>
                 <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-primary mb-4 leading-tight">Campus Electricity Consumption Analysis & Optimization</h1>

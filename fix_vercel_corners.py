@@ -17,8 +17,8 @@ for filepath in html_files:
         content = f.read()
 
     # Structural border radius
-    content = content.replace('rounded-3xl', 'rounded-xl')
-    content = content.replace('rounded-2xl', 'rounded-lg')
+    content = content.replace('rounded-xl', 'rounded-xl')
+    content = content.replace('rounded-lg', 'rounded-lg')
     
     # Remove crazy background glows that ruin the Vercel aesthetic
     content = re.sub(r'<div class="absolute[^>]*blur-3xl[^>]*></div>', '', content)

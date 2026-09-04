@@ -125,7 +125,7 @@ html_content = get_tailwind_head("Cohort Analysis & Retention", 3) + get_header(
             Back to Projects
         </a>
 
-        <div class="bg-white rounded-3xl shadow-sm border border-gray-200 overflow-hidden">
+        <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
             <div class="bg-gradient-to-r from-blue-900 to-indigo-800 p-10 text-white">
                 <div class="inline-block px-3 py-1 bg-blue-800 border border-blue-600 text-blue-100 text-xs font-bold rounded-full uppercase tracking-wide mb-4">Data Analytics / Python</div>
                 <h1 class="text-4xl font-extrabold mb-4">Customer Cohort & Retention Analysis</h1>

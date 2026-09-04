@@ -20,7 +20,7 @@ new_render_digest = """        function renderDigest() {
             
             // Rebuilding as a strict A4 Page View
             let html = `
-                <div class="max-w-[800px] mx-auto bg-white dark:bg-[#1a1b1e] shadow-2xl border border-gray-200 dark:border-gray-800 rounded-sm my-8" style="min-height: 1122px;">
+                <div class="max-w-[800px] mx-auto bg-white dark:bg-[#1a1b1e] shadow-md border border-gray-200 dark:border-gray-800 rounded-sm my-8" style="min-height: 1122px;">
                     <!-- A4 Inner Padding -->
                     <div class="p-10 sm:p-14 md:p-16">
                         

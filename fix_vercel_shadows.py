@@ -16,8 +16,8 @@ for filepath in html_files:
         content = f.read()
 
     # Flatten shadows for Vercel aesthetic
-    content = content.replace('shadow-2xl', 'shadow-md')
-    content = content.replace('shadow-xl', 'shadow-md')
+    content = content.replace('shadow-md', 'shadow-md')
+    content = content.replace('shadow-md', 'shadow-md')
     content = content.replace('shadow-lg', 'shadow-sm')
 
     with open(filepath, 'w') as f:

@@ -17,7 +17,7 @@ html = get_tailwind_head("India Market Tracker", 2) + get_header(2, 'projects') 
 
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
             <!-- Nifty 50 -->
-            <div class="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden">
+            <div class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
                 <div class="p-4 border-b border-gray-100 bg-gray-50 flex justify-between items-center">
                     <h2 class="text-lg font-bold text-primary">NIFTY 50</h2>
                     <span class="text-xs font-bold text-gray-500 bg-gray-200 px-2 py-1 rounded">NSE</span>
@@ -51,7 +51,7 @@ html = get_tailwind_head("India Market Tracker", 2) + get_header(2, 'projects') 
             </div>
 
             <!-- Sensex -->
-            <div class="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden">
+            <div class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
                 <div class="p-4 border-b border-gray-100 bg-gray-50 flex justify-between items-center">
                     <h2 class="text-lg font-bold text-primary">SENSEX</h2>
                     <span class="text-xs font-bold text-gray-500 bg-gray-200 px-2 py-1 rounded">BSE</span>
@@ -88,7 +88,7 @@ html = get_tailwind_head("India Market Tracker", 2) + get_header(2, 'projects') 
         <!-- Gold & USD/INR -->
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
             <!-- Gold Spot -->
-            <div class="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden">
+            <div class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
                 <div class="p-4 border-b border-gray-100 bg-gray-50 flex justify-between items-center">
                     <h2 class="text-lg font-bold text-primary">GOLD SPOT (MCX)</h2>
                     <span class="text-xs font-bold text-gray-500 bg-gray-200 px-2 py-1 rounded">MCX</span>
@@ -122,7 +122,7 @@ html = get_tailwind_head("India Market Tracker", 2) + get_header(2, 'projects') 
             </div>
             
             <!-- USD/INR -->
-            <div class="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden">
+            <div class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
                 <div class="p-4 border-b border-gray-100 bg-gray-50 flex justify-between items-center">
                     <h2 class="text-lg font-bold text-primary">USD / INR</h2>
                     <span class="text-xs font-bold text-gray-500 bg-gray-200 px-2 py-1 rounded">FOREX</span>

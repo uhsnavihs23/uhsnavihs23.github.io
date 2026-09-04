@@ -35,7 +35,7 @@ html = get_tailwind_head("GitHub Profile Finder", 2) + get_header(2, 'projects')
         <!-- Result Container -->
         <div id="profileContainer" class="hidden">
             <!-- Profile Card -->
-            <div class="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden mb-8">
+            <div class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden mb-8">
                 <div class="h-32 bg-gradient-to-r from-blue-600 to-indigo-700"></div>
                 <div class="px-8 pb-8 relative">
                     <img id="avatar" src="" alt="Avatar" class="w-32 h-32 rounded-full border-4 border-white shadow-lg absolute -top-16 bg-white">

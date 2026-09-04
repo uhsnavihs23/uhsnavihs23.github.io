@@ -101,7 +101,7 @@ index_html = get_tailwind_head("Portfolio", 0) + get_header(0, 'home') + '''
             </div>
             <div class="flex-shrink-0 relative">
                 <div class="absolute inset-0 bg-blue-100 rounded-full blur-3xl opacity-50 -z-10"></div>
-                <img src="https://avatars.githubusercontent.com/u/67822353?v=4" alt="Shivanshu Sharma" class="w-48 h-48 sm:w-64 sm:h-64 rounded-full object-cover border-4 border-white shadow-xl">
+                <img src="https://avatars.githubusercontent.com/u/67822353?v=4" alt="Shivanshu Sharma" class="w-48 h-48 sm:w-64 sm:h-64 rounded-full object-cover border-4 border-white shadow-md">
             </div>
         </section>
 
@@ -113,7 +113,7 @@ index_html = get_tailwind_head("Portfolio", 0) + get_header(0, 'home') + '''
                 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <!-- Card 1 -->
-                    <a href="./projects/market-tracker/index.html" class="group block h-full bg-gray-50 rounded-2xl overflow-hidden border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                    <a href="./projects/market-tracker/index.html" class="group block h-full bg-gray-50 rounded-lg overflow-hidden border border-gray-200 hover:shadow-md transition-all duration-300 transform hover:-translate-y-1">
                         <div class="h-48 bg-gray-200 overflow-hidden relative">
                             <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&q=80&w=800" alt="Market Tracker" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                             <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
@@ -126,7 +126,7 @@ index_html = get_tailwind_head("Portfolio", 0) + get_header(0, 'home') + '''
                     </a>
 
                     <!-- Card 2 -->
-                    <a href="./projects/urban-governance.html" class="group block h-full bg-gray-50 rounded-2xl overflow-hidden border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                    <a href="./projects/urban-governance.html" class="group block h-full bg-gray-50 rounded-lg overflow-hidden border border-gray-200 hover:shadow-md transition-all duration-300 transform hover:-translate-y-1">
                         <div class="h-48 bg-gray-200 overflow-hidden relative">
                             <img src="https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?auto=format&fit=crop&q=80&w=800" alt="Urban Governance" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                             <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
@@ -139,7 +139,7 @@ index_html = get_tailwind_head("Portfolio", 0) + get_header(0, 'home') + '''
                     </a>
 
                     <!-- Card 3 -->
-                    <a href="./projects/image-filter-app/index.html" class="group block h-full bg-gray-50 rounded-2xl overflow-hidden border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                    <a href="./projects/image-filter-app/index.html" class="group block h-full bg-gray-50 rounded-lg overflow-hidden border border-gray-200 hover:shadow-md transition-all duration-300 transform hover:-translate-y-1">
                         <div class="h-48 bg-gray-200 overflow-hidden relative">
                             <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&q=80&w=800" alt="Image Editor" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                             <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
@@ -172,7 +172,7 @@ about_html = get_tailwind_head("About", 0) + get_header(0, 'about') + '''
         
         <div class="flex flex-col sm:flex-row gap-12 items-start">
             <div class="sm:w-1/3 w-full flex justify-center sm:justify-start">
-                <img src="https://avatars.githubusercontent.com/u/67822353?v=4" alt="Shivanshu Sharma" class="w-48 h-48 rounded-2xl object-cover shadow-lg border border-gray-200">
+                <img src="https://avatars.githubusercontent.com/u/67822353?v=4" alt="Shivanshu Sharma" class="w-48 h-48 rounded-lg object-cover shadow-lg border border-gray-200">
             </div>
             
             <div class="sm:w-2/3 prose prose-lg prose-blue max-w-none text-secondary">

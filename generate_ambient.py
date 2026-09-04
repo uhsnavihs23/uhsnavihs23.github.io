@@ -10,7 +10,7 @@ html = get_tailwind_head("Deep Work Ambient Mixer", 2) + get_header(2, 'projects
         </div>
 
         <!-- Master Controls & Presets -->
-        <div class="bg-white rounded-3xl p-6 shadow-sm border border-gray-200 mb-10 flex flex-col md:flex-row justify-between items-center gap-6">
+        <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 mb-10 flex flex-col md:flex-row justify-between items-center gap-6">
             
             <div class="flex items-center gap-4">
                 <button id="masterPlayBtn" class="w-14 h-14 bg-gray-900 text-white rounded-full flex items-center justify-center hover:bg-gray-800 transition-all shadow-lg hover:scale-105">
@@ -84,7 +84,7 @@ html = get_tailwind_head("Deep Work Ambient Mixer", 2) + get_header(2, 'projects
             };
 
             const card = document.createElement('div');
-            card.className = `bg-white rounded-3xl p-6 shadow-sm border border-gray-200 hover:shadow-md transition-shadow relative overflow-hidden group cursor-pointer`;
+            card.className = `bg-white rounded-xl p-6 shadow-sm border border-gray-200 hover:shadow-md transition-shadow relative overflow-hidden group cursor-pointer`;
             card.innerHTML = `
                 <div class="absolute -right-4 -top-4 w-20 h-20 rounded-full ${colorMap[sound.color].split(' ')[0]} opacity-30 transition-transform group-hover:scale-150 duration-500"></div>
                 <div class="relative z-10">

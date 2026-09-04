@@ -73,7 +73,7 @@ template = """<!DOCTYPE html>
             Back to Projects
         </a>
 
-        <article class="bg-cardBg p-8 rounded-2xl shadow-sm border border-borderColor">
+        <article class="bg-cardBg p-8 rounded-lg shadow-sm border border-borderColor">
             <header class="mb-10 border-b border-borderColor pb-8">
                 <div class="inline-block px-3 py-1 bg-emerald-100 text-emerald-800 text-xs font-bold rounded-full uppercase tracking-wide mb-4">Policy & Writing</div>
                 <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-primary mb-4 leading-tight">{title}</h1>

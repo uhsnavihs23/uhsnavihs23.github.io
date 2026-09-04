@@ -29,7 +29,7 @@ html = get_tailwind_head("Smart Finance Visualizer", 2) + get_header(2, 'project
             <!-- Left Column: Inputs -->
             <div class="lg:col-span-4 space-y-6">
                 <!-- Incomes -->
-                <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-200">
+                <div class="bg-white rounded-lg p-6 shadow-sm border border-gray-200">
                     <h2 class="text-lg font-bold text-emerald-600 mb-4 flex items-center">
                         <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                         Income Sources
@@ -49,7 +49,7 @@ html = get_tailwind_head("Smart Finance Visualizer", 2) + get_header(2, 'project
                 </div>
 
                 <!-- Expenses -->
-                <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-200">
+                <div class="bg-white rounded-lg p-6 shadow-sm border border-gray-200">
                     <h2 class="text-lg font-bold text-red-500 mb-4 flex items-center">
                         <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                         Expenses
@@ -77,19 +77,19 @@ html = get_tailwind_head("Smart Finance Visualizer", 2) + get_header(2, 'project
             <div class="lg:col-span-8 space-y-6">
                 <!-- KPI Cards -->
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-200 flex flex-col justify-center relative overflow-hidden">
+                    <div class="bg-white rounded-lg p-6 shadow-sm border border-gray-200 flex flex-col justify-center relative overflow-hidden">
                         <div class="absolute -right-4 -top-4 w-16 h-16 rounded-full bg-emerald-50 opacity-50"></div>
                         <div class="text-sm font-bold text-gray-500 uppercase tracking-wider mb-2">Total Income</div>
                         <div id="sumIncome" class="text-3xl font-black text-primary">₹0</div>
                         <div id="incomeLabel" class="text-xs text-emerald-600 font-bold mt-2">Monthly Projection</div>
                     </div>
-                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-200 flex flex-col justify-center relative overflow-hidden">
+                    <div class="bg-white rounded-lg p-6 shadow-sm border border-gray-200 flex flex-col justify-center relative overflow-hidden">
                         <div class="absolute -right-4 -top-4 w-16 h-16 rounded-full bg-red-50 opacity-50"></div>
                         <div class="text-sm font-bold text-gray-500 uppercase tracking-wider mb-2">Total Expenses</div>
                         <div id="sumExpenses" class="text-3xl font-black text-red-500">₹0</div>
                         <div id="expenseLabel" class="text-xs text-red-600 font-bold mt-2">Monthly Projection</div>
                     </div>
-                    <div class="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl p-6 shadow-md text-white flex flex-col justify-center relative overflow-hidden">
+                    <div class="bg-gradient-to-br from-gray-900 to-gray-800 rounded-lg p-6 shadow-md text-white flex flex-col justify-center relative overflow-hidden">
                         <div class="absolute -right-4 -top-4 w-16 h-16 rounded-full bg-white opacity-10"></div>
                         <div class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-2">Net Savings</div>
                         <div id="sumBalance" class="text-3xl font-black text-white">₹0</div>
@@ -101,7 +101,7 @@ html = get_tailwind_head("Smart Finance Visualizer", 2) + get_header(2, 'project
                 </div>
 
                 <!-- 50/30/20 Rule Analyzer & Chart -->
-                <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-200">
+                <div class="bg-white rounded-lg p-8 shadow-sm border border-gray-200">
                     <div class="flex flex-col md:flex-row gap-8 items-center">
                         <!-- Chart -->
                         <div class="w-full md:w-1/2 relative h-64 flex justify-center">
@@ -154,7 +154,7 @@ html = get_tailwind_head("Smart Finance Visualizer", 2) + get_header(2, 'project
                     </div>
                 </div>
 
-                <div class="bg-indigo-50 border border-indigo-100 rounded-2xl p-6 text-indigo-900 shadow-sm flex items-start gap-4">
+                <div class="bg-indigo-50 border border-indigo-100 rounded-lg p-6 text-indigo-900 shadow-sm flex items-start gap-4">
                     <div class="p-3 bg-indigo-100 rounded-full shrink-0">
                         <svg class="w-6 h-6 text-indigo-600" fill="currentColor" viewBox="0 0 20 20"><path d="M11 3a1 1 0 10-2 0v1a1 1 0 102 0V3zM15.657 5.757a1 1 0 00-1.414-1.414l-.707.707a1 1 0 001.414 1.414l.707-.707zM18 10a1 1 0 01-1 1h-1a1 1 0 110-2h1a1 1 0 011 1zM5.05 6.464A1 1 0 106.464 5.05l-.707-.707a1 1 0 00-1.414 1.414l.707.707zM5 10a1 1 0 01-1 1H3a1 1 0 110-2h1a1 1 0 011 1zM8 16v-1h4v1a2 2 0 11-4 0zM12 14c.015-.34.208-.646.477-.859a4 4 0 10-4.954 0c.27.213.462.519.476.859h4.002z"></path></svg>
                     </div>

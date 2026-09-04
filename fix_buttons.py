@@ -18,8 +18,8 @@ def update_file(filepath):
     # The contact card itself was set to bg-slate-900.
     # In dark mode, having a massive slate-900 block is fine, but maybe it should just be bg-cardBg?
     # No, it's a special highlighted section. Let's make it bg-slate-900 in light mode, and a rich Teal/Zinc gradient in dark mode!
-    content = content.replace('class="bg-slate-900 text-white rounded-3xl p-8 sm:p-12 shadow-xl relative overflow-hidden mt-12"',
-                              'class="bg-slate-900 dark:bg-zinc-900 border dark:border-zinc-800 text-white rounded-3xl p-8 sm:p-12 shadow-2xl relative overflow-hidden mt-12"')
+    content = content.replace('class="bg-slate-900 text-white rounded-xl p-8 sm:p-12 shadow-md relative overflow-hidden mt-12"',
+                              'class="bg-slate-900 dark:bg-zinc-900 border dark:border-zinc-800 text-white rounded-xl p-8 sm:p-12 shadow-md relative overflow-hidden mt-12"')
 
     # Fix project cards in projects/index.html and index.html
     # They are `bg-cardBg p-6 rounded-xl border border-borderColor shadow-sm hover:shadow-md transition-shadow`

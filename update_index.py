@@ -14,7 +14,7 @@ content = content.replace(">Featured Work<", ">Featured Projects<")
 # 3. Update the 3 Cards
 new_cards = """<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <!-- Card 1: Data Analytics -->
-                    <a href="./projects/data-analyst-projects/campus-electricity/index.html" class="group block h-full bg-bgColor rounded-2xl overflow-hidden border border-borderColor hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                    <a href="./projects/data-analyst-projects/campus-electricity/index.html" class="group block h-full bg-bgColor rounded-lg overflow-hidden border border-borderColor hover:shadow-md transition-all duration-300 transform hover:-translate-y-1">
                         <div class="h-48 bg-gray-200 overflow-hidden relative">
                             <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&q=80&w=800" alt="Campus Electricity" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                             <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
@@ -27,7 +27,7 @@ new_cards = """<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                     </a>
 
                     <!-- Card 2: Web Applications -->
-                    <a href="./projects/ambient-noise/index.html" class="group block h-full bg-bgColor rounded-2xl overflow-hidden border border-borderColor hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                    <a href="./projects/ambient-noise/index.html" class="group block h-full bg-bgColor rounded-lg overflow-hidden border border-borderColor hover:shadow-md transition-all duration-300 transform hover:-translate-y-1">
                         <div class="h-48 bg-gray-200 overflow-hidden relative">
                             <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&q=80&w=800" alt="Ambient Noise Mixer" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                             <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
@@ -40,7 +40,7 @@ new_cards = """<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                     </a>
 
                     <!-- Card 3: Policy & Writing -->
-                    <a href="./projects/urban-governance.html" class="group block h-full bg-bgColor rounded-2xl overflow-hidden border border-borderColor hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                    <a href="./projects/urban-governance.html" class="group block h-full bg-bgColor rounded-lg overflow-hidden border border-borderColor hover:shadow-md transition-all duration-300 transform hover:-translate-y-1">
                         <div class="h-48 bg-gray-200 overflow-hidden relative">
                             <img src="https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?auto=format&fit=crop&q=80&w=800" alt="Urban Governance" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                             <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
