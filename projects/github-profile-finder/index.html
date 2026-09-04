@@ -85,6 +85,74 @@
     /* FIX HOVER STATES FOR THE TABLE/ROWS IN DARK MODE */
     html.dark tr:hover { background-color: rgba(255,255,255,0.05) !important; }
 
+
+    /* GO RETRO BETA FEATURE */
+    html.retro body {
+        font-family: "Comic Sans MS", "Chalkboard SE", "Comic Neue", "Times New Roman", serif !important;
+        background-color: #c0c0c0 !important;
+        color: #000000 !important;
+    }
+    html.retro header {
+        background-color: #000080 !important;
+        border-bottom: 2px outset #ffffff !important;
+    }
+    html.retro header a, html.retro header span {
+        color: #ffffff !important;
+    }
+    html.retro header nav a {
+        background-color: #c0c0c0 !important;
+        color: #000000 !important;
+        border: 2px outset #ffffff !important;
+        padding: 2px 8px !important;
+        margin-right: 4px !important;
+        text-decoration: none !important;
+        font-family: "MS Sans Serif", "Tahoma", sans-serif !important;
+        border-radius: 0 !important;
+    }
+    html.retro header nav a:active {
+        border-style: inset !important;
+    }
+    html.retro main {
+        border: 2px inset #ffffff !important;
+        background-color: #ffffff !important;
+        margin-top: 10px !important;
+        padding: 15px !important;
+    }
+    html.retro h1, html.retro h2, html.retro h3, html.retro h4 {
+        font-family: "Times New Roman", Times, serif !important;
+        color: #000080 !important;
+        border-bottom: 1px dashed #808080 !important;
+        margin-bottom: 10px !important;
+    }
+    html.retro a {
+        color: #0000EE !important;
+        text-decoration: underline !important;
+    }
+    html.retro .bg-cardBg, html.retro .bg-white, html.retro [style*="background-color: var(--card-bg)"] {
+        background-color: #ffffff !important;
+        border: 2px inset #808080 !important;
+        box-shadow: none !important;
+        border-radius: 0 !important;
+    }
+    html.retro button {
+        background-color: #c0c0c0 !important;
+        border: 2px outset #ffffff !important;
+        border-radius: 0 !important;
+        color: #000000 !important;
+        font-family: "MS Sans Serif", sans-serif !important;
+    }
+    html.retro button:active {
+        border: 2px inset #ffffff !important;
+    }
+    html.retro img {
+        border: 2px outset #c0c0c0 !important;
+    }
+    html.retro #retroToggle {
+        border: 2px inset #ffffff !important;
+        background-color: #808080 !important;
+        color: #ffffff !important;
+    }
+
 </style>
 
 <style>
@@ -165,7 +233,10 @@
                 <a href="../../projects/index.html" class="text-sm font-medium transition-colors hover:text-accent text-accent">Projects</a>
                 <a href="../../about.html" class="text-sm font-medium transition-colors hover:text-accent text-secondary">About</a>
             </nav>
-                <button id="themeToggle" class="ml-4 p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors text-secondary">
+                
+<button id="retroToggle" title="Go Retro" class="ml-2 p-1 rounded hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors text-secondary" style="font-family: 'Comic Sans MS', cursive; font-size: 0.75rem; font-weight: bold; border: 1px solid currentColor;">IE</button>
+
+<button id="themeToggle" class="ml-4 p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors text-secondary">
                     <svg id="themeIconLight" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"/></svg>
                     <svg id="themeIconDark" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg>
                 </button>
@@ -565,7 +636,21 @@
         if (themeToggle) {
             themeToggle.addEventListener('click', () => {
                 setTheme(!html.classList.contains('dark'));
-            });
+            }
+
+        const retroToggle = document.getElementById('retroToggle');
+        function setRetro(isRetro) {
+            if (isRetro) {
+                html.classList.add('retro');
+                localStorage.setItem('retro', 'true');
+            } else {
+                html.classList.remove('retro');
+                localStorage.setItem('retro', 'false');
+            }
+        }
+        if (localStorage.getItem('retro') === 'true') { setRetro(true); } else { setRetro(false); }
+        if (retroToggle) { retroToggle.addEventListener('click', () => { setRetro(!html.classList.contains('retro')); }); }
+);
         }
     </script>
 
