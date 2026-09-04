@@ -464,6 +464,7 @@
     </script>
     <!-- End PostHog -->
 
+<script data-goatcounter="https://23022000.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </head>
 
 <body>
@@ -1146,11 +1147,11 @@
 ); }
     </script>
 
+    
     <script>
         // --- RETRO MODE GLOBAL SCRIPT ---
         function initRetroMode() {
             const html = document.documentElement;
-            // The retroToggle button might be created dynamically or exist in HTML
             let retroBtn = document.getElementById('retroToggle');
             
             window.setRetro = function(isRetro) {
@@ -1175,13 +1176,10 @@
                         chromeTop.id = 'ie-chrome-top';
                         chromeTop.style.cssText = 'position: fixed; top: 0; left: 0; right: 0; z-index: 999999; font-family: Tahoma, sans-serif; background: #ece9d8; border-bottom: 2px solid #aca899;';
                         
-                        // Root paths for navigation
                         const isProj = window.location.pathname.includes('/projects/');
                         const isSubProj = window.location.pathname.includes('/data-analyst-projects/');
                         const prefix = isSubProj ? '../../' : (isProj ? '../' : './');
-                        const rootLink = window.location.origin; // better for gh pages
                         
-                        // Using raw Unicode to prevent corrupted image links
                         chromeTop.innerHTML = `
                             <div style="background: linear-gradient(to right, #0058e6 0%, #3a93ff 100%); padding: 3px 4px; display: flex; justify-content: space-between; align-items: center;">
                                 <div style="color: white; font-size: 13px; font-weight: bold; text-shadow: 1px 1px 1px #00138c; display: flex; align-items: center;">
@@ -1263,10 +1261,8 @@
                 }
             }
             
-            // Check local storage immediately
             if (localStorage.getItem('retro') === 'true') { window.setRetro(true); }
             
-            // Re-bind all retroToggle buttons just in case
             document.body.addEventListener('click', function(e) {
                 if (e.target && e.target.id === 'retroToggle') {
                     window.setRetro(!html.classList.contains('retro'));
@@ -1274,7 +1270,6 @@
             });
         }
         
-        // Wait for DOM
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', initRetroMode);
         } else {
@@ -1282,4 +1277,5 @@
         }
     </script>
 </body>
+
 </html>
