@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-05T20:47:54.032362+00:00",
+  "generated_at": "2026-09-05T22:26:42.628094+00:00",
   "stories": [
     {
       "id": "3647bc50f8096d196f6586305a8a49c7",
@@ -32385,6 +32385,58 @@
       "lang": "en"
     },
     {
+      "id": "7aa9b821c3749614495d0ccc08450b01",
+      "title": "Bihar govt. restricts CBI power; State nod mandatory to probe against its employees",
+      "link": "https://www.thehindu.com/news/national/bihar/bihar-govt-restricts-cbi-power-state-nod-mandatory-to-probe-against-its-employees/article71431967.ece",
+      "summary": "However, the notification issued by the Bihar Home Department on September 3, 2026, clearly stated that the CBI will not require permission from the State government to take action against Central Government employees",
+      "date": "2026-09-06",
+      "timestamp": "Sun, 06 Sep 2026 03:22:37 +0530",
+      "section": "National",
+      "report_category": "National_Govt",
+      "source": "The Hindu",
+      "district": "",
+      "lang": "en"
+    },
+    {
+      "id": "4e227b42a7d7d8c506f9870ff779fce5",
+      "title": "VTU asks principals of engineering colleges to dedicate time slots for student interaction and grievance redressal",
+      "link": "https://www.thehindu.com/news/national/karnataka/vtu-asks-principals-of-engineering-colleges-to-dedicate-time-slots-for-student-interaction-and-grievance-redressal/article71432794.ece",
+      "summary": "The colleges have been asked to maintain a grievance log book. In the log book, the principal must record the date, brief nature of the grievance/query, and the action taken or resolution provided, wherever applicable.",
+      "date": "2026-09-06",
+      "timestamp": "Sun, 06 Sep 2026 03:05:50 +0530",
+      "section": "National",
+      "report_category": "National_General",
+      "source": "The Hindu",
+      "district": "",
+      "lang": "en"
+    },
+    {
+      "id": "1ce1156634bf21f9e6e047d0dcbb755b",
+      "title": "Putin meets U.S. envoys for Ukraine war talks; orders 72-hour pause in strikes on Kyiv",
+      "link": "https://www.thehindu.com/news/international/russian-president-vladimir-putin-orders-72-hour-pause-in-strikes-on-kyiv/article71432032.ece",
+      "summary": "The envoys’ trip comes as both sides escalate aerial attacks, some 4.5-years after the Kremlin invaded its neighbour",
+      "date": "2026-09-06",
+      "timestamp": "Sun, 06 Sep 2026 02:32:54 +0530",
+      "section": "International",
+      "report_category": "International",
+      "source": "The Hindu",
+      "district": "",
+      "lang": "en"
+    },
+    {
+      "id": "85440303a5891fb7c46454db0d804791",
+      "title": "Spotlight on illegal coal trade in Meghalaya after truck accident",
+      "link": "https://www.thehindu.com/news/national/meghalaya/spotlight-on-illegal-coal-trade-in-meghalaya-after-truck-accident/article71432293.ece",
+      "summary": "A High Court-constituted panel has sought a detailed inquiry into whether the coal transported in the truck was legally auctioned or illegally mined",
+      "date": "2026-09-06",
+      "timestamp": "Sun, 06 Sep 2026 02:11:59 +0530",
+      "section": "National",
+      "report_category": "National_Judicial",
+      "source": "The Hindu",
+      "district": "",
+      "lang": "en"
+    },
+    {
       "id": "408bea75eed42984b3c9aecaf23a0628",
       "title": "MLA seeks steps to address water shortage in Chittoor, Vaduthala areas",
       "link": "https://www.thehindu.com/news/national/kerala/mla-seeks-steps-to-address-water-shortage-in-chittoor-vaduthala-areas/article71433057.ece",
@@ -32419,6 +32471,19 @@
       "timestamp": "Sun, 06 Sep 2026 01:25:48 +0530",
       "section": "National",
       "report_category": "National_Judicial",
+      "source": "The Hindu",
+      "district": "",
+      "lang": "en"
+    },
+    {
+      "id": "fe73742699bb28fb57f246b7f74cdc18",
+      "title": "Why is BRICS exploring cross-border payments? |Explained",
+      "link": "https://www.thehindu.com/news/international/why-is-brics-exploring-cross-border-payments-explained/article71433307.ece",
+      "summary": "How do cross-border payments work? What are the instructions between banks and costs involved in each step? How have transaction times reduced? Why does BRICS want to change the system? What alternatives are being explored? What does India propose?",
+      "date": "2026-09-06",
+      "timestamp": "Sun, 06 Sep 2026 01:21:54 +0530",
+      "section": "International",
+      "report_category": "International",
       "source": "The Hindu",
       "district": "",
       "lang": "en"
@@ -42629,6 +42694,19 @@
       "lang": "en"
     },
     {
+      "id": "de31b05e0bc352acb613f8c91378008c",
+      "title": "US envoys meet Putin in Moscow for Ukraine talks",
+      "link": "https://www.bbc.co.uk/news/articles/cx2zqp46g8eo?at_medium=RSS&at_campaign=rss",
+      "summary": "Footage shows Vladimir Putin greeting Steve Witkoff and Jared Kushner, before saying the current situation \"is not so easy\".",
+      "date": "2026-09-05",
+      "timestamp": "Sat, 05 Sep 2026 21:39:02 GMT",
+      "section": "International",
+      "report_category": "International",
+      "source": "BBC World",
+      "district": "",
+      "lang": "en"
+    },
+    {
       "id": "6012716d7233306b489ee14b676ecbab",
       "title": "Mysuru hosts march for total animal liberation",
       "link": "https://www.thehindu.com/news/national/karnataka/mysuru-hosts-march-for-total-animal-liberation/article71432725.ece",
@@ -42694,6 +42772,19 @@
       "lang": "en"
     },
     {
+      "id": "03ae9484117fe912ba28858709940c9d",
+      "title": "TV presenter among 11 sentenced to death in Egypt drugs case",
+      "link": "https://www.bbc.co.uk/news/articles/c5y7gk9knnlo?at_medium=RSS&at_campaign=rss",
+      "summary": "Sarah Khalifa is best known for her TV programme Mission Impossible which dealt with crime issues.",
+      "date": "2026-09-05",
+      "timestamp": "Sat, 05 Sep 2026 21:29:38 GMT",
+      "section": "International",
+      "report_category": "International",
+      "source": "BBC World",
+      "district": "",
+      "lang": "en"
+    },
+    {
       "id": "b7653dff30c903b57a67ad44fa9d86c0",
       "title": "APUTF ends hunger strike after Chief Minister’s assurance",
       "link": "https://www.thehindu.com/news/national/andhra-pradesh/aputf-ends-hunger-strike-after-chief-ministers-assurance/article71432625.ece",
@@ -42729,6 +42820,19 @@
       "section": "National",
       "report_category": "National_Judicial",
       "source": "The Hindu",
+      "district": "",
+      "lang": "en"
+    },
+    {
+      "id": "0cc6063bc24a595f65467a23fa15abc9",
+      "title": "US envoys Witkoff, Kushner meet Putin for talks on Ukraine war",
+      "link": "https://www.aljazeera.com/video/newsfeed/2026/9/5/us-envoys-witkoff-kushner-meet-putin-for-talks-on-ukraine-war?traffic_source=rss",
+      "summary": "US envoys Steve Witkoff and Jared Kushner met Russian President Vladimir Putin at the Kremlin on Saturday.",
+      "date": "2026-09-05",
+      "timestamp": "Sat, 05 Sep 2026 21:23:06 +0000",
+      "section": "International",
+      "report_category": "International",
+      "source": "Al Jazeera",
       "district": "",
       "lang": "en"
     },
@@ -42824,6 +42928,19 @@
       "lang": "en"
     },
     {
+      "id": "eaf46f0ee269dcd2529d3e22256b4828",
+      "title": "Building collapses after heavy rain in northern India",
+      "link": "https://www.aljazeera.com/video/newsfeed/2026/9/5/09-05-sv-india-building-collapse-mp4?traffic_source=rss",
+      "summary": "A building collapsed in Muradabad, northern India, tearing through power lines and sending sparks into the street.",
+      "date": "2026-09-05",
+      "timestamp": "Sat, 05 Sep 2026 21:11:25 +0000",
+      "section": "International",
+      "report_category": "International",
+      "source": "Al Jazeera",
+      "district": "",
+      "lang": "en"
+    },
+    {
       "id": "19c69399036fa657a8666a9615ecfe03",
       "title": "Andhra Pradesh aims to achieve 100% literacy by 2027, says CM Naidu",
       "link": "https://www.thehindu.com/news/national/andhra-pradesh/govt-aims-to-achieve-100-literacy-in-andhra-pradesh-by-2027-says-cm-naidu/article71432687.ece",
@@ -42898,6 +43015,19 @@
       "section": "National",
       "report_category": "National_General",
       "source": "The Hindu",
+      "district": "",
+      "lang": "en"
+    },
+    {
+      "id": "0527f11b1ecb20df77bc77dbeba9ceee",
+      "title": "Prince William to attend King Harald's funeral in Norway",
+      "link": "https://www.bbc.co.uk/news/articles/cp301rw6kvro?at_medium=RSS&at_campaign=rss",
+      "summary": "The Prince of Wales will represent the King at the funeral of Harald V in Oslo next week.",
+      "date": "2026-09-05",
+      "timestamp": "Sat, 05 Sep 2026 21:00:02 GMT",
+      "section": "International",
+      "report_category": "International",
+      "source": "BBC World",
       "district": "",
       "lang": "en"
     },
@@ -43223,19 +43353,6 @@
       "section": "National",
       "report_category": "National_Opposition",
       "source": "The Hindu",
-      "district": "",
-      "lang": "en"
-    },
-    {
-      "id": "de31b05e0bc352acb613f8c91378008c",
-      "title": "US envoys meet Putin in Moscow for Ukraine talks",
-      "link": "https://www.bbc.co.uk/news/articles/cx2zqp46g8eo?at_medium=RSS&at_campaign=rss",
-      "summary": "Footage shows Vladimir Putin greeting Steve Witkoff and Jared Kushner, before saying the current situation \"is not so easy\".",
-      "date": "2026-09-05",
-      "timestamp": "Sat, 05 Sep 2026 20:15:49 GMT",
-      "section": "International",
-      "report_category": "International",
-      "source": "BBC World",
       "district": "",
       "lang": "en"
     },
@@ -43604,19 +43721,6 @@
       "lang": "en"
     },
     {
-      "id": "1ce1156634bf21f9e6e047d0dcbb755b",
-      "title": "Putin orders 72-hour pause in strikes on Kyiv as U.S. envoys visit Russia, Ukraine",
-      "link": "https://www.thehindu.com/news/international/russian-president-vladimir-putin-orders-72-hour-pause-in-strikes-on-kyiv/article71432032.ece",
-      "summary": "The envoys’ trip comes as both sides escalate aerial attacks, some 4.5-years after the Kremlin invaded its neighbour",
-      "date": "2026-09-05",
-      "timestamp": "Sat, 05 Sep 2026 18:35:47 +0530",
-      "section": "International",
-      "report_category": "International",
-      "source": "The Hindu",
-      "district": "",
-      "lang": "en"
-    },
-    {
       "id": "f686f273732fa13a2bd67d3460497946",
       "title": "Mumbai sees over six-fold rise in deportation of illegal Bangladeshis since 2024",
       "link": "https://www.thehindu.com/news/national/maharashtra/mumbai-sees-over-six-fold-rise-in-deportation-of-illegal-bangladeshis-since-2024/article71431943.ece",
@@ -43659,7 +43763,7 @@
       "id": "ae021112424bdd9bb53da87a2a525eaf",
       "title": "Russia’s Putin meets US envoys to discuss Trump proposal to end Ukraine war",
       "link": "https://www.aljazeera.com/news/2026/9/5/russias-putin-meets-us-envoys-to-discuss-trump-proposal-to-end-ukraine-war?traffic_source=rss",
-      "summary": "Both Russia and Ukraine vow not to strike each other's capitals for three days during talks in Moscow and Kyiv.",
+      "summary": "Russia and Ukraine pledge not to strike each other's capitals for three days during talks in Moscow and Kyiv.",
       "date": "2026-09-05",
       "timestamp": "Sat, 05 Sep 2026 18:12:52 +0000",
       "section": "International",
@@ -44229,9 +44333,9 @@
     },
     {
       "id": "20def9bebb55ce0aa3727c06dd2ffd50",
-      "title": "US says it hit Iran oil tankers helping finance ‘regional proxies’",
+      "title": "US says it hit Iran oil tankers accused of helping ‘regional proxies’",
       "link": "https://www.aljazeera.com/news/2026/9/5/us-says-it-hit-iran-oil-tankers-helping-finance-regional-proxies?traffic_source=rss",
-      "summary": "US strikes have hit Iranian oil tankers in the Gulf of Oman and near Iran’s Kharg island.",
+      "summary": "The latest US strikes have hit Iranian oil tankers in the Gulf of Oman and near Iran’s Kharg island.",
       "date": "2026-09-05",
       "timestamp": "Sat, 05 Sep 2026 14:49:36 +0000",
       "section": "International",
@@ -60604,6 +60708,58 @@
       "section": "International",
       "report_category": "International",
       "source": "Al Jazeera",
+      "district": "",
+      "lang": "en"
+    },
+    {
+      "id": "cbaaa6165754219f63f0b1589532fbac",
+      "title": "With bare hands, lone warrior cleans up dumpyard of a river",
+      "link": "https://timesofindia.indiatimes.com/india/with-bare-hands-lone-warrior-cleans-up-dumpyard-of-a-river/articleshow/133816109.cms",
+      "summary": "",
+      "date": "2026-09-05",
+      "timestamp": "2026-09-06T03:15:40+05:30",
+      "section": "National",
+      "report_category": "National_General",
+      "source": "TOI India",
+      "district": "",
+      "lang": "en"
+    },
+    {
+      "id": "82f7bc6230ba3f82720685ae89e3b330",
+      "title": "CBI FIR against Subhash Chandra in alleged Rs 1,322cr LIC Housing Finance fraud",
+      "link": "https://timesofindia.indiatimes.com/india/cbi-fir-against-chandra-in-alleged-1322cr-lic-housing-finance-fraud/articleshow/133815745.cms",
+      "summary": "",
+      "date": "2026-09-05",
+      "timestamp": "2026-09-06T02:53:35+05:30",
+      "section": "National",
+      "report_category": "National_General",
+      "source": "TOI India",
+      "district": "",
+      "lang": "en"
+    },
+    {
+      "id": "6e487d87cb674a61a89266daf0597881",
+      "title": "Rat-free Lundy sees puffin numbers soar as more than 40,000 seabirds return",
+      "link": "https://timesofindia.indiatimes.com/science/in-2002-lundy-began-its-rat-eradication-project-puffins-later-rose-from-13-in-2000-to-1335-and-more-than-40000-seabirds-now-nest-on-the-island/articleshow/133763422.cms",
+      "summary": "",
+      "date": "2026-09-05",
+      "timestamp": "2026-09-06T02:50:00+05:30",
+      "section": "International",
+      "report_category": "International",
+      "source": "TOI World",
+      "district": "",
+      "lang": "en"
+    },
+    {
+      "id": "8be6e9d7359b5f086b37db3511d580b0",
+      "title": "Aadhaar for rest, but babus resist link for CGHS",
+      "link": "https://timesofindia.indiatimes.com/india/aadhaar-for-rest-but-babus-resist-link-for-cghs/articleshow/133815535.cms",
+      "summary": "",
+      "date": "2026-09-05",
+      "timestamp": "2026-09-06T02:45:22+05:30",
+      "section": "National",
+      "report_category": "National_General",
+      "source": "TOI India",
       "district": "",
       "lang": "en"
     },
